@@ -1,0 +1,59 @@
+{
+  "caseId": "API-06",
+  "executedAt": "2026-11-13T15:52:58.448Z",
+  "finishedAt": "2026-11-13T15:52:58.519Z",
+  "runnerStatus": "failed",
+  "annotations": [],
+  "requests": [
+    {
+      "startedAt": "2026-11-13T15:52:58.448Z",
+      "request": {
+        "method": "POST",
+        "url": "https://automationintesting.online/api/message",
+        "headers": {},
+        "body": {
+          "name": "QA-1794585178448-f46223",
+          "email": {
+            "value": "qa@example.test"
+          },
+          "phone": "12345678901",
+          "subject": "Zapytanie QA-1794585178448-f46223",
+          "description": "Wiadomość testowa projektu akademickiego. Dane syntetyczne."
+        }
+      },
+      "response": {
+        "status": 500,
+        "headers": {
+          "date": "Fri, 13 Nov 2026 15:53:00 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-railway-request-id": "43k2iHsQRMmeyM7djUJq2g",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.qkma",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=iD3JBD9hdibiinCQHXGRSRoW%2FIXnuGApmnwqgNklBZmCoV%2F5TSBqJUBcnvk6np3dFDIg1w%2B3A3y18cbNn%2F5Vo9YucgPplxPMLj%2FhVkJjVHj9xxDygAvsmevpMkJvn2lLovJf%2FnWyv1dGvBjjLA%3D%3D\"}]}",
+          "cf-ray": "a59ef2634bddbf45-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": {
+          "error": "Failed to create message"
+        }
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "requestIndex": 0,
+      "label": "Błędny typ: HTTP 400",
+      "actual": 500,
+      "expected": 400,
+      "pass": false
+    }
+  ],
+  "observations": [],
+  "error": "Error: Błędny typ: HTTP 400\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m500\u001b[39m"
+}

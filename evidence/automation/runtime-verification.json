@@ -1,0 +1,11 @@
+{
+  "recordedAt": "2026-11-13T16:10:45.179Z",
+  "node": "v25.9.0",
+  "installedPlaywright": "1.62.1",
+  "resolvedRunner": "E:\\qa nowicki\\QA-Project\\05_Automation\\node_modules\\playwright\\test.js",
+  "installation": "Wykonano npm ci --ignore-scripts --no-audit --no-fund. Zainstalowano 2 pakiety z lockfile; npm cache skierowano do zapisywalnego katalogu workspace. Nie pobierano przeglądarki.",
+  "lastFullRun": "05_Automation/reports/case-results.json",
+  "listVerification": "npx playwright test --list --reporter=list: 22 testy w dwóch plikach",
+  "browser": "Chrome 157.0.8103.52",
+  "notes": "fsevents jest opcjonalne wyłącznie dla macOS; brak tego pakietu w Windows nie jest błędem."
+}

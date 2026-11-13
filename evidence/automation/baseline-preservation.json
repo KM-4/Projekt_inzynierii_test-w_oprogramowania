@@ -1,0 +1,23 @@
+{
+  "note": "Wynik 22 TC zachowany; nowe ustalenia pochodzą z EXP-02, nie zmieniono historii runnera.",
+  "checks": [
+    {
+      "path": "05_Automation/reports/results.json",
+      "originalSha256": "51d53d9b75915c7b1373b5e1db58ad52875f82688a15c54d800bc36e0e0539b7",
+      "currentSha256": "51d53d9b75915c7b1373b5e1db58ad52875f82688a15c54d800bc36e0e0539b7",
+      "unchanged": true
+    },
+    {
+      "path": "05_Automation/reports/junit.xml",
+      "originalSha256": "b8bdbaf99ae8005023f5c00844aa1ba0f1e6a297f3e2369612a8492c33711612",
+      "currentSha256": "b8bdbaf99ae8005023f5c00844aa1ba0f1e6a297f3e2369612a8492c33711612",
+      "unchanged": true
+    },
+    {
+      "path": "05_Automation/reports/html/index.html",
+      "originalSha256": "36b4d7983333c5648bab6760f73d276bbb6896dfca8955b94623b03ed074ef1d",
+      "currentSha256": "36b4d7983333c5648bab6760f73d276bbb6896dfca8955b94623b03ed074ef1d",
+      "unchanged": true
+    }
+  ]
+}

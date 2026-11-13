@@ -1,0 +1,64 @@
+{
+  "caseId": "API-05",
+  "executedAt": "2026-11-13T15:52:58.359Z",
+  "finishedAt": "2026-11-13T15:52:58.435Z",
+  "runnerStatus": "passed",
+  "annotations": [],
+  "requests": [
+    {
+      "startedAt": "2026-11-13T15:52:58.359Z",
+      "request": {
+        "method": "POST",
+        "url": "https://automationintesting.online/api/message",
+        "headers": {},
+        "body": {
+          "name": "QA-1794585178359-b6d1fc",
+          "email": "nie-jest-mailem",
+          "phone": "12345678901",
+          "subject": "Zapytanie QA-1794585178359-b6d1fc",
+          "description": "Wiadomość testowa projektu akademickiego. Dane syntetyczne."
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+          "date": "Fri, 13 Nov 2026 15:53:00 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-railway-request-id": "aSDua40vS7GbvThCEuroCg",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.qkma",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=EX8EpVSUl7NZBwYX7FS9i9pdZ2G%2BekpXCXNvFkIwp2uhfirI6JtVtuaUXqFZNk6pz8ZdHkqO9tlTYBRRZqi9IEYDzGca1g%2Fo6M2wSJudVOVh9jRup8h0cOgQljWjbNV1NcDW7m0QiTSOxJCpwQ%3D%3D\"}]}",
+          "cf-ray": "a59ef262bb5dbf45-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": [
+          "must be a well-formed email address"
+        ]
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "requestIndex": 0,
+      "label": "Błędny email: HTTP 400",
+      "actual": 400,
+      "expected": 400,
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
+      "label": "Wskazanie email",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    }
+  ],
+  "observations": [],
+  "error": null
+}

@@ -1,0 +1,664 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\qa nowicki\\node_modules\\playwright\\cli.js",
+      "test",
+      "--project=api"
+    ],
+    "configFile": "E:\\qa nowicki\\QA-Project\\05_Automation\\playwright.config.ts",
+    "rootDir": "E:/qa nowicki/QA-Project/05_Automation/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/qa nowicki/QA-Project/05_Automation/reports/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "api",
+        "name": "api",
+        "testDir": "E:/qa nowicki/QA-Project/05_Automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "api.spec.ts"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/qa nowicki/QA-Project/05_Automation/reports/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "ui-chrome",
+        "name": "ui-chrome",
+        "testDir": "E:/qa nowicki/QA-Project/05_Automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "ui.spec.ts"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "reports/html",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "reports/junit.xml"
+        }
+      ],
+      [
+        "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\result-reporter.ts",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "api.spec.ts",
+      "file": "api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "API-01 Lista pokoi: schemat i unikalne identyfikatory",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 173,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:46:39.380Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-01-Lista-pokoi-schemat-i-unikalne-identyfikatory-api\\attachments\\Dowód-wykonania-57183006a078532b04c224128918da6bdbaa8055.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-3732cbdaf67153f9afc4",
+          "file": "api.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "API-02 Szczegóły pokoju zgodne z listą",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 126,
+                  "error": {
+                    "message": "Error: Istniejący pokój: HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                    "stack": "Error: Istniejący pokój: HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:12:5",
+                    "location": {
+                      "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                      "column": 26,
+                      "line": 31
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39m..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   note(value:any){this.observations.push(redact(value))}\n  34 |   async save() {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                        "column": 26,
+                        "line": 31
+                      },
+                      "message": "Error: Istniejący pokój: HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   note(value:any){this.observations.push(redact(value))}\n  34 |   async save() {\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:12:5"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:46:39.584Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-02-Szczegóły-pokoju-zgodne-z-listą-api\\attachments\\Dowód-wykonania-6816010ef3844018e123ba676ebbd1b3ab4fbe7f.json"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-02-Szczegóły-pokoju-zgodne-z-listą-api\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                    "column": 26,
+                    "line": 31
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-1bb106ff888f35bf3491",
+          "file": "api.spec.ts",
+          "line": 10,
+          "column": 5
+        },
+        {
+          "title": "API-03 Nieistniejący pokój: HTTP 404",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 249,
+                  "error": {
+                    "message": "Error: Brak zasobu: HTTP 404\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                    "stack": "Error: Brak zasobu: HTTP 404\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:18:51",
+                    "location": {
+                      "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                      "column": 26,
+                      "line": 31
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39m..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   note(value:any){this.observations.push(redact(value))}\n  34 |   async save() {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                        "column": 26,
+                        "line": 31
+                      },
+                      "message": "Error: Brak zasobu: HTTP 404\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   note(value:any){this.observations.push(redact(value))}\n  34 |   async save() {\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:18:51"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:46:40.200Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-03-Nieistniejący-pokój-HTTP-404-api\\attachments\\Dowód-wykonania-5ed7b3e16acda7114fb500d3b02c1b1d7ef97b14.json"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-03-Nieistniejący-pokój-HTTP-404-api\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                    "column": 26,
+                    "line": 31
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-d213258e7fb2e3d3f6ac",
+          "file": "api.spec.ts",
+          "line": 14,
+          "column": 5
+        },
+        {
+          "title": "API-04 Wiadomość bez wymaganych pól",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 177,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:46:40.965Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-04-Wiadomość-bez-wymaganych-pól-api\\attachments\\Dowód-wykonania-55cf8ad75eb963bf507e30727d9c2b0d4778c3be.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-76a8a12c06e8214195bf",
+          "file": "api.spec.ts",
+          "line": 20,
+          "column": 5
+        },
+        {
+          "title": "API-05 Niepoprawny format email wiadomości",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 98,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:46:41.171Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-05-Niepoprawny-format-email-wiadomości-api\\attachments\\Dowód-wykonania-ddc26de5a9d920bb73c0e14dc712db81a78108ee.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-ae046df4fe3ee4e7e374",
+          "file": "api.spec.ts",
+          "line": 24,
+          "column": 5
+        },
+        {
+          "title": "API-06 Email jako obiekt zamiast tekstu",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 105,
+                  "error": {
+                    "message": "Error: Błędny typ: HTTP 400\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                    "stack": "Error: Błędny typ: HTTP 400\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:28:101",
+                    "location": {
+                      "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                      "column": 26,
+                      "line": 31
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39m..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   note(value:any){this.observations.push(redact(value))}\n  34 |   async save() {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                        "column": 26,
+                        "line": 31
+                      },
+                      "message": "Error: Błędny typ: HTTP 400\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   note(value:any){this.observations.push(redact(value))}\n  34 |   async save() {\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:28:101"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:46:41.279Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-06-Email-jako-obiekt-zamiast-tekstu-api\\attachments\\Dowód-wykonania-dc0d4d65fd9e6114f6602af0056a1047a0b416b4.json"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-06-Email-jako-obiekt-zamiast-tekstu-api\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                    "column": 26,
+                    "line": 31
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-3bf759f6bfcfa3baaa1c",
+          "file": "api.spec.ts",
+          "line": 27,
+          "column": 5
+        },
+        {
+          "title": "API-07 Rezerwacje bez uwierzytelnienia",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 188,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:46:41.892Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-07-Rezerwacje-bez-uwierzytelnienia-api\\attachments\\Dowód-wykonania-c7422e49889b4e64a03c854d579ff0f831198b41.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-abcdbfda548414f789c9",
+          "file": "api.spec.ts",
+          "line": 30,
+          "column": 5
+        },
+        {
+          "title": "API-08 Nieprawidłowe dane logowania",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 171,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:46:42.111Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-08-Nieprawidłowe-dane-logowania-api\\attachments\\Dowód-wykonania-8cd5cd55a63f0fafdcb1460fb115721a5c53d85d.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-87ef31f7c6703ae6eddf",
+          "file": "api.spec.ts",
+          "line": 33,
+          "column": 5
+        },
+        {
+          "title": "API-09 Wiadomość: utwórz, odczytaj, oznacz przeczytaną",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 405,
+                  "error": {
+                    "message": "Error: Sprzątanie własnej wiadomości\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                    "stack": "Error: Sprzątanie własnej wiadomości\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:47:84",
+                    "location": {
+                      "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                      "column": 26,
+                      "line": 31
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39m..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   note(value:any){this.observations.push(redact(value))}\n  34 |   async save() {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                        "column": 26,
+                        "line": 31
+                      },
+                      "message": "Error: Sprzątanie własnej wiadomości\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   note(value:any){this.observations.push(redact(value))}\n  34 |   async save() {\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:47:84"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:46:42.292Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-09-Wiadomość-utwórz-odczytaj-oznacz-przeczytaną-api\\attachments\\Dowód-wykonania-1ce7b85a012b430f4e76ef748f2b997d58f3ae5e.json"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-09-Wiadomość-utwórz-odczytaj-oznacz-przeczytaną-api\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                    "column": 26,
+                    "line": 31
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-5398d5bd936bde2b02af",
+          "file": "api.spec.ts",
+          "line": 36,
+          "column": 5
+        },
+        {
+          "title": "API-10 Rezerwacja: utwórz, odczytaj i zmień nazwisko",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 726,
+                  "error": {
+                    "message": "Error: Usunięto wyłącznie własną rezerwację\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                    "stack": "Error: Usunięto wyłącznie własną rezerwację\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:71:84",
+                    "location": {
+                      "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                      "column": 26,
+                      "line": 31
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39m..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   note(value:any){this.observations.push(redact(value))}\n  34 |   async save() {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                        "column": 26,
+                        "line": 31
+                      },
+                      "message": "Error: Usunięto wyłącznie własną rezerwację\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   note(value:any){this.observations.push(redact(value))}\n  34 |   async save() {\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:71:84"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:46:43.221Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-10-Rezerwacja-utwórz-odczytaj-i-zmień-nazwisko-api\\attachments\\Dowód-wykonania-b76c9e88457a11afeb0f6dfaa22f8896ac4e1438.json"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-10-Rezerwacja-utwórz-odczytaj-i-zmień-nazwisko-api\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                    "column": 26,
+                    "line": 31
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-af9807bcc8db28c9f1eb",
+          "file": "api.spec.ts",
+          "line": 50,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-13T15:46:38.801Z",
+    "duration": 5206.044,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 5,
+    "flaky": 0
+  }
+}
