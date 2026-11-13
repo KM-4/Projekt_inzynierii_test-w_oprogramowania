@@ -1,0 +1,522 @@
+<testsuites id="" name="" tests="22" failures="7" skipped="3" errors="0" time="153.57740099999998">
+<testsuite name="api.spec.ts" timestamp="2026-11-13T15:52:56.148Z" hostname="api" tests="10" failures="5" skipped="0" time="2.643" errors="0">
+<testcase name="API-01 Lista pokoi: schemat i unikalne identyfikatory" classname="api.spec.ts" time="0.167">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\api-API-01-Lista-pokoi-schemat-i-unikalne-identyfikatory-api\attachments\Dowód-wykonania-57183006a078532b04c224128918da6bdbaa8055.json]]
+]]>
+</system-out>
+</testcase>
+<testcase name="API-02 Szczegóły pokoju zgodne z listą" classname="api.spec.ts" time="0.148">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\api-API-02-Szczegóły-pokoju-zgodne-z-listą-api\attachments\Dowód-wykonania-6816010ef3844018e123ba676ebbd1b3ab4fbe7f.json]]
+
+[[ATTACHMENT|artifacts\api-API-02-Szczegóły-pokoju-zgodne-z-listą-api\error-context.md]]
+]]>
+</system-out>
+<failure message="Istniejący pokój: HTTP 200" type="expect.toEqual">
+<![CDATA[  [api] › api.spec.ts:10:5 › API-02 Szczegóły pokoju zgodne z listą ────────────────────────────────
+
+    Error: Istniejący pokój: HTTP 200
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:31
+
+      29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);
+      30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});
+    > 31 |     expect(actual,label).toEqual(expected);
+         |                          ^
+      32 |   }
+      33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+      34 |   note(value:any){this.observations.push(redact(value))}
+        at Audit.check (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:31:26)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:12:5
+
+    attachment #1: Dowód wykonania (application/json) ──────────────────────────────────────────────
+    ..\reports\artifacts\api-API-02-Szczegóły-pokoju-zgodne-z-listą-api\attachments\Dowód-wykonania-6816010ef3844018e123ba676ebbd1b3ab4fbe7f.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\reports\artifacts\api-API-02-Szczegóły-pokoju-zgodne-z-listą-api\error-context.md
+]]>
+</failure>
+</testcase>
+<testcase name="API-03 Nieistniejący pokój: HTTP 404" classname="api.spec.ts" time="0.204">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\api-API-03-Nieistniejący-pokój-HTTP-404-api\attachments\Dowód-wykonania-5ed7b3e16acda7114fb500d3b02c1b1d7ef97b14.json]]
+
+[[ATTACHMENT|artifacts\api-API-03-Nieistniejący-pokój-HTTP-404-api\error-context.md]]
+]]>
+</system-out>
+<failure message="Brak zasobu: HTTP 404" type="expect.toEqual">
+<![CDATA[  [api] › api.spec.ts:14:5 › API-03 Nieistniejący pokój: HTTP 404 ──────────────────────────────────
+
+    Error: Brak zasobu: HTTP 404
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 404
+    Received: 500
+
+       at ..\helpers\audit.ts:31
+
+      29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);
+      30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});
+    > 31 |     expect(actual,label).toEqual(expected);
+         |                          ^
+      32 |   }
+      33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+      34 |   note(value:any){this.observations.push(redact(value))}
+        at Audit.check (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:31:26)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:18:51
+
+    attachment #1: Dowód wykonania (application/json) ──────────────────────────────────────────────
+    ..\reports\artifacts\api-API-03-Nieistniejący-pokój-HTTP-404-api\attachments\Dowód-wykonania-5ed7b3e16acda7114fb500d3b02c1b1d7ef97b14.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\reports\artifacts\api-API-03-Nieistniejący-pokój-HTTP-404-api\error-context.md
+]]>
+</failure>
+</testcase>
+<testcase name="API-04 Wiadomość bez wymaganych pól" classname="api.spec.ts" time="0.177">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\api-API-04-Wiadomość-bez-wymaganych-pól-api\attachments\Dowód-wykonania-55cf8ad75eb963bf507e30727d9c2b0d4778c3be.json]]
+]]>
+</system-out>
+</testcase>
+<testcase name="API-05 Niepoprawny format email wiadomości" classname="api.spec.ts" time="0.083">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\api-API-05-Niepoprawny-format-email-wiadomości-api\attachments\Dowód-wykonania-ddc26de5a9d920bb73c0e14dc712db81a78108ee.json]]
+]]>
+</system-out>
+</testcase>
+<testcase name="API-06 Email jako obiekt zamiast tekstu" classname="api.spec.ts" time="0.075">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\api-API-06-Email-jako-obiekt-zamiast-tekstu-api\attachments\Dowód-wykonania-dc0d4d65fd9e6114f6602af0056a1047a0b416b4.json]]
+
+[[ATTACHMENT|artifacts\api-API-06-Email-jako-obiekt-zamiast-tekstu-api\error-context.md]]
+]]>
+</system-out>
+<failure message="Błędny typ: HTTP 400" type="expect.toEqual">
+<![CDATA[  [api] › api.spec.ts:27:5 › API-06 Email jako obiekt zamiast tekstu ───────────────────────────────
+
+    Error: Błędny typ: HTTP 400
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 400
+    Received: 500
+
+       at ..\helpers\audit.ts:31
+
+      29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);
+      30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});
+    > 31 |     expect(actual,label).toEqual(expected);
+         |                          ^
+      32 |   }
+      33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+      34 |   note(value:any){this.observations.push(redact(value))}
+        at Audit.check (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:31:26)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:28:101
+
+    attachment #1: Dowód wykonania (application/json) ──────────────────────────────────────────────
+    ..\reports\artifacts\api-API-06-Email-jako-obiekt-zamiast-tekstu-api\attachments\Dowód-wykonania-dc0d4d65fd9e6114f6602af0056a1047a0b416b4.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\reports\artifacts\api-API-06-Email-jako-obiekt-zamiast-tekstu-api\error-context.md
+]]>
+</failure>
+</testcase>
+<testcase name="API-07 Rezerwacje bez uwierzytelnienia" classname="api.spec.ts" time="0.277">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\api-API-07-Rezerwacje-bez-uwierzytelnienia-api\attachments\Dowód-wykonania-c7422e49889b4e64a03c854d579ff0f831198b41.json]]
+]]>
+</system-out>
+</testcase>
+<testcase name="API-08 Nieprawidłowe dane logowania" classname="api.spec.ts" time="0.243">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\api-API-08-Nieprawidłowe-dane-logowania-api\attachments\Dowód-wykonania-8cd5cd55a63f0fafdcb1460fb115721a5c53d85d.json]]
+]]>
+</system-out>
+</testcase>
+<testcase name="API-09 Wiadomość: utwórz, odczytaj, oznacz przeczytaną" classname="api.spec.ts" time="0.505">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\api-API-09-Wiadomość-utwórz-odczytaj-oznacz-przeczytaną-api\attachments\Dowód-wykonania-1ce7b85a012b430f4e76ef748f2b997d58f3ae5e.json]]
+
+[[ATTACHMENT|artifacts\api-API-09-Wiadomość-utwórz-odczytaj-oznacz-przeczytaną-api\error-context.md]]
+]]>
+</system-out>
+<failure message="Sprzątanie własnej wiadomości" type="expect.toEqual">
+<![CDATA[  [api] › api.spec.ts:36:5 › API-09 Wiadomość: utwórz, odczytaj, oznacz przeczytaną ────────────────
+
+    Error: Sprzątanie własnej wiadomości
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:33
+
+      31 |     expect(actual,label).toEqual(expected);
+      32 |   }
+    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+         |                                                                                                                                                                                                                                                   ^
+      34 |   note(value:any){this.observations.push(redact(value))}
+      35 |   async save() {
+      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
+        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:47:84
+
+    Error: Wiadomość usunięta
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: false
+    Received: true
+
+       at ..\helpers\audit.ts:33
+
+      31 |     expect(actual,label).toEqual(expected);
+      32 |   }
+    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+         |                                                                                                                                                                                                                                                   ^
+      34 |   note(value:any){this.observations.push(redact(value))}
+      35 |   async save() {
+      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
+        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:47:185
+
+    Error: Odczyt utworzonej wiadomości
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:31
+
+      29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);
+      30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});
+    > 31 |     expect(actual,label).toEqual(expected);
+         |                          ^
+      32 |   }
+      33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+      34 |   note(value:any){this.observations.push(redact(value))}
+        at Audit.check (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:31:26)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:42:77
+
+    attachment #1: Dowód wykonania (application/json) ──────────────────────────────────────────────
+    ..\reports\artifacts\api-API-09-Wiadomość-utwórz-odczytaj-oznacz-przeczytaną-api\attachments\Dowód-wykonania-1ce7b85a012b430f4e76ef748f2b997d58f3ae5e.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\reports\artifacts\api-API-09-Wiadomość-utwórz-odczytaj-oznacz-przeczytaną-api\error-context.md
+]]>
+</failure>
+</testcase>
+<testcase name="API-10 Rezerwacja: utwórz, odczytaj i zmień nazwisko" classname="api.spec.ts" time="0.764">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\api-API-10-Rezerwacja-utwórz-odczytaj-i-zmień-nazwisko-api\attachments\Dowód-wykonania-b76c9e88457a11afeb0f6dfaa22f8896ac4e1438.json]]
+
+[[ATTACHMENT|artifacts\api-API-10-Rezerwacja-utwórz-odczytaj-i-zmień-nazwisko-api\error-context.md]]
+]]>
+</system-out>
+<failure message="Usunięto wyłącznie własną rezerwację" type="expect.toEqual">
+<![CDATA[  [api] › api.spec.ts:50:5 › API-10 Rezerwacja: utwórz, odczytaj i zmień nazwisko ──────────────────
+
+    Error: Usunięto wyłącznie własną rezerwację
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:33
+
+      31 |     expect(actual,label).toEqual(expected);
+      32 |   }
+    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+         |                                                                                                                                                                                                                                                   ^
+      34 |   note(value:any){this.observations.push(redact(value))}
+      35 |   async save() {
+      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
+        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:71:84
+
+    Error: Potwierdzono sprzątanie
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: false
+    Received: true
+
+       at ..\helpers\audit.ts:33
+
+      31 |     expect(actual,label).toEqual(expected);
+      32 |   }
+    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+         |                                                                                                                                                                                                                                                   ^
+      34 |   note(value:any){this.observations.push(redact(value))}
+      35 |   async save() {
+      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
+        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:71:235
+
+    Error: Odczyt HTTP 200
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:31
+
+      29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);
+      30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});
+    > 31 |     expect(actual,label).toEqual(expected);
+         |                          ^
+      32 |   }
+      33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+      34 |   note(value:any){this.observations.push(redact(value))}
+        at Audit.check (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:31:26)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:66:77
+
+    attachment #1: Dowód wykonania (application/json) ──────────────────────────────────────────────
+    ..\reports\artifacts\api-API-10-Rezerwacja-utwórz-odczytaj-i-zmień-nazwisko-api\attachments\Dowód-wykonania-b76c9e88457a11afeb0f6dfaa22f8896ac4e1438.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\reports\artifacts\api-API-10-Rezerwacja-utwórz-odczytaj-i-zmień-nazwisko-api\error-context.md
+]]>
+</failure>
+</testcase>
+</testsuite>
+<testsuite name="ui.spec.ts" timestamp="2026-11-13T15:52:56.148Z" hostname="ui-chrome" tests="12" failures="2" skipped="3" time="143.638" errors="0">
+<testcase name="UI-01 Katalog pokoi zgodny z API" classname="ui.spec.ts" time="20.006">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\ui-UI-01-Katalog-pokoi-zgodny-z-API-ui-chrome\attachments\Rzeczywisty-screenshot-e43d7031011d60643f9d7a861a466608c307eeae.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-01-Katalog-pokoi-zgodny-z-API-ui-chrome\attachments\Dowód-wykonania-f5d4e26b27c6f4984d3c9138d4e97c478c126277.json]]
+]]>
+</system-out>
+</testcase>
+<testcase name="UI-02 Poprawna wiadomość kontaktowa" classname="ui.spec.ts" time="20.218">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\test-failed-1.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\attachments\Rzeczywisty-screenshot-005a7650b0d148aabd495fb9023b8b910497b919.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\attachments\Dowód-wykonania-9c36c5632efd88e14691116d52aad3d36402533e.json]]
+
+[[ATTACHMENT|artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\error-context.md]]
+
+[[ATTACHMENT|artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\trace.zip]]
+]]>
+</system-out>
+<failure message="Usunięto własną wiadomość UI" type="expect.toEqual">
+<![CDATA[  [ui-chrome] › ui.spec.ts:35:5 › UI-02 Poprawna wiadomość kontaktowa ──────────────────────────────
+
+    Error: Usunięto własną wiadomość UI
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:33
+
+      31 |     expect(actual,label).toEqual(expected);
+      32 |   }
+    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+         |                                                                                                                                                                                                                                                   ^
+      34 |   note(value:any){this.observations.push(redact(value))}
+      35 |   async save() {
+      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
+        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
+        at cleanupUiMessage (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:76:7)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\ui.spec.ts:37:268
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: Rzeczywisty screenshot (image/png) ──────────────────────────────────────────────
+    ..\reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\attachments\Rzeczywisty-screenshot-005a7650b0d148aabd495fb9023b8b910497b919.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: Dowód wykonania (application/json) ──────────────────────────────────────────────
+    ..\reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\attachments\Dowód-wykonania-9c36c5632efd88e14691116d52aad3d36402533e.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="UI-03 Pusty formularz kontaktowy" classname="ui.spec.ts" time="19.67">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\ui-UI-03-Pusty-formularz-kontaktowy-ui-chrome\attachments\Rzeczywisty-screenshot-4ec95f66af727ca721b53f000005b670bdb232da.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-03-Pusty-formularz-kontaktowy-ui-chrome\attachments\Dowód-wykonania-73af4bd40e3d4bd1dc6be697da2b39b2ba77aeee.json]]
+]]>
+</system-out>
+</testcase>
+<testcase name="UI-04 Niepoprawny email w kontakcie" classname="ui.spec.ts" time="19.842">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\ui-UI-04-Niepoprawny-email-w-kontakcie-ui-chrome\attachments\Rzeczywisty-screenshot-ad09d84e940e78ae5a332f188767da13c9b94251.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-04-Niepoprawny-email-w-kontakcie-ui-chrome\attachments\Dowód-wykonania-3019f2623eea1717dd9a427314da5fe5cff3bd8b.json]]
+]]>
+</system-out>
+</testcase>
+<testcase name="UI-05 Temat 4 znaki: poniżej minimum" classname="ui.spec.ts" time="10.463">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\ui-UI-05-Temat-4-znaki-poniżej-minimum-ui-chrome\attachments\Rzeczywisty-screenshot-197db35be1378da6f800383136e5f804ad1cef0c.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-05-Temat-4-znaki-poniżej-minimum-ui-chrome\attachments\Dowód-wykonania-a026f243e1ca61b17b12184686f8ad053888ab8f.json]]
+]]>
+</system-out>
+</testcase>
+<testcase name="UI-06 Temat 5 znaków: dolna granica" classname="ui.spec.ts" time="2.022">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\test-failed-1.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\attachments\Rzeczywisty-screenshot-0c72657bba68edbd616294922d8625fc01328900.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\attachments\Dowód-wykonania-07d602ea345d8f69fcbfbb542892dd9bd58b8f42.json]]
+
+[[ATTACHMENT|artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\error-context.md]]
+
+[[ATTACHMENT|artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\trace.zip]]
+]]>
+</system-out>
+<failure message="Usunięto własną wiadomość UI" type="expect.toEqual">
+<![CDATA[  [ui-chrome] › ui.spec.ts:51:5 › UI-06 Temat 5 znaków: dolna granica ──────────────────────────────
+
+    Error: Usunięto własną wiadomość UI
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:33
+
+      31 |     expect(actual,label).toEqual(expected);
+      32 |   }
+    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+         |                                                                                                                                                                                                                                                   ^
+      34 |   note(value:any){this.observations.push(redact(value))}
+      35 |   async save() {
+      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
+        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
+        at cleanupUiMessage (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:76:7)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\ui.spec.ts:53:288
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: Rzeczywisty screenshot (image/png) ──────────────────────────────────────────────
+    ..\reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\attachments\Rzeczywisty-screenshot-0c72657bba68edbd616294922d8625fc01328900.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: Dowód wykonania (application/json) ──────────────────────────────────────────────
+    ..\reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\attachments\Dowód-wykonania-07d602ea345d8f69fcbfbb542892dd9bd58b8f42.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+</testcase>
+<testcase name="UI-07 Telefon 10 znaków: poniżej minimum" classname="ui.spec.ts" time="19.872">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\ui-UI-07-Telefon-10-znaków-poniżej-minimum-ui-chrome\attachments\Rzeczywisty-screenshot-3a0fb74daf0b666cb6e5a0e0d47c3167439e480e.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-07-Telefon-10-znaków-poniżej-minimum-ui-chrome\attachments\Dowód-wykonania-48be9861e257eca8ce2558a048edf3e6476e2757.json]]
+]]>
+</system-out>
+</testcase>
+<testcase name="UI-08 Cena rezerwacji dwóch nocy" classname="ui.spec.ts">
+<properties>
+<property name="blocked" value="Szczegóły pokoju HTTP 500; DEF-01. Brak formularza rezerwacji.">
+</property>
+<property name="skip" value="BLOCKED: szczegóły pokoju HTTP 500; DEF-01">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="UI-09 Puste dane gościa w rezerwacji" classname="ui.spec.ts">
+<properties>
+<property name="blocked" value="Szczegóły pokoju HTTP 500; DEF-01. Brak formularza rezerwacji.">
+</property>
+<property name="skip" value="BLOCKED: szczegóły pokoju HTTP 500; DEF-01">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="UI-10 Rezerwacja zachowuje wybrane daty" classname="ui.spec.ts">
+<properties>
+<property name="blocked" value="Szczegóły pokoju HTTP 500; DEF-01. Brak formularza rezerwacji.">
+</property>
+<property name="skip" value="BLOCKED: szczegóły pokoju HTTP 500; DEF-01">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="UI-11 Błędne logowanie administratora" classname="ui.spec.ts" time="0.836">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\ui-UI-11-Błędne-logowanie-administratora-ui-chrome\attachments\Rzeczywisty-screenshot-a6f460add1475e35eb254faf36c49bb49d1bd3f3.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-11-Błędne-logowanie-administratora-ui-chrome\attachments\Dowód-wykonania-5df5409bce944a7df7a3098dba11d691fd31ac8b.json]]
+]]>
+</system-out>
+</testcase>
+<testcase name="UI-12 Wyszukanie dostępności dla poprawnego okresu" classname="ui.spec.ts" time="1.345">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\ui-UI-12-Wyszukanie-dostępności-dla-poprawnego-okresu-ui-chrome\attachments\Rzeczywisty-screenshot-8f772643206ff9b8557fdfed80370095e62a4a02.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-12-Wyszukanie-dostępności-dla-poprawnego-okresu-ui-chrome\attachments\Dowód-wykonania-c245ad519fe46ddba35277de7f62f6e760df395f.json]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

@@ -1,0 +1,356 @@
+
+> qa-restful-booker-platform@1.0.0 test
+> playwright test
+
+
+Running 22 tests using 1 worker
+
+(node:26868) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [api] › tests\api.spec.ts:3:5 › API-01 Lista pokoi: schemat i unikalne identyfikatory (167ms)
+  x   2 [api] › tests\api.spec.ts:10:5 › API-02 Szczegóły pokoju zgodne z listą (148ms)
+(node:25384) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   3 [api] › tests\api.spec.ts:14:5 › API-03 Nieistniejący pokój: HTTP 404 (204ms)
+(node:25500) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  4 [api] › tests\api.spec.ts:20:5 › API-04 Wiadomość bez wymaganych pól (177ms)
+  ok  5 [api] › tests\api.spec.ts:24:5 › API-05 Niepoprawny format email wiadomości (83ms)
+  x   6 [api] › tests\api.spec.ts:27:5 › API-06 Email jako obiekt zamiast tekstu (75ms)
+(node:5884) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  7 [api] › tests\api.spec.ts:30:5 › API-07 Rezerwacje bez uwierzytelnienia (277ms)
+  ok  8 [api] › tests\api.spec.ts:33:5 › API-08 Nieprawidłowe dane logowania (243ms)
+  x   9 [api] › tests\api.spec.ts:36:5 › API-09 Wiadomość: utwórz, odczytaj, oznacz przeczytaną (505ms)
+(node:25236) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  10 [api] › tests\api.spec.ts:50:5 › API-10 Rezerwacja: utwórz, odczytaj i zmień nazwisko (764ms)
+(node:31940) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 11 [ui-chrome] › tests\ui.spec.ts:30:5 › UI-01 Katalog pokoi zgodny z API (20.0s)
+  x  12 [ui-chrome] › tests\ui.spec.ts:35:5 › UI-02 Poprawna wiadomość kontaktowa (20.2s)
+(node:27116) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 13 [ui-chrome] › tests\ui.spec.ts:39:5 › UI-03 Pusty formularz kontaktowy (19.7s)
+  ok 14 [ui-chrome] › tests\ui.spec.ts:42:5 › UI-04 Niepoprawny email w kontakcie (19.8s)
+  ok 15 [ui-chrome] › tests\ui.spec.ts:48:5 › UI-05 Temat 4 znaki: poniżej minimum (10.5s)
+  x  16 [ui-chrome] › tests\ui.spec.ts:51:5 › UI-06 Temat 5 znaków: dolna granica (2.0s)
+(node:552) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 17 [ui-chrome] › tests\ui.spec.ts:55:5 › UI-07 Telefon 10 znaków: poniżej minimum (19.9s)
+  -  18 [ui-chrome] › tests\ui.spec.ts:58:5 › UI-08 Cena rezerwacji dwóch nocy
+  -  19 [ui-chrome] › tests\ui.spec.ts:61:5 › UI-09 Puste dane gościa w rezerwacji
+  -  20 [ui-chrome] › tests\ui.spec.ts:65:5 › UI-10 Rezerwacja zachowuje wybrane daty
+  ok 21 [ui-chrome] › tests\ui.spec.ts:73:5 › UI-11 Błędne logowanie administratora (836ms)
+  ok 22 [ui-chrome] › tests\ui.spec.ts:77:5 › UI-12 Wyszukanie dostępności dla poprawnego okresu (1.3s)
+
+
+  1) [api] › tests\api.spec.ts:10:5 › API-02 Szczegóły pokoju zgodne z listą ───────────────────────
+
+    Error: Istniejący pokój: HTTP 200
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:31
+
+      29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);
+      30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});
+    > 31 |     expect(actual,label).toEqual(expected);
+         |                          ^
+      32 |   }
+      33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+      34 |   note(value:any){this.observations.push(redact(value))}
+        at Audit.check (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:31:26)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:12:5
+
+    attachment #1: Dowód wykonania (application/json) ──────────────────────────────────────────────
+    reports\artifacts\api-API-02-Szczegóły-pokoju-zgodne-z-listą-api\attachments\Dowód-wykonania-6816010ef3844018e123ba676ebbd1b3ab4fbe7f.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: reports\artifacts\api-API-02-Szczegóły-pokoju-zgodne-z-listą-api\error-context.md
+
+  2) [api] › tests\api.spec.ts:14:5 › API-03 Nieistniejący pokój: HTTP 404 ─────────────────────────
+
+    Error: Brak zasobu: HTTP 404
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 404
+    Received: 500
+
+       at ..\helpers\audit.ts:31
+
+      29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);
+      30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});
+    > 31 |     expect(actual,label).toEqual(expected);
+         |                          ^
+      32 |   }
+      33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+      34 |   note(value:any){this.observations.push(redact(value))}
+        at Audit.check (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:31:26)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:18:51
+
+    attachment #1: Dowód wykonania (application/json) ──────────────────────────────────────────────
+    reports\artifacts\api-API-03-Nieistniejący-pokój-HTTP-404-api\attachments\Dowód-wykonania-5ed7b3e16acda7114fb500d3b02c1b1d7ef97b14.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: reports\artifacts\api-API-03-Nieistniejący-pokój-HTTP-404-api\error-context.md
+
+  3) [api] › tests\api.spec.ts:27:5 › API-06 Email jako obiekt zamiast tekstu ──────────────────────
+
+    Error: Błędny typ: HTTP 400
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 400
+    Received: 500
+
+       at ..\helpers\audit.ts:31
+
+      29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);
+      30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});
+    > 31 |     expect(actual,label).toEqual(expected);
+         |                          ^
+      32 |   }
+      33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+      34 |   note(value:any){this.observations.push(redact(value))}
+        at Audit.check (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:31:26)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:28:101
+
+    attachment #1: Dowód wykonania (application/json) ──────────────────────────────────────────────
+    reports\artifacts\api-API-06-Email-jako-obiekt-zamiast-tekstu-api\attachments\Dowód-wykonania-dc0d4d65fd9e6114f6602af0056a1047a0b416b4.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: reports\artifacts\api-API-06-Email-jako-obiekt-zamiast-tekstu-api\error-context.md
+
+  4) [api] › tests\api.spec.ts:36:5 › API-09 Wiadomość: utwórz, odczytaj, oznacz przeczytaną ───────
+
+    Error: Sprzątanie własnej wiadomości
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:33
+
+      31 |     expect(actual,label).toEqual(expected);
+      32 |   }
+    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+         |                                                                                                                                                                                                                                                   ^
+      34 |   note(value:any){this.observations.push(redact(value))}
+      35 |   async save() {
+      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
+        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:47:84
+
+    Error: Wiadomość usunięta
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: false
+    Received: true
+
+       at ..\helpers\audit.ts:33
+
+      31 |     expect(actual,label).toEqual(expected);
+      32 |   }
+    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+         |                                                                                                                                                                                                                                                   ^
+      34 |   note(value:any){this.observations.push(redact(value))}
+      35 |   async save() {
+      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
+        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:47:185
+
+    Error: Odczyt utworzonej wiadomości
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:31
+
+      29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);
+      30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});
+    > 31 |     expect(actual,label).toEqual(expected);
+         |                          ^
+      32 |   }
+      33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+      34 |   note(value:any){this.observations.push(redact(value))}
+        at Audit.check (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:31:26)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:42:77
+
+    attachment #1: Dowód wykonania (application/json) ──────────────────────────────────────────────
+    reports\artifacts\api-API-09-Wiadomość-utwórz-odczytaj-oznacz-przeczytaną-api\attachments\Dowód-wykonania-1ce7b85a012b430f4e76ef748f2b997d58f3ae5e.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: reports\artifacts\api-API-09-Wiadomość-utwórz-odczytaj-oznacz-przeczytaną-api\error-context.md
+
+  5) [api] › tests\api.spec.ts:50:5 › API-10 Rezerwacja: utwórz, odczytaj i zmień nazwisko ─────────
+
+    Error: Usunięto wyłącznie własną rezerwację
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:33
+
+      31 |     expect(actual,label).toEqual(expected);
+      32 |   }
+    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+         |                                                                                                                                                                                                                                                   ^
+      34 |   note(value:any){this.observations.push(redact(value))}
+      35 |   async save() {
+      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
+        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:71:84
+
+    Error: Potwierdzono sprzątanie
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: false
+    Received: true
+
+       at ..\helpers\audit.ts:33
+
+      31 |     expect(actual,label).toEqual(expected);
+      32 |   }
+    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+         |                                                                                                                                                                                                                                                   ^
+      34 |   note(value:any){this.observations.push(redact(value))}
+      35 |   async save() {
+      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
+        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:71:235
+
+    Error: Odczyt HTTP 200
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:31
+
+      29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);
+      30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});
+    > 31 |     expect(actual,label).toEqual(expected);
+         |                          ^
+      32 |   }
+      33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+      34 |   note(value:any){this.observations.push(redact(value))}
+        at Audit.check (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:31:26)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:66:77
+
+    attachment #1: Dowód wykonania (application/json) ──────────────────────────────────────────────
+    reports\artifacts\api-API-10-Rezerwacja-utwórz-odczytaj-i-zmień-nazwisko-api\attachments\Dowód-wykonania-b76c9e88457a11afeb0f6dfaa22f8896ac4e1438.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: reports\artifacts\api-API-10-Rezerwacja-utwórz-odczytaj-i-zmień-nazwisko-api\error-context.md
+
+  6) [ui-chrome] › tests\ui.spec.ts:35:5 › UI-02 Poprawna wiadomość kontaktowa ─────────────────────
+
+    Error: Usunięto własną wiadomość UI
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:33
+
+      31 |     expect(actual,label).toEqual(expected);
+      32 |   }
+    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+         |                                                                                                                                                                                                                                                   ^
+      34 |   note(value:any){this.observations.push(redact(value))}
+      35 |   async save() {
+      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
+        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
+        at cleanupUiMessage (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:76:7)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\ui.spec.ts:37:268
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: Rzeczywisty screenshot (image/png) ──────────────────────────────────────────────
+    reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\attachments\Rzeczywisty-screenshot-005a7650b0d148aabd495fb9023b8b910497b919.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: Dowód wykonania (application/json) ──────────────────────────────────────────────
+    reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\attachments\Dowód-wykonania-9c36c5632efd88e14691116d52aad3d36402533e.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\trace.zip
+    Usage:
+
+        npx playwright show-trace reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [ui-chrome] › tests\ui.spec.ts:51:5 › UI-06 Temat 5 znaków: dolna granica ─────────────────────
+
+    Error: Usunięto własną wiadomość UI
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:33
+
+      31 |     expect(actual,label).toEqual(expected);
+      32 |   }
+    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+         |                                                                                                                                                                                                                                                   ^
+      34 |   note(value:any){this.observations.push(redact(value))}
+      35 |   async save() {
+      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
+        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
+        at cleanupUiMessage (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:76:7)
+        at E:\qa nowicki\QA-Project\05_Automation\tests\ui.spec.ts:53:288
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: Rzeczywisty screenshot (image/png) ──────────────────────────────────────────────
+    reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\attachments\Rzeczywisty-screenshot-0c72657bba68edbd616294922d8625fc01328900.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: Dowód wykonania (application/json) ──────────────────────────────────────────────
+    reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\attachments\Dowód-wykonania-07d602ea345d8f69fcbfbb542892dd9bd58b8f42.json
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\trace.zip
+    Usage:
+
+        npx playwright show-trace reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7 failed
+    [api] › tests\api.spec.ts:10:5 › API-02 Szczegóły pokoju zgodne z listą ────────────────────────
+    [api] › tests\api.spec.ts:14:5 › API-03 Nieistniejący pokój: HTTP 404 ──────────────────────────
+    [api] › tests\api.spec.ts:27:5 › API-06 Email jako obiekt zamiast tekstu ───────────────────────
+    [api] › tests\api.spec.ts:36:5 › API-09 Wiadomość: utwórz, odczytaj, oznacz przeczytaną ────────
+    [api] › tests\api.spec.ts:50:5 › API-10 Rezerwacja: utwórz, odczytaj i zmień nazwisko ──────────
+    [ui-chrome] › tests\ui.spec.ts:35:5 › UI-02 Poprawna wiadomość kontaktowa ──────────────────────
+    [ui-chrome] › tests\ui.spec.ts:51:5 › UI-06 Temat 5 znaków: dolna granica ──────────────────────
+  3 skipped
+  12 passed (2.6m)

@@ -1,0 +1,1405 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "E:\\qa nowicki\\QA-Project\\05_Automation\\node_modules\\playwright\\cli.js",
+      "test"
+    ],
+    "configFile": "E:\\qa nowicki\\QA-Project\\05_Automation\\playwright.config.ts",
+    "rootDir": "E:/qa nowicki/QA-Project/05_Automation/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "E:/qa nowicki/QA-Project/05_Automation/reports/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "api",
+        "name": "api",
+        "testDir": "E:/qa nowicki/QA-Project/05_Automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "api.spec.ts"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "E:/qa nowicki/QA-Project/05_Automation/reports/artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "ui-chrome",
+        "name": "ui-chrome",
+        "testDir": "E:/qa nowicki/QA-Project/05_Automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "ui.spec.ts"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "reports/html",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "reports/junit.xml"
+        }
+      ],
+      [
+        "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\result-reporter.ts",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.62.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "api.spec.ts",
+      "file": "api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "API-01 Lista pokoi: schemat i unikalne identyfikatory",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 167,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:52:56.593Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-01-Lista-pokoi-schemat-i-unikalne-identyfikatory-api\\attachments\\Dowód-wykonania-57183006a078532b04c224128918da6bdbaa8055.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-3732cbdaf67153f9afc4",
+          "file": "api.spec.ts",
+          "line": 3,
+          "column": 5
+        },
+        {
+          "title": "API-02 Szczegóły pokoju zgodne z listą",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 148,
+                  "error": {
+                    "message": "Error: Istniejący pokój: HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                    "stack": "Error: Istniejący pokój: HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:12:5",
+                    "location": {
+                      "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                      "column": 26,
+                      "line": 31
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39m..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n  34 |   note(value:any){this.observations.push(redact(value))}"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                        "column": 26,
+                        "line": 31
+                      },
+                      "message": "Error: Istniejący pokój: HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n  34 |   note(value:any){this.observations.push(redact(value))}\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:12:5"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:52:56.785Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-02-Szczegóły-pokoju-zgodne-z-listą-api\\attachments\\Dowód-wykonania-6816010ef3844018e123ba676ebbd1b3ab4fbe7f.json"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-02-Szczegóły-pokoju-zgodne-z-listą-api\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                    "column": 26,
+                    "line": 31
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-1bb106ff888f35bf3491",
+          "file": "api.spec.ts",
+          "line": 10,
+          "column": 5
+        },
+        {
+          "title": "API-03 Nieistniejący pokój: HTTP 404",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 204,
+                  "error": {
+                    "message": "Error: Brak zasobu: HTTP 404\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                    "stack": "Error: Brak zasobu: HTTP 404\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:18:51",
+                    "location": {
+                      "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                      "column": 26,
+                      "line": 31
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39m..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n  34 |   note(value:any){this.observations.push(redact(value))}"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                        "column": 26,
+                        "line": 31
+                      },
+                      "message": "Error: Brak zasobu: HTTP 404\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n  34 |   note(value:any){this.observations.push(redact(value))}\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:18:51"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:52:57.419Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-03-Nieistniejący-pokój-HTTP-404-api\\attachments\\Dowód-wykonania-5ed7b3e16acda7114fb500d3b02c1b1d7ef97b14.json"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-03-Nieistniejący-pokój-HTTP-404-api\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                    "column": 26,
+                    "line": 31
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-d213258e7fb2e3d3f6ac",
+          "file": "api.spec.ts",
+          "line": 14,
+          "column": 5
+        },
+        {
+          "title": "API-04 Wiadomość bez wymaganych pól",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 177,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:52:58.145Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-04-Wiadomość-bez-wymaganych-pól-api\\attachments\\Dowód-wykonania-55cf8ad75eb963bf507e30727d9c2b0d4778c3be.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-76a8a12c06e8214195bf",
+          "file": "api.spec.ts",
+          "line": 20,
+          "column": 5
+        },
+        {
+          "title": "API-05 Niepoprawny format email wiadomości",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 83,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:52:58.351Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-05-Niepoprawny-format-email-wiadomości-api\\attachments\\Dowód-wykonania-ddc26de5a9d920bb73c0e14dc712db81a78108ee.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-ae046df4fe3ee4e7e374",
+          "file": "api.spec.ts",
+          "line": 24,
+          "column": 5
+        },
+        {
+          "title": "API-06 Email jako obiekt zamiast tekstu",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 75,
+                  "error": {
+                    "message": "Error: Błędny typ: HTTP 400\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                    "stack": "Error: Błędny typ: HTTP 400\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:28:101",
+                    "location": {
+                      "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                      "column": 26,
+                      "line": 31
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39m..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n  34 |   note(value:any){this.observations.push(redact(value))}"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                        "column": 26,
+                        "line": 31
+                      },
+                      "message": "Error: Błędny typ: HTTP 400\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n  34 |   note(value:any){this.observations.push(redact(value))}\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:28:101"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:52:58.443Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-06-Email-jako-obiekt-zamiast-tekstu-api\\attachments\\Dowód-wykonania-dc0d4d65fd9e6114f6602af0056a1047a0b416b4.json"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-06-Email-jako-obiekt-zamiast-tekstu-api\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                    "column": 26,
+                    "line": 31
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-3bf759f6bfcfa3baaa1c",
+          "file": "api.spec.ts",
+          "line": 27,
+          "column": 5
+        },
+        {
+          "title": "API-07 Rezerwacje bez uwierzytelnienia",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 277,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:52:59.037Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-07-Rezerwacje-bez-uwierzytelnienia-api\\attachments\\Dowód-wykonania-c7422e49889b4e64a03c854d579ff0f831198b41.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-abcdbfda548414f789c9",
+          "file": "api.spec.ts",
+          "line": 30,
+          "column": 5
+        },
+        {
+          "title": "API-08 Nieprawidłowe dane logowania",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 243,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:52:59.343Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-08-Nieprawidłowe-dane-logowania-api\\attachments\\Dowód-wykonania-8cd5cd55a63f0fafdcb1460fb115721a5c53d85d.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-87ef31f7c6703ae6eddf",
+          "file": "api.spec.ts",
+          "line": 33,
+          "column": 5
+        },
+        {
+          "title": "API-09 Wiadomość: utwórz, odczytaj, oznacz przeczytaną",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 505,
+                  "error": {
+                    "message": "Error: Sprzątanie własnej wiadomości\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                    "stack": "Error: Sprzątanie własnej wiadomości\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.checkSoft (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:33:243)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:47:84",
+                    "location": {
+                      "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                      "column": 243,
+                      "line": 33
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39m..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   note(value:any){this.observations.push(redact(value))}\n  35 |   async save() {\n  36 |     const id=this.info.title.match(/(?:UI|API)-\\d+/)?.[0]||'unknown';"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                        "column": 243,
+                        "line": 33
+                      },
+                      "message": "Error: Sprzątanie własnej wiadomości\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   note(value:any){this.observations.push(redact(value))}\n  35 |   async save() {\n  36 |     const id=this.info.title.match(/(?:UI|API)-\\d+/)?.[0]||'unknown';\n    at Audit.checkSoft (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:33:243)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:47:84"
+                    },
+                    {
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                        "column": 243,
+                        "line": 33
+                      },
+                      "message": "Error: Wiadomość usunięta\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   note(value:any){this.observations.push(redact(value))}\n  35 |   async save() {\n  36 |     const id=this.info.title.match(/(?:UI|API)-\\d+/)?.[0]||'unknown';\n    at Audit.checkSoft (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:33:243)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:47:185"
+                    },
+                    {
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                        "column": 26,
+                        "line": 31
+                      },
+                      "message": "Error: Odczyt utworzonej wiadomości\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n  34 |   note(value:any){this.observations.push(redact(value))}\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:42:77"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:52:59.596Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-09-Wiadomość-utwórz-odczytaj-oznacz-przeczytaną-api\\attachments\\Dowód-wykonania-1ce7b85a012b430f4e76ef748f2b997d58f3ae5e.json"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-09-Wiadomość-utwórz-odczytaj-oznacz-przeczytaną-api\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                    "column": 243,
+                    "line": 33
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-5398d5bd936bde2b02af",
+          "file": "api.spec.ts",
+          "line": 36,
+          "column": 5
+        },
+        {
+          "title": "API-10 Rezerwacja: utwórz, odczytaj i zmień nazwisko",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "api",
+              "projectName": "api",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 764,
+                  "error": {
+                    "message": "Error: Usunięto wyłącznie własną rezerwację\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                    "stack": "Error: Usunięto wyłącznie własną rezerwację\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.checkSoft (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:33:243)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:71:84",
+                    "location": {
+                      "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                      "column": 243,
+                      "line": 33
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39m..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   note(value:any){this.observations.push(redact(value))}\n  35 |   async save() {\n  36 |     const id=this.info.title.match(/(?:UI|API)-\\d+/)?.[0]||'unknown';"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                        "column": 243,
+                        "line": 33
+                      },
+                      "message": "Error: Usunięto wyłącznie własną rezerwację\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   note(value:any){this.observations.push(redact(value))}\n  35 |   async save() {\n  36 |     const id=this.info.title.match(/(?:UI|API)-\\d+/)?.[0]||'unknown';\n    at Audit.checkSoft (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:33:243)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:71:84"
+                    },
+                    {
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                        "column": 243,
+                        "line": 33
+                      },
+                      "message": "Error: Potwierdzono sprzątanie\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   note(value:any){this.observations.push(redact(value))}\n  35 |   async save() {\n  36 |     const id=this.info.title.match(/(?:UI|API)-\\d+/)?.[0]||'unknown';\n    at Audit.checkSoft (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:33:243)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:71:235"
+                    },
+                    {
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                        "column": 26,
+                        "line": 31
+                      },
+                      "message": "Error: Odczyt HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n  34 |   note(value:any){this.observations.push(redact(value))}\n    at Audit.check (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:31:26)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\api.spec.ts:66:77"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:53:00.632Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-10-Rezerwacja-utwórz-odczytaj-i-zmień-nazwisko-api\\attachments\\Dowód-wykonania-b76c9e88457a11afeb0f6dfaa22f8896ac4e1438.json"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\api-API-10-Rezerwacja-utwórz-odczytaj-i-zmień-nazwisko-api\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                    "column": 243,
+                    "line": 33
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1ea1b1599cbc08f16936-af9807bcc8db28c9f1eb",
+          "file": "api.spec.ts",
+          "line": 50,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "ui.spec.ts",
+      "file": "ui.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "UI-01 Katalog pokoi zgodny z API",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "ui-chrome",
+              "projectName": "ui-chrome",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 20006,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:53:01.929Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Rzeczywisty screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-01-Katalog-pokoi-zgodny-z-API-ui-chrome\\attachments\\Rzeczywisty-screenshot-e43d7031011d60643f9d7a861a466608c307eeae.png"
+                    },
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-01-Katalog-pokoi-zgodny-z-API-ui-chrome\\attachments\\Dowód-wykonania-f5d4e26b27c6f4984d3c9138d4e97c478c126277.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d425444c687fa36b5882-b75f20e010f52332c57e",
+          "file": "ui.spec.ts",
+          "line": 30,
+          "column": 5
+        },
+        {
+          "title": "UI-02 Poprawna wiadomość kontaktowa",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "ui-chrome",
+              "projectName": "ui-chrome",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 20218,
+                  "error": {
+                    "message": "Error: Usunięto własną wiadomość UI\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                    "stack": "Error: Usunięto własną wiadomość UI\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.checkSoft (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:33:243)\n    at cleanupUiMessage (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:76:7)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\ui.spec.ts:37:268",
+                    "location": {
+                      "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                      "column": 243,
+                      "line": 33
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39m..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   note(value:any){this.observations.push(redact(value))}\n  35 |   async save() {\n  36 |     const id=this.info.title.match(/(?:UI|API)-\\d+/)?.[0]||'unknown';"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                        "column": 243,
+                        "line": 33
+                      },
+                      "message": "Error: Usunięto własną wiadomość UI\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   note(value:any){this.observations.push(redact(value))}\n  35 |   async save() {\n  36 |     const id=this.info.title.match(/(?:UI|API)-\\d+/)?.[0]||'unknown';\n    at Audit.checkSoft (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:33:243)\n    at cleanupUiMessage (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:76:7)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\ui.spec.ts:37:268"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:53:22.441Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\\test-failed-1.png"
+                    },
+                    {
+                      "name": "Rzeczywisty screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\\attachments\\Rzeczywisty-screenshot-005a7650b0d148aabd495fb9023b8b910497b919.png"
+                    },
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\\attachments\\Dowód-wykonania-9c36c5632efd88e14691116d52aad3d36402533e.json"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                    "column": 243,
+                    "line": 33
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d425444c687fa36b5882-e1ebc0da0c51409acdc5",
+          "file": "ui.spec.ts",
+          "line": 35,
+          "column": 5
+        },
+        {
+          "title": "UI-03 Pusty formularz kontaktowy",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "ui-chrome",
+              "projectName": "ui-chrome",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19670,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:53:43.592Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Rzeczywisty screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-03-Pusty-formularz-kontaktowy-ui-chrome\\attachments\\Rzeczywisty-screenshot-4ec95f66af727ca721b53f000005b670bdb232da.png"
+                    },
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-03-Pusty-formularz-kontaktowy-ui-chrome\\attachments\\Dowód-wykonania-73af4bd40e3d4bd1dc6be697da2b39b2ba77aeee.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d425444c687fa36b5882-bbaeca93984d22388eb9",
+          "file": "ui.spec.ts",
+          "line": 39,
+          "column": 5
+        },
+        {
+          "title": "UI-04 Niepoprawny email w kontakcie",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "ui-chrome",
+              "projectName": "ui-chrome",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19842,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:54:03.727Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Rzeczywisty screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-04-Niepoprawny-email-w-kontakcie-ui-chrome\\attachments\\Rzeczywisty-screenshot-ad09d84e940e78ae5a332f188767da13c9b94251.png"
+                    },
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-04-Niepoprawny-email-w-kontakcie-ui-chrome\\attachments\\Dowód-wykonania-3019f2623eea1717dd9a427314da5fe5cff3bd8b.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d425444c687fa36b5882-b199d78542f93c13a8de",
+          "file": "ui.spec.ts",
+          "line": 42,
+          "column": 5
+        },
+        {
+          "title": "UI-05 Temat 4 znaki: poniżej minimum",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "ui-chrome",
+              "projectName": "ui-chrome",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10463,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:54:23.583Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Rzeczywisty screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-05-Temat-4-znaki-poniżej-minimum-ui-chrome\\attachments\\Rzeczywisty-screenshot-197db35be1378da6f800383136e5f804ad1cef0c.png"
+                    },
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-05-Temat-4-znaki-poniżej-minimum-ui-chrome\\attachments\\Dowód-wykonania-a026f243e1ca61b17b12184686f8ad053888ab8f.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d425444c687fa36b5882-ec627fff62afa10568cf",
+          "file": "ui.spec.ts",
+          "line": 48,
+          "column": 5
+        },
+        {
+          "title": "UI-06 Temat 5 znaków: dolna granica",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "ui-chrome",
+              "projectName": "ui-chrome",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2022,
+                  "error": {
+                    "message": "Error: Usunięto własną wiadomość UI\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
+                    "stack": "Error: Usunięto własną wiadomość UI\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.checkSoft (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:33:243)\n    at cleanupUiMessage (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:76:7)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\ui.spec.ts:53:288",
+                    "location": {
+                      "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                      "column": 243,
+                      "line": 33
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39m..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   note(value:any){this.observations.push(redact(value))}\n  35 |   async save() {\n  36 |     const id=this.info.title.match(/(?:UI|API)-\\d+/)?.[0]||'unknown';"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                        "column": 243,
+                        "line": 33
+                      },
+                      "message": "Error: Usunięto własną wiadomość UI\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   note(value:any){this.observations.push(redact(value))}\n  35 |   async save() {\n  36 |     const id=this.info.title.match(/(?:UI|API)-\\d+/)?.[0]||'unknown';\n    at Audit.checkSoft (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:33:243)\n    at cleanupUiMessage (E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts:76:7)\n    at E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\ui.spec.ts:53:288"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:54:34.058Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\\test-failed-1.png"
+                    },
+                    {
+                      "name": "Rzeczywisty screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\\attachments\\Rzeczywisty-screenshot-0c72657bba68edbd616294922d8625fc01328900.png"
+                    },
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\\attachments\\Dowód-wykonania-07d602ea345d8f69fcbfbb542892dd9bd58b8f42.json"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\helpers\\audit.ts",
+                    "column": 243,
+                    "line": 33
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d425444c687fa36b5882-8bd30632c347d72c26b3",
+          "file": "ui.spec.ts",
+          "line": 51,
+          "column": 5
+        },
+        {
+          "title": "UI-07 Telefon 10 znaków: poniżej minimum",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "ui-chrome",
+              "projectName": "ui-chrome",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 19872,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:54:37.136Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Rzeczywisty screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-07-Telefon-10-znaków-poniżej-minimum-ui-chrome\\attachments\\Rzeczywisty-screenshot-3a0fb74daf0b666cb6e5a0e0d47c3167439e480e.png"
+                    },
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-07-Telefon-10-znaków-poniżej-minimum-ui-chrome\\attachments\\Dowód-wykonania-48be9861e257eca8ce2558a048edf3e6476e2757.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d425444c687fa36b5882-eeda95c8233e71bd565d",
+          "file": "ui.spec.ts",
+          "line": 55,
+          "column": 5
+        },
+        {
+          "title": "UI-08 Cena rezerwacji dwóch nocy",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "blocked",
+                  "description": "Szczegóły pokoju HTTP 500; DEF-01. Brak formularza rezerwacji."
+                },
+                {
+                  "type": "skip",
+                  "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
+                  "location": {
+                    "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\ui.spec.ts",
+                    "line": 26,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "ui-chrome",
+              "projectName": "ui-chrome",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 18994,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:54:57.723Z",
+                  "annotations": [
+                    {
+                      "type": "blocked",
+                      "description": "Szczegóły pokoju HTTP 500; DEF-01. Brak formularza rezerwacji."
+                    },
+                    {
+                      "type": "skip",
+                      "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\ui.spec.ts",
+                        "line": 26,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "Rzeczywisty screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-08-Cena-rezerwacji-dwóch-nocy-ui-chrome\\attachments\\Rzeczywisty-screenshot-b2546b042020e86bf572ed065e9338a9ea1128ee.png"
+                    },
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-08-Cena-rezerwacji-dwóch-nocy-ui-chrome\\attachments\\Dowód-wykonania-6b8912f803dc0cd83d10a0eea3b6e49ad2a6760e.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "d425444c687fa36b5882-dc305400b33292626e89",
+          "file": "ui.spec.ts",
+          "line": 58,
+          "column": 5
+        },
+        {
+          "title": "UI-09 Puste dane gościa w rezerwacji",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "blocked",
+                  "description": "Szczegóły pokoju HTTP 500; DEF-01. Brak formularza rezerwacji."
+                },
+                {
+                  "type": "skip",
+                  "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
+                  "location": {
+                    "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\ui.spec.ts",
+                    "line": 26,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "ui-chrome",
+              "projectName": "ui-chrome",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 9626,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:55:16.733Z",
+                  "annotations": [
+                    {
+                      "type": "blocked",
+                      "description": "Szczegóły pokoju HTTP 500; DEF-01. Brak formularza rezerwacji."
+                    },
+                    {
+                      "type": "skip",
+                      "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\ui.spec.ts",
+                        "line": 26,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "Rzeczywisty screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-09-Puste-dane-gościa-w-rezerwacji-ui-chrome\\attachments\\Rzeczywisty-screenshot-3a2beaf1f30c1189652292aae12e67eaf8eaff57.png"
+                    },
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-09-Puste-dane-gościa-w-rezerwacji-ui-chrome\\attachments\\Dowód-wykonania-f9188ca2d75c0db560c24518b6ced0de1f1e844b.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "d425444c687fa36b5882-750880f61f847a8f5f0f",
+          "file": "ui.spec.ts",
+          "line": 61,
+          "column": 5
+        },
+        {
+          "title": "UI-10 Rezerwacja zachowuje wybrane daty",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [
+                {
+                  "type": "blocked",
+                  "description": "Szczegóły pokoju HTTP 500; DEF-01. Brak formularza rezerwacji."
+                },
+                {
+                  "type": "skip",
+                  "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
+                  "location": {
+                    "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\ui.spec.ts",
+                    "line": 26,
+                    "column": 10
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "ui-chrome",
+              "projectName": "ui-chrome",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "skipped",
+                  "duration": 744,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:55:26.371Z",
+                  "annotations": [
+                    {
+                      "type": "blocked",
+                      "description": "Szczegóły pokoju HTTP 500; DEF-01. Brak formularza rezerwacji."
+                    },
+                    {
+                      "type": "skip",
+                      "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
+                      "location": {
+                        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\ui.spec.ts",
+                        "line": 26,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "attachments": [
+                    {
+                      "name": "Rzeczywisty screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-10-Rezerwacja-zachowuje-wybrane-daty-ui-chrome\\attachments\\Rzeczywisty-screenshot-45d3942af6314a97cb177562b0d2fc0ab114d5a7.png"
+                    },
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-10-Rezerwacja-zachowuje-wybrane-daty-ui-chrome\\attachments\\Dowód-wykonania-2a3a196d363c250b58b7289ecc7afd57654a990c.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "d425444c687fa36b5882-1077ac5d5f1e8bbfc5e6",
+          "file": "ui.spec.ts",
+          "line": 65,
+          "column": 5
+        },
+        {
+          "title": "UI-11 Błędne logowanie administratora",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "ui-chrome",
+              "projectName": "ui-chrome",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 836,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:55:27.130Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Rzeczywisty screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-11-Błędne-logowanie-administratora-ui-chrome\\attachments\\Rzeczywisty-screenshot-a6f460add1475e35eb254faf36c49bb49d1bd3f3.png"
+                    },
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-11-Błędne-logowanie-administratora-ui-chrome\\attachments\\Dowód-wykonania-5df5409bce944a7df7a3098dba11d691fd31ac8b.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d425444c687fa36b5882-8d9222d04080c8d21fdb",
+          "file": "ui.spec.ts",
+          "line": 73,
+          "column": 5
+        },
+        {
+          "title": "UI-12 Wyszukanie dostępności dla poprawnego okresu",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "ui-chrome",
+              "projectName": "ui-chrome",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1345,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-13T15:55:27.979Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "Rzeczywisty screenshot",
+                      "contentType": "image/png",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-12-Wyszukanie-dostępności-dla-poprawnego-okresu-ui-chrome\\attachments\\Rzeczywisty-screenshot-8f772643206ff9b8557fdfed80370095e62a4a02.png"
+                    },
+                    {
+                      "name": "Dowód wykonania",
+                      "contentType": "application/json",
+                      "path": "E:\\qa nowicki\\QA-Project\\05_Automation\\reports\\artifacts\\ui-UI-12-Wyszukanie-dostępności-dla-poprawnego-okresu-ui-chrome\\attachments\\Dowód-wykonania-c245ad519fe46ddba35277de7f62f6e760df395f.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d425444c687fa36b5882-df3aa1618823ceca85bd",
+          "file": "ui.spec.ts",
+          "line": 77,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-13T15:52:55.990Z",
+    "duration": 153577.40099999998,
+    "expected": 12,
+    "skipped": 3,
+    "unexpected": 7,
+    "flaky": 0
+  }
+}
