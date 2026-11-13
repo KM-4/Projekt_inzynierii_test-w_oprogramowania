@@ -1,0 +1,401 @@
+STRONA 1
+Projekt zespołowy • Inżynieria testów oprogramowania
+C E L  P R O J E K T U
+Co macie osiągnąć?
+Nie chodzi o „znaleźć jak najwięcej bugów”, tylko o zaprojektować i przeprowadzić sensowny proces testowy.
+1
+Analiza ryzyka
+Ustalić, które funkcje są najważniejsze i 
+gdzie awaria najbardziej boli.
+2
+Projekt testów
+Dobierać dane, techniki i scenariusze 
+zamiast losowo klikać aplikację.
+3
+Wykonanie i dowody
+Rejestrować statusy testów, obserwacje i 
+problemy tak, aby wynik dało się odtworzyć.
+4
+Ocena jakości
+Na końcu wydać decyzję Go / Conditional 
+Go / No-Go i ją obronić.
+Pytanie końcowe projektu: „Na jakiej podstawie twierdzicie, że system jest wystarczająco dobry - albo że nie jest?”
+Odniesienie: ISTQB CTFL 4.0.1 - test planning, analysis, design, execution, completion i risk-based testing.
+1
+
+STRONA 2
+Projekt zespołowy • Inżynieria testów oprogramowania
+S Y S T E M  U N D E R  T E S T
+Przykładowy obiekt testów: Restful-Booker-Platform
+Publiczna aplikacja szkoleniowa typu Bed & Breakfast z frontendem oraz zestawem usług API.
+https://automationintesting.online/
+RESTFUL BOOKER
+UI + API
+Przykładowe obszary: pokoje, rezerwacje, formularz kontaktowy, funkcje administracyjne, usługi 
+REST.
+Środowisko celowo służy do nauki testowania - i zawiera problemy do odkrycia.
+Stan nie jest trwały Dane środowiska są okresowo resetowane; nie 
+opierajcie testów na stałym ID.
+API jest częścią projektu Do testów API możecie użyć np. Postmana, 
+Insomnii albo curl.
+Bez testów obciążeniowych Publicznego środowiska nie stresujemy dużym 
+ruchem; performance jest poza zakresem.
+Źródła: github.com/mwinteringham/restful-booker-platform • automationintesting.online • Postman Restful Booker Collections.
+2
+
+STRONA 3
+Projekt zespołowy • Inżynieria testów oprogramowania
+O R G A N I Z A C J A
+Zespół i odpowiedzialność
+Projekt wykonujecie w zespołach 3–4 osobowych.
+3–4
+osoby w zespole
+1
+wspólna paczka
+5–7 min
+obrona zespołu
+100 pkt
+maksymalnie
+Przykładowy podział ról
+Test lead / koordynacja pilnuje zakresu, ryzyk, terminów i 
+spójności artefaktów
+Test design projektuje przypadki i dobiera 
+techniki
+Execution / defects wykonuje testy, zbiera evidence i 
+raportuje problemy
+API / automation przygotowuje część API i 
+automatyzację
+Role mogą się mieszać i rotować. W README każdy zespół krótko opisuje wkład każdego członka.
+3
+
+STRONA 4
+Projekt zespołowy • Inżynieria testów oprogramowania
+P R O C E S
+Pięć etapów projektu
+1
+Analiza + plan
+zakres, ryzyka, środowisko
+2
+Projekt testów
+przypadki, techniki, charter
+3
+Wykonanie
+statusy, evidence, defekty
+4
+API + automatyzacja
+powtarzalne testy techniczne
+5
+Podsumowanie
+metryki, ryzyka, decyzja
+Każdy artefakt może zostać poprawiony po checkpointcie - ważna jest wersja finalna oraz spójność między dokumentami.
+ISTQB CTFL 4.0.1: test planning, monitoring/control, analysis, design, implementation, execution i completion są działaniami procesu testowego.
+4
+
+STRONA 5
+Projekt zespołowy • Inżynieria testów oprogramowania
+E T A P  1
+Plan testów i analiza ryzyka
+TEST PLAN - wymagane elementy
+• cel testów i krótki opis systemu
+• zakres IN oraz zakres OUT
+• środowisko, narzędzia i przeglądarki
+• podział odpowiedzialności w zespole
+• kryteria wejścia i zakończenia testów
+• ograniczenia i założenia
+1–2 strony wystarczą
+RYZYKA - minimum 5
+Dla każdego ryzyka zapiszcie:
+• obszar / funkcja
+• co może pójść źle
+• prawdopodobieństwo: 1–3
+• wpływ: 1–3
+• poziom ryzyka = P × I
+• jak ryzyko wpływa na priorytet testów
+Ryzyko nie musi oznaczać znanego błędu - to hipoteza o możliwym problemie i jego 
+skutku.
+5
+
+STRONA 6
+Projekt zespołowy • Inżynieria testów oprogramowania
+E T A P  2
+Projekt przypadków testowych
+Minimum 20 udokumentowanych przypadków testowych na zespół - ale oceniana jest jakość doboru, nie samą liczbę.
+20
+test cases łącznie
+≥ 12
+UI / end-to-end
+≥ 6
+API
+≥ 6
+negatywnych
+3
+techniki obowiązkowe
+Każdy test case musi zawierać
+• ID + nazwa/cel
+• priorytet
+• warunki wstępne
+• dane testowe
+• kroki
+• oczekiwany rezultat
+• po wykonaniu: actual result + status + evidence
+Techniki - pokażcie co najmniej 1 przykład każdej
+EP partycjonowanie klas równoważności
+BVA analiza wartości brzegowych
+DT tablica decyzyjna
+Jeden przypadek może jednocześnie spełniać kilka kategorii (np. API + negatywny + 
+BVA).
+6
+
+STRONA 7
+Projekt zespołowy • Inżynieria testów oprogramowania
+E T A P  2
+Testy eksploracyjne - obowiązkowe
+Przypadki testowe nie zastępują eksploracji. Zespół przeprowadza osobną, ograniczoną czasowo sesję.
+1
+charter
+jedna jasno zdefiniowana misja 
+eksploracyjna na zespół
+30–45 min
+Co ma się znaleźć w notatce z sesji?
+1 Misja np. „spróbuj znaleźć problemy w rezerwacji przy nietypowych datach i danych użytkownika”
+2 Heurystyki / pomysły jakich klas danych i zachowań szukaliście
+3 Obserwacje co zaskoczyło, gdzie system był niejednoznaczny
+4 Defekty / pytania link/ID do zgłoszenia albo kwestia do dalszej weryfikacji
+Eksploracja nie liczy się do minimum 20 test case’ów - to osobny artefakt.
+7
+
+STRONA 8
+Projekt zespołowy • Inżynieria testów oprogramowania
+E T A P  2  /  3
+Wymagania dla testów API
+Minimum 6 przypadków API obejmujących co najmniej 3 różne operacje lub endpointy.
+Pozytywne
+• poprawne dane wejściowe
+• oczekiwany status HTTP
+• sprawdzenie kluczowych pól odpowiedzi
+Negatywne
+• brak wymaganych pól
+• błędny typ / format danych
+• nieistniejący zasób / brak auth, jeśli dotyczy
+Spójność
+• utwórz → odczytaj
+• zmień → potwierdź zmianę
+• nie opieraj testów na stałych ID
+Dozwolone narzędzia: Postman / Insomnia / curl / własny skrypt. W evidence ma być widoczny request, response i wynik asercji / walidacji.
+Restful-Booker-Platform udostępnia wiele usług API (m.in. booking, room, message, auth); dokumentacja jest dostępna w repozytorium i kolekcjach Postman.
+8
+
+STRONA 9
+Projekt zespołowy • Inżynieria testów oprogramowania
+E T A P  4
+Automatyzacja - część obowiązkowa
+Minimum 3 powtarzalne testy automatyczne. Liczy się asercja i możliwość ponownego uruchomienia, nie liczba linii kodu.
+3
+automatyczne scenariusze
+1
+test pozytywny
+1
+test negatywny
+1
+walidacja danych/stanu
+Możliwe warianty
+• UI: Playwright / Cypress / Selenium
+• API: Postman tests + Newman
+• API/UI: własny skrypt w dowolnym języku
+• możecie mieszać narzędzia
+Co oddać?
+• kod / kolekcję testową
+• README: jak uruchomić
+• wynik ostatniego uruchomienia
+• co najmniej jedna jawna asercja w każdym teście
+Jeśli automatyzacja nie działa na czystym środowisku zgodnie z README, traktujemy ją jako niewykonaną.
+9
+
+STRONA 10
+Projekt zespołowy • Inżynieria testów oprogramowania
+E T A P  3
+Wykonanie testów i evidence
+Wszystkie zaplanowane przypadki muszą mieć status.
+PASS wynik zgodny z 
+oczekiwanym
+FAIL wykryta niezgodność / 
+failure
+BLOCKED testu nie da się wykonać 
+z powodu przeszkody
+NOT RUN przypadek zaplanowany, 
+ale niewykonany
+Evidence - co uznajemy za wystarczający dowód?
+UI zrzut ekranu / krótki opis + dane wejściowe / widoczny rezultat API request + response + status code / asercja
+Automation log / raport test runnera / screenshot wyniku Defekt dowód problemu + link/ID do raportu defektu
+Nie wymagamy screenshotu dla każdego kroku. Evidence ma pozwolić potwierdzić wynik, a nie produkować gigabajty obrazków.
+10
+
+STRONA 11
+Projekt zespołowy • Inżynieria testów oprogramowania
+D E F E C T  M A N A G E M E N T
+Jak raportować znalezione problemy?
+Raport defektu ma umożliwić innej osobie odtworzenie problemu bez kontaktowania się z autorem.
+Każdy raport defektu zawiera
+• ID + krótki tytuł
+• środowisko / URL / data
+• preconditions
+• dokładne kroki reprodukcji
+• expected result vs actual result
+• severity + priority
+• evidence
+• powiązany test case, jeśli istnieje
+Nie ma minimalnej liczby bugów
+Jeżeli znaleźliście 0 problemów, nadal możecie uzyskać pełną punktację - o ile testy 
+były dobre, wykonane i poprawnie udokumentowane.
+Duplicate ≠ nowy defekt
+Jeśli kilka testów ujawnia ten sam root cause / symptom, raportujecie jeden defekt i 
+linkujecie do niego wiele testów.
+11
+
+STRONA 12
+Projekt zespołowy • Inżynieria testów oprogramowania
+D E F E C T  M A N A G E M E N T
+Severity i priority - prosta skala
+Severity opisuje wpływ techniczny/biznesowy problemu. Priority - jak szybko powinien być naprawiony.
+SEVERITY
+S1 Critical blokada kluczowego procesu / utrata danych
+S2 High istotna funkcja nie działa, brak sensownego obejścia
+S3 Medium problem ograniczony; obejście istnieje
+S4 Low drobna wada, UX / kosmetyka
+PRIORITY
+P1 naprawić natychmiast
+P2 wysoki priorytet
+P3 normalny backlog
+P4 niski priorytet
+12
+
+STRONA 13
+Projekt zespołowy • Inżynieria testów oprogramowania
+E T A P  5
+Test Summary Report
+Końcowy raport ma odpowiedzieć: co sprawdziliśmy, z jakim wynikiem, co pozostało ryzykiem i jaka jest rekomendacja.
+1 Zakres i środowisko wersja/URL, daty testów, przeglądarka, narzędzia
+2 Metryki wykonania planned / executed / pass / fail / blocked / not run
+3 Defekty liczba unikalnych problemów wg severity + najważniejsze przypadki
+4 Ryzyka i ograniczenia co pozostaje nieprzetestowane lub niepewne
+5 Rekomendacja Go / Conditional Go / No-Go + krótkie uzasadnienie
+RE K O ME N DACJ A
+GO
+ryzyko akceptowalne
+CONDITIONAL GO
+warunki / ograniczenia
+NO-GO
+ryzyko nieakceptowalne
+Raport: 2–4 strony + tabele/wykresy według potrzeb. Nie powtarzajcie pełnej treści test planu.
+13
+
+STRONA 14
+Projekt zespołowy • Inżynieria testów oprogramowania
+O D D A N I E
+Struktura paczki końcowej
+Jedna paczka ZIP na zespół. Nazwa: Z##_Nazwisko1_Nazwisko2_Nazwisko3[_Nazwisko4].zip
+README.md skład zespołu, wkład osób, sposób uruchomienia automatyzacji
+01_TestPlan.pdf zakres, ryzyka, środowisko, kryteria
+02_TestCases.xlsx minimum 20 przypadków + statusy + linki do evidence
+03_Exploratory.pdf / .md charter i notatka z sesji
+04_Defects.xlsx / .pdf unikalne raporty defektów
+05_Automation/ kod/kolekcja + zależności + wynik uruchomienia
+06_TestSummaryReport.pdf metryki, ryzyka, rekomendacja
+evidence/ zrzuty, eksporty, raporty runnera - tylko potrzebne dowody
+Formaty mogą się różnić technicznie (np. CSV zamiast XLSX), jeśli zachowacie tę samą informację i czytelność.
+14
+
+STRONA 15
+Projekt zespołowy • Inżynieria testów oprogramowania
+O C E N A
+Punktacja - 100 pkt
+Każda część odpowiada konkretnemu elementowi pracy. Brak artefaktu oznacza 0 pkt za daną kategorię, ale nie zeruje całego projektu.
+Plan + ryzyka 15 pkt
+ Projekt testów + techniki 20 pkt
+Wykonanie + evidence 15 pkt
+ Defect reports 15 pkt
+Testy API 10 pkt
+ Automatyzacja 10 pkt
+Test Summary + wnioski 10 pkt
+ Organizacja + obrona 5 pkt
+Jakość > ilość: dodatkowe 30 podobnych testów nie daje automatycznie więcej punktów.
+15
+
+STRONA 16
+Projekt zespołowy • Inżynieria testów oprogramowania
+O C E N A
+Co dokładnie jest jakościowo oceniane?
+Rubryka nie ogranicza się do „czy plik istnieje”. Każdy artefakt musi być spójny z resztą projektu.
+Uzasadnienie
+Czy zakres i priorytety wynikają z ryzyk, a nie z przypadku?
+Pokrycie
+Czy testy obejmują happy path, negatywne dane i granice?
+Reprodukowalność
+Czy test i bug może powtórzyć ktoś, kto nie był autorem?
+Spójność
+Czy wyniki testów, defekty, metryki i raport końcowy się 
+zgadzają?
+Wnioski
+Czy rekomendacja końcowa jest proporcjonalna do 
+zebranych dowodów?
+Obrona
+Czy każdy członek potrafi wyjaśnić kluczowe decyzje 
+zespołu?
+Nie oceniam „ładnego PDF-a” jako substytutu poprawnego testowania.
+16
+
+STRONA 17
+Projekt zespołowy • Inżynieria testów oprogramowania
+Z A S A D Y
+Czego nie robić
+Kilka zasad, które zapobiegają typowym „projektom pod checklistę”.
+×
+Nie kopiujcie gotowych testów z 
+Internetu Możecie się inspirować, ale test case’y i wnioski 
+muszą wynikać z Waszej analizy systemu.
+× Nie liczcie bugów jako punktów „Znaleźliśmy 15 błędów” bez dobrych testów i 
+raportów nie jest przewagą.
+× Nie hardkodujcie stanu środowiska Dane są resetowane; automaty i API powinny 
+tworzyć/pobierać potrzebny stan dynamicznie.
+×
+Nie róbcie performance na publicznej 
+instancji Duże obciążenie jest poza zakresem tego projektu.
+× Nie chowajcie niewykonanych testów NOT RUN / BLOCKED to prawidłowe statusy, jeśli są 
+jawne i uzasadnione.
+× Nie piszcie „działa / nie działa” Wniosek ma zawsze wskazywać zakres, evidence i 
+pozostałe ryzyko.
+17
+
+STRONA 18
+Projekt zespołowy • Inżynieria testów oprogramowania
+M A T E R I A Ł Y
+Źródła i narzędzia
+Nie trzeba czytać całego ISTQB. Użyjcie źródeł jako wsparcia do konkretnych decyzji projektowych.
+W
+W3Schools.in - Software Testing Tutorials
+proste wprowadzenie: types, levels, documentation, API, automation
+https://www.w3schools.in/software-testing/tutorials/
+I
+ISTQB CTFL 4.0.1
+proces testowy, techniki black-box, ryzyko, defect management
+https://www.istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/
+R
+Restful-Booker-Platform
+repozytorium i informacje o systemie szkoleniowym
+https://github.com/mwinteringham/restful-booker-platform
+P
+Postman Restful Booker Collections
+gotowa dokumentacja/kolekcje do poznania usług API
+https://www.postman.com/automation-in-testing/restful-booker-collections/overview
+Narzędzia są dowolne: arkusz, dokumenty, Postman/Insomnia/curl, Playwright/Cypress/Selenium, Git - wybierzcie to, co pomaga Wam uzyskać powtarzalny wynik.
+18
+
+STRONA 19
+Projekt zespołowy • Inżynieria testów oprogramowania
+S T A R T
+Co robicie od razu po tych zajęciach?
+1 Utwórzcie zespół 3–4 osoby ustalcie kanał komunikacji i osobę odpowiedzialną za oddanie paczki
+2 Otwórzcie system i zróbcie reconnaissance poznajcie UI, przejdźcie główne przepływy, zobaczcie API / repo
+3 Załóżcie wspólny folder lub repo od razu przygotujcie strukturę plików z tej prezentacji
+4 Zacznijcie Test Plan i listę ryzyk do checkpointu D+7 ma istnieć zakres IN/OUT i minimum 5 ryzyk
+19

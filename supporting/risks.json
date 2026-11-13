@@ -1,0 +1,101 @@
+[
+  {
+    "id": "R-01",
+    "area": "Rezerwacja",
+    "description": "Gość nie może otworzyć formularza lub zakończyć rezerwacji mimo dostępnego pokoju.",
+    "P": 3,
+    "I": 3,
+    "reason": "Główny cel biznesowy B&B. Najpierw testy P1 dostępności, szczegółów i cyklu rezerwacji.",
+    "score": 9,
+    "cases": [
+      "UI-08",
+      "UI-09",
+      "UI-10",
+      "UI-12",
+      "API-02",
+      "API-10"
+    ]
+  },
+  {
+    "id": "R-02",
+    "area": "Katalog",
+    "description": "Lista, szczegóły i ceny pokoju są niespójne lub błędnie obsługują brak zasobu.",
+    "P": 2,
+    "I": 2,
+    "reason": "Błędna oferta utrudnia wybór; szczegóły są też zależnością rezerwacji.",
+    "score": 4,
+    "cases": [
+      "UI-01",
+      "API-01",
+      "API-02",
+      "API-03"
+    ]
+  },
+  {
+    "id": "R-03",
+    "area": "Walidacja danych",
+    "description": "Puste, za krótkie lub źle typowane dane są akceptowane albo powodują błąd serwera.",
+    "P": 3,
+    "I": 2,
+    "reason": "P2 dla lokalnej walidacji kontaktu (I=2); przy tym samym P×I wyższy wpływ I=3 rezerwacji i uprawnień daje P1. EP/BVA/DT ograniczają ryzyko błędnego zapisu.",
+    "score": 6,
+    "cases": [
+      "UI-02",
+      "UI-03",
+      "UI-04",
+      "UI-05",
+      "UI-06",
+      "UI-07",
+      "UI-09",
+      "API-04",
+      "API-05",
+      "API-06",
+      "API-09"
+    ]
+  },
+  {
+    "id": "R-04",
+    "area": "Uprawnienia",
+    "description": "Osoba bez poprawnego konta uzyskuje dostęp do rezerwacji lub operacji administracyjnych.",
+    "P": 2,
+    "I": 3,
+    "reason": "Dane gości i stan administracyjny wymagają kontroli dostępu. Negatywne testy P1.",
+    "score": 6,
+    "cases": [
+      "UI-11",
+      "API-07",
+      "API-08",
+      "API-09",
+      "API-10"
+    ]
+  },
+  {
+    "id": "R-05",
+    "area": "Daty i naliczenia",
+    "description": "Wybrany okres zmienia się pomiędzy UI, requestem i rezerwacją albo cena używa złej liczby nocy.",
+    "P": 2,
+    "I": 3,
+    "reason": "Błąd daty lub ceny dotyka terminu pobytu i płatności. Weryfikacja w strefie Europe/Warsaw.",
+    "score": 6,
+    "cases": [
+      "UI-08",
+      "UI-10",
+      "UI-12"
+    ]
+  },
+  {
+    "id": "R-06",
+    "area": "Stan i izolacja",
+    "description": "Reset usuwa dane w połowie testu; awaria sprzątania pozostawia rekordy; współbieżny użytkownik zmienia stan.",
+    "P": 3,
+    "I": 2,
+    "reason": "Ryzyko przekrojowe: świeży stan, jeden worker, markery QA i cleanup w każdym teście zapisu. Priorytet przypadku wynika z procesu: rezerwacja P1, kontakt P2.",
+    "score": 6,
+    "cases": [
+      "UI-02",
+      "UI-06",
+      "API-09",
+      "API-10"
+    ]
+  }
+]

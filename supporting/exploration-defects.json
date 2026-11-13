@@ -1,0 +1,65 @@
+[
+  {
+    "id": "DEF-03",
+    "title": "Niepoprawny lub wycofany token odczytu rezerwacji daje HTTP 500",
+    "environment": "Windows; Chrome 157.0.8103.52; Playwright APIRequestContext 1.62.1; EXP-02; publiczne /api/*",
+    "url": "https://automationintesting.online/api/booking",
+    "date": "2026-11-13T16:56:34.239Z",
+    "severity": "S3",
+    "priority": "P3",
+    "state": "Otwarty; powtórzony z kontrolami pozytywną i negatywną",
+    "preconditions": "Bieżący roomid pobrany z GET /api/room. Żądania odczytu, bez tworzenia rezerwacji. Do kontroli pozytywnej token z aktualnego logowania szkoleniowego.",
+    "steps": [
+      "GET /api/room: pobierz istniejący roomid.",
+      "GET /api/booking?roomid=<roomid> bez Cookie: kontrola 401.",
+      "Wyślij ten sam GET z Cookie: token=invalid-exp02-controlled.",
+      "Powtórz z poprawnym tokenem z aktualnego POST /api/auth/login.",
+      "Porównaj z POST /api/auth/validate dla niepoprawnego tokenu; opcjonalnie sprawdź pusty Cookie token=."
+    ],
+    "expected": "Niepoprawny/nieważny token powinien dać odpowiedź autoryzacji 401 lub 403, bez danych rezerwacji. Poprawny token: 200. Sam validate dla niepoprawnego tokenu daje 403.",
+    "actual": "Błędny token i pusty Cookie w GET kolekcji dają 500 oraz []; brak tokenu 401, poprawny token 200. Powtórzenie potwierdziło wynik. Wcześniej poprawny token później dostał 403 w validate i 500 w kolekcji.",
+    "impact": "Błąd danych/sesji jest przedstawiany jako awaria serwera. Ponowne logowanie działa jako obejście. Nie wykryto ujawnienia danych ani obejścia kontroli dostępu.",
+    "evidence": [
+      "evidence/exploratory/DEF-03-auth.json",
+      "evidence/exploratory/session.json"
+    ],
+    "cases": [
+      "EXP-02"
+    ],
+    "deduplication": "Jeden raport dla niepoprawnego, pustego i później odrzuconego tokenu w tej samej operacji kolekcji. Odrębny od DEF-01: URL nie zawiera ID zasobu w ścieżce."
+  },
+  {
+    "id": "DEF-04",
+    "title": "W UTC+14 dostępność jest wyszukiwana dla dat o dzień wcześniejszych niż wybór",
+    "environment": "Windows; Chrome 157.0.8103.52; Pacific/Kiritimati (UTC+14); rzeczywisty zegar, bez mocków; kontrola UTC i Europe/Warsaw; EXP-02",
+    "url": "https://automationintesting.online/",
+    "date": "2026-11-13T16:48:22.425Z",
+    "severity": "S2",
+    "priority": "P2",
+    "state": "Otwarty; potwierdzony wpisywaniem i wyborem z kalendarza",
+    "preconditions": "Kontekst Chrome timezoneId=Pacific/Kiritimati; bieżąca lokalna data ma być dzień późniejsza od UTC (badano ok. 06:48 czasu lokalnego, 16:48 UTC poprzedniego dnia). Identyczna wersja Chrome/format dat w kontekście kontrolnym UTC.",
+    "steps": [
+      "Otwórz stronę w kontekście Pacific/Kiritimati przy podanym warunku czasu. Zweryfikuj strefę przez Intl.DateTimeFormat().resolvedOptions().timeZone.",
+      "Wpisz Check In=12/01/2027, Check Out=14/01/2027, zatwierdź Tab.",
+      "Kliknij Check Availability i odczytaj request GET /api/room?checkin=...&checkout=... oraz linki Book now.",
+      "Powtórz wyborem 18 i 20 stycznia 2027 z kalendarza.",
+      "Kontrola: te same 12–14 stycznia w UTC. Jeżeli warunek różnicy dat UTC/lokalnej nie jest spełniony, odtwórz w odpowiednim oknie czasu; nie oczekuj tej samej reprodukcji o każdej godzinie."
+    ],
+    "expected": "Daty wyszukiwania i linków odpowiadają datom widocznym w polach, niezależnie od strefy klienta: 12–14 stycznia -> 2027-01-12/2027-01-14.",
+    "actual": "W UTC+14 pola/linki: 12–14 stycznia; request: 11–13 stycznia. Kalendarz: pola/linki 18–20, request 17–19. Domyślne daty też przesunięte. W kontroli UTC te same wpisane 12–14 przechodzą poprawnie.",
+    "impact": "Wynik dostępności dotyczy innego okresu niż wybór i link rezerwacji. Może powodować błędną ofertę dostępności. Końcowy zapis i cena nie zostały sprawdzone z powodu DEF-01; nie twierdzimy, że utworzono błędny pobyt.",
+    "evidence": [
+      "evidence/exploratory/DEF-04-dates.json",
+      "evidence/exploratory/session.json",
+      "evidence/exploratory/EXP-02-16-timezone-default.png",
+      "evidence/exploratory/EXP-02-17-timezone-chosen.png",
+      "evidence/exploratory/EXP-02-20-date-panel-utc14.png",
+      "evidence/exploratory/EXP-02-21-date-panel-utc.png",
+      "evidence/exploratory/EXP-02-19-timezone-calendar.png"
+    ],
+    "cases": [
+      "EXP-02"
+    ],
+    "deduplication": "Jeden problem konwersji dat dla trzech wariantów wejścia. UI-12 zachowuje historyczny PASS w Europe/Warsaw; nowy defekt dotyczy rozszerzenia środowiska podczas eksploracji."
+  }
+]

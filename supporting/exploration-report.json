@@ -1,0 +1,239 @@
+{
+  "sessionId": "EXP-02",
+  "student": {
+    "name": "Kamil Andrzejewski",
+    "studentNumber": "83741"
+  },
+  "operator": "Asystent AI przez Playwright; student wskazany do dokumentacji, bez przypisywania mu wykonania sesji.",
+  "plannedMinutes": 35,
+  "actualMinutes": 30.607583333333334,
+  "startedAt": "2026-11-13T16:31:56.234Z",
+  "finishedAt": "2026-11-13T17:02:32.689Z",
+  "events": 114,
+  "explicitApiRequests": 51,
+  "milestones": [
+    {
+      "time": "2026-11-13T16:32:12.182Z",
+      "label": "Strona i katalog",
+      "description": "Katalog 200; po załadowaniu zgodne typy/ceny/linki."
+    },
+    {
+      "time": "2026-11-13T16:33:14.827Z",
+      "label": "Rezerwacja UI",
+      "description": "Szczegóły 500; wszystkie 3 bieżące ID też 500. DEF-01."
+    },
+    {
+      "time": "2026-11-13T16:33:56.530Z",
+      "label": "Daty w UI",
+      "description": "Poprawne, równe, odwrócone i nieistniejące dni; bez zapisu pobytu."
+    },
+    {
+      "time": "2026-11-13T16:36:42.290Z",
+      "label": "Dolne granice",
+      "description": "Subject 4 odrzucony, 5 przyjęty; własny rekord potwierdzony na liście."
+    },
+    {
+      "time": "2026-11-13T16:39:36.033Z",
+      "label": "Górne granice",
+      "description": "101 odrzucone, 100 przyjęte; phone 21 i description 2000 przyjęte."
+    },
+    {
+      "time": "2026-11-13T16:41:48.942Z",
+      "label": "UTF-8 i poprawa",
+      "description": "Email/phone odrzucone; poprawa przyjęta; nazwa i temat z polskimi znakami na liście."
+    },
+    {
+      "time": "2026-11-13T16:42:55.339Z",
+      "label": "Kontrola dostępu",
+      "description": "Błędny Cookie: 500; poprawny: 200; brak: 401. Nowe DEF-03."
+    },
+    {
+      "time": "2026-11-13T16:48:22.425Z",
+      "label": "Kalendarz i strefy",
+      "description": "Pola/linki i request różnią się o dzień. Nowe DEF-04; kontrola UTC poprawna."
+    },
+    {
+      "time": "2026-11-13T16:51:30.723Z",
+      "label": "Białe znaki i JSON",
+      "description": "Whitespace odrzucony 400; obiekt email/phone array i błędny JSON: 500, powiązane z DEF-02."
+    },
+    {
+      "time": "2026-11-13T16:52:42.387Z",
+      "label": "Pełne granice",
+      "description": "Uzupełniono Phone 22 oraz Description 19/2001: wszystkie 400."
+    },
+    {
+      "time": "2026-11-13T16:59:31.537Z",
+      "label": "Odzyskanie ścieżki",
+      "description": "Front Page i Back działają; drugi pokój też blokuje się na 500."
+    },
+    {
+      "time": "2026-11-13T17:02:29.847Z",
+      "label": "Zamknięcie",
+      "description": "Ostatni odczyt: lista 200, szczegóły 500. Zapisano trace i zakończono przeglądarki."
+    }
+  ],
+  "boundaries": [
+    {
+      "field": "subject",
+      "minMinusOne": {
+        "length": 4,
+        "status": 400
+      },
+      "min": {
+        "length": 5,
+        "status": 200
+      },
+      "max": {
+        "length": 100,
+        "status": 200
+      },
+      "maxPlusOne": {
+        "length": 101,
+        "status": 400
+      },
+      "evidence": "UI min/max wraz z recordem na liście; pozostałe pola poprawne."
+    },
+    {
+      "field": "phone",
+      "minMinusOne": {
+        "length": 10,
+        "status": 400
+      },
+      "min": {
+        "length": 11,
+        "status": 200
+      },
+      "max": {
+        "length": 21,
+        "status": 200
+      },
+      "maxPlusOne": {
+        "field": "phone",
+        "length": 22,
+        "status": 400,
+        "body": [
+          "Phone must be between 11 and 21 characters."
+        ]
+      },
+      "evidence": "Punkty poprawne przyjęte jako element poprawnego payloadu min/max; negatywne zmieniają wskazane pole."
+    },
+    {
+      "field": "description",
+      "minMinusOne": {
+        "field": "description",
+        "length": 19,
+        "status": 400,
+        "body": [
+          "Message must be between 20 and 2000 characters."
+        ]
+      },
+      "min": {
+        "length": 20,
+        "status": 200
+      },
+      "max": {
+        "length": 2000,
+        "status": 200
+      },
+      "maxPlusOne": {
+        "field": "description",
+        "length": 2001,
+        "status": 400,
+        "body": [
+          "Message must be between 20 and 2000 characters."
+        ]
+      },
+      "evidence": "Tak jak wyżej; długości ASCII, bez niejednoznaczności grapheme/UTF-16."
+    }
+  ],
+  "authDecisionTable": [
+    {
+      "rule": "A1",
+      "roomid": "obecne",
+      "expected": [
+        401
+      ],
+      "actual": 401,
+      "pass": true,
+      "authClass": "brak"
+    },
+    {
+      "rule": "A2",
+      "roomid": "obecne",
+      "expected": [
+        401,
+        403
+      ],
+      "actual": 500,
+      "pass": false,
+      "authClass": "niepoprawny"
+    },
+    {
+      "rule": "A3",
+      "roomid": "brak",
+      "expected": [
+        400
+      ],
+      "actual": 400,
+      "pass": true,
+      "authClass": "poprawny"
+    },
+    {
+      "rule": "A4",
+      "roomid": "obecne",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "pass": true,
+      "authClass": "poprawny"
+    },
+    {
+      "rule": "A5",
+      "roomid": "obecne",
+      "expected": [
+        401,
+        403
+      ],
+      "actual": 500,
+      "pass": false,
+      "authClass": "pusta wartość"
+    }
+  ],
+  "newDefects": [
+    "DEF-03",
+    "DEF-04"
+  ],
+  "confirmedExisting": [
+    "DEF-01",
+    "DEF-02"
+  ],
+  "interruptions": [],
+  "dedicated": true,
+  "blockedActions": [
+    {
+      "operation": "Dodatkowe POST /api/booking: zerowy, odwrócony, błędny i brakujący okres",
+      "status": "BLOCKED",
+      "reason": "Automatyczna kontrola narzędzi odrzuciła żądania przed wykonaniem; potencjalne utworzenie pobytu.",
+      "actualRequests": 0
+    }
+  ],
+  "environments": [
+    {
+      "browser": "157.0.8103.52",
+      "timezone": "Europe/Warsaw",
+      "role": "podstawowa eksploracja"
+    },
+    {
+      "browser": "157.0.8103.52",
+      "timezone": "Pacific/Kiritimati",
+      "role": "hipoteza dat; rzeczywisty zegar"
+    },
+    {
+      "browser": "157.0.8103.52",
+      "timezone": "UTC",
+      "role": "kontrola dat; rzeczywisty zegar"
+    }
+  ]
+}

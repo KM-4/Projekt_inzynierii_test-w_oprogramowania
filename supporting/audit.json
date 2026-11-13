@@ -1,0 +1,271 @@
+{
+  "checks": [
+    {
+      "check": "Wymagane artefakty",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "22 unikalne TC",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Spójna migawka JSON przypadków",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Minimum UI/API/negatywnych",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Dozwolone statusy",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Spójność metryk",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Wyniki runnera i TC",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Wykonana wydzielona sesja 30-45 min",
+      "pass": true,
+      "detail": "30 min 37 s, tylko eksploracja/analiza/notatki, bez generowania innych artefaktów."
+    },
+    {
+      "check": "Spójny dziennik i limit żądań",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Nowe ustalenia mają osobne evidence",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Wymagane pola TC",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Wszystkie odsyłacze evidence istnieją",
+      "pass": true,
+      "detail": "36 unikalnych odsyłaczy"
+    },
+    {
+      "check": "Każdy FAIL ma defekt",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Każdy BLOCKED ma dowód i powód",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Evidence API API-01",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Evidence API API-02",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Evidence API API-03",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Evidence API API-04",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Evidence API API-05",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Evidence API API-06",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Evidence API API-07",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Evidence API API-08",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Evidence API API-09",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Evidence API API-10",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": ">=3 różne operacje API",
+      "pass": true,
+      "detail": "11"
+    },
+    {
+      "check": "Jawne asercje >=3 automatycznych TC",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Brak sztucznych sleep/retry",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Screenshot/trace UI-02",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Screenshot/trace UI-06",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Unikalne defekty i rozkład severity",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Odsyłacze wszystkich defektów",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Liczba stron 01_TestPlan.pdf",
+      "pass": true,
+      "detail": "2"
+    },
+    {
+      "check": "Polskie znaki i tekst 01_TestPlan.pdf",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Liczba stron 06_TestSummaryReport.pdf",
+      "pass": true,
+      "detail": "3"
+    },
+    {
+      "check": "Polskie znaki i tekst 06_TestSummaryReport.pdf",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Dane studenta 01_TestPlan.pdf",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Dane studenta 03_Exploratory.pdf",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Dane studenta 06_TestSummaryReport.pdf",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Arkusze XLSX",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Liczba/filtry/freeze UI",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Statusy i ID w XLSX UI",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Hiperlinki XLSX UI",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Liczba/filtry/freeze API",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Statusy i ID w XLSX API",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Hiperlinki XLSX API",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Formuły i cache metryk XLSX",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Brak błędów formuł XLSX",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Defekty i skale XLSX",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Dane studenta w każdym arkuszu",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "check": "Maskowanie haseł/tokenów w evidence JSON",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "passed": 50,
+  "failed": 0,
+  "planned": 22,
+  "apiRequestsInLastRun": 25,
+  "operationsInLastRun": 11,
+  "exploratorySession": {
+    "id": "EXP-02",
+    "minutes": 30.607583333333334,
+    "dedicated": true,
+    "events": 114
+  },
+  "limitations": [
+    "Nie przeprowadzono retestu po naprawie SUT; 3 BLOCKED i nieosiągnięte PUT pozostają jawne.",
+    "Podano Kamil Andrzejewski, nr 83741; numer zespołu, pozostałe osoby i faktyczny wkład pozostają do uzupełnienia.",
+    "Dodatkowe POST rezerwacji w EXP-02 odrzucono przez automatyczną kontrolę przed wykonaniem; sesję kontynuowano bez obchodzenia blokady.",
+    "Ocena wizualna wykonana na renderach; brak weryfikacji edycji w natywnym Excel."
+  ]
+}

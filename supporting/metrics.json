@@ -1,0 +1,23 @@
+{
+  "planned": 22,
+  "executed": 19,
+  "PASS": 12,
+  "FAIL": 7,
+  "BLOCKED": 3,
+  "NOT RUN": 0,
+  "ui": 12,
+  "api": 10,
+  "negative": 12,
+  "startedAt": "2026-11-13T15:52:56.593Z",
+  "finishedAt": "2026-11-13T15:55:29.788Z",
+  "recommendation": "NO-GO",
+  "defectsBySeverity": {
+    "S1": 1,
+    "S2": 1,
+    "S3": 2,
+    "S4": 0
+  },
+  "completionRate": 0.8636363636363636,
+  "passRateAmongExecuted": 0.631578947368421,
+  "uniqueDefects": 4
+}
