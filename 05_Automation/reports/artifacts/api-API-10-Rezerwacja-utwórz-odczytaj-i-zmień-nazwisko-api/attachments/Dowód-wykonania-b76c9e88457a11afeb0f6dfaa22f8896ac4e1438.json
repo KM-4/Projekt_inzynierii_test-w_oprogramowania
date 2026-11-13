@@ -1,0 +1,461 @@
+{
+  "caseId": "API-10",
+  "executedAt": "2026-11-13T15:53:00.662Z",
+  "finishedAt": "2026-11-13T15:53:01.415Z",
+  "runnerStatus": "failed",
+  "annotations": [],
+  "requests": [
+    {
+      "startedAt": "2026-11-13T15:53:00.663Z",
+      "request": {
+        "method": "POST",
+        "url": "https://automationintesting.online/api/auth/login",
+        "headers": {},
+        "body": {
+          "username": "[MASKED]",
+          "password": "[MASKED]"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "date": "Fri, 13 Nov 2026 15:53:03 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-railway-request-id": "6azPO3ZERv-YOtYa63j4Ww",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.qkma",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=7XjlV7RX%2B2GhWn%2BJbyjWH9G4gSiIgLFRmAPBE%2FJG7EfWOQka30h%2FaLp%2BLeDU6Db3BV9Z%2B1aMXMdteCMkQTUSxEF2JQ43IxoXEQE4kg8OakcxBtT%2BIZ%2Bh1O45kwy%2BmIBolL3sW7qWQSQd2q1zlQ%3D%3D\"}]}",
+          "content-encoding": "br",
+          "cf-ray": "a59ef2716cefbf74-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": {
+          "token": "[MASKED]"
+        }
+      }
+    },
+    {
+      "startedAt": "2026-11-13T15:53:00.903Z",
+      "request": {
+        "method": "GET",
+        "url": "https://automationintesting.online/api/room",
+        "headers": {},
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "date": "Fri, 13 Nov 2026 15:53:03 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-railway-request-id": "TDeg9Y79Te6yPXcu2JZdWA",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.qkma",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=5W4zvZGxWZUzJhkZGTfON1c%2BDAOSac8RfDeN7xJkfp8sOAPwk3fCUR1eneTwjm6nb8FLPm9t4cTlWxowqSUZnwmR9V5ZbfQL%2FcjoFDwiermUK8lXMGJxFyXmScoq4WPlasoaDL1vQjJ7XewN9w%3D%3D\"}]}",
+          "content-encoding": "br",
+          "cf-ray": "a59ef272add4bf74-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": {
+          "rooms": [
+            {
+              "accessible": true,
+              "description": "Aenean porttitor mauris sit amet lacinia molestie. In posuere accumsan aliquet. Maecenas sit amet nisl massa. Interdum et malesuada fames ac ante.",
+              "features": [
+                "TV",
+                "WiFi",
+                "Safe"
+              ],
+              "image": "/images/room1.jpg",
+              "roomName": "101",
+              "roomPrice": 100,
+              "roomid": 1,
+              "type": "Single"
+            },
+            {
+              "accessible": true,
+              "description": "Vestibulum sollicitudin, lectus ac mollis consequat, lorem orci ultrices tellus, eleifend euismod tortor dui egestas erat. Phasellus et ipsum nisl. ",
+              "features": [
+                "TV",
+                "Radio",
+                "Safe"
+              ],
+              "image": "/images/room2.jpg",
+              "roomName": "102",
+              "roomPrice": 150,
+              "roomid": 2,
+              "type": "Double"
+            },
+            {
+              "accessible": true,
+              "description": "Etiam metus metus, fringilla ac sagittis id, consequat vel neque. Nunc commodo quis nisl nec posuere. Etiam at accumsan ex. ",
+              "features": [
+                "Radio",
+                "WiFi",
+                "Safe"
+              ],
+              "image": "/images/room3.jpg",
+              "roomName": "103",
+              "roomPrice": 225,
+              "roomid": 3,
+              "type": "Suite"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "startedAt": "2026-11-13T15:53:00.968Z",
+      "request": {
+        "method": "GET",
+        "url": "https://automationintesting.online/api/booking?roomid=1",
+        "headers": {
+          "Cookie": "[MASKED]"
+        },
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "date": "Fri, 13 Nov 2026 15:53:03 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-railway-request-id": "AVKI_JzjTmSB-JfC63j4Ww",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.qkma",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=jAWDh08WFJA6OW9obT6zXrM4BTW05YnuvKVfTMbDxySvsWXn%2F6UdqT0hVfGrsfhC9IAc48oyUMC5azgc2wfjCX%2F7g7B%2ByNioZHT0%2Foyizk18ChT%2BuRZiO11XXi90iGLwoaL9pFmgCWNfWiQY5Q%3D%3D\"}]}",
+          "content-encoding": "br",
+          "cf-ray": "a59ef2730e1ebf74-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": {
+          "bookings": [
+            {
+              "bookingdates": {
+                "checkin": "2026-02-01",
+                "checkout": "2026-02-05"
+              },
+              "bookingid": 1,
+              "depositpaid": true,
+              "firstname": "James",
+              "lastname": "Dean",
+              "roomid": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "startedAt": "2026-11-13T15:53:01.089Z",
+      "request": {
+        "method": "POST",
+        "url": "https://automationintesting.online/api/booking",
+        "headers": {},
+        "body": {
+          "roomid": 1,
+          "firstname": "QA585181089",
+          "lastname": "ProjektTestowy",
+          "depositpaid": false,
+          "bookingdates": {
+            "checkin": "2027-01-12",
+            "checkout": "2027-01-14"
+          },
+          "email": "qa-project@example.test",
+          "phone": "12345678901"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "date": "Fri, 13 Nov 2026 15:53:03 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-railway-request-id": "HGT6s-R2QCWp03Jow9P4nw",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.qkma",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=MBCmqVNkf%2BNUiYHmL4VK5TlkQGnUO4mEj0qNKCq0icJWgVIhiAyPlo%2BvCLeA%2BI36OvmWzf11At2sfh1sadb2bRhUYYTZEtg7h0oY9N1p7PTZ4nRhzOAAZtxAv6gMpQXlECRy3QCms5vYt0%2BZ9w%3D%3D\"}]}",
+          "cf-ray": "a59ef273ceb3bf74-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": {
+          "bookingdates": {
+            "checkin": "2027-01-12",
+            "checkout": "2027-01-14"
+          },
+          "bookingid": 4,
+          "depositpaid": false,
+          "firstname": "QA585181089",
+          "lastname": "ProjektTestowy",
+          "roomid": 1
+        }
+      }
+    },
+    {
+      "startedAt": "2026-11-13T15:53:01.161Z",
+      "request": {
+        "method": "GET",
+        "url": "https://automationintesting.online/api/booking?roomid=1",
+        "headers": {
+          "Cookie": "[MASKED]"
+        },
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "date": "Fri, 13 Nov 2026 15:53:03 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-railway-request-id": "kamJv9GJQYi6E55sWVMv1w",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.qkma",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=%2F2MuhaC%2FZ2snmo8jTMvJ97GnM0W9HrwswJ0ZHUCvqYTglQKsoonkM6rds%2F%2F3AW2CFlLeVPzf2cOIESBzkaDVZE3lHiuPUN9MJ9BL0dfp6tht8WBkX1th%2B5cWxdDvqTcWc%2Bvww2PIVnjtEG1QMA%3D%3D\"}]}",
+          "content-encoding": "br",
+          "cf-ray": "a59ef2743f0dbf74-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": {
+          "bookings": [
+            {
+              "bookingdates": {
+                "checkin": "2026-02-01",
+                "checkout": "2026-02-05"
+              },
+              "bookingid": 1,
+              "depositpaid": true,
+              "firstname": "James",
+              "lastname": "Dean",
+              "roomid": 1
+            },
+            {
+              "bookingdates": {
+                "checkin": "2027-01-12",
+                "checkout": "2027-01-14"
+              },
+              "bookingid": 4,
+              "depositpaid": false,
+              "firstname": "QA585181089",
+              "lastname": "ProjektTestowy",
+              "roomid": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "startedAt": "2026-11-13T15:53:01.215Z",
+      "request": {
+        "method": "GET",
+        "url": "https://automationintesting.online/api/booking/4",
+        "headers": {
+          "Cookie": "[MASKED]"
+        },
+        "body": null
+      },
+      "response": {
+        "status": 500,
+        "headers": {
+          "date": "Fri, 13 Nov 2026 15:53:03 GMT",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "x-railway-request-id": "1FbIaEJZSkqwFBP7N8N_Fg",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.qkma",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=YRVswYBAvRwhVbe%2FqavGz1ay8ptJkB4NgEXzSx3STcvvBRYAm%2FRQlZaa1R%2B6FtJ4txdsZEYYACGKEzfWWoguPjNNJF8wAEg1Q8yayEBpK%2BZZAfEOxs7befx2SAtnBZuUWnj%2F7aECMOFVMz9ysA%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "cf-ray": "a59ef2749f5abf74-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": "Internal Server Error"
+      }
+    },
+    {
+      "startedAt": "2026-11-13T15:53:01.276Z",
+      "request": {
+        "method": "DELETE",
+        "url": "https://automationintesting.online/api/booking/4",
+        "headers": {
+          "Cookie": "[MASKED]"
+        },
+        "body": null
+      },
+      "response": {
+        "status": 500,
+        "headers": {
+          "date": "Fri, 13 Nov 2026 15:53:03 GMT",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "x-railway-request-id": "o95cMnpmTUadlcZS0-QtfA",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.qkma",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=zqV2GXXmIMfziZ5UN0wvwFPKn7nXc6pXIDoHK6r7XqNt1%2BW8xEzN%2BI4eggO%2B8ctIBs1ozt83cmOliIElt%2FrC1fTr8q2DsGmQWJuuLx%2BL%2BhB2IRCxq75wtr8sO51lI1oUquksLw1AS5p%2BnlGfPQ%3D%3D\"}]}",
+          "cf-ray": "a59ef274ff95bf74-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": "Internal Server Error"
+      }
+    },
+    {
+      "startedAt": "2026-11-13T15:53:01.330Z",
+      "request": {
+        "method": "GET",
+        "url": "https://automationintesting.online/api/booking?roomid=1",
+        "headers": {
+          "Cookie": "[MASKED]"
+        },
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "date": "Fri, 13 Nov 2026 15:53:03 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-railway-request-id": "0fFg4QTrQpi02Sdh5nX1uw",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.qkma",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=E7gtW197GGQTODeoZ%2BLTGhi8wpDv2jyGUKpXR5KlxejC4wuHyrMbLO5mAEOEJVtgWsRpATM3viZvbT8bL6%2BfdkJkSvcCijJQv5kZkTqYCIvtxOec7fiM704PwZ8nBc2UELmhKIpFDAHIHA3veA%3D%3D\"}]}",
+          "content-encoding": "br",
+          "cf-ray": "a59ef2754fddbf74-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": {
+          "bookings": [
+            {
+              "bookingdates": {
+                "checkin": "2026-02-01",
+                "checkout": "2026-02-05"
+              },
+              "bookingid": 1,
+              "depositpaid": true,
+              "firstname": "James",
+              "lastname": "Dean",
+              "roomid": 1
+            },
+            {
+              "bookingdates": {
+                "checkin": "2027-01-12",
+                "checkout": "2027-01-14"
+              },
+              "bookingid": 4,
+              "depositpaid": false,
+              "firstname": "QA585181089",
+              "lastname": "ProjektTestowy",
+              "roomid": 1
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "requestIndex": 0,
+      "label": "Logowanie API: HTTP 200",
+      "actual": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
+      "label": "Otrzymano token",
+      "actual": "string",
+      "expected": "string",
+      "pass": true
+    },
+    {
+      "requestIndex": 1,
+      "label": "Lista pokoi HTTP 200",
+      "actual": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "requestIndex": 1,
+      "label": "Jest pokój do testu",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "requestIndex": 2,
+      "label": "Pobrano aktualne rezerwacje",
+      "actual": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "requestIndex": 3,
+      "label": "Utworzenie rezerwacji HTTP 201",
+      "actual": 201,
+      "expected": 201,
+      "pass": true
+    },
+    {
+      "requestIndex": 4,
+      "label": "Własna rezerwacja rozpoznana dynamicznie",
+      "actual": 1,
+      "expected": 1,
+      "pass": true
+    },
+    {
+      "requestIndex": 5,
+      "label": "Odczyt HTTP 200",
+      "actual": 500,
+      "expected": 200,
+      "pass": false
+    },
+    {
+      "requestIndex": 6,
+      "label": "Usunięto wyłącznie własną rezerwację",
+      "actual": 500,
+      "expected": 200,
+      "pass": false
+    },
+    {
+      "requestIndex": 7,
+      "label": "Potwierdzono sprzątanie",
+      "actual": true,
+      "expected": false,
+      "pass": false
+    }
+  ],
+  "observations": [],
+  "error": "Error: Usunięto wyłącznie własną rezerwację\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m"
+}
