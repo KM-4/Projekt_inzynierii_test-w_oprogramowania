@@ -1,0 +1,163 @@
+{
+  "sessionId": "EXP-02",
+  "generatedAt": "2026-11-13T16:56:34.376Z",
+  "operator": "Asystent AI przez Playwright; student wskazany do dokumentacji, bez przypisywania mu wykonania sesji.",
+  "student": {
+    "name": "Kamil Andrzejewski",
+    "studentNumber": "83741"
+  },
+  "scope": "Odczyt rezerwacji. Brak zapisu; tokeny maskowane; authVariant opisuje klasę wejścia.",
+  "observations": [
+    {
+      "startedAt": "2026-11-13T16:56:34.154Z",
+      "mode": "api",
+      "title": "GET /api/booking?roomid=1",
+      "actions": [
+        {
+          "request": {
+            "method": "GET",
+            "url": "/api/booking?roomid=1",
+            "headers": {}
+          },
+          "response": {
+            "status": 401,
+            "headers": {
+              "date": "Fri, 13 Nov 2026 16:56:36 GMT",
+              "content-type": "application/json",
+              "transfer-encoding": "chunked",
+              "connection": "keep-alive",
+              "server": "cloudflare",
+              "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+              "x-railway-request-id": "H6i78yqDS_q1jcqhm3z_FQ",
+              "x-railway-edge": "waw1",
+              "x-hikari-trace": "waw1.j60f",
+              "cf-cache-status": "DYNAMIC",
+              "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+              "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=%2BoNxJPLEJFgR019HMvLqL%2BXZzzCWbNq6zcwuR1pYQ5a%2FLDetWdx42SkyCVQVH679Fp970q428ltAO89ifqodWesYTjb%2B8LmzF2ElWdWGJaq6IIB4FeZcLSkwOE7qAUPY025poQ0%2FheDs%2FZxsaw%3D%3D\"}]}",
+              "cf-ray": "a59f4f8c2e92dd13-WAW",
+              "alt-svc": "h3=\":443\"; ma=86400"
+            },
+            "body": {
+              "error": "Authentication required"
+            }
+          }
+        }
+      ],
+      "finishedAt": "2026-11-13T16:56:34.233Z",
+      "authVariant": "brak tokenu",
+      "expectedStatus": [
+        401
+      ],
+      "validation": {
+        "actual": 401,
+        "pass": true
+      }
+    },
+    {
+      "startedAt": "2026-11-13T16:56:34.239Z",
+      "mode": "api",
+      "title": "GET /api/booking?roomid=1",
+      "actions": [
+        {
+          "request": {
+            "method": "GET",
+            "url": "/api/booking?roomid=1",
+            "headers": {
+              "Cookie": "[MASKED]"
+            }
+          },
+          "response": {
+            "status": 500,
+            "headers": {
+              "date": "Fri, 13 Nov 2026 16:56:36 GMT",
+              "content-type": "application/json",
+              "transfer-encoding": "chunked",
+              "connection": "keep-alive",
+              "server": "cloudflare",
+              "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+              "x-railway-request-id": "qiINZQjhSE-lv-G5vEOTxA",
+              "x-railway-edge": "waw1",
+              "x-hikari-trace": "waw1.j60f",
+              "cf-cache-status": "DYNAMIC",
+              "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+              "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=2t19s1o%2F7p1uUI9RwyP4%2BW1svf6jJgXoIxV0BQ5iiBVBjCbaEF8URbwltZxk6NGDBYzsFhBhIzxX8ZJLIojvnph6yN8MB%2FB8NfVK3NW%2F%2BPxZNatzMhUgG9989ZjEBvTNdFS0LebL%2BHOAK1wPNg%3D%3D\"}]}",
+              "cf-ray": "a59f4f8cb82edd13-WAW",
+              "alt-svc": "h3=\":443\"; ma=86400"
+            },
+            "body": []
+          }
+        }
+      ],
+      "finishedAt": "2026-11-13T16:56:34.316Z",
+      "authVariant": "syntetyczny niepoprawny token",
+      "expectedStatus": [
+        401,
+        403
+      ],
+      "validation": {
+        "actual": 500,
+        "pass": false
+      }
+    },
+    {
+      "startedAt": "2026-11-13T16:56:34.322Z",
+      "mode": "api",
+      "title": "GET /api/booking?roomid=1",
+      "actions": [
+        {
+          "request": {
+            "method": "GET",
+            "url": "/api/booking?roomid=1",
+            "headers": {
+              "Cookie": "[MASKED]"
+            }
+          },
+          "response": {
+            "status": 200,
+            "headers": {
+              "date": "Fri, 13 Nov 2026 16:56:36 GMT",
+              "content-type": "application/json",
+              "transfer-encoding": "chunked",
+              "connection": "keep-alive",
+              "server": "cloudflare",
+              "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+              "x-railway-request-id": "ethvxQnoTOCtHxvTm3z_FQ",
+              "x-railway-edge": "waw1",
+              "x-hikari-trace": "waw1.j60f",
+              "cf-cache-status": "DYNAMIC",
+              "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+              "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=zn59GsJEmX62IP9upkUvtZCDO0%2BUsjYOayZXznNsvFZNxtetf8zBVgfABBL%2BST3%2BGOCrvAxENbgBk%2FB%2F9fOXxkmGxi9LsVCpHjC%2F2G9O4lf5SmF1RuThsXHs5YBDATGH2CKVC5vca5TXKyfqBQ%3D%3D\"}]}",
+              "content-encoding": "br",
+              "cf-ray": "a59f4f8d39a1dd13-WAW",
+              "alt-svc": "h3=\":443\"; ma=86400"
+            },
+            "body": {
+              "bookings": [
+                {
+                  "bookingdates": {
+                    "checkin": "2026-02-01",
+                    "checkout": "2026-02-05"
+                  },
+                  "bookingid": 1,
+                  "depositpaid": true,
+                  "firstname": "James",
+                  "lastname": "Dean",
+                  "roomid": 1
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "finishedAt": "2026-11-13T16:56:34.372Z",
+      "authVariant": "poprawny token z ostatniego logowania",
+      "expectedStatus": [
+        200
+      ],
+      "validation": {
+        "actual": 200,
+        "pass": true
+      }
+    }
+  ]
+}

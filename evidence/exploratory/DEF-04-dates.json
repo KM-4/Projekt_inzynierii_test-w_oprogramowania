@@ -1,0 +1,229 @@
+{
+  "sessionId": "EXP-02",
+  "generatedAt": "2026-11-13T16:56:34.378Z",
+  "operator": "Asystent AI przez Playwright; student wskazany do dokumentacji, bez przypisywania mu wykonania sesji.",
+  "student": {
+    "name": "Kamil Andrzejewski",
+    "studentNumber": "83741"
+  },
+  "scope": "Rzeczywisty zegar i żywe API. Zmieniono wyłącznie strefę kontekstu Chrome; bez tworzenia rezerwacji.",
+  "observations": [
+    {
+      "observation": {
+        "environment": {
+          "timezone": "Pacific/Kiritimati",
+          "clock": "Rzeczywisty czas; bez mockowania zegara i API"
+        },
+        "clock": {
+          "iso": "2026-11-13T16:48:22.945Z",
+          "local": "Sat Nov 14 2026 06:48:22 GMT+1400 (czas Line Islands)",
+          "zone": "Pacific/Kiritimati"
+        },
+        "displayed": [
+          "14/11/2026",
+          "15/11/2026"
+        ],
+        "request": "https://automationintesting.online/api/room?checkin=2026-11-13&checkout=2026-11-14",
+        "status": 200,
+        "response": {
+          "rooms": [
+            {
+              "accessible": true,
+              "description": "Aenean porttitor mauris sit amet lacinia molestie. In posuere accumsan aliquet. Maecenas sit amet nisl massa. Interdum et malesuada fames ac ante.",
+              "features": [
+                "TV",
+                "WiFi",
+                "Safe"
+              ],
+              "image": "/images/room1.jpg",
+              "roomName": "101",
+              "roomPrice": 100,
+              "roomid": 1,
+              "type": "Single"
+            },
+            {
+              "accessible": true,
+              "description": "Vestibulum sollicitudin, lectus ac mollis consequat, lorem orci ultrices tellus, eleifend euismod tortor dui egestas erat. Phasellus et ipsum nisl. ",
+              "features": [
+                "TV",
+                "Radio",
+                "Safe"
+              ],
+              "image": "/images/room2.jpg",
+              "roomName": "102",
+              "roomPrice": 150,
+              "roomid": 2,
+              "type": "Double"
+            },
+            {
+              "accessible": true,
+              "description": "Etiam metus metus, fringilla ac sagittis id, consequat vel neque. Nunc commodo quis nisl nec posuere. Etiam at accumsan ex. ",
+              "features": [
+                "Radio",
+                "WiFi",
+                "Safe"
+              ],
+              "image": "/images/room3.jpg",
+              "roomName": "103",
+              "roomPrice": 225,
+              "roomid": 3,
+              "type": "Suite"
+            }
+          ]
+        },
+        "links": [
+          "/reservation/1?checkin=2026-11-14&checkout=2026-11-15",
+          "/reservation/2?checkin=2026-11-14&checkout=2026-11-15",
+          "/reservation/3?checkin=2026-11-14&checkout=2026-11-15"
+        ],
+        "screenshot": "evidence/exploratory/EXP-02-16-timezone-default.png"
+      },
+      "assertion": {
+        "label": "Daty requestu zgodne z widocznymi polami",
+        "expected": [
+          "2026-11-14",
+          "2026-11-15"
+        ],
+        "actual": [
+          "2026-11-13",
+          "2026-11-14"
+        ],
+        "pass": false
+      }
+    },
+    {
+      "observation": {
+        "environment": "Chrome, Pacific/Kiritimati, rzeczywisty czas",
+        "displayed": [
+          "12/01/2027",
+          "14/01/2027"
+        ],
+        "request": "https://automationintesting.online/api/room?checkin=2027-01-11&checkout=2027-01-13",
+        "status": 200,
+        "body": {
+          "rooms": [
+            {
+              "accessible": true,
+              "description": "Aenean porttitor mauris sit amet lacinia molestie. In posuere accumsan aliquet. Maecenas sit amet nisl massa. Interdum et malesuada fames ac ante.",
+              "features": [
+                "TV",
+                "WiFi",
+                "Safe"
+              ],
+              "image": "/images/room1.jpg",
+              "roomName": "101",
+              "roomPrice": 100,
+              "roomid": 1,
+              "type": "Single"
+            },
+            {
+              "accessible": true,
+              "description": "Vestibulum sollicitudin, lectus ac mollis consequat, lorem orci ultrices tellus, eleifend euismod tortor dui egestas erat. Phasellus et ipsum nisl. ",
+              "features": [
+                "TV",
+                "Radio",
+                "Safe"
+              ],
+              "image": "/images/room2.jpg",
+              "roomName": "102",
+              "roomPrice": 150,
+              "roomid": 2,
+              "type": "Double"
+            },
+            {
+              "accessible": true,
+              "description": "Etiam metus metus, fringilla ac sagittis id, consequat vel neque. Nunc commodo quis nisl nec posuere. Etiam at accumsan ex. ",
+              "features": [
+                "Radio",
+                "WiFi",
+                "Safe"
+              ],
+              "image": "/images/room3.jpg",
+              "roomName": "103",
+              "roomPrice": 225,
+              "roomid": 3,
+              "type": "Suite"
+            }
+          ]
+        },
+        "links": [
+          "/reservation/1?checkin=2027-01-12&checkout=2027-01-14",
+          "/reservation/2?checkin=2027-01-12&checkout=2027-01-14",
+          "/reservation/3?checkin=2027-01-12&checkout=2027-01-14"
+        ],
+        "screenshot": "evidence/exploratory/EXP-02-17-timezone-chosen.png"
+      },
+      "assertion": {
+        "label": "Daty requestu zgodne z widocznymi polami",
+        "expected": [
+          "2027-01-12",
+          "2027-01-14"
+        ],
+        "actual": [
+          "2027-01-11",
+          "2027-01-13"
+        ],
+        "pass": false
+      }
+    },
+    {
+      "observation": {
+        "interaction": "Kliknięcia rzeczywistych komórek kalendarza",
+        "timezone": "Pacific/Kiritimati",
+        "displayed": [
+          "18/01/2027",
+          "20/01/2027"
+        ],
+        "request": "https://automationintesting.online/api/room?checkin=2027-01-17&checkout=2027-01-19",
+        "status": 200,
+        "links": [
+          "/reservation/1?checkin=2027-01-18&checkout=2027-01-20",
+          "/reservation/2?checkin=2027-01-18&checkout=2027-01-20",
+          "/reservation/3?checkin=2027-01-18&checkout=2027-01-20"
+        ],
+        "screenshot": "evidence/exploratory/EXP-02-19-timezone-calendar.png"
+      },
+      "assertion": {
+        "label": "Daty requestu zgodne z widocznymi polami",
+        "expected": [
+          "2027-01-18",
+          "2027-01-20"
+        ],
+        "actual": [
+          "2027-01-17",
+          "2027-01-19"
+        ],
+        "pass": false
+      }
+    },
+    {
+      "observation": {
+        "environment": "Chrome 157, UTC, rzeczywisty zegar, bez mocków",
+        "displayed": [
+          "12/01/2027",
+          "14/01/2027"
+        ],
+        "request": "https://automationintesting.online/api/room?checkin=2027-01-12&checkout=2027-01-14",
+        "status": 200,
+        "links": [
+          "/reservation/1?checkin=2027-01-12&checkout=2027-01-14",
+          "/reservation/2?checkin=2027-01-12&checkout=2027-01-14",
+          "/reservation/3?checkin=2027-01-12&checkout=2027-01-14"
+        ],
+        "screenshot": "evidence/exploratory/EXP-02-18-timezone-control-utc.png"
+      },
+      "assertion": {
+        "label": "Daty requestu zgodne z widocznymi polami",
+        "expected": [
+          "2027-01-12",
+          "2027-01-14"
+        ],
+        "actual": [
+          "2027-01-12",
+          "2027-01-14"
+        ],
+        "pass": true
+      }
+    }
+  ]
+}
