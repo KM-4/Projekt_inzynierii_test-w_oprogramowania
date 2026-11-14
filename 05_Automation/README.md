@@ -25,6 +25,27 @@ Dane szkoleniowego administratora uzyskaj z sekcji Login oficjalnego repozytoriu
 
 Na komputerze bez Chrome można zainstalować silnik Chromium z Playwright (`npx playwright install chromium`), co pobiera osobną przeglądarkę. Aby jej użyć, ustaw `BROWSER_CHANNEL=chromium`. Pobieranie nie było potrzebne w środowisku realizacji. Dla Linux ewentualne biblioteki systemowe Chrome/Chromium należy zapewnić osobno.
 
+## Struktura testów
+
+```
+05_Automation/
+├─ tests/
+│  ├─ api.spec.ts        10 testów API (APIRequestContext, bez przeglądarki)
+│  └─ ui.spec.ts         12 testów UI w modelu Page Object Model
+├─ pages/                Page Object Model – jedna klasa na stronę aplikacji
+│  ├─ HomePage.ts        katalog pokoi, wyszukiwarka dostępności
+│  ├─ ContactForm.ts     formularz kontaktowy
+│  ├─ ReservationPage.ts strona rezerwacji
+│  ├─ AdminLoginPage.ts  logowanie administratora
+│  └─ index.ts           fixture: test dostaje gotowe obiekty home, contactForm, reservation, adminLogin
+├─ helpers/
+│  ├─ audit.ts           zapis evidence (request/response, asercje, screeny kroków), maskowanie sekretów
+│  └─ result-reporter.ts statusy PASS / FAIL / BLOCKED w reports/case-results.json
+└─ playwright.config.ts  projekty api i ui-chrome, 1 worker, 0 retry
+```
+
+W modelu POM test opisuje scenariusz (np. `contactForm.fill(...)`, `contactForm.submit(a)`, `expect(contactForm.errors)`), a lokatory i akcje na stronie są w jednej klasie. Zmiana w interfejsie aplikacji wymaga poprawki tylko w klasie strony, nie w każdym teście.
+
 ## Wybór zakresu i odczyt wyników
 
 ```powershell
@@ -56,4 +77,4 @@ Sekrety maskuje `helpers/audit.ts`. API nie zapisuje trace, aby nie utrwalać to
 
 ## Odtwarzanie dokumentacji
 
-Artefakty wynikowe są migawką przebiegu z datą w raporcie. Kolejne uruchomienie testów nie przepisuje automatycznie PDF/XLSX. Po zmianie wyników trzeba ponownie przeliczyć dokumentację na podstawie `case-results.json` i `supporting/test-cases.json`; nie należy ręcznie zmieniać tylko liczników w PDF.
+Artefakty wynikowe są migawką przebiegu z datą w raporcie. Kolejne uruchomienie testów nie przepisuje automatycznie PDF i plików .md z wynikami. Po zmianie wyników trzeba ponownie przeliczyć dokumentację na podstawie `case-results.json` i `supporting/test-cases.json`; nie należy ręcznie zmieniać tylko liczników w PDF.

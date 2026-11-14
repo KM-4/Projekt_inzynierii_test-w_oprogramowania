@@ -15,3 +15,7 @@ __pycache__/
 05_Automation/test-results/
 05_Automation/reports/artifacts/.last-run.json
 05_Automation/reports/artifacts/
+
+# Pliki blokady pakietu Office i dawne arkusze (zastąpione przez .md)
+~$*
+*.xlsx

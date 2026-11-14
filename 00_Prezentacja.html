@@ -30,6 +30,7 @@ table{border-collapse:collapse;width:100%;font-size:16px;line-height:1.45;margin
 .links{font:15px/1.6 "Segoe UI",sans-serif;color:var(--muted)}
 .gloss dt{font:700 16px "Segoe UI",sans-serif;margin-top:12px}.gloss dd{margin:2px 0 0;font-size:17px}
 .placeholder{border:2px dashed var(--c3);border-radius:12px;padding:10px 16px;background:var(--badbg);font:16px "Segoe UI",sans-serif}
+pre.code{background:#1d2433;color:#e8ecf4;border-radius:12px;padding:16px 18px;font:14px/1.55 Consolas,"Cascadia Mono",monospace;overflow-x:auto;white-space:pre;margin:0}
 code{font-family:Consolas,monospace;font-size:.85em;background:var(--bg);padding:1px 5px;border-radius:4px}
 @media (max-width:760px){.page{padding:28px 20px}.facts{grid-template-columns:1fr 1fr}.team,.shots.n2,.shots.n3{grid-template-columns:1fr}}
 @media print{body{background:#fff}.page{box-shadow:none}.ch{break-before:page}}
@@ -37,7 +38,7 @@ code{font-family:Consolas,monospace;font-size:.85em;background:var(--bg);padding
 
 <p class="muted">Inżynieria testów oprogramowania · projekt zespołowy</p>
 <h1>Czy system rezerwacji Restful-Booker-Platform jest gotowy dla gości?</h1>
-<p class="sub">Raport z projektu testowego · ostatnie pełne uruchomienie testów: 14 listopada 2026 09:54</p>
+<p class="sub">Raport z projektu testowego · ostatnie pełne uruchomienie testów: 14 listopada 2026 10:54</p>
 
 <p class="lead">Przetestowaliśmy publiczną aplikację <b>Restful-Booker-Platform</b> (<a href="https://automationintesting.online" target="_blank">automationintesting.online</a>) – stronę pensjonatu, na której gość przegląda pokoje, rezerwuje pobyt i może wysłać wiadomość, a administrator loguje się do panelu.</p>
 <div class="facts sans"><div><b>22</b><span>przypadki testowe zaprojektowane i uruchomione</span></div><div class="ok"><b>14</b><span>zakończyły się zgodnie z oczekiwaniami</span></div><div class="bad"><b>5</b><span>wykazały błąd aplikacji</span></div><div class="mid"><b>3</b><span>nie dało się wykonać przez błąd, który blokuje rezerwację</span></div></div>
@@ -69,7 +70,7 @@ code{font-family:Consolas,monospace;font-size:.85em;background:var(--bg);padding
 <h3>Testy eksploracyjne</h3>
 <p>Oprócz zaplanowanych przypadków przeprowadziliśmy swobodną, ograniczoną czasowo sesję, w której szukaliśmy problemów „na wyczucie” – z jasno określonym celem: nietypowe daty i dane w rezerwacji. Tak znaleźliśmy dwa dodatkowe błędy (opisane w rozdziale 3).</p>
 <div class="tc"><dl><dt>Sesja</dt><dd>EXP-02, 13 listopada 2026, 30 minut 36 sekund</dd><dt>Cel (charter)</dt><dd>Znaleźć problemy w rezerwacji przy nietypowych datach i danych, sprawdzić powiązania strony z serwerem i zachowanie danych przy resecie środowiska.</dd><dt>Pomysły</dt><dd>Śledzenie danych od formularza do serwera, cykl utwórz–odczytaj–zmień–usuń, granice długości pól, różne strefy czasowe.</dd><dt>Wynik</dt><dd>Dwa nowe błędy (wyszukiwanie w strefie UTC+14, wygasłe logowanie) i potwierdzone granice trzech pól formularza.</dd><dt>Jak</dt><dd>Z pomocą narzędzi (Playwright, asystent AI); ustalenia sprawdzone ponownie na żywo 14 listopada.</dd></dl></div>
-<p class="muted" style="margin-top:12px">Wszystkie przypadki: <a href="02_TestCases.xlsx">02_TestCases.xlsx</a> · notatki z eksploracji: <a href="03_Exploratory.pdf">03_Exploratory.pdf</a></p>
+<p class="muted" style="margin-top:12px">Wszystkie przypadki: <a href="02_TestCases.md">02_TestCases.md</a> · notatki z eksploracji: <a href="03_Exploratory.pdf">03_Exploratory.pdf</a></p>
 <aside class="take"><b>Najważniejszy wniosek</b><p>Każdy test ma konkretny powód: wynika z ryzyka i z techniki doboru danych. Dzięki temu przy małej liczbie testów sprawdzamy najbardziej podatne miejsca.</p></aside></section>
 
 <section class="ch" id="ch3"><div class="chhead"><span class="chno">3</span><div><h2>Co wyszło z testów i jakie błędy znaleźliśmy</h2><p class="by p3">Przedstawia: <b>Kacper Walkowiak</b> · wykonanie testów, evidence i defekty</p></div></div>
@@ -83,20 +84,37 @@ code{font-family:Consolas,monospace;font-size:.85em;background:var(--bg);padding
 <h3>Znalezione błędy</h3>
 <p>Znaleźliśmy <b>4 różne błędy</b>. Jeśli kilka testów trafiało na ten sam problem, zgłaszaliśmy go raz – dlatego jeden błąd może dotyczyć wielu przypadków.</p>
 <table><tr><th>Błąd</th><th>Waga</th><th>Gdzie wykryty</th></tr><tr><td><b>Strona pokoju i rezerwacja w ogóle się nie otwierają</b><br><span class="muted">Każde zapytanie o konkretny pokój, wiadomość czy rezerwację (po numerze) kończy się błędem serwera. Gość widzi tylko kręcące się kółko i nie może zarezerwować pokoju.</span></td><td><span class="sev S1">krytyczny</span></td><td>7 przypadków</td></tr><tr><td><b>Nietypowo wysłany email powoduje awarię zamiast komunikatu</b><br><span class="muted">Gdy email zostanie wysłany w złym formacie technicznym (jako obiekt zamiast tekstu), serwer zgłasza awarię zamiast grzecznie odrzucić dane.</span></td><td><span class="sev S3">średni</span></td><td>1 przypadek</td></tr><tr><td><b>Wygasłe logowanie powoduje awarię zamiast prośby o zalogowanie</b><br><span class="muted">Z nieważnym „biletem” logowania system zgłasza błąd serwera, zamiast odpowiedzieć „zaloguj się ponownie”.</span></td><td><span class="sev S3">średni</span></td><td>testy eksploracyjne</td></tr><tr><td><b>Dla osób w innej strefie czasowej wyszukiwarka szuka o dzień wcześniej</b><br><span class="muted">Gdy komputer gościa ma strefę czasową UTC+14, wyszukiwarka wysyła daty przesunięte o jeden dzień względem tych, które wybrał.</span></td><td><span class="sev S2">poważny</span></td><td>testy eksploracyjne</td></tr></table>
-<p class="muted">Każde zgłoszenie zawiera dokładne kroki, dzięki którym ktoś inny może błąd powtórzyć: <a href="04_Defects.xlsx">04_Defects.xlsx</a> · wszystkie wyniki z dowodami: <a href="05_Automation/reports/raport-testow.html">raport z testów</a></p>
+<p class="muted">Każde zgłoszenie zawiera dokładne kroki, dzięki którym ktoś inny może błąd powtórzyć: <a href="04_Defects.md">04_Defects.md</a> · wszystkie wyniki z dowodami: <a href="05_Automation/reports/raport-testow.html">raport z testów</a></p>
 <aside class="take"><b>Najważniejszy wniosek</b><p>Najpoważniejszy błąd jest krytyczny: gość nie może zarezerwować pokoju. Pozostałe błędy są mniejsze – aplikacja źle reaguje na nietypowe sytuacje, ale nie blokuje to jej używania.</p></aside></section>
 
 <section class="ch" id="ch4"><div class="chhead"><span class="chno">4</span><div><h2>Testy API i automatyzacja</h2><p class="by p4">Przedstawia: <b>Mateusz Krzyzak</b> · API i automatyzacja</p></div></div>
 <p><b>API</b> to „zaplecze” aplikacji – strona internetowa wysyła do serwera zapytania (np. „pokaż listę pokoi”, „zapisz wiadomość”) i dostaje odpowiedzi. Testując API, sprawdzamy serwer bezpośrednio, bez przeglądarki. Każda odpowiedź ma kod: <b>200</b> oznacza sukces, <b>400</b> – odrzucenie złych danych, <b>401</b> – brak uprawnień, <b>404</b> – brak zasobu, a <b>500</b> – awarię serwera.</p>
-<p>Napisaliśmy 10 testów API. Sprawdzają m.in.: czy lista pokoi ma poprawne dane, czy serwer odrzuca wiadomość bez wymaganych pól lub ze złym emailem, czy odmawia logowania złym hasłem i czy nie pokazuje rezerwacji osobie niezalogowanej.</p>
+<p>Napisaliśmy 10 testów API i 12 testów w przeglądarce. Sprawdzają m.in.: czy lista pokoi ma poprawne dane, czy serwer odrzuca wiadomość bez wymaganych pól lub ze złym emailem, czy odmawia logowania złym hasłem i czy nie pokazuje rezerwacji osobie niezalogowanej.</p>
 <h3>Pełny cykl życia danych</h3>
 <p>Najważniejszy jest test, który przechodzi cały „cykl życia” wiadomości: tworzy ją, odczytuje, zmienia i usuwa – i po każdym kroku sprawdza, czy wszystko się zgadza. Tak wyglądał w ostatnim uruchomieniu:</p>
 <ol class="life"><li class="ok"><span class="mark">✓</span>Logujemy się jako administrator<span class="muted"> – działa</span></li><li class="ok"><span class="mark">✓</span>Wysyłamy nową wiadomość<span class="muted"> – działa</span></li><li class="ok"><span class="mark">✓</span>Szukamy jej na liście wiadomości<span class="muted"> – działa</span></li><li class="bad"><span class="mark">✗</span>Otwieramy ją po numerze<span class="muted"> – błąd serwera (kod 500)</span></li><li class="bad"><span class="mark">✗</span>Oznaczamy jako przeczytaną (zmiana)<span class="muted"> – błąd serwera (kod 500)</span></li><li class="bad"><span class="mark">✗</span>Sprawdzamy na liście, czy zmiana się zapisała<span class="muted"> – wynik niezgodny z oczekiwanym</span></li><li class="bad"><span class="mark">✗</span>Usuwamy naszą wiadomość<span class="muted"> – błąd serwera (kod 500)</span></li><li class="bad"><span class="mark">✗</span>Sprawdzamy, czy zniknęła<span class="muted"> – wynik niezgodny z oczekiwanym</span></li></ol>
 <p>Tworzenie wiadomości działa, ale każda operacja na konkretnej wiadomości (otwarcie, zmiana, usunięcie) kończy się awarią serwera. To ten sam błąd, który blokuje rezerwację. Analogiczny test przeprowadziliśmy dla rezerwacji – z takim samym wynikiem.</p>
+<h3>Testy w przeglądarce: Page Object Model</h3>
+<p>Testy w przeglądarce napisaliśmy w modelu <b>Page Object Model</b> (POM). Każda strona aplikacji ma własną klasę, która wie, gdzie są przyciski i pola i jak ich używać. Sam test nie szuka już elementów na stronie – opisuje tylko scenariusz, jak instrukcję dla człowieka. Gdy zmieni się wygląd strony, poprawia się jedną klasę, a nie każdy test.</p>
+<table><tr><th>Klasa (obiekt strony)</th><th>Co reprezentuje</th><th>Przykładowe akcje</th></tr>
+<tr><td><b>HomePage</b></td><td>Strona główna: katalog pokoi i wyszukiwarka dostępności</td><td>otwórz stronę, wybierz daty, sprawdź dostępność</td></tr>
+<tr><td><b>ContactForm</b></td><td>Formularz kontaktowy</td><td>wypełnij pola, wyślij, odczytaj komunikat błędu lub potwierdzenie</td></tr>
+<tr><td><b>ReservationPage</b></td><td>Strona rezerwacji pokoju</td><td>otwórz rezerwację, wpisz dane gościa, wyślij rezerwację</td></tr>
+<tr><td><b>AdminLoginPage</b></td><td>Logowanie do panelu administratora</td><td>wpisz login i hasło, zaloguj, odczytaj błąd</td></tr></table>
+<p>Tak wygląda prawdziwy test „temat wiadomości ma 4 znaki” – czyta się go prawie jak opis kroków z przypadku testowego:</p>
+<figure class="fig"><pre class="code">test(&#39;UI-05 Temat 4 znaki: poniżej minimum&#39;, async ({ page, audit: a, home, contactForm }) =&gt; {
+  await home.open();
+  await contactForm.fill(contact(marker(), { subject: &#39;ABCD&#39; }));
+  await a.step(page, &#39;Temat „ABCD” (4 znaki, min. 5), pozostałe pola poprawne&#39;, [contactForm.subject]);
+  const r = await contactForm.submit(a);
+  a.check(r.status, 400, &#39;Temat 4 znaki odrzucony&#39;);
+  await expect(contactForm.errorText(&#39;Subject must be between 5 and 100 characters.&#39;)).toBeVisible();
+  await a.step(page, &#39;Odrzucenie (HTTP 400): „Subject must be between 5 and 100 characters.”&#39;, [contactForm.subject, contactForm.errors]);
+});</pre><figcaption><b>home</b> i <b>contactForm</b> to obiekty stron. Test: otwiera stronę, wypełnia formularz tematem „ABCD”, robi zrzut ekranu kroku, wysyła i sprawdza, że serwer odrzucił dane (kod 400), a na stronie widać komunikat o długości tematu.</figcaption></figure>
 <h3>Automatyzacja</h3>
 <p>Wszystkie 22 testów są zautomatyzowane: komputer wykonuje je sam, w około pół minuty, jednym poleceniem (<code>npm test</code>), i za każdym razem w ten sam sposób. Po uruchomieniu powstaje raport z wynikami i dowodami. Instrukcja uruchomienia na czystym komputerze jest w <a href="05_Automation/README.md">05_Automation/README.md</a>.</p>
 <p>Testy nie opierają się na stałych danych – za każdym razem pobierają aktualny stan aplikacji i tworzą własne, oznaczone dane testowe. Nie powtarzają się automatycznie przy błędzie, żeby nie ukrywać problemów i nie obciążać publicznej aplikacji.</p>
-<p class="muted">Kod testów: <a href="05_Automation/tests/api.spec.ts">api.spec.ts</a>, <a href="05_Automation/tests/ui.spec.ts">ui.spec.ts</a> · <a href="05_Automation/reports/raport-testow.html">raport z ostatniego uruchomienia</a></p>
+<p class="muted">Kod testów: <a href="05_Automation/tests/api.spec.ts">api.spec.ts</a>, <a href="05_Automation/tests/ui.spec.ts">ui.spec.ts</a>, <a href="05_Automation/pages/">pages/ (Page Object Model)</a> · <a href="05_Automation/reports/raport-testow.html">raport z ostatniego uruchomienia</a></p>
 <aside class="take"><b>Najważniejszy wniosek</b><p>Testy uruchamia się jednym poleceniem i dają za każdym razem ten sam, udokumentowany wynik. Czerwony wynik oznacza błąd aplikacji, a nie zepsute testy – i właśnie to miały wykryć.</p></aside></section>
 
 <section class="ch" id="ch5"><div class="chhead"><span class="chno">5</span><div><h2>Decyzja i jej uzasadnienie</h2><p class="by p1">Przedstawia: <b>Kamil Andrzejewski</b> · test lead i koordynacja (ryzyka, spójność artefaktów, rekomendacja)</p></div></div>
@@ -118,6 +136,6 @@ code{font-family:Consolas,monospace;font-size:.85em;background:var(--bg);padding
 <dt>Automatyzacja</dt><dd>Testy zapisane jako program, który komputer wykonuje sam i powtarzalnie.</dd>
 <dt>Testy eksploracyjne</dt><dd>Swobodne, ograniczone czasowo szukanie błędów z jasno określonym celem.</dd>
 </dl>
-<p class="links" style="margin-top:28px">Pliki projektu: <a href="README.md">README</a> · <a href="01_TestPlan.pdf">plan testów</a> · <a href="02_TestCases.xlsx">przypadki testowe</a> · <a href="03_Exploratory.pdf">eksploracja</a> · <a href="04_Defects.xlsx">zgłoszenia błędów</a> · <a href="05_Automation/reports/raport-testow.html">raport z testów</a> · <a href="06_TestSummaryReport.pdf">raport końcowy</a></p>
+<p class="links" style="margin-top:28px">Pliki projektu: <a href="README.md">README</a> · <a href="01_TestPlan.pdf">plan testów</a> · <a href="02_TestCases.md">przypadki testowe</a> · <a href="03_Exploratory.pdf">eksploracja</a> · <a href="04_Defects.md">zgłoszenia błędów</a> · <a href="05_Automation/reports/raport-testow.html">raport z testów</a> · <a href="06_TestSummaryReport.pdf">raport końcowy</a></p>
 </section>
 </main></body></html>

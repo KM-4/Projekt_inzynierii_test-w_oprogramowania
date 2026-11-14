@@ -37,16 +37,16 @@ npm.cmd run report           # techniczny raport Playwright w przeglądarce
 npx.cmd playwright test --project=api --grep "API-04|API-09"
 ```
 
-API-04 (pusta wiadomość, odrzucona – PASS) i API-09 (pełny cykl wiadomości, PUT i DELETE zwracają 500 – FAIL). Uwaga: pokaz podzbioru nadpisuje raport ostatniego uruchomienia – po pokazie uruchom ponownie `npm.cmd test`.
+API-04 (pusta wiadomość, odrzucona – PASS) i API-09 (pełny cykl wiadomości, PUT i DELETE zwracają 500 – FAIL). Test UI w modelu Page Object Model: `npx.cmd playwright test --project=ui-chrome --grep "UI-05"` (kod: `tests/ui.spec.ts`, klasy stron: `pages/`). Uwaga: pokaz podzbioru nadpisuje raport ostatniego uruchomienia – po pokazie uruchom ponownie `npm.cmd test`.
 
 ## 5. Odtworzenie dokumentów po nowym przebiegu
 
-Z katalogu głównego repozytorium (Python z pakietami `reportlab` i `openpyxl`):
+Z katalogu głównego repozytorium (Python z pakietem `reportlab`):
 
 ```powershell
 node supporting/tools/collect-results.mjs        # metryki, przypadki, defekty, macierze
 python supporting/tools/build-pdf.py             # 01, 03, 06 (PDF)
-python supporting/tools/update-xlsx.py           # 02, 04 (XLSX)
+node supporting/tools/build-tables-md.mjs        # 02, 04 (Markdown)
 node supporting/tools/build-html-report.mjs      # raport z testów
 node supporting/tools/build-presentation.mjs     # 00_Prezentacja.html
 ```

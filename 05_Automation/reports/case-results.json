@@ -1,5 +1,5 @@
 {
-  "finishedAt": "2026-11-14T08:54:48.546Z",
+  "finishedAt": "2026-11-14T09:54:52.672Z",
   "runnerStatus": "failed",
   "results": [
     {
@@ -7,8 +7,8 @@
       "title": "API-01 Lista pokoi: schemat i unikalne identyfikatory",
       "status": "PASS",
       "runnerStatus": "passed",
-      "startedAt": "2026-11-14T08:54:18.476Z",
-      "durationMs": 184,
+      "startedAt": "2026-11-14T09:54:25.113Z",
+      "durationMs": 196,
       "reason": null,
       "attachments": [
         {
@@ -23,8 +23,8 @@
       "title": "API-02 Szczegóły pokoju zgodne z listą",
       "status": "FAIL",
       "runnerStatus": "failed",
-      "startedAt": "2026-11-14T08:54:18.682Z",
-      "durationMs": 141,
+      "startedAt": "2026-11-14T09:54:25.332Z",
+      "durationMs": 140,
       "reason": "Error: Istniejący pokój: HTTP 200 Expected: 200 Received: 500",
       "attachments": [
         {
@@ -43,8 +43,8 @@
       "title": "API-03 Nieistniejący pokój: HTTP 404",
       "status": "FAIL",
       "runnerStatus": "failed",
-      "startedAt": "2026-11-14T08:54:19.121Z",
-      "durationMs": 222,
+      "startedAt": "2026-11-14T09:54:25.769Z",
+      "durationMs": 232,
       "reason": "Error: Brak zasobu: HTTP 404 Expected: 404 Received: 500",
       "attachments": [
         {
@@ -63,8 +63,8 @@
       "title": "API-04 Wiadomość bez wymaganych pól",
       "status": "PASS",
       "runnerStatus": "passed",
-      "startedAt": "2026-11-14T08:54:19.657Z",
-      "durationMs": 180,
+      "startedAt": "2026-11-14T09:54:26.318Z",
+      "durationMs": 186,
       "reason": null,
       "attachments": [
         {
@@ -79,8 +79,8 @@
       "title": "API-05 Niepoprawny format email wiadomości",
       "status": "PASS",
       "runnerStatus": "passed",
-      "startedAt": "2026-11-14T08:54:19.858Z",
-      "durationMs": 162,
+      "startedAt": "2026-11-14T09:54:26.527Z",
+      "durationMs": 127,
       "reason": null,
       "attachments": [
         {
@@ -95,8 +95,8 @@
       "title": "API-06 Email jako obiekt zamiast tekstu",
       "status": "FAIL",
       "runnerStatus": "failed",
-      "startedAt": "2026-11-14T08:54:20.027Z",
-      "durationMs": 151,
+      "startedAt": "2026-11-14T09:54:26.661Z",
+      "durationMs": 143,
       "reason": "Error: Błędny typ: HTTP 400 Expected: 400 Received: 500",
       "attachments": [
         {
@@ -115,8 +115,8 @@
       "title": "API-07 Rezerwacje bez uwierzytelnienia",
       "status": "PASS",
       "runnerStatus": "passed",
-      "startedAt": "2026-11-14T08:54:20.471Z",
-      "durationMs": 237,
+      "startedAt": "2026-11-14T09:54:27.097Z",
+      "durationMs": 203,
       "reason": null,
       "attachments": [
         {
@@ -131,8 +131,8 @@
       "title": "API-08 Nieprawidłowe dane logowania",
       "status": "PASS",
       "runnerStatus": "passed",
-      "startedAt": "2026-11-14T08:54:20.730Z",
-      "durationMs": 139,
+      "startedAt": "2026-11-14T09:54:27.322Z",
+      "durationMs": 138,
       "reason": null,
       "attachments": [
         {
@@ -147,8 +147,8 @@
       "title": "API-09 Wiadomość: utwórz, odczytaj, oznacz przeczytaną",
       "status": "FAIL",
       "runnerStatus": "failed",
-      "startedAt": "2026-11-14T08:54:20.876Z",
-      "durationMs": 591,
+      "startedAt": "2026-11-14T09:54:27.467Z",
+      "durationMs": 531,
       "reason": "Error: Odczyt utworzonej wiadomości Expected: 200 Received: 500 | Error: Oznaczenie read: HTTP 200 Expected: 200 Received: 500 | Error: Sprzątanie własnej wiadomości Expected: 200 Received: 500 | Error: Wiadomość usunięta Expected: false Received: true | Error: Zmiana read utrwalona (potwierdzenie z listy) Expected: true Received: false",
       "attachments": [
         {
@@ -167,8 +167,8 @@
       "title": "API-10 Rezerwacja: utwórz, odczytaj i zmień nazwisko",
       "status": "FAIL",
       "runnerStatus": "failed",
-      "startedAt": "2026-11-14T08:54:21.770Z",
-      "durationMs": 846,
+      "startedAt": "2026-11-14T09:54:28.292Z",
+      "durationMs": 933,
       "reason": "Error: Odczyt HTTP 200 Expected: 200 Received: 500 | Error: PUT HTTP 200 Expected: 200 Received: 500 | Error: Usunięto wyłącznie własną rezerwację Expected: 200 Received: 500 | Error: Potwierdzono sprzątanie Expected: false Received: true | Error: Nowe nazwisko utrwalone (potwierdzenie z listy) Expected: \"ZmienioneNazwisko\" Received: \"ProjektTestowy\"",
       "attachments": [
         {
@@ -187,8 +187,8 @@
       "title": "UI-01 Katalog pokoi zgodny z API",
       "status": "PASS",
       "runnerStatus": "passed",
-      "startedAt": "2026-11-14T08:54:22.926Z",
-      "durationMs": 3031,
+      "startedAt": "2026-11-14T09:54:29.543Z",
+      "durationMs": 2595,
       "reason": null,
       "attachments": [
         {
@@ -211,8 +211,8 @@
       "title": "UI-02 Poprawna wiadomość kontaktowa",
       "status": "PASS",
       "runnerStatus": "passed",
-      "startedAt": "2026-11-14T08:54:26.131Z",
-      "durationMs": 2618,
+      "startedAt": "2026-11-14T09:54:32.330Z",
+      "durationMs": 2699,
       "reason": null,
       "notes": [
         "Sprzątanie: usunięto własną wiadomość UI: oczekiwano 200, otrzymano 500 (nie wpływa na werdykt)"
@@ -242,8 +242,8 @@
       "title": "UI-03 Pusty formularz kontaktowy",
       "status": "PASS",
       "runnerStatus": "passed",
-      "startedAt": "2026-11-14T08:54:28.757Z",
-      "durationMs": 2627,
+      "startedAt": "2026-11-14T09:54:35.038Z",
+      "durationMs": 2295,
       "reason": null,
       "attachments": [
         {
@@ -270,8 +270,8 @@
       "title": "UI-04 Niepoprawny email w kontakcie",
       "status": "PASS",
       "runnerStatus": "passed",
-      "startedAt": "2026-11-14T08:54:31.389Z",
-      "durationMs": 2681,
+      "startedAt": "2026-11-14T09:54:37.352Z",
+      "durationMs": 2316,
       "reason": null,
       "attachments": [
         {
@@ -302,8 +302,8 @@
       "title": "UI-05 Temat 4 znaki: poniżej minimum",
       "status": "PASS",
       "runnerStatus": "passed",
-      "startedAt": "2026-11-14T08:54:34.077Z",
-      "durationMs": 2484,
+      "startedAt": "2026-11-14T09:54:39.677Z",
+      "durationMs": 3040,
       "reason": null,
       "attachments": [
         {
@@ -330,8 +330,8 @@
       "title": "UI-06 Temat 5 znaków: dolna granica",
       "status": "PASS",
       "runnerStatus": "passed",
-      "startedAt": "2026-11-14T08:54:36.566Z",
-      "durationMs": 3602,
+      "startedAt": "2026-11-14T09:54:42.726Z",
+      "durationMs": 3170,
       "reason": null,
       "notes": [
         "Sprzątanie: usunięto własną wiadomość UI: oczekiwano 200, otrzymano 500 (nie wpływa na werdykt)"
@@ -361,8 +361,8 @@
       "title": "UI-07 Telefon 10 znaków: poniżej minimum",
       "status": "PASS",
       "runnerStatus": "passed",
-      "startedAt": "2026-11-14T08:54:40.175Z",
-      "durationMs": 2331,
+      "startedAt": "2026-11-14T09:54:45.902Z",
+      "durationMs": 2003,
       "reason": null,
       "attachments": [
         {
@@ -389,8 +389,8 @@
       "title": "UI-08 Cena rezerwacji dwóch nocy",
       "status": "BLOCKED",
       "runnerStatus": "skipped",
-      "startedAt": "2026-11-14T08:54:42.511Z",
-      "durationMs": 789,
+      "startedAt": "2026-11-14T09:54:47.916Z",
+      "durationMs": 579,
       "reason": "Szczegóły pokoju HTTP 500; DEF-01. Brak formularza rezerwacji.",
       "attachments": [
         {
@@ -413,8 +413,8 @@
       "title": "UI-09 Puste dane gościa w rezerwacji",
       "status": "BLOCKED",
       "runnerStatus": "skipped",
-      "startedAt": "2026-11-14T08:54:43.306Z",
-      "durationMs": 828,
+      "startedAt": "2026-11-14T09:54:48.504Z",
+      "durationMs": 591,
       "reason": "Szczegóły pokoju HTTP 500; DEF-01. Brak formularza rezerwacji.",
       "attachments": [
         {
@@ -437,8 +437,8 @@
       "title": "UI-10 Rezerwacja zachowuje wybrane daty",
       "status": "BLOCKED",
       "runnerStatus": "skipped",
-      "startedAt": "2026-11-14T08:54:44.140Z",
-      "durationMs": 824,
+      "startedAt": "2026-11-14T09:54:49.106Z",
+      "durationMs": 588,
       "reason": "Szczegóły pokoju HTTP 500; DEF-01. Brak formularza rezerwacji.",
       "attachments": [
         {
@@ -461,8 +461,8 @@
       "title": "UI-11 Błędne logowanie administratora",
       "status": "PASS",
       "runnerStatus": "passed",
-      "startedAt": "2026-11-14T08:54:44.971Z",
-      "durationMs": 1064,
+      "startedAt": "2026-11-14T09:54:49.700Z",
+      "durationMs": 723,
       "reason": null,
       "attachments": [
         {
@@ -489,8 +489,8 @@
       "title": "UI-12 Wyszukanie dostępności dla poprawnego okresu",
       "status": "PASS",
       "runnerStatus": "passed",
-      "startedAt": "2026-11-14T08:54:46.040Z",
-      "durationMs": 2222,
+      "startedAt": "2026-11-14T09:54:50.432Z",
+      "durationMs": 1848,
       "reason": null,
       "attachments": [
         {

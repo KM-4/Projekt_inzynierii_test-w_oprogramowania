@@ -1,13 +1,13 @@
 {
   "caseId": "API-04",
-  "executedAt": "2026-11-14T08:54:19.679Z",
-  "finishedAt": "2026-11-14T08:54:19.852Z",
+  "executedAt": "2026-11-14T09:54:26.341Z",
+  "finishedAt": "2026-11-14T09:54:26.521Z",
   "runnerStatus": "passed",
   "annotations": [],
   "steps": [],
   "requests": [
     {
-      "startedAt": "2026-11-14T08:54:19.679Z",
+      "startedAt": "2026-11-14T09:54:26.341Z",
       "request": {
         "method": "POST",
         "url": "https://automationintesting.online/api/message",
@@ -17,32 +17,32 @@
       "response": {
         "status": 400,
         "headers": {
-          "date": "Sat, 14 Nov 2026 08:54:19 GMT",
+          "date": "Sat, 14 Nov 2026 09:54:26 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "YBsj8M2bTvqRYTtN21mRUA",
+          "x-railway-request-id": "jqiYiMjnQZCDgQEL0-QtfA",
           "x-railway-edge": "waw1",
-          "x-hikari-trace": "waw1.qkma",
+          "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=PDol7UaEina4O2VcbugpXMwsReaN%2B16%2Brwfr24wzuSuVqqbIkHYOF1zwGeFZUl5VL0rgnSh3%2BL%2FZkM2als4mLxADOjzZexmeUIvjvHDkSRmfwYx%2FIXlbDXx2%2F3DjUvw%2FksgxmOTJXXiAjMoeT64Pc9cz5RSjo9b9FQ%3D%3D\"}]}",
-          "cf-ray": "a5a4ca763e2abbcc-WAW",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=%2BJPwXfsuVcBxmxFNilKUQcTqQDPuqDs9r6l3FfWnjgNckI6oHb4XS3BoTLx5A7uU5WR%2B%2FDfZ51vpJArYeowCR1ol5a44I0eqwsgGP%2FLetzWxWK55b3fmG9cVc46Ucjkq9TnAmyq0aiU1suKqy%2B93rqjpkQAgQhLz1g%3D%3D\"}]}",
+          "cf-ray": "a5a522846ec32761-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": [
-          "Subject must be set",
-          "Phone may not be blank",
-          "Email must be set",
           "Message may not be blank",
           "Message must be set",
+          "Email must be set",
+          "Phone may not be blank",
+          "Subject must be set",
           "Email may not be blank",
           "Phone must be set",
-          "Name must be set",
           "Name may not be blank",
-          "Subject may not be blank"
+          "Subject may not be blank",
+          "Name must be set"
         ]
       }
     }

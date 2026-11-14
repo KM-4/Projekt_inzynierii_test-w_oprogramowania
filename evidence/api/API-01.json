@@ -1,13 +1,13 @@
 {
   "caseId": "API-01",
-  "executedAt": "2026-11-14T08:54:18.499Z",
-  "finishedAt": "2026-11-14T08:54:18.675Z",
+  "executedAt": "2026-11-14T09:54:25.136Z",
+  "finishedAt": "2026-11-14T09:54:25.325Z",
   "runnerStatus": "passed",
   "annotations": [],
   "steps": [],
   "requests": [
     {
-      "startedAt": "2026-11-14T08:54:18.499Z",
+      "startedAt": "2026-11-14T09:54:25.137Z",
       "request": {
         "method": "GET",
         "url": "https://automationintesting.online/api/room",
@@ -17,20 +17,20 @@
       "response": {
         "status": 200,
         "headers": {
-          "date": "Sat, 14 Nov 2026 08:54:18 GMT",
+          "date": "Sat, 14 Nov 2026 09:54:25 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "rzloG1o-TpqC45S455So4g",
+          "x-railway-request-id": "ZgkNOL54RFK51Qoqw9P4nw",
           "x-railway-edge": "waw1",
           "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=0I4ff%2Ba7kjkaC9%2FsX00%2B1Fg8bnFvS8OoezgJ9stlcX4Ahv4qUbqj32crf6s36ULCSWJXh1p9G30ZiXm9j9UrJCQbnz%2FtwY%2FgViMB9yaGtHOl9OtLqFpp4ld5T7BVMq7iOCHtVOyOzyZvEgz7mchPCSLjjHpUdF3ZKQ%3D%3D\"}]}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=faubNrEMAIhnewJkRgw0qBz7wXp1oAoCtkXiUTi5ouIXX%2F3kKu9aOLdztj8DSiPeOWSkfjxHxgvCrZC2oHQsh4mWxg%2B5CnkXnIRgnryco2pgwaVsuaclHLCg%2FciCe4zgTxiYCJMKCjjProcnbO4vm5wu1vbd721vuA%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
           "content-encoding": "br",
-          "cf-ray": "a5a4ca6ec909e75e-WAW",
+          "cf-ray": "a5a5227ce813d978-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {

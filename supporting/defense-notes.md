@@ -10,9 +10,9 @@ Skład i faktyczny wkład: uzupełnia zespół; nie przypisano fikcyjnie autorst
 |---|---|---|
 | 0:00–0:50 | Kamil Andrzejewski | Cel i SUT: publiczny Restful-Booker-Platform, nie Restful-Booker. Zakres obejmuje pokoje, kontakt, rezerwacje i auth. Pokaż 01_TestPlan.pdf. |
 | 0:50–1:40 | Kamil Andrzejewski | Ryzyko R-01: bez rezerwacji gość nie osiąga celu. Dlatego szczegóły, daty i proces rezerwacji mają P1. Publiczne resety wymagają dynamicznego stanu. |
-| 1:40–2:40 | Karol Myszkowski | EP: email poprawny, błędny format, błędny typ. BVA: temat 4/5 znaków, limit 5–100 z modelu i komunikatu walidacji. DT: cztery kombinacje poprawności email i subject w UI-02, UI-04 i UI-05. Pokaż tabelę technik i XLSX. |
+| 1:40–2:40 | Karol Myszkowski | EP: email poprawny, błędny format, błędny typ. BVA: temat 4/5 znaków, limit 5–100 z modelu i komunikatu walidacji. DT: cztery kombinacje poprawności email i subject w UI-02, UI-04 i UI-05. Pokaż tabelę technik i 02_TestCases.md. |
 | 2:40–3:40 | Kacper Walkowiak | Pokaż API-04: POST /api/message z {}, HTTP 400, błędy wymaganych pól i jawne asercje w evidence/api/API-04.json. Następnie API-02: ID z listy, oczekiwane 200, faktyczne 500. |
-| 3:40–4:40 | Mateusz Krzyzak | Pokaż kod Playwright, worker=1, retries=0, raport HTML, screenshot i trace. Wyjaśnij różnicę FAIL a BLOCKED. Uruchom wcześniej przygotowane polecenie z README. |
+| 3:40–4:40 | Mateusz Krzyzak | Pokaż kod Playwright: testy API oraz testy UI w modelu Page Object Model (05_Automation/pages, klasy stron), worker=1, retries=0, raport HTML, screenshot i trace. Wyjaśnij różnicę FAIL a BLOCKED. Uruchom wcześniej przygotowane polecenie z README. |
 | 4:40–5:30 | Kacper Walkowiak | Wyniki: 22 planowane, 19 wykonane, 14 PASS, 5 FAIL, 3 BLOCKED, 0 NOT RUN. Cztery unikalne defekty: S1=1, S2=1, S3=2. EXP-02 trwała 30 minut 36 sekund; nowy problem dat ujawnił się w UTC+14. Nie liczysz każdego 500 osobno. W UI-02/UI-06 sprzątanie jest kontrolą informacyjną (decyzja projektowa 14.11). |
 | 5:30–6:10 | Kamil Andrzejewski | Rekomendacja NO-GO dla gotowości funkcjonalnej tego wdrożenia. Warunki zmiany decyzji: naprawa tras ID, retest rezerwacji i nieosiągniętych PUT, weryfikacja sprzątania oraz akceptacja ryzyk. |
 

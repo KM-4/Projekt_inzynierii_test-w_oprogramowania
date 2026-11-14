@@ -1,7 +1,7 @@
 {
   "caseId": "UI-07",
-  "executedAt": "2026-11-14T08:54:40.178Z",
-  "finishedAt": "2026-11-14T08:54:42.507Z",
+  "executedAt": "2026-11-14T09:54:45.912Z",
+  "finishedAt": "2026-11-14T09:54:47.912Z",
   "runnerStatus": "passed",
   "annotations": [],
   "steps": [
@@ -18,15 +18,15 @@
   ],
   "requests": [
     {
-      "startedAt": "2026-11-14T08:54:42.034Z",
+      "startedAt": "2026-11-14T09:54:47.441Z",
       "request": {
         "method": "POST",
         "url": "https://automationintesting.online/api/message",
         "body": {
-          "name": "QA-1794646480962-51a97c",
+          "name": "QA-1794650086371-2ebfe1",
           "email": "qa-project@example.test",
           "phone": "1234567890",
-          "subject": "Zapytanie QA-1794646480962-51a97c",
+          "subject": "Zapytanie QA-1794650086371-2ebfe1",
           "description": "Wiadomość testowa projektu akademickiego. Dane syntetyczne."
         }
       },

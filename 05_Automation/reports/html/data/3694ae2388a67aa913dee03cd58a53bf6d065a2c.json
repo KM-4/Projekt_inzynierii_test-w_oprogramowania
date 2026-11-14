@@ -1,0 +1,69 @@
+{
+  "caseId": "API-08",
+  "executedAt": "2026-11-14T09:54:27.327Z",
+  "finishedAt": "2026-11-14T09:54:27.462Z",
+  "runnerStatus": "passed",
+  "annotations": [],
+  "steps": [],
+  "requests": [
+    {
+      "startedAt": "2026-11-14T09:54:27.327Z",
+      "request": {
+        "method": "POST",
+        "url": "https://automationintesting.online/api/auth/login",
+        "headers": {},
+        "body": {
+          "username": "QA-1794650067327-8acaa8",
+          "password": "[MASKED]"
+        }
+      },
+      "response": {
+        "status": 401,
+        "headers": {
+          "date": "Sat, 14 Nov 2026 09:54:27 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-railway-request-id": "DvO5emr-TTuTqE-Z55So4g",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.qkma",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Msk6UspVk%2BY8KGyVs8Tm6SvuganWElHOeT0KxPdNdq7qVQK%2BkNKXL5kaPb2ShsShRMyK%2Ftj7WaGCcqMsaVOMRDzUrQ1FvJP26yGw2roIN0wLRFuOP9cvk035d%2Bsbwcj86IvOzvESz6%2FSlKiKnXSE%2B8O0oLPlzNKv1g%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "cf-ray": "a5a5228a2e9757ec-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": {
+          "error": "Invalid credentials"
+        }
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "requestIndex": 0,
+      "label": "Odrzucenie logowania: HTTP 401",
+      "actual": 401,
+      "expected": 401,
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
+      "label": "Komunikat błędu",
+      "actual": "Invalid credentials",
+      "expected": "Invalid credentials",
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
+      "label": "Brak tokenu",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    }
+  ],
+  "observations": [],
+  "error": null
+}

@@ -1,41 +1,41 @@
 {
   "caseId": "API-05",
-  "executedAt": "2026-11-14T08:54:19.863Z",
-  "finishedAt": "2026-11-14T08:54:20.022Z",
+  "executedAt": "2026-11-14T09:54:26.531Z",
+  "finishedAt": "2026-11-14T09:54:26.656Z",
   "runnerStatus": "passed",
   "annotations": [],
   "steps": [],
   "requests": [
     {
-      "startedAt": "2026-11-14T08:54:19.863Z",
+      "startedAt": "2026-11-14T09:54:26.532Z",
       "request": {
         "method": "POST",
         "url": "https://automationintesting.online/api/message",
         "headers": {},
         "body": {
-          "name": "QA-1794646459863-d32398",
+          "name": "QA-1794650066531-11bbe2",
           "email": "nie-jest-mailem",
           "phone": "12345678901",
-          "subject": "Zapytanie QA-1794646459863-d32398",
+          "subject": "Zapytanie QA-1794650066531-11bbe2",
           "description": "Wiadomość testowa projektu akademickiego. Dane syntetyczne."
         }
       },
       "response": {
         "status": 400,
         "headers": {
-          "date": "Sat, 14 Nov 2026 08:54:20 GMT",
+          "date": "Sat, 14 Nov 2026 09:54:26 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "qfvD2q5DQw6MuiAN55So4g",
+          "x-railway-request-id": "MVf76XKZQvelTkVTnTga3g",
           "x-railway-edge": "waw1",
-          "x-hikari-trace": "waw1.qkma",
+          "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=QsD8WXGSIf6yRPRfYK%2BEk4xlSVuAPQyHOD8xrdS2yiy6RJC9C%2FUHWiOpfxx7WkErAhC3jl8x%2Fo4z6HAq3AlA%2B1D9e84yk%2FlLegngUe%2BkcBolJLGeDr3YToO5bQPRKBQAR%2FWCa9HOyWjWKQ2bSQwNaWZVrrfwHSUhiA%3D%3D\"}]}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=PsFH3AbDp8XivILOPpxFMkCwBjnnrMvTUQsPuCuWCcPVD87HSKDErh%2F7p8x01eqwmzVGFovWBYGeA4Ui5IVaimK7fpfqF5vATkqHJG4fFO2IpkCDhS6FVuoCURpogfHLKwHa3Kll9s3vrlrV0BMEK7vFqdb1VjUAVg%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "cf-ray": "a5a4ca76de88bbcc-WAW",
+          "cf-ray": "a5a52285286b2761-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": [
@@ -44,7 +44,7 @@
       }
     },
     {
-      "startedAt": "2026-11-14T08:54:19.933Z",
+      "startedAt": "2026-11-14T09:54:26.594Z",
       "request": {
         "method": "GET",
         "url": "https://automationintesting.online/api/message",
@@ -54,20 +54,20 @@
       "response": {
         "status": 200,
         "headers": {
-          "date": "Sat, 14 Nov 2026 08:54:20 GMT",
+          "date": "Sat, 14 Nov 2026 09:54:26 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "IljGwCteSeeyipZJWVMv1w",
+          "x-railway-request-id": "LqJzODx6RVe7u6whnbOCzg",
           "x-railway-edge": "waw1",
-          "x-hikari-trace": "waw1.qkma",
+          "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=rdpniU1Qn%2Fe7WfVOFDiN81BcY%2FpUSwj6Qkh7uDSSHVUqly0MRYEQgJWv0fIe%2Ffj9FV%2BRkvMm4H1nL6UI%2FniFkPDDk1Lgbx5MqnOqIubvhDxw3BPE%2F%2Fqr0VUmv%2FVlscxxw8TPbAgC37Uw5hriLaSFeHyhji5jlT%2Fceg%3D%3D\"}]}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=XYQG7qjzyXcvc1I5pc%2FYaCDVbJkXT5mWa2dgaoV2%2FOkw85dxNtnmnVHyZJkgYgH6vkCOxEn9vXzdY6FDhGbrypoHiRZbQHIwXK9Ufjq%2FYiXu41gWRAQ73K7wf79k1wUhphR8g1OK%2FFZZxnNFh1l6GKacIrR4V7j0mw%3D%3D\"}]}",
           "content-encoding": "br",
-          "cf-ray": "a5a4ca775ecebbcc-WAW",
+          "cf-ray": "a5a52285894d2761-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {
@@ -80,13 +80,37 @@
             },
             {
               "id": 2,
-              "name": "QA-1794646289602-660c71",
+              "name": "Glennie Kuphal",
               "read": false,
-              "subject": "Zapytanie QA-1794646289602-660c71"
+              "subject": "You have a new booking!"
             },
             {
               "id": 3,
-              "name": "QA-1794646298738-fc6672",
+              "name": "Dr. Keith Ondricka",
+              "read": false,
+              "subject": "Consulta WGHVma"
+            },
+            {
+              "id": 4,
+              "name": "Stuart Bernhard",
+              "read": false,
+              "subject": "Consulta 5ifioZ"
+            },
+            {
+              "id": 5,
+              "name": "Thea Nikolaus",
+              "read": false,
+              "subject": "You have a new booking!"
+            },
+            {
+              "id": 6,
+              "name": "QA-1794649919591-33344e",
+              "read": false,
+              "subject": "Zapytanie QA-1794649919591-33344e"
+            },
+            {
+              "id": 7,
+              "name": "QA-1794649931418-5f86f6",
               "read": false,
               "subject": "ABCDE"
             }

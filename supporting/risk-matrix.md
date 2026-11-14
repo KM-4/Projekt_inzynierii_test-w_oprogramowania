@@ -11,4 +11,4 @@ Skala P: 1 mało prawdopodobne, 2 możliwe, 3 prawdopodobne. I: 1 ograniczony UX
 | R-05 | Daty i naliczenia: Wybrany okres zmienia się pomiędzy UI, requestem i rezerwacją albo cena używa złej liczby nocy. | 2 | 3 | 6 | Błąd daty lub ceny dotyka terminu pobytu i płatności. Weryfikacja w strefie Europe/Warsaw. | UI-08, UI-10, UI-12 |
 | R-06 | Stan i izolacja: Reset usuwa dane w połowie testu; awaria sprzątania pozostawia rekordy; współbieżny użytkownik zmienia stan. | 3 | 2 | 6 | Ryzyko przekrojowe: świeży stan, jeden worker, markery QA i cleanup w każdym teście zapisu. Priorytet przypadku wynika z procesu: rezerwacja P1, kontakt P2. | UI-02, UI-06, API-09, API-10 |
 
-Ryzyko jest hipotezą planistyczną; potwierdzone defekty są osobno w 04_Defects.xlsx. Kolejność wykonania techniczna może zaczynać od odczytów API, które przygotowują stan do testów P1.
+Ryzyko jest hipotezą planistyczną; potwierdzone defekty są osobno w 04_Defects.md. Kolejność wykonania techniczna może zaczynać od odczytów API, które przygotowują stan do testów P1.
