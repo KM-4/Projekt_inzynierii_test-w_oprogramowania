@@ -1,6 +1,6 @@
 # Przypadki testowe
 
-Zespół: Kamil Andrzejewski (83741), Karol Myszkowski (77514), Kacper Walkowiak (77519), Mateusz Krzyzak (77862). Wyniki z pełnego przebiegu 14.11.2026, 10:54:25 – 14.11.2026, 10:54:52 (Chrome, Playwright 1.62.1, Europe/Warsaw).
+Zespół: Kamil Andrzejewski (83741), Karol Myszkowski (77514), Kacper Walkowiak (77519), Mateusz Krzyzak (77862). Wyniki z pełnego przebiegu 14.11.2026, 11:07:00 – 14.11.2026, 11:07:29 (Chrome, Playwright 1.62.1, Europe/Warsaw).
 
 ## Podsumowanie
 
@@ -69,7 +69,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [UI-01.json](evidence/ui/UI-01.json), [krok-01.png](evidence/ui/UI-01/krok-01.png), [UI-01.png](evidence/ui/UI-01.png)
-- **Wykonano:** 14.11.2026, 10:54:29 (2595 ms)
+- **Wykonano:** 14.11.2026, 11:07:05 (2564 ms)
 
 ### UI-02
 
@@ -93,13 +93,13 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   POST /api/message → 200
   POST /api/auth/login → 200
   GET /api/message → 200
-  DELETE /api/message/10 → 500
+  DELETE /api/message/8 → 500
   Wszystkie jawne asercje i kontrole runnera zakończone pomyślnie.
   Kontrola informacyjna (nie wpływa na werdykt): Sprzątanie: usunięto własną wiadomość UI: oczekiwano 200, otrzymano 500. Objaw DEF-01; własny rekord testowy pozostaje do resetu środowiska.
   ```
 
 - **Evidence:** [UI-02.json](evidence/ui/UI-02.json), [krok-01.png](evidence/ui/UI-02/krok-01.png), [krok-02.png](evidence/ui/UI-02/krok-02.png), [UI-02.png](evidence/ui/UI-02.png)
-- **Wykonano:** 14.11.2026, 10:54:32 (2699 ms)
+- **Wykonano:** 14.11.2026, 11:07:07 (3222 ms)
 
 ### UI-03
 
@@ -124,7 +124,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [UI-03.json](evidence/ui/UI-03.json), [krok-01.png](evidence/ui/UI-03/krok-01.png), [krok-02.png](evidence/ui/UI-03/krok-02.png), [UI-03.png](evidence/ui/UI-03.png)
-- **Wykonano:** 14.11.2026, 10:54:35 (2295 ms)
+- **Wykonano:** 14.11.2026, 11:07:10 (3126 ms)
 
 ### UI-04
 
@@ -150,7 +150,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [UI-04.json](evidence/ui/UI-04.json), [krok-01.png](evidence/ui/UI-04/krok-01.png), [krok-02.png](evidence/ui/UI-04/krok-02.png), [krok-03.png](evidence/ui/UI-04/krok-03.png), [UI-04.png](evidence/ui/UI-04.png)
-- **Wykonano:** 14.11.2026, 10:54:37 (2316 ms)
+- **Wykonano:** 14.11.2026, 11:07:14 (3356 ms)
 
 ### UI-05
 
@@ -174,7 +174,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [UI-05.json](evidence/ui/UI-05.json), [krok-01.png](evidence/ui/UI-05/krok-01.png), [krok-02.png](evidence/ui/UI-05/krok-02.png), [UI-05.png](evidence/ui/UI-05.png)
-- **Wykonano:** 14.11.2026, 10:54:39 (3040 ms)
+- **Wykonano:** 14.11.2026, 11:07:17 (3016 ms)
 
 ### UI-06
 
@@ -197,13 +197,13 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   POST /api/message → 200
   POST /api/auth/login → 200
   GET /api/message → 200
-  DELETE /api/message/11 → 500
+  DELETE /api/message/9 → 500
   Wszystkie jawne asercje i kontrole runnera zakończone pomyślnie.
   Kontrola informacyjna (nie wpływa na werdykt): Sprzątanie: usunięto własną wiadomość UI: oczekiwano 200, otrzymano 500. Objaw DEF-01; własny rekord testowy pozostaje do resetu środowiska.
   ```
 
 - **Evidence:** [UI-06.json](evidence/ui/UI-06.json), [krok-01.png](evidence/ui/UI-06/krok-01.png), [krok-02.png](evidence/ui/UI-06/krok-02.png), [UI-06.png](evidence/ui/UI-06.png)
-- **Wykonano:** 14.11.2026, 10:54:42 (3170 ms)
+- **Wykonano:** 14.11.2026, 11:07:20 (2248 ms)
 
 ### UI-07
 
@@ -227,7 +227,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [UI-07.json](evidence/ui/UI-07.json), [krok-01.png](evidence/ui/UI-07/krok-01.png), [krok-02.png](evidence/ui/UI-07/krok-02.png), [UI-07.png](evidence/ui/UI-07.png)
-- **Wykonano:** 14.11.2026, 10:54:45 (2003 ms)
+- **Wykonano:** 14.11.2026, 11:07:22 (1948 ms)
 
 ### UI-08
 
@@ -252,7 +252,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [UI-08.json](evidence/ui/UI-08.json), [krok-01.png](evidence/ui/UI-08/krok-01.png), [UI-08.png](evidence/ui/UI-08.png)
-- **Wykonano:** 14.11.2026, 10:54:47 (579 ms)
+- **Wykonano:** 14.11.2026, 11:07:24 (550 ms)
 
 ### UI-09
 
@@ -278,7 +278,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [UI-09.json](evidence/ui/UI-09.json), [krok-01.png](evidence/ui/UI-09/krok-01.png), [UI-09.png](evidence/ui/UI-09.png)
-- **Wykonano:** 14.11.2026, 10:54:48 (591 ms)
+- **Wykonano:** 14.11.2026, 11:07:25 (562 ms)
 
 ### UI-10
 
@@ -304,7 +304,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [UI-10.json](evidence/ui/UI-10.json), [krok-01.png](evidence/ui/UI-10/krok-01.png), [UI-10.png](evidence/ui/UI-10.png)
-- **Wykonano:** 14.11.2026, 10:54:49 (588 ms)
+- **Wykonano:** 14.11.2026, 11:07:25 (581 ms)
 
 ### UI-11
 
@@ -329,7 +329,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [UI-11.json](evidence/ui/UI-11.json), [krok-01.png](evidence/ui/UI-11/krok-01.png), [krok-02.png](evidence/ui/UI-11/krok-02.png), [UI-11.png](evidence/ui/UI-11.png)
-- **Wykonano:** 14.11.2026, 10:54:49 (723 ms)
+- **Wykonano:** 14.11.2026, 11:07:26 (796 ms)
 
 ### UI-12
 
@@ -354,7 +354,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [UI-12.json](evidence/ui/UI-12.json), [krok-01.png](evidence/ui/UI-12/krok-01.png), [krok-02.png](evidence/ui/UI-12/krok-02.png), [UI-12.png](evidence/ui/UI-12.png)
-- **Wykonano:** 14.11.2026, 10:54:50 (1848 ms)
+- **Wykonano:** 14.11.2026, 11:07:27 (1857 ms)
 
 ### API-01
 
@@ -378,7 +378,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [API-01.json](evidence/api/API-01.json)
-- **Wykonano:** 14.11.2026, 10:54:25 (196 ms)
+- **Wykonano:** 14.11.2026, 11:07:00 (177 ms)
 
 ### API-02
 
@@ -403,7 +403,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [API-02.json](evidence/api/API-02.json)
-- **Wykonano:** 14.11.2026, 10:54:25 (140 ms)
+- **Wykonano:** 14.11.2026, 11:07:00 (155 ms)
 
 ### API-03
 
@@ -428,7 +428,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [API-03.json](evidence/api/API-03.json)
-- **Wykonano:** 14.11.2026, 10:54:25 (232 ms)
+- **Wykonano:** 14.11.2026, 11:07:01 (219 ms)
 
 ### API-04
 
@@ -452,7 +452,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [API-04.json](evidence/api/API-04.json)
-- **Wykonano:** 14.11.2026, 10:54:26 (186 ms)
+- **Wykonano:** 14.11.2026, 11:07:01 (188 ms)
 
 ### API-05
 
@@ -477,7 +477,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [API-05.json](evidence/api/API-05.json)
-- **Wykonano:** 14.11.2026, 10:54:26 (127 ms)
+- **Wykonano:** 14.11.2026, 11:07:01 (151 ms)
 
 ### API-06
 
@@ -502,7 +502,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [API-06.json](evidence/api/API-06.json)
-- **Wykonano:** 14.11.2026, 10:54:26 (143 ms)
+- **Wykonano:** 14.11.2026, 11:07:02 (157 ms)
 
 ### API-07
 
@@ -527,7 +527,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [API-07.json](evidence/api/API-07.json)
-- **Wykonano:** 14.11.2026, 10:54:27 (203 ms)
+- **Wykonano:** 14.11.2026, 11:07:02 (210 ms)
 
 ### API-08
 
@@ -550,7 +550,7 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   ```
 
 - **Evidence:** [API-08.json](evidence/api/API-08.json)
-- **Wykonano:** 14.11.2026, 10:54:27 (138 ms)
+- **Wykonano:** 14.11.2026, 11:07:02 (186 ms)
 
 ### API-09
 
@@ -576,17 +576,17 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   POST /api/auth/login → 200
   POST /api/message → 200
   GET /api/message → 200
-  GET /api/message/8 → 500
-  PUT /api/message/8 → 500
+  GET /api/message/6 → 500
+  PUT /api/message/6 → 500
   GET /api/message → 200
-  DELETE /api/message/8 → 500
+  DELETE /api/message/6 → 500
   GET /api/message → 200
   Niezgodności: Odczyt utworzonej wiadomości: oczekiwano 200, otrzymano 500; Oznaczenie read: HTTP 200: oczekiwano 200, otrzymano 500; Zmiana read utrwalona (potwierdzenie z listy): oczekiwano true, otrzymano false; Sprzątanie własnej wiadomości: oczekiwano 200, otrzymano 500; Wiadomość usunięta: oczekiwano false, otrzymano true
   Utworzenie i obecność na liście potwierdzone. Odczyt po ID, PUT i DELETE wykonane: każde zwraca 500, a lista potwierdza brak utrwalonej zmiany.
   ```
 
 - **Evidence:** [API-09.json](evidence/api/API-09.json)
-- **Wykonano:** 14.11.2026, 10:54:27 (531 ms)
+- **Wykonano:** 14.11.2026, 11:07:02 (548 ms)
 
 ### API-10
 
@@ -614,14 +614,14 @@ Statusy: **PASS** – wynik zgodny z oczekiwanym; **FAIL** – potwierdzona niez
   GET /api/booking?roomid=1 → 200
   POST /api/booking → 201
   GET /api/booking?roomid=1 → 200
-  GET /api/booking/6 → 500
-  PUT /api/booking/6 → 500
+  GET /api/booking/5 → 500
+  PUT /api/booking/5 → 500
   GET /api/booking?roomid=1 → 200
-  DELETE /api/booking/6 → 500
+  DELETE /api/booking/5 → 500
   GET /api/booking?roomid=1 → 200
   Niezgodności: Odczyt HTTP 200: oczekiwano 200, otrzymano 500; PUT HTTP 200: oczekiwano 200, otrzymano 500; Nowe nazwisko utrwalone (potwierdzenie z listy): oczekiwano "ZmienioneNazwisko", otrzymano "ProjektTestowy"; Usunięto wyłącznie własną rezerwację: oczekiwano 200, otrzymano 500; Potwierdzono sprzątanie: oczekiwano false, otrzymano true
   Utworzenie i obecność na liście potwierdzone. Odczyt po ID, PUT i DELETE wykonane: każde zwraca 500, a lista potwierdza brak utrwalonej zmiany.
   ```
 
 - **Evidence:** [API-10.json](evidence/api/API-10.json)
-- **Wykonano:** 14.11.2026, 10:54:28 (933 ms)
+- **Wykonano:** 14.11.2026, 11:07:03 (840 ms)

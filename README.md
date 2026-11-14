@@ -24,7 +24,7 @@ Materiały i kod automatyzacji przygotowano z pomocą asystenta AI.
 | [`02_TestCases.md`](02_TestCases.md) | 22 przypadki testowe (12 UI, 10 API) z wynikami i odsyłaczami do evidence |
 | [`03_Exploratory.md`](03_Exploratory.md) / `.pdf` | Charter i notatka z sesji eksploracyjnej |
 | [`04_Defects.md`](04_Defects.md) | 4 unikalne raporty defektów ze skalą severity / priority |
-| [`05_Automation/`](05_Automation/README.md) | Testy automatyczne (Playwright + TypeScript): 10 testów API i 12 testów UI w modelu Page Object Model, raporty z uruchomień |
+| [`05_Automation/`](05_Automation/README.md) | Testy automatyczne (Playwright + TypeScript): 10 testów API w architekturze warstwowej (klienci API, buildery danych) i 12 testów UI w modelu Page Object Model, raporty z uruchomień |
 | [`06_TestSummaryReport.pdf`](06_TestSummaryReport.pdf) | Raport końcowy: metryki, ryzyka, rekomendacja |
 | [`RUNBOOK.md`](RUNBOOK.md) | Jak uruchomić testy, pokazać wyniki i odtworzyć dokumenty |
 | `evidence/` | Dowody wykonania: request / response / asercje (API), screeny kroków (UI), eksploracja |

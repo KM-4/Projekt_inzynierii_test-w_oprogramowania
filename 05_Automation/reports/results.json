@@ -119,12 +119,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 196,
+                  "duration": 177,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:25.113Z",
+                  "startTime": "2026-11-14T10:07:00.505Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -140,7 +140,7 @@
           ],
           "id": "1ea1b1599cbc08f16936-3732cbdaf67153f9afc4",
           "file": "api.spec.ts",
-          "line": 8,
+          "line": 9,
           "column": 5
         },
         {
@@ -159,10 +159,10 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 140,
+                  "duration": 155,
                   "error": {
                     "message": "Error: Istniejący pokój: HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
-                    "stack": "Error: Istniejący pokój: HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.check (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:31:26)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:30:5",
+                    "stack": "Error: Istniejący pokój: HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.check (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:31:26)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:31:5",
                     "location": {
                       "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts",
                       "column": 26,
@@ -177,13 +177,13 @@
                         "column": 26,
                         "line": 31
                       },
-                      "message": "Error: Istniejący pokój: HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n    at Audit.check (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:31:26)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:30:5"
+                      "message": "Error: Istniejący pokój: HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n    at Audit.check (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:31:26)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:31:5"
                     }
                   ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:25.332Z",
+                  "startTime": "2026-11-14T10:07:00.705Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -209,7 +209,7 @@
           ],
           "id": "1ea1b1599cbc08f16936-1bb106ff888f35bf3491",
           "file": "api.spec.ts",
-          "line": 27,
+          "line": 28,
           "column": 5
         },
         {
@@ -228,10 +228,10 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 232,
+                  "duration": 219,
                   "error": {
                     "message": "Error: Brak zasobu: HTTP 404\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
-                    "stack": "Error: Brak zasobu: HTTP 404\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.check (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:31:26)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:43:5",
+                    "stack": "Error: Brak zasobu: HTTP 404\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.check (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:31:26)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:44:5",
                     "location": {
                       "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts",
                       "column": 26,
@@ -246,13 +246,13 @@
                         "column": 26,
                         "line": 31
                       },
-                      "message": "Error: Brak zasobu: HTTP 404\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n    at Audit.check (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:31:26)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:43:5"
+                      "message": "Error: Brak zasobu: HTTP 404\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n    at Audit.check (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:31:26)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:44:5"
                     }
                   ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:25.769Z",
+                  "startTime": "2026-11-14T10:07:01.173Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -278,7 +278,7 @@
           ],
           "id": "1ea1b1599cbc08f16936-d213258e7fb2e3d3f6ac",
           "file": "api.spec.ts",
-          "line": 37,
+          "line": 38,
           "column": 5
         },
         {
@@ -297,12 +297,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 186,
+                  "duration": 188,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:26.318Z",
+                  "startTime": "2026-11-14T10:07:01.716Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -318,7 +318,7 @@
           ],
           "id": "1ea1b1599cbc08f16936-76a8a12c06e8214195bf",
           "file": "api.spec.ts",
-          "line": 47,
+          "line": 48,
           "column": 5
         },
         {
@@ -337,12 +337,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 127,
+                  "duration": 151,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:26.527Z",
+                  "startTime": "2026-11-14T10:07:01.927Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -358,7 +358,7 @@
           ],
           "id": "1ea1b1599cbc08f16936-ae046df4fe3ee4e7e374",
           "file": "api.spec.ts",
-          "line": 64,
+          "line": 58,
           "column": 5
         },
         {
@@ -377,10 +377,10 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 143,
+                  "duration": 157,
                   "error": {
                     "message": "Error: Błędny typ: HTTP 400\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
-                    "stack": "Error: Błędny typ: HTTP 400\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:76:5",
+                    "stack": "Error: Błędny typ: HTTP 400\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:72:5",
                     "location": {
                       "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts",
                       "column": 243,
@@ -395,13 +395,13 @@
                         "column": 243,
                         "line": 33
                       },
-                      "message": "Error: Błędny typ: HTTP 400\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:76:5"
+                      "message": "Error: Błędny typ: HTTP 400\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:72:5"
                     }
                   ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:26.661Z",
+                  "startTime": "2026-11-14T10:07:02.086Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -427,7 +427,7 @@
           ],
           "id": "1ea1b1599cbc08f16936-3bf759f6bfcfa3baaa1c",
           "file": "api.spec.ts",
-          "line": 73,
+          "line": 69,
           "column": 5
         },
         {
@@ -446,12 +446,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 203,
+                  "duration": 210,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:27.097Z",
+                  "startTime": "2026-11-14T10:07:02.547Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -467,7 +467,7 @@
           ],
           "id": "1ea1b1599cbc08f16936-abcdbfda548414f789c9",
           "file": "api.spec.ts",
-          "line": 81,
+          "line": 79,
           "column": 5
         },
         {
@@ -486,12 +486,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 138,
+                  "duration": 186,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:27.322Z",
+                  "startTime": "2026-11-14T10:07:02.780Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -507,7 +507,7 @@
           ],
           "id": "1ea1b1599cbc08f16936-87ef31f7c6703ae6eddf",
           "file": "api.spec.ts",
-          "line": 89,
+          "line": 87,
           "column": 5
         },
         {
@@ -526,10 +526,10 @@
                   "workerIndex": 3,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 531,
+                  "duration": 548,
                   "error": {
                     "message": "Error: Odczyt utworzonej wiadomości\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
-                    "stack": "Error: Odczyt utworzonej wiadomości\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:116:7",
+                    "stack": "Error: Odczyt utworzonej wiadomości\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:112:7",
                     "location": {
                       "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts",
                       "column": 243,
@@ -544,7 +544,7 @@
                         "column": 243,
                         "line": 33
                       },
-                      "message": "Error: Odczyt utworzonej wiadomości\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:116:7"
+                      "message": "Error: Odczyt utworzonej wiadomości\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:112:7"
                     },
                     {
                       "location": {
@@ -552,7 +552,7 @@
                         "column": 243,
                         "line": 33
                       },
-                      "message": "Error: Oznaczenie read: HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:123:7"
+                      "message": "Error: Oznaczenie read: HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:119:7"
                     },
                     {
                       "location": {
@@ -560,7 +560,7 @@
                         "column": 243,
                         "line": 33
                       },
-                      "message": "Error: Sprzątanie własnej wiadomości\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:134:9"
+                      "message": "Error: Sprzątanie własnej wiadomości\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:127:9"
                     },
                     {
                       "location": {
@@ -568,7 +568,7 @@
                         "column": 243,
                         "line": 33
                       },
-                      "message": "Error: Wiadomość usunięta\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:136:9"
+                      "message": "Error: Wiadomość usunięta\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:129:9"
                     },
                     {
                       "location": {
@@ -576,13 +576,13 @@
                         "column": 26,
                         "line": 31
                       },
-                      "message": "Error: Zmiana read utrwalona (potwierdzenie z listy)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n    at Audit.check (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:31:26)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:126:7"
+                      "message": "Error: Zmiana read utrwalona (potwierdzenie z listy)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n    at Audit.check (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:31:26)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:122:7"
                     }
                   ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:27.467Z",
+                  "startTime": "2026-11-14T10:07:02.973Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -608,7 +608,7 @@
           ],
           "id": "1ea1b1599cbc08f16936-5398d5bd936bde2b02af",
           "file": "api.spec.ts",
-          "line": 99,
+          "line": 96,
           "column": 5
         },
         {
@@ -627,10 +627,10 @@
                   "workerIndex": 4,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 933,
+                  "duration": 840,
                   "error": {
                     "message": "Error: Odczyt HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
-                    "stack": "Error: Odczyt HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:183:7",
+                    "stack": "Error: Odczyt HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:159:7",
                     "location": {
                       "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts",
                       "column": 243,
@@ -645,7 +645,7 @@
                         "column": 243,
                         "line": 33
                       },
-                      "message": "Error: Odczyt HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:183:7"
+                      "message": "Error: Odczyt HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:159:7"
                     },
                     {
                       "location": {
@@ -653,7 +653,7 @@
                         "column": 243,
                         "line": 33
                       },
-                      "message": "Error: PUT HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:188:7"
+                      "message": "Error: PUT HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:164:7"
                     },
                     {
                       "location": {
@@ -661,7 +661,7 @@
                         "column": 243,
                         "line": 33
                       },
-                      "message": "Error: Usunięto wyłącznie własną rezerwację\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:200:9"
+                      "message": "Error: Usunięto wyłącznie własną rezerwację\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:176:9"
                     },
                     {
                       "location": {
@@ -669,7 +669,7 @@
                         "column": 243,
                         "line": 33
                       },
-                      "message": "Error: Potwierdzono sprzątanie\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:202:9"
+                      "message": "Error: Potwierdzono sprzątanie\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n   at ..\\helpers\\audit.ts:33\n\n  31 |     expect(actual,label).toEqual(expected);\n  32 |   }\n> 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n     |                                                                                                                                                                                                                                                   ^\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n  35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.\n  36 |   inform(actual:any,expected:any,label:string){\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:178:9"
                     },
                     {
                       "location": {
@@ -677,13 +677,13 @@
                         "column": 26,
                         "line": 31
                       },
-                      "message": "Error: Nowe nazwisko utrwalone (potwierdzenie z listy)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m\"ZmienioneNazwisko\"\u001b[39m\nReceived: \u001b[31m\"ProjektTestowy\"\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n    at Audit.check (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:31:26)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:192:7"
+                      "message": "Error: Nowe nazwisko utrwalone (potwierdzenie z listy)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m\"ZmienioneNazwisko\"\u001b[39m\nReceived: \u001b[31m\"ProjektTestowy\"\u001b[39m\n\n   at ..\\helpers\\audit.ts:31\n\n  29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);\n  30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});\n> 31 |     expect(actual,label).toEqual(expected);\n     |                          ^\n  32 |   }\n  33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}\n  34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,\n    at Audit.check (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:31:26)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:168:7"
                     }
                   ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:28.292Z",
+                  "startTime": "2026-11-14T10:07:03.830Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -709,7 +709,7 @@
           ],
           "id": "1ea1b1599cbc08f16936-af9807bcc8db28c9f1eb",
           "file": "api.spec.ts",
-          "line": 144,
+          "line": 137,
           "column": 5
         }
       ]
@@ -736,12 +736,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2595,
+                  "duration": 2564,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:29.543Z",
+                  "startTime": "2026-11-14T10:07:05.009Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -767,7 +767,7 @@
           ],
           "id": "d425444c687fa36b5882-b75f20e010f52332c57e",
           "file": "ui.spec.ts",
-          "line": 35,
+          "line": 36,
           "column": 5
         },
         {
@@ -791,12 +791,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2699,
+                  "duration": 3222,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:32.330Z",
+                  "startTime": "2026-11-14T10:07:07.728Z",
                   "annotations": [
                     {
                       "type": "cleanup",
@@ -832,7 +832,7 @@
           ],
           "id": "d425444c687fa36b5882-e1ebc0da0c51409acdc5",
           "file": "ui.spec.ts",
-          "line": 49,
+          "line": 50,
           "column": 5
         },
         {
@@ -851,12 +851,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2295,
+                  "duration": 3126,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:35.038Z",
+                  "startTime": "2026-11-14T10:07:10.965Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -887,7 +887,7 @@
           ],
           "id": "d425444c687fa36b5882-bbaeca93984d22388eb9",
           "file": "ui.spec.ts",
-          "line": 66,
+          "line": 67,
           "column": 5
         },
         {
@@ -906,12 +906,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2316,
+                  "duration": 3356,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:37.352Z",
+                  "startTime": "2026-11-14T10:07:14.112Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -947,7 +947,7 @@
           ],
           "id": "d425444c687fa36b5882-b199d78542f93c13a8de",
           "file": "ui.spec.ts",
-          "line": 77,
+          "line": 78,
           "column": 5
         },
         {
@@ -966,12 +966,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3040,
+                  "duration": 3016,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:39.677Z",
+                  "startTime": "2026-11-14T10:07:17.481Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1002,7 +1002,7 @@
           ],
           "id": "d425444c687fa36b5882-ec627fff62afa10568cf",
           "file": "ui.spec.ts",
-          "line": 95,
+          "line": 96,
           "column": 5
         },
         {
@@ -1026,12 +1026,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3170,
+                  "duration": 2248,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:42.726Z",
+                  "startTime": "2026-11-14T10:07:20.504Z",
                   "annotations": [
                     {
                       "type": "cleanup",
@@ -1067,7 +1067,7 @@
           ],
           "id": "d425444c687fa36b5882-8bd30632c347d72c26b3",
           "file": "ui.spec.ts",
-          "line": 106,
+          "line": 107,
           "column": 5
         },
         {
@@ -1086,12 +1086,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2003,
+                  "duration": 1948,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:45.902Z",
+                  "startTime": "2026-11-14T10:07:22.759Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1122,7 +1122,7 @@
           ],
           "id": "d425444c687fa36b5882-eeda95c8233e71bd565d",
           "file": "ui.spec.ts",
-          "line": 123,
+          "line": 124,
           "column": 5
         },
         {
@@ -1142,7 +1142,7 @@
                   "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
                   "location": {
                     "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\ui.spec.ts",
-                    "line": 27,
+                    "line": 28,
                     "column": 10
                   }
                 }
@@ -1155,12 +1155,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "skipped",
-                  "duration": 579,
+                  "duration": 550,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:47.916Z",
+                  "startTime": "2026-11-14T10:07:24.714Z",
                   "annotations": [
                     {
                       "type": "blocked",
@@ -1171,7 +1171,7 @@
                       "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
                       "location": {
                         "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\ui.spec.ts",
-                        "line": 27,
+                        "line": 28,
                         "column": 10
                       }
                     }
@@ -1200,7 +1200,7 @@
           ],
           "id": "d425444c687fa36b5882-dc305400b33292626e89",
           "file": "ui.spec.ts",
-          "line": 134,
+          "line": 135,
           "column": 5
         },
         {
@@ -1220,7 +1220,7 @@
                   "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
                   "location": {
                     "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\ui.spec.ts",
-                    "line": 27,
+                    "line": 28,
                     "column": 10
                   }
                 }
@@ -1233,12 +1233,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "skipped",
-                  "duration": 591,
+                  "duration": 562,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:48.504Z",
+                  "startTime": "2026-11-14T10:07:25.270Z",
                   "annotations": [
                     {
                       "type": "blocked",
@@ -1249,7 +1249,7 @@
                       "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
                       "location": {
                         "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\ui.spec.ts",
-                        "line": 27,
+                        "line": 28,
                         "column": 10
                       }
                     }
@@ -1278,7 +1278,7 @@
           ],
           "id": "d425444c687fa36b5882-750880f61f847a8f5f0f",
           "file": "ui.spec.ts",
-          "line": 143,
+          "line": 144,
           "column": 5
         },
         {
@@ -1298,7 +1298,7 @@
                   "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
                   "location": {
                     "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\ui.spec.ts",
-                    "line": 27,
+                    "line": 28,
                     "column": 10
                   }
                 }
@@ -1311,12 +1311,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "skipped",
-                  "duration": 588,
+                  "duration": 581,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:49.106Z",
+                  "startTime": "2026-11-14T10:07:25.839Z",
                   "annotations": [
                     {
                       "type": "blocked",
@@ -1327,7 +1327,7 @@
                       "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
                       "location": {
                         "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\ui.spec.ts",
-                        "line": 27,
+                        "line": 28,
                         "column": 10
                       }
                     }
@@ -1356,7 +1356,7 @@
           ],
           "id": "d425444c687fa36b5882-1077ac5d5f1e8bbfc5e6",
           "file": "ui.spec.ts",
-          "line": 155,
+          "line": 156,
           "column": 5
         },
         {
@@ -1375,12 +1375,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 723,
+                  "duration": 796,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:49.700Z",
+                  "startTime": "2026-11-14T10:07:26.426Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1411,7 +1411,7 @@
           ],
           "id": "d425444c687fa36b5882-8d9222d04080c8d21fdb",
           "file": "ui.spec.ts",
-          "line": 173,
+          "line": 174,
           "column": 5
         },
         {
@@ -1430,12 +1430,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1848,
+                  "duration": 1857,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T09:54:50.432Z",
+                  "startTime": "2026-11-14T10:07:27.227Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1466,7 +1466,7 @@
           ],
           "id": "d425444c687fa36b5882-df3aa1618823ceca85bd",
           "file": "ui.spec.ts",
-          "line": 185,
+          "line": 186,
           "column": 5
         }
       ]
@@ -1474,8 +1474,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-11-14T09:54:24.698Z",
-    "duration": 27820.025,
+    "startTime": "2026-11-14T10:06:59.955Z",
+    "duration": 29286.365,
     "expected": 14,
     "skipped": 3,
     "unexpected": 5,

@@ -1,13 +1,13 @@
 {
   "caseId": "API-04",
-  "executedAt": "2026-11-14T09:54:26.341Z",
-  "finishedAt": "2026-11-14T09:54:26.521Z",
+  "executedAt": "2026-11-14T10:07:01.739Z",
+  "finishedAt": "2026-11-14T10:07:01.920Z",
   "runnerStatus": "passed",
   "annotations": [],
   "steps": [],
   "requests": [
     {
-      "startedAt": "2026-11-14T09:54:26.341Z",
+      "startedAt": "2026-11-14T10:07:01.739Z",
       "request": {
         "method": "POST",
         "url": "https://automationintesting.online/api/message",
@@ -17,32 +17,32 @@
       "response": {
         "status": 400,
         "headers": {
-          "date": "Sat, 14 Nov 2026 09:54:26 GMT",
+          "date": "Sat, 14 Nov 2026 10:07:02 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "jqiYiMjnQZCDgQEL0-QtfA",
+          "x-railway-request-id": "eRI9CyQHSOeRa6pEEuroCg",
           "x-railway-edge": "waw1",
           "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=%2BJPwXfsuVcBxmxFNilKUQcTqQDPuqDs9r6l3FfWnjgNckI6oHb4XS3BoTLx5A7uU5WR%2B%2FDfZ51vpJArYeowCR1ol5a44I0eqwsgGP%2FLetzWxWK55b3fmG9cVc46Ucjkq9TnAmyq0aiU1suKqy%2B93rqjpkQAgQhLz1g%3D%3D\"}]}",
-          "cf-ray": "a5a522846ec32761-WAW",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=%2FzRaFrAuogAuVSSnrAeZjjoYumAKTYSsapwBvDDLoEoUsQvebWnV8SjV4Fx%2Fac9llQ9yb1WyL%2FS%2FtABfbrT6FoEg45ZZfZMDpYcFyilU0zUd2IBubNdAry%2Bx1AwwyNkWx6VMZijwZ6FXuSjtOEFIgjwJY1%2B0E1bxjg%3D%3D\"}]}",
+          "cf-ray": "a5a534f5cdb0e5d6-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": [
-          "Message may not be blank",
+          "Phone must be set",
+          "Name must be set",
+          "Email may not be blank",
+          "Subject may not be blank",
           "Message must be set",
           "Email must be set",
           "Phone may not be blank",
-          "Subject must be set",
-          "Email may not be blank",
-          "Phone must be set",
           "Name may not be blank",
-          "Subject may not be blank",
-          "Name must be set"
+          "Subject must be set",
+          "Message may not be blank"
         ]
       }
     }

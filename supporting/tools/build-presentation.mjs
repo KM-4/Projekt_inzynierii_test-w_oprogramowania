@@ -9,6 +9,9 @@ const root = process.env.QA_PROJECT_DIR || path.resolve(path.dirname(fileURLToPa
 const json = (p) => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
 // Przykład testu w modelu POM: blok UI-05 z tests/ui.spec.ts (bez komentarza nagłówkowego).
 const uiSrc = fs.readFileSync(path.join(root, '05_Automation/tests/ui.spec.ts'), 'utf8').replace(/\r/g, '');
+// Przykład testu API w architekturze warstwowej: blok API-05 z tests/api.spec.ts.
+const apiSrc = fs.readFileSync(path.join(root, '05_Automation/tests/api.spec.ts'), 'utf8').replace(/\r/g, '');
+const apiExample = (apiSrc.split(/\n(?=\/\/ API-\d+)/).find((b) => b.startsWith('// API-05')) || '').split('\n').filter((l) => !l.startsWith('//')).join('\n').trim();
 const pomExample = (uiSrc.split(/\n(?=\/\/ UI-\d+)/).find((b) => b.startsWith('// UI-05')) || '').split('\n').filter((l) => !l.startsWith('//')).join('\n').trim();
 const cases = json('supporting/test-cases.json');
 const metrics = json('supporting/metrics.json');
@@ -149,6 +152,14 @@ ${takeaway('Najpoważniejszy błąd jest krytyczny: gość nie może zarezerwowa
 ${chapter(4, 3, 'ch4', 'Testy API i automatyzacja', `
 <p><b>API</b> to „zaplecze” aplikacji – strona internetowa wysyła do serwera zapytania (np. „pokaż listę pokoi”, „zapisz wiadomość”) i dostaje odpowiedzi. Testując API, sprawdzamy serwer bezpośrednio, bez przeglądarki. Każda odpowiedź ma kod: <b>200</b> oznacza sukces, <b>400</b> – odrzucenie złych danych, <b>401</b> – brak uprawnień, <b>404</b> – brak zasobu, a <b>500</b> – awarię serwera.</p>
 <p>Napisaliśmy ${metrics.api} testów API i ${metrics.ui} testów w przeglądarce. Sprawdzają m.in.: czy lista pokoi ma poprawne dane, czy serwer odrzuca wiadomość bez wymaganych pól lub ze złym emailem, czy odmawia logowania złym hasłem i czy nie pokazuje rezerwacji osobie niezalogowanej.</p>
+<h3>Jak zbudowane są testy API</h3>
+<p>Testy API mają budowę warstwową, jak w profesjonalnych projektach. Każda warstwa ma jedno zadanie, dzięki czemu testy są krótkie i czytelne, a zmiana w API wymaga poprawki w jednym miejscu.</p>
+<table><tr><th>Warstwa</th><th>Za co odpowiada</th><th>Przykład</th></tr>
+<tr><td><b>Test</b></td><td>Opisuje scenariusz i sprawdza wynik (asercje)</td><td>„wyślij wiadomość ze złym emailem i sprawdź, że została odrzucona”</td></tr>
+<tr><td><b>Klient API</b></td><td>Wie, jak wywołać dany adres serwera; po jednym dla pokoi, wiadomości, rezerwacji i logowania</td><td><code>api.messages.create(...)</code>, <code>api.rooms.list()</code></td></tr>
+<tr><td><b>Builder danych</b></td><td>Tworzy poprawne dane testowe; test zmienia tylko to, co sprawdza</td><td><code>buildMessage(name, { email: 'nie-jest-mailem' })</code></td></tr>
+<tr><td><b>Evidence</b></td><td>Każde wywołanie automatycznie zapisuje zapytanie, odpowiedź i wynik sprawdzeń</td><td><code>evidence/api/API-05.json</code></td></tr></table>
+<figure class="fig"><pre class="code">${esc(apiExample)}</pre><figcaption>Test „niepoprawny format emaila”: builder tworzy wiadomość ze złym emailem, klient wysyła ją do serwera, a test sprawdza kod 400, treść komunikatu i to, że wiadomość nie pojawiła się na liście.</figcaption></figure>
 <h3>Pełny cykl życia danych</h3>
 <p>Najważniejszy jest test, który przechodzi cały „cykl życia” wiadomości: tworzy ją, odczytuje, zmienia i usuwa – i po każdym kroku sprawdza, czy wszystko się zgadza. Tak wyglądał w ostatnim uruchomieniu:</p>
 <ol class="life">${flow9}</ol>

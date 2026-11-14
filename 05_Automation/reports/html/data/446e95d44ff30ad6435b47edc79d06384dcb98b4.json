@@ -1,0 +1,137 @@
+{
+  "caseId": "API-06",
+  "executedAt": "2026-11-14T10:07:02.089Z",
+  "finishedAt": "2026-11-14T10:07:02.244Z",
+  "runnerStatus": "failed",
+  "annotations": [],
+  "steps": [],
+  "requests": [
+    {
+      "startedAt": "2026-11-14T10:07:02.090Z",
+      "request": {
+        "method": "POST",
+        "url": "https://automationintesting.online/api/message",
+        "headers": {},
+        "body": {
+          "name": "QA-1794650822089-ce1bc4",
+          "email": {
+            "value": "qa@example.test"
+          },
+          "phone": "12345678901",
+          "subject": "Zapytanie QA-1794650822089-ce1bc4",
+          "description": "Wiadomość testowa projektu akademickiego. Dane syntetyczne."
+        }
+      },
+      "response": {
+        "status": 500,
+        "headers": {
+          "date": "Sat, 14 Nov 2026 10:07:02 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-railway-request-id": "9sKxNBkIRT6SJAAMjUJq2g",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.j60f",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=IECy0Cci4JYVq0UTGircA93ZZtXfrqARaQw2ONM8x8byCvo1nH0KGbVVhvHJVe39RFjP9A94VpP8Or6Imvayq8WPoacm88e5peCTmENE0KPGfLPvYlTPIBoRUs5FojXTC3lvAsCH64WE98DViOGZ1ZWAfxM93Xi7zQ%3D%3D\"}]}",
+          "cf-ray": "a5a534f78a7fe5d6-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": {
+          "error": "Failed to create message"
+        }
+      }
+    },
+    {
+      "startedAt": "2026-11-14T10:07:02.169Z",
+      "request": {
+        "method": "GET",
+        "url": "https://automationintesting.online/api/message",
+        "headers": {},
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "date": "Sat, 14 Nov 2026 10:07:02 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-railway-request-id": "0_Z4L0KySxuThbBn0-QtfA",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.j60f",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=t4rjNiPe6%2Bs5AuCB%2FaO11q8MKO%2FfNi02mhPm87xus1N7foGozYM%2BpEpIHlBJ6%2BmMmns3iviE1B68yI06wRySbVnorNYnoskz0pt5w7vaLcaiGz7ZLGgZiZYf%2B3hc54PcGaKUpHPg5G8pzEMHy7H2olSmtRCPIsqecQ%3D%3D\"}]}",
+          "content-encoding": "br",
+          "cf-ray": "a5a534f80bcce5d6-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": {
+          "messages": [
+            {
+              "id": 1,
+              "name": "James Dean",
+              "read": false,
+              "subject": "Booking enquiry"
+            },
+            {
+              "id": 2,
+              "name": "QA-1794650729241-606062",
+              "read": false,
+              "subject": "Zapytanie QA-1794650729241-606062"
+            },
+            {
+              "id": 3,
+              "name": "QA650730465 ProjektTestowy",
+              "read": false,
+              "subject": "You have a new booking!"
+            },
+            {
+              "id": 4,
+              "name": "QA-1794650733716-7458b9",
+              "read": false,
+              "subject": "Zapytanie QA-1794650733716-7458b9"
+            },
+            {
+              "id": 5,
+              "name": "QA-1794650743660-a76f5a",
+              "read": false,
+              "subject": "ABCDE"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "requestIndex": 0,
+      "label": "Błędny typ: HTTP 400",
+      "actual": 500,
+      "expected": 400,
+      "pass": false
+    },
+    {
+      "requestIndex": 1,
+      "label": "Lista wiadomości",
+      "actual": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "requestIndex": 1,
+      "label": "Odrzucony rekord nie został zapisany",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    }
+  ],
+  "observations": [],
+  "error": "Error: Błędny typ: HTTP 400\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m500\u001b[39m"
+}

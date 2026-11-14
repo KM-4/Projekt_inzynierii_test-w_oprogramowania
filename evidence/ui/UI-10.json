@@ -1,7 +1,7 @@
 {
   "caseId": "UI-10",
-  "executedAt": "2026-11-14T09:54:49.111Z",
-  "finishedAt": "2026-11-14T09:54:49.696Z",
+  "executedAt": "2026-11-14T10:07:25.843Z",
+  "finishedAt": "2026-11-14T10:07:26.422Z",
   "runnerStatus": "skipped",
   "annotations": [
     {
@@ -13,7 +13,7 @@
       "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
       "location": {
         "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\ui.spec.ts",
-        "line": 27,
+        "line": 28,
         "column": 10
       }
     }
@@ -27,7 +27,7 @@
   ],
   "requests": [
     {
-      "startedAt": "2026-11-14T09:54:49.185Z",
+      "startedAt": "2026-11-14T10:07:25.905Z",
       "request": {
         "method": "GET",
         "url": "https://automationintesting.online/api/room",
@@ -37,20 +37,20 @@
       "response": {
         "status": 200,
         "headers": {
-          "date": "Sat, 14 Nov 2026 09:54:49 GMT",
+          "date": "Sat, 14 Nov 2026 10:07:26 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "_0Qdr4-LS2qSMUzwYqdHTg",
+          "x-railway-request-id": "ePBdJ_MQQayeRX3bnbOCzg",
           "x-railway-edge": "waw1",
-          "x-hikari-trace": "waw1.qkma",
+          "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=AwL%2BQzVpowNEvlvwshiXLJCdJAnbtFjY37wsFKHb72yqyNXGXrJO3A%2Bia53Ma%2BC8WibJsHJBuxGzukUJ79LVu1Z3s9B1G2DS1xcvoe9QwYYBtcxWgyXIFqn%2FK1%2BhhXnT5YvVOuWsovxajUAm5iEHPKxH8XoKM%2FxaBg%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=dXDl1jXrJgSAvGZy4N070Gprxo2wh%2FsiZaQg6x0bVkfLnsVNvzKv7x2nXhD6pALZYYPSloH4%2BBuuDmdCAoM2OJSd5G7YKJPZOKuXx1FnfTo%2BVn0%2FC2z%2FmJmqD%2BDUwzYmHQbb9zbHOeQL1xge8ORq%2Bmj1q%2Bww5pBuxQ%3D%3D\"}]}",
           "content-encoding": "br",
-          "cf-ray": "a5a52312ce6f1280-WAW",
+          "cf-ray": "a5a5358c5d8bcbfe-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {
@@ -102,7 +102,7 @@
       }
     },
     {
-      "startedAt": "2026-11-14T09:54:49.259Z",
+      "startedAt": "2026-11-14T10:07:25.961Z",
       "request": {
         "method": "GET",
         "url": "https://automationintesting.online/api/room/1",
@@ -112,17 +112,17 @@
       "response": {
         "status": 500,
         "headers": {
-          "date": "Sat, 14 Nov 2026 09:54:49 GMT",
+          "date": "Sat, 14 Nov 2026 10:07:26 GMT",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
-          "x-railway-request-id": "md2YtIfCQbaFTYFm5nX1uw",
+          "x-railway-request-id": "BLn7TZkrR220UVV-ss7a6g",
           "x-railway-edge": "waw1",
-          "x-hikari-trace": "waw1.qkma",
+          "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=gNPImlLzQhISj%2BDmS6ka2mGZwDHi%2BUNHmm1d6ksdR4CaM%2Bb3bW7Me0f0jQDz%2FQxPhWgJwkYvABCpholZNxzml5tBxOt6O%2FLhave8EkVR4xoAldCOYoCXPTF5sqrcGejufcZztOE3%2FXNUca4wFh6aPORUgEV5YHIbYQ%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=2EZjuOBpumUhyHM9GJnhQcZwCyu4T0GiQu%2Fs0ioYj6A6t8oT7pCPZCJFPGQsrgduY32A5qKjNwtHItJv6ahmC2frkKvfOU2IlCSC0gda8zCD1zFt%2B99w2vunMgl7i%2FdX2mOzHYqYJX2AZmzRxFnwWsY4cqPE1orQyA%3D%3D\"}]}",
-          "cf-ray": "a5a523133f5f1280-WAW",
+          "cf-ray": "a5a5358cbe62cbfe-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": "Internal Server Error"

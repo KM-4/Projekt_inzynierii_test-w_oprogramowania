@@ -38,7 +38,7 @@ code{font-family:Consolas,monospace;font-size:.85em;background:var(--bg);padding
 
 <p class="muted">Inżynieria testów oprogramowania · projekt zespołowy</p>
 <h1>Czy system rezerwacji Restful-Booker-Platform jest gotowy dla gości?</h1>
-<p class="sub">Raport z projektu testowego · ostatnie pełne uruchomienie testów: 14 listopada 2026 10:54</p>
+<p class="sub">Raport z projektu testowego · ostatnie pełne uruchomienie testów: 14 listopada 2026 11:07</p>
 
 <p class="lead">Przetestowaliśmy publiczną aplikację <b>Restful-Booker-Platform</b> (<a href="https://automationintesting.online" target="_blank">automationintesting.online</a>) – stronę pensjonatu, na której gość przegląda pokoje, rezerwuje pobyt i może wysłać wiadomość, a administrator loguje się do panelu.</p>
 <div class="facts sans"><div><b>22</b><span>przypadki testowe zaprojektowane i uruchomione</span></div><div class="ok"><b>14</b><span>zakończyły się zgodnie z oczekiwaniami</span></div><div class="bad"><b>5</b><span>wykazały błąd aplikacji</span></div><div class="mid"><b>3</b><span>nie dało się wykonać przez błąd, który blokuje rezerwację</span></div></div>
@@ -90,6 +90,22 @@ code{font-family:Consolas,monospace;font-size:.85em;background:var(--bg);padding
 <section class="ch" id="ch4"><div class="chhead"><span class="chno">4</span><div><h2>Testy API i automatyzacja</h2><p class="by p4">Przedstawia: <b>Mateusz Krzyzak</b> · API i automatyzacja</p></div></div>
 <p><b>API</b> to „zaplecze” aplikacji – strona internetowa wysyła do serwera zapytania (np. „pokaż listę pokoi”, „zapisz wiadomość”) i dostaje odpowiedzi. Testując API, sprawdzamy serwer bezpośrednio, bez przeglądarki. Każda odpowiedź ma kod: <b>200</b> oznacza sukces, <b>400</b> – odrzucenie złych danych, <b>401</b> – brak uprawnień, <b>404</b> – brak zasobu, a <b>500</b> – awarię serwera.</p>
 <p>Napisaliśmy 10 testów API i 12 testów w przeglądarce. Sprawdzają m.in.: czy lista pokoi ma poprawne dane, czy serwer odrzuca wiadomość bez wymaganych pól lub ze złym emailem, czy odmawia logowania złym hasłem i czy nie pokazuje rezerwacji osobie niezalogowanej.</p>
+<h3>Jak zbudowane są testy API</h3>
+<p>Testy API mają budowę warstwową, jak w profesjonalnych projektach. Każda warstwa ma jedno zadanie, dzięki czemu testy są krótkie i czytelne, a zmiana w API wymaga poprawki w jednym miejscu.</p>
+<table><tr><th>Warstwa</th><th>Za co odpowiada</th><th>Przykład</th></tr>
+<tr><td><b>Test</b></td><td>Opisuje scenariusz i sprawdza wynik (asercje)</td><td>„wyślij wiadomość ze złym emailem i sprawdź, że została odrzucona”</td></tr>
+<tr><td><b>Klient API</b></td><td>Wie, jak wywołać dany adres serwera; po jednym dla pokoi, wiadomości, rezerwacji i logowania</td><td><code>api.messages.create(...)</code>, <code>api.rooms.list()</code></td></tr>
+<tr><td><b>Builder danych</b></td><td>Tworzy poprawne dane testowe; test zmienia tylko to, co sprawdza</td><td><code>buildMessage(name, { email: 'nie-jest-mailem' })</code></td></tr>
+<tr><td><b>Evidence</b></td><td>Każde wywołanie automatycznie zapisuje zapytanie, odpowiedź i wynik sprawdzeń</td><td><code>evidence/api/API-05.json</code></td></tr></table>
+<figure class="fig"><pre class="code">test(&#39;API-05 Niepoprawny format email wiadomości&#39;, async ({ audit: a, api }) =&gt; {
+  const name = uniqueMarker();
+  const r = await api.messages.create(buildMessage(name, { email: &#39;nie-jest-mailem&#39; }));
+  a.check(r.status, 400, &#39;Błędny email: HTTP 400&#39;);
+  a.check(r.body.includes(&#39;must be a well-formed email address&#39;), true, &#39;Komunikat walidacji email&#39;);
+  const list = await api.messages.list();
+  a.check(list.status, 200, &#39;Lista wiadomości&#39;);
+  a.check(list.body.messages.some((x) =&gt; x.name === name), false, &#39;Odrzucony rekord nie został zapisany&#39;);
+});</pre><figcaption>Test „niepoprawny format emaila”: builder tworzy wiadomość ze złym emailem, klient wysyła ją do serwera, a test sprawdza kod 400, treść komunikatu i to, że wiadomość nie pojawiła się na liście.</figcaption></figure>
 <h3>Pełny cykl życia danych</h3>
 <p>Najważniejszy jest test, który przechodzi cały „cykl życia” wiadomości: tworzy ją, odczytuje, zmienia i usuwa – i po każdym kroku sprawdza, czy wszystko się zgadza. Tak wyglądał w ostatnim uruchomieniu:</p>
 <ol class="life"><li class="ok"><span class="mark">✓</span>Logujemy się jako administrator<span class="muted"> – działa</span></li><li class="ok"><span class="mark">✓</span>Wysyłamy nową wiadomość<span class="muted"> – działa</span></li><li class="ok"><span class="mark">✓</span>Szukamy jej na liście wiadomości<span class="muted"> – działa</span></li><li class="bad"><span class="mark">✗</span>Otwieramy ją po numerze<span class="muted"> – błąd serwera (kod 500)</span></li><li class="bad"><span class="mark">✗</span>Oznaczamy jako przeczytaną (zmiana)<span class="muted"> – błąd serwera (kod 500)</span></li><li class="bad"><span class="mark">✗</span>Sprawdzamy na liście, czy zmiana się zapisała<span class="muted"> – wynik niezgodny z oczekiwanym</span></li><li class="bad"><span class="mark">✗</span>Usuwamy naszą wiadomość<span class="muted"> – błąd serwera (kod 500)</span></li><li class="bad"><span class="mark">✗</span>Sprawdzamy, czy zniknęła<span class="muted"> – wynik niezgodny z oczekiwanym</span></li></ol>
@@ -104,7 +120,7 @@ code{font-family:Consolas,monospace;font-size:.85em;background:var(--bg);padding
 <p>Tak wygląda prawdziwy test „temat wiadomości ma 4 znaki” – czyta się go prawie jak opis kroków z przypadku testowego:</p>
 <figure class="fig"><pre class="code">test(&#39;UI-05 Temat 4 znaki: poniżej minimum&#39;, async ({ page, audit: a, home, contactForm }) =&gt; {
   await home.open();
-  await contactForm.fill(contact(marker(), { subject: &#39;ABCD&#39; }));
+  await contactForm.fill(buildMessage(uniqueMarker(), { subject: &#39;ABCD&#39; }));
   await a.step(page, &#39;Temat „ABCD” (4 znaki, min. 5), pozostałe pola poprawne&#39;, [contactForm.subject]);
   const r = await contactForm.submit(a);
   a.check(r.status, 400, &#39;Temat 4 znaki odrzucony&#39;);

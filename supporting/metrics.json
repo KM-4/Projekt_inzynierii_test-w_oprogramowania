@@ -8,8 +8,8 @@
   "ui": 12,
   "api": 10,
   "negative": 12,
-  "startedAt": "2026-11-14T09:54:25.113Z",
-  "finishedAt": "2026-11-14T09:54:52.672Z",
+  "startedAt": "2026-11-14T10:07:00.505Z",
+  "finishedAt": "2026-11-14T10:07:29.351Z",
   "recommendation": "NO-GO",
   "defectsBySeverity": {
     "S1": 1,
