@@ -1,10 +1,10 @@
 {
-  "student": {
-    "name": "Kamil Andrzejewski",
-    "studentNumber": "83741"
-  },
   "teamNumber": null,
-  "otherMembers": [],
-  "roles": "Roboczo przypisane do wskazanego studenta; faktyczny wkład do potwierdzenia.",
-  "executionAttribution": "Przebiegi narzędziowe wykonane przez asystenta; nazwisko studenta nie zastępuje informacji o operatorze."
+  "members": [
+    { "name": "Kamil Andrzejewski", "studentNumber": "83741", "role": "test lead i koordynacja (ryzyka, spójność artefaktów, rekomendacja)" },
+    { "name": "Karol Myszkowski", "studentNumber": "77514", "role": "projekt testów (przypadki, techniki EP/BVA/DT)" },
+    { "name": "Kacper Walkowiak", "studentNumber": "77519", "role": "wykonanie testów, evidence i defekty" },
+    { "name": "Mateusz Krzyzak", "studentNumber": "77862", "role": "API i automatyzacja" }
+  ],
+  "aiAssistance": "Materiały, kod automatyzacji, pierwsze przebiegi i uzupełniająca sesja EXP-02 powstały z pomocą asystenta AI; wkład osób opisuje README."
 }

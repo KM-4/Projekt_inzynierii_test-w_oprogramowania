@@ -1,14 +1,14 @@
 # Techniki projektowania testów
 
-Źródło limitów: `sources/message__src__main__java__com__automationintesting__model__db__Message.java`, commit wskazany w `sources/repository.json`. To kontrakt kodu referencyjnego, nie dowód zgodności wersji wdrożonej. Dolne granice i komunikaty potwierdzono odpowiedziami żywej aplikacji. Wynik testu zależy też od sprzątania danych, co wyjaśnia FAIL pozytywnego UI-06 mimo przyjęcia tematu.
+Źródło limitów: `sources/message__src__main__java__com__automationintesting__model__db__Message.java`, commit wskazany w `sources/repository.json`. To kontrakt kodu referencyjnego, nie dowód zgodności wersji wdrożonej. Dolne granice i komunikaty potwierdzono odpowiedziami żywej aplikacji.
 
 ## EP - klasy równoważności
 
 | Pole / obszar | Klasa poprawna | Klasa niepoprawna | Reprezentant i przypadki |
 |---|---|---|---|
 | Email | niepusty String w formacie adresu | brak / pusty; zły format; zły typ JSON | qa-project@example.test: UI-02; bledny-email: UI-04; brak: API-04; obiekt: API-06 |
-| Temat | tekst długości 5–100 | 0–4; >100 | ABCDE: UI-06; ABCD: UI-05; 101 znaków: EXP-01 |
-| Telefon | niepusty tekst długości 11–21 | 0–10; >21 | 11: UI-02; 10: UI-07; 22: EXP-01 |
+| Temat | tekst długości 5–100 | 0–4; >100 | ABCDE: UI-06; ABCD: UI-05; 101 znaków: EXP-02 |
+| Telefon | niepusty tekst długości 11–21 | 0–10; >21 | 11: UI-02; 10: UI-07; 22: EXP-02 |
 | Zasób | ID z bieżącej listy | ID poza bieżącą listą | API-02 / API-03 |
 | Dostęp | aktualne poprawne credentials i token | brak tokenu / błędne credentials | API-09, API-10 / API-07, API-08 |
 
@@ -28,7 +28,7 @@ Nie twierdzimy, że sama długość telefonu potwierdza poprawność numeru w ś
 
 ## DT - tablica decyzyjna
 
-Zakres: email i subject formularza kontaktowego. Założenie kontrolne: Name, Phone i Message są poprawne; stan początkowy formularza jest nowy, a limit długości tematu pochodzi z modelu Message. Liczą się wyniki głównej walidacji; osobny cleanup może zakończyć cały TC jako FAIL.
+Zakres: email i subject formularza kontaktowego. Założenie kontrolne: Name, Phone i Message są poprawne; stan początkowy formularza jest nowy, a limit długości tematu pochodzi z modelu Message. Liczą się wyniki głównej walidacji; sprzątanie po teście UI jest kontrolą informacyjną i nie wpływa na werdykt.
 
 | Warunek / akcja | Reguła 1 | Reguła 2 | Reguła 3 | Reguła 4 |
 |---|---|---|---|---|
@@ -46,7 +46,7 @@ Nie utożsamiamy `POST /api/message` interfejsu Next.js (200, `{success:true}`) 
 
 Podstawowy poprawny kontakt: Name z unikalnym markerem QA, Email `qa-project@example.test`, Phone `12345678901`, Subject `Zapytanie <marker>`, Description `Wiadomość testowa projektu akademickiego. Dane syntetyczne.`. Negatywne próby zmieniają tylko wskazane pole, poza celowym testem kombinacji w DT.
 
-Eksploracja jest osobną aktywnością. Dodatkowe payloady z sesji EXP-01 nie zwiększają minimum 22 udokumentowanych przypadków.
+Eksploracja jest osobną aktywnością. Dodatkowe payloady z sesji eksploracyjnej nie zwiększają minimum 22 udokumentowanych przypadków.
 
 ## Uzupełnienie z wykonanej EXP-02
 

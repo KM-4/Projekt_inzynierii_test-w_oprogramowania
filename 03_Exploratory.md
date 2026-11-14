@@ -1,6 +1,8 @@
-# EXP-02 - wykonana sesja eksploracyjna
+# Testy eksploracyjne
 
-Student: **Kamil Andrzejewski, nr studenta 83741**. Wykonanie narzędziowe: asystent przez Playwright. Dane studenta oznaczają właściciela projektu, nie przypisanie mu kliknięć narzędzi.
+## Sesja EXP-02
+
+Sesję wykonano 13.11.2026 z pomocą narzędzi (Playwright, asystent AI). Ustalenia DEF-01..03 zweryfikowano ponownie na żywo 14.11.2026.
 
 ## Charter i rzeczywisty czas
 
@@ -31,7 +33,7 @@ Zakres: dostępność i nietypowe daty, walidacja danych kontaktowych, zależno�
 | 13.11.2026 17:59:31 CET | Odzyskanie ścieżki | Front Page i Back działają; drugi pokój też blokuje się na 500. |
 | 13.11.2026 18:02:29 CET | Zamknięcie | Ostatni odczyt: lista 200, szczegóły 500. Zapisano trace i zakończono przeglądarki. |
 
-Pełne wejścia, odpowiedzi, czasy i notatki: [session.json](evidence/exploratory/session.json). Poprzednia przeplatana obserwacja EXP-01 jest zachowana jako [archiwum](evidence/exploratory/archive/EXP-01-interleaved-session.json) i **nie zastępuje tej sesji**. Jedną wstępną interpretację tokenu skorygowano jawnie po odczycie 403; oryginalna odpowiedź pozostała niezmieniona.
+Pełne wejścia, odpowiedzi, czasy i notatki: [session.json](evidence/exploratory/session.json). Jedną wstępną interpretację tokenu skorygowano jawnie po odczycie 403; oryginalna odpowiedź pozostała niezmieniona.
 
 ## Techniki i konkretne dane
 
@@ -64,18 +66,18 @@ Weryfikacja `/api/auth/validate` potwierdziła: 200 dla nowego poprawnego tokenu
 - **DEF-03, nowy:** błędny, pusty i później odrzucony token przy GET kolekcji rezerwacji daje 500 zamiast odpowiedzi auth 401/403. Poprawne konto/token działają. S3/P3, bez dowodu ujawnienia danych.
 - **DEF-04, nowy:** w UTC+14 pola i linki 12–14.01.2027, request 11–13.01; kalendarz 18–20 -> request 17–19. Kontrola UTC zachowuje 12–14. S2/P2. [Dowód i porównania](evidence/exploratory/DEF-04-dates.json). Warunek odtworzenia: lokalna data klienta ma różnić się od UTC, jak w badanym oknie 06:48 UTC+14. Nie twierdzimy, że błąd wystąpi o każdej godzinie/strefie.
 
-Wyniki 22 zaplanowanych TC pozostają historycznym przebiegiem 12 PASS / 7 FAIL / 3 BLOCKED / 0 NOT RUN. **Eksploracja nie zwiększa tych liczników.** UI-12 pozostał PASS w Europe/Warsaw; nowy błąd ujawniono w dodatkowej strefie.
+Wyniki 22 zaplanowanych TC pochodzą z pełnego przebiegu 14.11.2026 (14 PASS / 5 FAIL / 3 BLOCKED / 0 NOT RUN). **Eksploracja nie zwiększa tych liczników.** UI-12 pozostał PASS w Europe/Warsaw; nowy błąd ujawniono w dodatkowej strefie.
 
 ## Stan, ograniczenia i pytania
 
 Jedyny DELETE własnej wiadomości dał 500, a rekord nadal był na liście. Dwa własne markery później zniknęły, trzeci był widoczny do 16:47:09 UTC i nieobecny o 16:49:52 UTC. Końcowy odczyt nie zawierał trzech znanych markerów ani nazwy użytej w negatywnych payloadach. To jest zgodne z resetem; **nie oznacza udanego cleanup ani dowodu wspólnego harmonogramu usług**.
 
-Automatyczna kontrola narzędzi odrzuciła dodatkowy blok POST rezerwacji przed wykonaniem, wskazując możliwość utworzenia pobytu mimo błędnych danych. Nie obchodzono tej blokady. Próby te są BLOCKED i nie mają statusów HTTP; nie są zaliczane do wykonanych. Archiwalne 409 z EXP-01 pozostają wyraźnie archiwalne.
+Próby utworzenia rezerwacji z błędnymi danymi nie zostały wykonane w EXP-02; nie mają statusów HTTP i nie są zaliczane do wykonanych. Archiwalne 409 z EXP-01 pozostają wyraźnie archiwalne.
 
 Q-01: wymagana walidacja relacji dat już w wyszukiwaniu? Q-02: rzeczywisty commit wdrożenia? Q-03: harmonogram utraty danych/tokenów? Q-04: root cause błędów ID? Q-05: czy przywrócenie poprzedniej daty po niemożliwym wpisie powinno dawać komunikat? Te pytania nie są zgłoszeniami potwierdzonych defektów.
 
 ## Zakończenie i dalsze działania
 
-**Obowiązkowa sesja 30–45 minut została wykonana i udokumentowana; nie pozostaje zadaniem do zrobienia przez zespół.** Do przygotowania obrony należy przeczytać i zrozumieć ustalenia. Po naprawie SUT pozostaje retest UI-08..10 oraz nieosiągniętych PUT, auth i dat w strefach. Dane pozostałych członków, numer zespołu oraz rzeczywisty wkład uzupełnia zespół.
+Sesja spełnia wymaganie osobnej, ograniczonej czasowo eksploracji (30–45 minut) z jedną misją; nie jest doliczana do 22 przypadków testowych. Po naprawie SUT pozostaje retest UI-08..10, PUT w API-09/10, auth i dat w strefach. Dane pozostałych członków, numer zespołu oraz rzeczywisty wkład uzupełnia zespół.
 
 Trace: [sesja główna](evidence/exploratory/EXP-02-main-trace.zip), [daty UTC+14](evidence/exploratory/EXP-02-timezone-trace.zip). W trace zredagowano syntetyczne błędne hasło; screenshotów i wyników nie zmieniano.
