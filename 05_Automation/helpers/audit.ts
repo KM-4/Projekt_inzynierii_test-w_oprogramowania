@@ -1,11 +1,11 @@
 import { test as base, expect, APIRequestContext, APIResponse, TestInfo } from 'playwright/test';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { randomUUID } from 'node:crypto';
 
+// Rdzeń evidence: wywołania HTTP z zapisem request/response, asercje (twarde, miękkie, informacyjne),
+// screeny kroków UI, maskowanie sekretów. Klienci API: 05_Automation/api, dane testowe: 05_Automation/api/data.
 export const evidenceRoot = path.resolve(process.env.EVIDENCE_DIR || '../evidence');
 export const baseURL = process.env.BASE_URL || 'https://automationintesting.online';
-export const marker = () => `QA-${Date.now()}-${randomUUID().slice(0,6)}`;
 export function redact(v: any): any {
   if (Array.isArray(v)) return v.map(redact);
   if (v && typeof v === 'object') return Object.fromEntries(Object.entries(v).map(([k,x]) => [k, /password|token|cookie|authorization/i.test(k) ? '[MASKED]' : redact(x)]));
@@ -82,21 +82,6 @@ export const test = base.extend<{ audit: Audit }>({
   audit: [async ({request},use,info)=>{const audit=new Audit(request,info);try{await use(audit)}finally{await audit.save()}},{auto:true}],
 });
 export {expect};
-export async function login(a:Audit) {
-  base.skip(!process.env.QA_USERNAME||!process.env.QA_PASSWORD,'BLOCKED: ustaw QA_USERNAME i QA_PASSWORD dla odczytu i sprzątania własnych danych.');
-  const r=await a.call('POST','/api/auth/login',{username:process.env.QA_USERNAME,password:process.env.QA_PASSWORD});
-  a.check(r.status,200,'Logowanie API: HTTP 200');
-  a.check(typeof r.body.token,'string','Otrzymano token');
-  return {Cookie:`token=${r.body.token}`};
-}
-export const contact=(name:string, overrides:any={})=>({name,email:'qa-project@example.test',phone:'12345678901',subject:`Zapytanie ${name}`,description:'Wiadomość testowa projektu akademickiego. Dane syntetyczne.',...overrides});
-export async function cleanupMessage(a:Audit,name:string){
-  const headers=await login(a);const list=await a.call('GET','/api/message');
-  for(const m of list.body.messages.filter((x:any)=>x.name===name)){
-    const d=await a.call('DELETE',`/api/message/${m.id}`,undefined,headers);
-    a.check(d.status,200,'Usunięto wyłącznie własną wiadomość');
-  }
-}
 // Odrębny transport Node dla sprzątania po UI: prawdziwy sekret nie trafia do browser trace.
 export async function cleanupUiMessage(a:Audit,name:string){
   if(!process.env.QA_USERNAME||!process.env.QA_PASSWORD){
@@ -117,6 +102,3 @@ export async function cleanupUiMessage(a:Audit,name:string){
     a.inform(d.status,200,'Sprzątanie: usunięto własną wiadomość UI');
   }
 }
-// Pierwszy pokój z bieżącej listy (bez stałych ID). Nie sprawdza dostępności terminu.
-export async function firstListedRoom(a:Audit){const r=await a.call('GET','/api/room');a.check(r.status,200,'Lista pokoi HTTP 200');a.check(r.body.rooms.length>0,true,'Jest pokój do testu');return r.body.rooms[0]}
-export function futureDates(){const start=new Date();start.setUTCDate(start.getUTCDate()+60);const end=new Date(start);end.setUTCDate(end.getUTCDate()+2);return {checkin:start.toISOString().slice(0,10),checkout:end.toISOString().slice(0,10)}}

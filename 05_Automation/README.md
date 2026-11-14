@@ -29,22 +29,37 @@ Na komputerze bez Chrome można zainstalować silnik Chromium z Playwright (`npx
 
 ```
 05_Automation/
-├─ tests/
-│  ├─ api.spec.ts        10 testów API (APIRequestContext, bez przeglądarki)
-│  └─ ui.spec.ts         12 testów UI w modelu Page Object Model
-├─ pages/                Page Object Model – jedna klasa na stronę aplikacji
-│  ├─ HomePage.ts        katalog pokoi, wyszukiwarka dostępności
-│  ├─ ContactForm.ts     formularz kontaktowy
-│  ├─ ReservationPage.ts strona rezerwacji
-│  ├─ AdminLoginPage.ts  logowanie administratora
-│  └─ index.ts           fixture: test dostaje gotowe obiekty home, contactForm, reservation, adminLogin
+├─ tests/                    scenariusze testów i jawne asercje
+│  ├─ api.spec.ts            10 testów API
+│  └─ ui.spec.ts             12 testów UI
+├─ api/                      warstwa testów API
+│  ├─ clients/               klienci API (wzorzec API Client)
+│  │  ├─ BaseClient.ts       wspólne wywołanie HTTP przez Audit (evidence), sesja logowania
+│  │  ├─ AuthClient.ts       logowanie, sesja administratora
+│  │  ├─ RoomClient.ts       pokoje
+│  │  ├─ MessageClient.ts    wiadomości
+│  │  └─ BookingClient.ts    rezerwacje
+│  ├─ data/                  dane testowe (wzorzec Test Data Builder)
+│  │  ├─ builders.ts         buildMessage(), buildBooking(), unikalny znacznik QA
+│  │  └─ dates.ts            przyszły termin, wyszukiwanie wolnego terminu
+│  ├─ endpoints.ts           ścieżki API w jednym miejscu
+│  ├─ types.ts               typy domenowe: Room, Message, Booking, ApiResult
+│  └─ index.ts               fixture: test dostaje api.auth, api.rooms, api.messages, api.bookings
+├─ pages/                    Page Object Model – jedna klasa na stronę aplikacji
+│  ├─ HomePage.ts            katalog pokoi, wyszukiwarka dostępności
+│  ├─ ContactForm.ts         formularz kontaktowy
+│  ├─ ReservationPage.ts     strona rezerwacji
+│  ├─ AdminLoginPage.ts      logowanie administratora
+│  └─ index.ts               fixture: obiekty stron + klienci API
 ├─ helpers/
-│  ├─ audit.ts           zapis evidence (request/response, asercje, screeny kroków), maskowanie sekretów
-│  └─ result-reporter.ts statusy PASS / FAIL / BLOCKED w reports/case-results.json
-└─ playwright.config.ts  projekty api i ui-chrome, 1 worker, 0 retry
+│  ├─ audit.ts               rdzeń evidence: request/response, asercje, screeny kroków, maskowanie sekretów
+│  └─ result-reporter.ts     statusy PASS / FAIL / BLOCKED w reports/case-results.json
+└─ playwright.config.ts      projekty api i ui-chrome, 1 worker, 0 retry
 ```
 
-W modelu POM test opisuje scenariusz (np. `contactForm.fill(...)`, `contactForm.submit(a)`, `expect(contactForm.errors)`), a lokatory i akcje na stronie są w jednej klasie. Zmiana w interfejsie aplikacji wymaga poprawki tylko w klasie strony, nie w każdym teście.
+**Warstwy i odpowiedzialności.** Test (`tests/`) opisuje scenariusz i zawiera jawne asercje. Klient API (`api/clients`) wie, jak wywołać dany endpoint, ale niczego nie ocenia. Builder (`api/data`) tworzy poprawne dane domyślne, a test nadpisuje tylko to, co sprawdza (np. `buildMessage(name, { email: 'nie-jest-mailem' })`). Każde wywołanie przechodzi przez `Audit`, więc evidence (request, response, asercje) powstaje automatycznie. Ścieżki API są w jednym pliku `endpoints.ts`, typy odpowiedzi w `types.ts`.
+
+**Page Object Model.** Test UI opisuje scenariusz (np. `contactForm.fill(...)`, `contactForm.submit(a)`, `expect(contactForm.errors)`), a lokatory i akcje na stronie są w jednej klasie. Testy UI korzystają z tych samych klientów API i builderów (np. przygotowanie pokoju, dane formularza). Zmiana w interfejsie lub w API wymaga poprawki w jednym miejscu, nie w każdym teście.
 
 ## Wybór zakresu i odczyt wyników
 

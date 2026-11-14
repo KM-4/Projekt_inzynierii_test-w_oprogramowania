@@ -1,5 +1,6 @@
 import { test, expect } from '../pages';
-import { marker, contact, firstListedRoom, futureDates, cleanupUiMessage, evidenceRoot } from '../helpers/audit';
+import { cleanupUiMessage, evidenceRoot } from '../helpers/audit';
+import { buildMessage, uniqueMarker, futureStay } from '../api';
 import path from 'node:path';
 
 // Testy UI w modelu Page Object Model (05_Automation/pages): test opisuje scenariusz,
@@ -15,10 +16,10 @@ test.afterEach(async ({ page, audit: a }, info) => {
 });
 
 // Preflight rezerwacji: bez działających szczegółów pokoju kroki rezerwacji są niewykonalne -> BLOCKED (DEF-01).
-async function openReservation(page: any, reservation: any, a: any, info: any) {
-  const room = await firstListedRoom(a);
-  const dates = futureDates();
-  const r = await a.call('GET', `/api/room/${room.roomid}`);
+async function openReservation(page: any, reservation: any, api: any, a: any, info: any) {
+  const room = await api.rooms.firstListed();
+  const dates = futureStay();
+  const r = await api.rooms.get(room.roomid);
   await reservation.open(room.roomid, dates.checkin, dates.checkout);
   if (r.status !== 200) {
     await a.step(page, `Strona rezerwacji pokoju ${room.roomid}: brak formularza (GET /api/room/${room.roomid} → ${r.status})`);
@@ -32,8 +33,8 @@ async function openReservation(page: any, reservation: any, a: any, info: any) {
 }
 
 // UI-01 | R-02 | porównanie UI z API | katalog pokoi
-test('UI-01 Katalog pokoi zgodny z API', async ({ page, audit: a, home }) => {
-  const r = await a.call('GET', '/api/room');
+test('UI-01 Katalog pokoi zgodny z API', async ({ page, audit: a, api, home }) => {
+  const r = await api.rooms.list();
   a.check(r.status, 200, 'Katalog API HTTP 200');
   await home.open();
   for (const room of r.body.rooms) {
@@ -49,9 +50,9 @@ test('UI-01 Katalog pokoi zgodny z API', async ({ page, audit: a, home }) => {
 test('UI-02 Poprawna wiadomość kontaktowa', async ({ page, audit: a, home, contactForm }) => {
   // Sprzątanie po teście jest informacyjne (helpers/audit.ts: cleanupUiMessage) i nie decyduje o werdykcie.
   await home.open();
-  const name = marker();
+  const name = uniqueMarker();
   try {
-    await contactForm.fill(contact(name));
+    await contactForm.fill(buildMessage(name));
     await a.step(page, 'Formularz wypełniony poprawnymi danymi', contactForm.allFields);
     const r = await contactForm.submit(a);
     a.check(r.status, 200, 'POST kontakt HTTP 200');
@@ -76,7 +77,7 @@ test('UI-03 Pusty formularz kontaktowy', async ({ page, audit: a, home, contactF
 // UI-04 | R-03 | EP zły format, DT reguły 3 i 4 | formularz kontaktowy
 test('UI-04 Niepoprawny email w kontakcie', async ({ page, audit: a, home, contactForm }) => {
   await home.open();
-  await contactForm.fill(contact(marker(), { email: 'bledny-email' }));
+  await contactForm.fill(buildMessage(uniqueMarker(), { email: 'bledny-email' }));
   await a.step(page, 'Email w złym formacie: „bledny-email”', [contactForm.email]);
   const r = await contactForm.submit(a);
   a.check(r.status, 400, 'Niepoprawny email odrzucony przez API');
@@ -94,7 +95,7 @@ test('UI-04 Niepoprawny email w kontakcie', async ({ page, audit: a, home, conta
 // UI-05 | R-03 | BVA min−1, DT reguła 2 | temat 4 znaki
 test('UI-05 Temat 4 znaki: poniżej minimum', async ({ page, audit: a, home, contactForm }) => {
   await home.open();
-  await contactForm.fill(contact(marker(), { subject: 'ABCD' }));
+  await contactForm.fill(buildMessage(uniqueMarker(), { subject: 'ABCD' }));
   await a.step(page, 'Temat „ABCD” (4 znaki, min. 5), pozostałe pola poprawne', [contactForm.subject]);
   const r = await contactForm.submit(a);
   a.check(r.status, 400, 'Temat 4 znaki odrzucony');
@@ -106,9 +107,9 @@ test('UI-05 Temat 4 znaki: poniżej minimum', async ({ page, audit: a, home, con
 test('UI-06 Temat 5 znaków: dolna granica', async ({ page, audit: a, home, contactForm }) => {
   // Sprzątanie po teście jest informacyjne i nie decyduje o werdykcie.
   await home.open();
-  const name = marker();
+  const name = uniqueMarker();
   try {
-    await contactForm.fill(contact(name, { subject: 'ABCDE' }));
+    await contactForm.fill(buildMessage(name, { subject: 'ABCDE' }));
     await a.step(page, 'Temat „ABCDE” (5 znaków – dolna granica)', [contactForm.subject]);
     const r = await contactForm.submit(a);
     a.check(r.status, 200, 'Temat 5 znaków przyjęty');
@@ -122,7 +123,7 @@ test('UI-06 Temat 5 znaków: dolna granica', async ({ page, audit: a, home, cont
 // UI-07 | R-03 | BVA min−1 | telefon 10 znaków
 test('UI-07 Telefon 10 znaków: poniżej minimum', async ({ page, audit: a, home, contactForm }) => {
   await home.open();
-  await contactForm.fill(contact(marker(), { phone: '1234567890' }));
+  await contactForm.fill(buildMessage(uniqueMarker(), { phone: '1234567890' }));
   await a.step(page, 'Telefon „1234567890” (10 znaków, min. 11)', [contactForm.phone]);
   const r = await contactForm.submit(a);
   a.check(r.status, 400, 'Telefon 10 znaków odrzucony');
@@ -131,8 +132,8 @@ test('UI-07 Telefon 10 znaków: poniżej minimum', async ({ page, audit: a, home
 });
 
 // UI-08 | R-01, R-05 | reguła biznesowa: cena dwóch nocy
-test('UI-08 Cena rezerwacji dwóch nocy', async ({ page, audit: a, reservation }, info) => {
-  const { room } = await openReservation(page, reservation, a, info);
+test('UI-08 Cena rezerwacji dwóch nocy', async ({ page, audit: a, api, reservation }, info) => {
+  const { room } = await openReservation(page, reservation, api, a, info);
   await expect(reservation.priceLine(room.roomPrice, 2)).toBeVisible();
   await expect(reservation.total(room.roomPrice * 2 + 40)).toBeVisible();
   await a.step(page, 'Podsumowanie ceny: 2 noce + opłaty', [reservation.priceLine(room.roomPrice, 2), reservation.total(room.roomPrice * 2 + 40)]);
@@ -140,8 +141,8 @@ test('UI-08 Cena rezerwacji dwóch nocy', async ({ page, audit: a, reservation }
 });
 
 // UI-09 | R-01, R-03 | EP puste dane obowiązkowe gościa
-test('UI-09 Puste dane gościa w rezerwacji', async ({ page, audit: a, reservation }, info) => {
-  await openReservation(page, reservation, a, info);
+test('UI-09 Puste dane gościa w rezerwacji', async ({ page, audit: a, api, reservation }, info) => {
+  await openReservation(page, reservation, api, a, info);
   await reservation.reserveButton.click();
   const r = await reservation.submitBooking();
   const body = await r.json();
@@ -152,9 +153,9 @@ test('UI-09 Puste dane gościa w rezerwacji', async ({ page, audit: a, reservati
 });
 
 // UI-10 | R-01, R-05 | spójność danych UI → request (POST przerwany przed zapisem)
-test('UI-10 Rezerwacja zachowuje wybrane daty', async ({ page, audit: a, reservation }, info) => {
+test('UI-10 Rezerwacja zachowuje wybrane daty', async ({ page, audit: a, api, reservation }, info) => {
   // Przypadek jest bezpiecznym sprawdzeniem payloadu przed zapisem. Finalne utworzenie pokrywa API-10.
-  const { dates } = await openReservation(page, reservation, a, info);
+  const { dates } = await openReservation(page, reservation, api, a, info);
   await reservation.reserveButton.click();
   await reservation.fillGuest({ Firstname: 'QATester', Lastname: 'ProjektTestowy', Email: 'qa-project@example.test', Phone: '12345678901' });
   let sent: any;
@@ -172,7 +173,7 @@ test('UI-10 Rezerwacja zachowuje wybrane daty', async ({ page, audit: a, reserva
 // UI-11 | R-04 | EP niepoprawne dane logowania | panel administratora
 test('UI-11 Błędne logowanie administratora', async ({ page, audit: a, adminLogin }) => {
   await adminLogin.open();
-  await adminLogin.fill(marker(), 'nieprawidlowe-dane-testowe');
+  await adminLogin.fill(uniqueMarker(), 'nieprawidlowe-dane-testowe');
   await a.step(page, 'Logowanie z niepoprawnymi danymi', [adminLogin.username, adminLogin.password, adminLogin.loginButton]);
   const r = await adminLogin.submit();
   a.check(r.status(), 401, 'Błędne logowanie HTTP 401');
@@ -184,7 +185,7 @@ test('UI-11 Błędne logowanie administratora', async ({ page, audit: a, adminLo
 // UI-12 | R-01, R-05 | spójność parametrów i odpowiedzi | wyszukiwanie dostępności
 test('UI-12 Wyszukanie dostępności dla poprawnego okresu', async ({ page, audit: a, home }) => {
   await home.open();
-  const dates = futureDates();
+  const dates = futureStay();
   await home.setDates(dates.checkin, dates.checkout);
   await a.step(page, `Wybrany okres ${dates.checkin} – ${dates.checkout}`, [home.dateInputs, home.checkAvailabilityButton]);
   const r = await home.checkAvailability();
