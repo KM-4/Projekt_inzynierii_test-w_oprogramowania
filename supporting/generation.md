@@ -7,7 +7,7 @@ Dokumenty wynikowe (PDF, Markdown, metryki, macierze) odtwarza się z ostatniego
 3. `python supporting/tools/build-pdf.py` (Python + ReportLab, fonty Arial z Windows): generuje 01, 03 i 06 z plików JSON, w tym skład zespołu z `team.json`.
 4. `node supporting/tools/build-tables-md.mjs`: generuje `02_TestCases.md` (podsumowanie, lista i szczegóły 22 przypadków) oraz `04_Defects.md` (raporty defektów i skale).
 5. `node supporting/tools/build-html-report.mjs`: raport z testów w HTML (`05_Automation/reports/raport-testow.html`) z tych samych danych.
-6. `node supporting/tools/build-presentation.mjs`: raport-artykuł do prezentowania na obronie `00_Prezentacja.html`.
+6. `node supporting/tools/build-presentation.mjs`: raport do prezentowania na obronie: `00_Prezentacja.html` (zwięzłe rozdziały) i 7 podstron w `prezentacja/` (plan i ryzyka, projekt testów, eksploracja, wykonanie i defekty, testy API, testy E2E, automatyzacja); screeny eksploracji z `evidence/exploratory/kroki/`.
 
 Zmiana objawów SUT wymaga merytorycznej weryfikacji zgłoszeń defektów i rekomendacji, a nie tylko przeliczenia liczb. Dane zespołu i wkład muszą odzwierciedlać rzeczywistość.
 

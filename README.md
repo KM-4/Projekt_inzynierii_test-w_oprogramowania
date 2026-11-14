@@ -19,7 +19,7 @@ Materiały i kod automatyzacji przygotowano z pomocą asystenta AI.
 
 | Plik / katalog | Zawartość |
 |---|---|
-| [`00_Prezentacja.html`](00_Prezentacja.html) | Raport z projektu do prezentacji na zajęciach |
+| [`00_Prezentacja.html`](00_Prezentacja.html) | Raport z projektu do prezentacji na zajęciach; szczegóły każdego obszaru w [`prezentacja/`](prezentacja/) |
 | [`01_TestPlan.pdf`](01_TestPlan.pdf) | Plan testów: zakres, środowisko, kryteria, 6 ryzyk ocenionych P × I |
 | [`02_TestCases.md`](02_TestCases.md) | 22 przypadki testowe (12 UI, 10 API) z wynikami i odsyłaczami do evidence |
 | [`03_Exploratory.md`](03_Exploratory.md) / `.pdf` | Charter i notatka z sesji eksploracyjnej |

@@ -42,7 +42,7 @@ npm.cmd run report:project   # odświeża 05_Automation/reports/raport-testow.ht
 npm.cmd run report           # techniczny raport Playwright w przeglądarce
 ```
 
-`raport-testow.html` otwiera się dwuklikiem: statusy, asercje, request/response i screeny kroków. Prezentacja na zajęcia: `00_Prezentacja.html`. Przypadki i defekty: `02_TestCases.md`, `04_Defects.md` (katalog główny).
+`raport-testow.html` otwiera się dwuklikiem: statusy, asercje, request/response i screeny kroków. Prezentacja na zajęcia: `00_Prezentacja.html` (strona główna z odnośnikami do podstron w `prezentacja/`). Przypadki i defekty: `02_TestCases.md`, `04_Defects.md` (katalog główny).
 
 ## 5. Krótki pokaz na żywo
 
@@ -66,7 +66,7 @@ node supporting/tools/collect-results.mjs        # metryki, przypadki, defekty, 
 python supporting/tools/build-pdf.py             # 01, 03, 06 (PDF)
 node supporting/tools/build-tables-md.mjs        # 02, 04 (Markdown)
 node supporting/tools/build-html-report.mjs      # raport z testów
-node supporting/tools/build-presentation.mjs     # 00_Prezentacja.html
+node supporting/tools/build-presentation.mjs     # 00_Prezentacja.html + prezentacja/*.html
 ```
 
 ## 7. Gdy coś nie działa
