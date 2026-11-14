@@ -1,13 +1,13 @@
-<testsuites id="" name="" tests="22" failures="5" skipped="3" errors="0" time="30.39347">
-<testsuite name="api.spec.ts" timestamp="2026-11-14T08:54:18.192Z" hostname="api" tests="10" failures="5" skipped="0" time="2.853" errors="0">
-<testcase name="API-01 Lista pokoi: schemat i unikalne identyfikatory" classname="api.spec.ts" time="0.184">
+<testsuites id="" name="" tests="22" failures="5" skipped="3" errors="0" time="27.820025">
+<testsuite name="api.spec.ts" timestamp="2026-11-14T09:54:24.837Z" hostname="api" tests="10" failures="5" skipped="0" time="2.829" errors="0">
+<testcase name="API-01 Lista pokoi: schemat i unikalne identyfikatory" classname="api.spec.ts" time="0.196">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|artifacts\api-API-01-Lista-pokoi-schemat-i-unikalne-identyfikatory-api\attachments\Dowód-wykonania-06ce2f7327bd159ffef7220fdf8f4b7a1c522ffc.json]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API-02 Szczegóły pokoju zgodne z listą" classname="api.spec.ts" time="0.141">
+<testcase name="API-02 Szczegóły pokoju zgodne z listą" classname="api.spec.ts" time="0.14">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|artifacts\api-API-02-Szczegóły-pokoju-zgodne-z-listą-api\attachments\Dowód-wykonania-f4cd50edfd34e7cbbe516508fb6b39aef180a679.json]]
@@ -45,7 +45,7 @@
 ]]>
 </failure>
 </testcase>
-<testcase name="API-03 Nieistniejący pokój: HTTP 404" classname="api.spec.ts" time="0.222">
+<testcase name="API-03 Nieistniejący pokój: HTTP 404" classname="api.spec.ts" time="0.232">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|artifacts\api-API-03-Nieistniejący-pokój-HTTP-404-api\attachments\Dowód-wykonania-34806d2bd3f1573bd6fd7b3c812fe1acdf983c63.json]]
@@ -83,21 +83,21 @@
 ]]>
 </failure>
 </testcase>
-<testcase name="API-04 Wiadomość bez wymaganych pól" classname="api.spec.ts" time="0.18">
+<testcase name="API-04 Wiadomość bez wymaganych pól" classname="api.spec.ts" time="0.186">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|artifacts\api-API-04-Wiadomość-bez-wymaganych-pól-api\attachments\Dowód-wykonania-036731eed74540731ba25c2de4378c7a65d0bf56.json]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API-05 Niepoprawny format email wiadomości" classname="api.spec.ts" time="0.162">
+<testcase name="API-05 Niepoprawny format email wiadomości" classname="api.spec.ts" time="0.127">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|artifacts\api-API-05-Niepoprawny-format-email-wiadomości-api\attachments\Dowód-wykonania-d6ece24f08b14efab5a810d0ec7564f4631f15bc.json]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API-06 Email jako obiekt zamiast tekstu" classname="api.spec.ts" time="0.151">
+<testcase name="API-06 Email jako obiekt zamiast tekstu" classname="api.spec.ts" time="0.143">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|artifacts\api-API-06-Email-jako-obiekt-zamiast-tekstu-api\attachments\Dowód-wykonania-c3e7c14ec71fb7c9fcf2facc1b2fc220a8b08a63.json]]
@@ -135,21 +135,21 @@
 ]]>
 </failure>
 </testcase>
-<testcase name="API-07 Rezerwacje bez uwierzytelnienia" classname="api.spec.ts" time="0.237">
+<testcase name="API-07 Rezerwacje bez uwierzytelnienia" classname="api.spec.ts" time="0.203">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|artifacts\api-API-07-Rezerwacje-bez-uwierzytelnienia-api\attachments\Dowód-wykonania-308fe1cd3f13118fa29507d30a86aff478923120.json]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API-08 Nieprawidłowe dane logowania" classname="api.spec.ts" time="0.139">
+<testcase name="API-08 Nieprawidłowe dane logowania" classname="api.spec.ts" time="0.138">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|artifacts\api-API-08-Nieprawidłowe-dane-logowania-api\attachments\Dowód-wykonania-be0d17065a37286cd3dd53882f46db2e7c6b58a9.json]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API-09 Wiadomość: utwórz, odczytaj, oznacz przeczytaną" classname="api.spec.ts" time="0.591">
+<testcase name="API-09 Wiadomość: utwórz, odczytaj, oznacz przeczytaną" classname="api.spec.ts" time="0.531">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|artifacts\api-API-09-Wiadomość-utwórz-odczytaj-oznacz-przeczytaną-api\attachments\Dowód-wykonania-31d899f2fc5cab2b880c541979f2373566891bcc.json]]
@@ -263,7 +263,7 @@
 ]]>
 </failure>
 </testcase>
-<testcase name="API-10 Rezerwacja: utwórz, odczytaj i zmień nazwisko" classname="api.spec.ts" time="0.846">
+<testcase name="API-10 Rezerwacja: utwórz, odczytaj i zmień nazwisko" classname="api.spec.ts" time="0.933">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|artifacts\api-API-10-Rezerwacja-utwórz-odczytaj-i-zmień-nazwisko-api\attachments\Dowód-wykonania-d0b38d15dd6a934f8a5afb76f9816f5b17e0c66d.json]]
@@ -378,8 +378,8 @@
 </failure>
 </testcase>
 </testsuite>
-<testsuite name="ui.spec.ts" timestamp="2026-11-14T08:54:18.192Z" hostname="ui-chrome" tests="12" failures="0" skipped="3" time="25.101" errors="0">
-<testcase name="UI-01 Katalog pokoi zgodny z API" classname="ui.spec.ts" time="3.031">
+<testsuite name="ui.spec.ts" timestamp="2026-11-14T09:54:24.837Z" hostname="ui-chrome" tests="12" failures="0" skipped="3" time="22.447" errors="0">
+<testcase name="UI-01 Katalog pokoi zgodny z API" classname="ui.spec.ts" time="2.595">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|artifacts\ui-UI-01-Katalog-pokoi-zgodny-z-API-ui-chrome\attachments\Krok-1-Katalog-typy-ceny-i-linki-zgodne-z-GET-api-room-97d2a80e67fc7a36c8a83158dd2d8c3e4db3fe37.png]]
@@ -390,7 +390,7 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="UI-02 Poprawna wiadomość kontaktowa" classname="ui.spec.ts" time="2.618">
+<testcase name="UI-02 Poprawna wiadomość kontaktowa" classname="ui.spec.ts" time="2.699">
 <properties>
 <property name="cleanup" value="Sprzątanie: usunięto własną wiadomość UI: oczekiwano 200, otrzymano 500 (nie wpływa na werdykt)">
 </property>
@@ -407,7 +407,7 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="UI-03 Pusty formularz kontaktowy" classname="ui.spec.ts" time="2.627">
+<testcase name="UI-03 Pusty formularz kontaktowy" classname="ui.spec.ts" time="2.295">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|artifacts\ui-UI-03-Pusty-formularz-kontaktowy-ui-chrome\attachments\Krok-1-Pusty-formularz-przed-wysłaniem-cb4a31149c2b387c95e0358cfb64ac58bba553fd.png]]
@@ -420,7 +420,7 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="UI-04 Niepoprawny email w kontakcie" classname="ui.spec.ts" time="2.681">
+<testcase name="UI-04 Niepoprawny email w kontakcie" classname="ui.spec.ts" time="2.316">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|artifacts\ui-UI-04-Niepoprawny-email-w-kontakcie-ui-chrome\attachments\Krok-1-Email-w-złym-formacie-„bledny-email”-00751d3c4fca95d3b4c725fb26a0b13376006295.png]]
@@ -435,7 +435,7 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="UI-05 Temat 4 znaki: poniżej minimum" classname="ui.spec.ts" time="2.484">
+<testcase name="UI-05 Temat 4 znaki: poniżej minimum" classname="ui.spec.ts" time="3.04">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|artifacts\ui-UI-05-Temat-4-znaki-poniżej-minimum-ui-chrome\attachments\Krok-1-Temat-„ABCD”-4-znaki-min-5-pozostałe-pola-poprawne-bebce1017b580689e841b4c8c21565576864b320.png]]
@@ -448,7 +448,7 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="UI-06 Temat 5 znaków: dolna granica" classname="ui.spec.ts" time="3.602">
+<testcase name="UI-06 Temat 5 znaków: dolna granica" classname="ui.spec.ts" time="3.17">
 <properties>
 <property name="cleanup" value="Sprzątanie: usunięto własną wiadomość UI: oczekiwano 200, otrzymano 500 (nie wpływa na werdykt)">
 </property>
@@ -465,7 +465,7 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="UI-07 Telefon 10 znaków: poniżej minimum" classname="ui.spec.ts" time="2.331">
+<testcase name="UI-07 Telefon 10 znaków: poniżej minimum" classname="ui.spec.ts" time="2.003">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|artifacts\ui-UI-07-Telefon-10-znaków-poniżej-minimum-ui-chrome\attachments\Krok-1-Telefon-„1234567890”-10-znaków-min-11--27bc870308aa27ee2022810840debbce7c8f62b9.png]]
@@ -508,7 +508,7 @@
 <skipped>
 </skipped>
 </testcase>
-<testcase name="UI-11 Błędne logowanie administratora" classname="ui.spec.ts" time="1.064">
+<testcase name="UI-11 Błędne logowanie administratora" classname="ui.spec.ts" time="0.723">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|artifacts\ui-UI-11-Błędne-logowanie-administratora-ui-chrome\attachments\Krok-1-Logowanie-z-niepoprawnymi-danymi-35f22f9179c03842658025092a3c6246b20d81be.png]]
@@ -521,7 +521,7 @@
 ]]>
 </system-out>
 </testcase>
-<testcase name="UI-12 Wyszukanie dostępności dla poprawnego okresu" classname="ui.spec.ts" time="2.222">
+<testcase name="UI-12 Wyszukanie dostępności dla poprawnego okresu" classname="ui.spec.ts" time="1.848">
 <system-out>
 <![CDATA[
 [[ATTACHMENT|artifacts\ui-UI-12-Wyszukanie-dostępności-dla-poprawnego-okresu-ui-chrome\attachments\Krok-1-Wybrany-okres-2027-01-13-–-2027-01-15-e6154d5aba2f5398e84990092e77dbbbc300fbe8.png]]

@@ -21,10 +21,10 @@ Materiały i kod automatyzacji przygotowano z pomocą asystenta AI.
 |---|---|
 | [`00_Prezentacja.html`](00_Prezentacja.html) | Raport z projektu do prezentacji na zajęciach |
 | [`01_TestPlan.pdf`](01_TestPlan.pdf) | Plan testów: zakres, środowisko, kryteria, 6 ryzyk ocenionych P × I |
-| [`02_TestCases.xlsx`](02_TestCases.xlsx) | 22 przypadki testowe (12 UI, 10 API) z wynikami i odsyłaczami do evidence |
+| [`02_TestCases.md`](02_TestCases.md) | 22 przypadki testowe (12 UI, 10 API) z wynikami i odsyłaczami do evidence |
 | [`03_Exploratory.md`](03_Exploratory.md) / `.pdf` | Charter i notatka z sesji eksploracyjnej |
-| [`04_Defects.xlsx`](04_Defects.xlsx) | 4 unikalne raporty defektów ze skalą severity / priority |
-| [`05_Automation/`](05_Automation/README.md) | Testy automatyczne (Playwright + TypeScript) i raporty z uruchomień |
+| [`04_Defects.md`](04_Defects.md) | 4 unikalne raporty defektów ze skalą severity / priority |
+| [`05_Automation/`](05_Automation/README.md) | Testy automatyczne (Playwright + TypeScript): 10 testów API i 12 testów UI w modelu Page Object Model, raporty z uruchomień |
 | [`06_TestSummaryReport.pdf`](06_TestSummaryReport.pdf) | Raport końcowy: metryki, ryzyka, rekomendacja |
 | [`RUNBOOK.md`](RUNBOOK.md) | Jak uruchomić testy, pokazać wyniki i odtworzyć dokumenty |
 | `evidence/` | Dowody wykonania: request / response / asercje (API), screeny kroków (UI), eksploracja |

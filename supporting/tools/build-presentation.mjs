@@ -7,6 +7,9 @@ import { fileURLToPath } from 'node:url';
 
 const root = process.env.QA_PROJECT_DIR || path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const json = (p) => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
+// Przykład testu w modelu POM: blok UI-05 z tests/ui.spec.ts (bez komentarza nagłówkowego).
+const uiSrc = fs.readFileSync(path.join(root, '05_Automation/tests/ui.spec.ts'), 'utf8').replace(/\r/g, '');
+const pomExample = (uiSrc.split(/\n(?=\/\/ UI-\d+)/).find((b) => b.startsWith('// UI-05')) || '').split('\n').filter((l) => !l.startsWith('//')).join('\n').trim();
 const cases = json('supporting/test-cases.json');
 const metrics = json('supporting/metrics.json');
 const defects = json('supporting/defects.json');
@@ -86,6 +89,7 @@ table{border-collapse:collapse;width:100%;font-size:16px;line-height:1.45;margin
 .links{font:15px/1.6 "Segoe UI",sans-serif;color:var(--muted)}
 .gloss dt{font:700 16px "Segoe UI",sans-serif;margin-top:12px}.gloss dd{margin:2px 0 0;font-size:17px}
 .placeholder{border:2px dashed var(--c3);border-radius:12px;padding:10px 16px;background:var(--badbg);font:16px "Segoe UI",sans-serif}
+pre.code{background:#1d2433;color:#e8ecf4;border-radius:12px;padding:16px 18px;font:14px/1.55 Consolas,"Cascadia Mono",monospace;overflow-x:auto;white-space:pre;margin:0}
 code{font-family:Consolas,monospace;font-size:.85em;background:var(--bg);padding:1px 5px;border-radius:4px}
 @media (max-width:760px){.page{padding:28px 20px}.facts{grid-template-columns:1fr 1fr}.team,.shots.n2,.shots.n3{grid-template-columns:1fr}}
 @media print{body{background:#fff}.page{box-shadow:none}.ch{break-before:page}}
@@ -125,7 +129,7 @@ ${figSteps('UI-05', 'Ten sam przypadek w trakcie wykonania – zrzuty zrobione a
 <h3>Testy eksploracyjne</h3>
 <p>Oprócz zaplanowanych przypadków przeprowadziliśmy swobodną, ograniczoną czasowo sesję, w której szukaliśmy problemów „na wyczucie” – z jasno określonym celem: nietypowe daty i dane w rezerwacji. Tak znaleźliśmy dwa dodatkowe błędy (opisane w rozdziale 3).</p>
 <div class="tc"><dl><dt>Sesja</dt><dd>EXP-02, 13 listopada 2026, 30 minut 36 sekund</dd><dt>Cel (charter)</dt><dd>Znaleźć problemy w rezerwacji przy nietypowych datach i danych, sprawdzić powiązania strony z serwerem i zachowanie danych przy resecie środowiska.</dd><dt>Pomysły</dt><dd>Śledzenie danych od formularza do serwera, cykl utwórz–odczytaj–zmień–usuń, granice długości pól, różne strefy czasowe.</dd><dt>Wynik</dt><dd>Dwa nowe błędy (wyszukiwanie w strefie UTC+14, wygasłe logowanie) i potwierdzone granice trzech pól formularza.</dd><dt>Jak</dt><dd>Z pomocą narzędzi (Playwright, asystent AI); ustalenia sprawdzone ponownie na żywo 14 listopada.</dd></dl></div>
-<p class="muted" style="margin-top:12px">Wszystkie przypadki: <a href="02_TestCases.xlsx">02_TestCases.xlsx</a> · notatki z eksploracji: <a href="03_Exploratory.pdf">03_Exploratory.pdf</a></p>
+<p class="muted" style="margin-top:12px">Wszystkie przypadki: <a href="02_TestCases.md">02_TestCases.md</a> · notatki z eksploracji: <a href="03_Exploratory.pdf">03_Exploratory.pdf</a></p>
 ${takeaway('Każdy test ma konkretny powód: wynika z ryzyka i z techniki doboru danych. Dzięki temu przy małej liczbie testów sprawdzamy najbardziej podatne miejsca.')}`)}
 
 ${chapter(3, 2, 'ch3', 'Co wyszło z testów i jakie błędy znaleźliśmy', `
@@ -139,20 +143,29 @@ ${figSteps('UI-08', 'Przypadek „cena rezerwacji za dwie noce”: zamiast formu
 <h3>Znalezione błędy</h3>
 <p>Znaleźliśmy <b>${defects.length} różne błędy</b>. Jeśli kilka testów trafiało na ten sam problem, zgłaszaliśmy go raz – dlatego jeden błąd może dotyczyć wielu przypadków.</p>
 <table><tr><th>Błąd</th><th>Waga</th><th>Gdzie wykryty</th></tr>${defectRows}</table>
-<p class="muted">Każde zgłoszenie zawiera dokładne kroki, dzięki którym ktoś inny może błąd powtórzyć: <a href="04_Defects.xlsx">04_Defects.xlsx</a> · wszystkie wyniki z dowodami: <a href="05_Automation/reports/raport-testow.html">raport z testów</a></p>
+<p class="muted">Każde zgłoszenie zawiera dokładne kroki, dzięki którym ktoś inny może błąd powtórzyć: <a href="04_Defects.md">04_Defects.md</a> · wszystkie wyniki z dowodami: <a href="05_Automation/reports/raport-testow.html">raport z testów</a></p>
 ${takeaway('Najpoważniejszy błąd jest krytyczny: gość nie może zarezerwować pokoju. Pozostałe błędy są mniejsze – aplikacja źle reaguje na nietypowe sytuacje, ale nie blokuje to jej używania.')}`)}
 
 ${chapter(4, 3, 'ch4', 'Testy API i automatyzacja', `
 <p><b>API</b> to „zaplecze” aplikacji – strona internetowa wysyła do serwera zapytania (np. „pokaż listę pokoi”, „zapisz wiadomość”) i dostaje odpowiedzi. Testując API, sprawdzamy serwer bezpośrednio, bez przeglądarki. Każda odpowiedź ma kod: <b>200</b> oznacza sukces, <b>400</b> – odrzucenie złych danych, <b>401</b> – brak uprawnień, <b>404</b> – brak zasobu, a <b>500</b> – awarię serwera.</p>
-<p>Napisaliśmy ${metrics.api} testów API. Sprawdzają m.in.: czy lista pokoi ma poprawne dane, czy serwer odrzuca wiadomość bez wymaganych pól lub ze złym emailem, czy odmawia logowania złym hasłem i czy nie pokazuje rezerwacji osobie niezalogowanej.</p>
+<p>Napisaliśmy ${metrics.api} testów API i ${metrics.ui} testów w przeglądarce. Sprawdzają m.in.: czy lista pokoi ma poprawne dane, czy serwer odrzuca wiadomość bez wymaganych pól lub ze złym emailem, czy odmawia logowania złym hasłem i czy nie pokazuje rezerwacji osobie niezalogowanej.</p>
 <h3>Pełny cykl życia danych</h3>
 <p>Najważniejszy jest test, który przechodzi cały „cykl życia” wiadomości: tworzy ją, odczytuje, zmienia i usuwa – i po każdym kroku sprawdza, czy wszystko się zgadza. Tak wyglądał w ostatnim uruchomieniu:</p>
 <ol class="life">${flow9}</ol>
 <p>Tworzenie wiadomości działa, ale każda operacja na konkretnej wiadomości (otwarcie, zmiana, usunięcie) kończy się awarią serwera. To ten sam błąd, który blokuje rezerwację. Analogiczny test przeprowadziliśmy dla rezerwacji – z takim samym wynikiem.</p>
+<h3>Testy w przeglądarce: Page Object Model</h3>
+<p>Testy w przeglądarce napisaliśmy w modelu <b>Page Object Model</b> (POM). Każda strona aplikacji ma własną klasę, która wie, gdzie są przyciski i pola i jak ich używać. Sam test nie szuka już elementów na stronie – opisuje tylko scenariusz, jak instrukcję dla człowieka. Gdy zmieni się wygląd strony, poprawia się jedną klasę, a nie każdy test.</p>
+<table><tr><th>Klasa (obiekt strony)</th><th>Co reprezentuje</th><th>Przykładowe akcje</th></tr>
+<tr><td><b>HomePage</b></td><td>Strona główna: katalog pokoi i wyszukiwarka dostępności</td><td>otwórz stronę, wybierz daty, sprawdź dostępność</td></tr>
+<tr><td><b>ContactForm</b></td><td>Formularz kontaktowy</td><td>wypełnij pola, wyślij, odczytaj komunikat błędu lub potwierdzenie</td></tr>
+<tr><td><b>ReservationPage</b></td><td>Strona rezerwacji pokoju</td><td>otwórz rezerwację, wpisz dane gościa, wyślij rezerwację</td></tr>
+<tr><td><b>AdminLoginPage</b></td><td>Logowanie do panelu administratora</td><td>wpisz login i hasło, zaloguj, odczytaj błąd</td></tr></table>
+<p>Tak wygląda prawdziwy test „temat wiadomości ma 4 znaki” – czyta się go prawie jak opis kroków z przypadku testowego:</p>
+<figure class="fig"><pre class="code">${esc(pomExample)}</pre><figcaption><b>home</b> i <b>contactForm</b> to obiekty stron. Test: otwiera stronę, wypełnia formularz tematem „ABCD”, robi zrzut ekranu kroku, wysyła i sprawdza, że serwer odrzucił dane (kod 400), a na stronie widać komunikat o długości tematu.</figcaption></figure>
 <h3>Automatyzacja</h3>
 <p>Wszystkie ${metrics.planned} testów są zautomatyzowane: komputer wykonuje je sam, w około pół minuty, jednym poleceniem (<code>npm test</code>), i za każdym razem w ten sam sposób. Po uruchomieniu powstaje raport z wynikami i dowodami. Instrukcja uruchomienia na czystym komputerze jest w <a href="05_Automation/README.md">05_Automation/README.md</a>.</p>
 <p>Testy nie opierają się na stałych danych – za każdym razem pobierają aktualny stan aplikacji i tworzą własne, oznaczone dane testowe. Nie powtarzają się automatycznie przy błędzie, żeby nie ukrywać problemów i nie obciążać publicznej aplikacji.</p>
-<p class="muted">Kod testów: <a href="05_Automation/tests/api.spec.ts">api.spec.ts</a>, <a href="05_Automation/tests/ui.spec.ts">ui.spec.ts</a> · <a href="05_Automation/reports/raport-testow.html">raport z ostatniego uruchomienia</a></p>
+<p class="muted">Kod testów: <a href="05_Automation/tests/api.spec.ts">api.spec.ts</a>, <a href="05_Automation/tests/ui.spec.ts">ui.spec.ts</a>, <a href="05_Automation/pages/">pages/ (Page Object Model)</a> · <a href="05_Automation/reports/raport-testow.html">raport z ostatniego uruchomienia</a></p>
 ${takeaway('Testy uruchamia się jednym poleceniem i dają za każdym razem ten sam, udokumentowany wynik. Czerwony wynik oznacza błąd aplikacji, a nie zepsute testy – i właśnie to miały wykryć.')}`)}
 
 ${chapter(5, 0, 'ch5', 'Decyzja i jej uzasadnienie', `
@@ -174,7 +187,7 @@ ${takeaway('Na pytanie „na jakiej podstawie twierdzicie, że system nie jest g
 <dt>Automatyzacja</dt><dd>Testy zapisane jako program, który komputer wykonuje sam i powtarzalnie.</dd>
 <dt>Testy eksploracyjne</dt><dd>Swobodne, ograniczone czasowo szukanie błędów z jasno określonym celem.</dd>
 </dl>
-<p class="links" style="margin-top:28px">Pliki projektu: <a href="README.md">README</a> · <a href="01_TestPlan.pdf">plan testów</a> · <a href="02_TestCases.xlsx">przypadki testowe</a> · <a href="03_Exploratory.pdf">eksploracja</a> · <a href="04_Defects.xlsx">zgłoszenia błędów</a> · <a href="05_Automation/reports/raport-testow.html">raport z testów</a> · <a href="06_TestSummaryReport.pdf">raport końcowy</a></p>
+<p class="links" style="margin-top:28px">Pliki projektu: <a href="README.md">README</a> · <a href="01_TestPlan.pdf">plan testów</a> · <a href="02_TestCases.md">przypadki testowe</a> · <a href="03_Exploratory.pdf">eksploracja</a> · <a href="04_Defects.md">zgłoszenia błędów</a> · <a href="05_Automation/reports/raport-testow.html">raport z testów</a> · <a href="06_TestSummaryReport.pdf">raport końcowy</a></p>
 </section>
 </main></body></html>`;
 fs.writeFileSync(path.join(root, '00_Prezentacja.html'), html);

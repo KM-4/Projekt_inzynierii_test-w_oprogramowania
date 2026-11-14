@@ -1,0 +1,154 @@
+{
+  "caseId": "API-05",
+  "executedAt": "2026-11-14T09:54:26.531Z",
+  "finishedAt": "2026-11-14T09:54:26.656Z",
+  "runnerStatus": "passed",
+  "annotations": [],
+  "steps": [],
+  "requests": [
+    {
+      "startedAt": "2026-11-14T09:54:26.532Z",
+      "request": {
+        "method": "POST",
+        "url": "https://automationintesting.online/api/message",
+        "headers": {},
+        "body": {
+          "name": "QA-1794650066531-11bbe2",
+          "email": "nie-jest-mailem",
+          "phone": "12345678901",
+          "subject": "Zapytanie QA-1794650066531-11bbe2",
+          "description": "Wiadomość testowa projektu akademickiego. Dane syntetyczne."
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+          "date": "Sat, 14 Nov 2026 09:54:26 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-railway-request-id": "MVf76XKZQvelTkVTnTga3g",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.j60f",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=PsFH3AbDp8XivILOPpxFMkCwBjnnrMvTUQsPuCuWCcPVD87HSKDErh%2F7p8x01eqwmzVGFovWBYGeA4Ui5IVaimK7fpfqF5vATkqHJG4fFO2IpkCDhS6FVuoCURpogfHLKwHa3Kll9s3vrlrV0BMEK7vFqdb1VjUAVg%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "cf-ray": "a5a52285286b2761-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": [
+          "must be a well-formed email address"
+        ]
+      }
+    },
+    {
+      "startedAt": "2026-11-14T09:54:26.594Z",
+      "request": {
+        "method": "GET",
+        "url": "https://automationintesting.online/api/message",
+        "headers": {},
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "date": "Sat, 14 Nov 2026 09:54:26 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-railway-request-id": "LqJzODx6RVe7u6whnbOCzg",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.j60f",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=XYQG7qjzyXcvc1I5pc%2FYaCDVbJkXT5mWa2dgaoV2%2FOkw85dxNtnmnVHyZJkgYgH6vkCOxEn9vXzdY6FDhGbrypoHiRZbQHIwXK9Ufjq%2FYiXu41gWRAQ73K7wf79k1wUhphR8g1OK%2FFZZxnNFh1l6GKacIrR4V7j0mw%3D%3D\"}]}",
+          "content-encoding": "br",
+          "cf-ray": "a5a52285894d2761-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": {
+          "messages": [
+            {
+              "id": 1,
+              "name": "James Dean",
+              "read": false,
+              "subject": "Booking enquiry"
+            },
+            {
+              "id": 2,
+              "name": "Glennie Kuphal",
+              "read": false,
+              "subject": "You have a new booking!"
+            },
+            {
+              "id": 3,
+              "name": "Dr. Keith Ondricka",
+              "read": false,
+              "subject": "Consulta WGHVma"
+            },
+            {
+              "id": 4,
+              "name": "Stuart Bernhard",
+              "read": false,
+              "subject": "Consulta 5ifioZ"
+            },
+            {
+              "id": 5,
+              "name": "Thea Nikolaus",
+              "read": false,
+              "subject": "You have a new booking!"
+            },
+            {
+              "id": 6,
+              "name": "QA-1794649919591-33344e",
+              "read": false,
+              "subject": "Zapytanie QA-1794649919591-33344e"
+            },
+            {
+              "id": 7,
+              "name": "QA-1794649931418-5f86f6",
+              "read": false,
+              "subject": "ABCDE"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "requestIndex": 0,
+      "label": "Błędny email: HTTP 400",
+      "actual": 400,
+      "expected": 400,
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
+      "label": "Komunikat walidacji email",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "requestIndex": 1,
+      "label": "Lista wiadomości",
+      "actual": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "requestIndex": 1,
+      "label": "Odrzucony rekord nie został zapisany",
+      "actual": false,
+      "expected": false,
+      "pass": true
+    }
+  ],
+  "observations": [],
+  "error": null
+}

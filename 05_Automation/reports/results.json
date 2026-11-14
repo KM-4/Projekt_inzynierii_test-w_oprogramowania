@@ -119,12 +119,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 184,
+                  "duration": 196,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:18.476Z",
+                  "startTime": "2026-11-14T09:54:25.113Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -159,7 +159,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 141,
+                  "duration": 140,
                   "error": {
                     "message": "Error: Istniejący pokój: HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
                     "stack": "Error: Istniejący pokój: HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.check (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:31:26)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:30:5",
@@ -183,7 +183,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:18.682Z",
+                  "startTime": "2026-11-14T09:54:25.332Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -228,7 +228,7 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 222,
+                  "duration": 232,
                   "error": {
                     "message": "Error: Brak zasobu: HTTP 404\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
                     "stack": "Error: Brak zasobu: HTTP 404\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.check (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:31:26)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:43:5",
@@ -252,7 +252,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:19.121Z",
+                  "startTime": "2026-11-14T09:54:25.769Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -297,12 +297,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 180,
+                  "duration": 186,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:19.657Z",
+                  "startTime": "2026-11-14T09:54:26.318Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -337,12 +337,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 162,
+                  "duration": 127,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:19.858Z",
+                  "startTime": "2026-11-14T09:54:26.527Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -377,7 +377,7 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 151,
+                  "duration": 143,
                   "error": {
                     "message": "Error: Błędny typ: HTTP 400\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
                     "stack": "Error: Błędny typ: HTTP 400\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m400\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:76:5",
@@ -401,7 +401,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:20.027Z",
+                  "startTime": "2026-11-14T09:54:26.661Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -446,12 +446,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 237,
+                  "duration": 203,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:20.471Z",
+                  "startTime": "2026-11-14T09:54:27.097Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -486,12 +486,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 139,
+                  "duration": 138,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:20.730Z",
+                  "startTime": "2026-11-14T09:54:27.322Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -526,7 +526,7 @@
                   "workerIndex": 3,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 591,
+                  "duration": 531,
                   "error": {
                     "message": "Error: Odczyt utworzonej wiadomości\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
                     "stack": "Error: Odczyt utworzonej wiadomości\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:116:7",
@@ -582,7 +582,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:20.876Z",
+                  "startTime": "2026-11-14T09:54:27.467Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -627,7 +627,7 @@
                   "workerIndex": 4,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 846,
+                  "duration": 933,
                   "error": {
                     "message": "Error: Odczyt HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m",
                     "stack": "Error: Odczyt HTTP 200\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m500\u001b[39m\n    at Audit.checkSoft (C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\helpers\\audit.ts:33:243)\n    at C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\api.spec.ts:183:7",
@@ -683,7 +683,7 @@
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:21.770Z",
+                  "startTime": "2026-11-14T09:54:28.292Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -736,12 +736,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3031,
+                  "duration": 2595,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:22.926Z",
+                  "startTime": "2026-11-14T09:54:29.543Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -767,7 +767,7 @@
           ],
           "id": "d425444c687fa36b5882-b75f20e010f52332c57e",
           "file": "ui.spec.ts",
-          "line": 56,
+          "line": 35,
           "column": 5
         },
         {
@@ -791,12 +791,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2618,
+                  "duration": 2699,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:26.131Z",
+                  "startTime": "2026-11-14T09:54:32.330Z",
                   "annotations": [
                     {
                       "type": "cleanup",
@@ -832,7 +832,7 @@
           ],
           "id": "d425444c687fa36b5882-e1ebc0da0c51409acdc5",
           "file": "ui.spec.ts",
-          "line": 73,
+          "line": 49,
           "column": 5
         },
         {
@@ -851,12 +851,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2627,
+                  "duration": 2295,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:28.757Z",
+                  "startTime": "2026-11-14T09:54:35.038Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -887,7 +887,7 @@
           ],
           "id": "d425444c687fa36b5882-bbaeca93984d22388eb9",
           "file": "ui.spec.ts",
-          "line": 91,
+          "line": 66,
           "column": 5
         },
         {
@@ -906,12 +906,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2681,
+                  "duration": 2316,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:31.389Z",
+                  "startTime": "2026-11-14T09:54:37.352Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -947,7 +947,7 @@
           ],
           "id": "d425444c687fa36b5882-b199d78542f93c13a8de",
           "file": "ui.spec.ts",
-          "line": 102,
+          "line": 77,
           "column": 5
         },
         {
@@ -966,12 +966,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2484,
+                  "duration": 3040,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:34.077Z",
+                  "startTime": "2026-11-14T09:54:39.677Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1002,7 +1002,7 @@
           ],
           "id": "d425444c687fa36b5882-ec627fff62afa10568cf",
           "file": "ui.spec.ts",
-          "line": 120,
+          "line": 95,
           "column": 5
         },
         {
@@ -1026,12 +1026,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3602,
+                  "duration": 3170,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:36.566Z",
+                  "startTime": "2026-11-14T09:54:42.726Z",
                   "annotations": [
                     {
                       "type": "cleanup",
@@ -1067,7 +1067,7 @@
           ],
           "id": "d425444c687fa36b5882-8bd30632c347d72c26b3",
           "file": "ui.spec.ts",
-          "line": 131,
+          "line": 106,
           "column": 5
         },
         {
@@ -1086,12 +1086,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2331,
+                  "duration": 2003,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:40.175Z",
+                  "startTime": "2026-11-14T09:54:45.902Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1122,7 +1122,7 @@
           ],
           "id": "d425444c687fa36b5882-eeda95c8233e71bd565d",
           "file": "ui.spec.ts",
-          "line": 149,
+          "line": 123,
           "column": 5
         },
         {
@@ -1142,7 +1142,7 @@
                   "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
                   "location": {
                     "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\ui.spec.ts",
-                    "line": 48,
+                    "line": 27,
                     "column": 10
                   }
                 }
@@ -1155,12 +1155,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "skipped",
-                  "duration": 789,
+                  "duration": 579,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:42.511Z",
+                  "startTime": "2026-11-14T09:54:47.916Z",
                   "annotations": [
                     {
                       "type": "blocked",
@@ -1171,7 +1171,7 @@
                       "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
                       "location": {
                         "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\ui.spec.ts",
-                        "line": 48,
+                        "line": 27,
                         "column": 10
                       }
                     }
@@ -1200,7 +1200,7 @@
           ],
           "id": "d425444c687fa36b5882-dc305400b33292626e89",
           "file": "ui.spec.ts",
-          "line": 160,
+          "line": 134,
           "column": 5
         },
         {
@@ -1220,7 +1220,7 @@
                   "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
                   "location": {
                     "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\ui.spec.ts",
-                    "line": 48,
+                    "line": 27,
                     "column": 10
                   }
                 }
@@ -1233,12 +1233,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "skipped",
-                  "duration": 828,
+                  "duration": 591,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:43.306Z",
+                  "startTime": "2026-11-14T09:54:48.504Z",
                   "annotations": [
                     {
                       "type": "blocked",
@@ -1249,7 +1249,7 @@
                       "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
                       "location": {
                         "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\ui.spec.ts",
-                        "line": 48,
+                        "line": 27,
                         "column": 10
                       }
                     }
@@ -1278,7 +1278,7 @@
           ],
           "id": "d425444c687fa36b5882-750880f61f847a8f5f0f",
           "file": "ui.spec.ts",
-          "line": 169,
+          "line": 143,
           "column": 5
         },
         {
@@ -1298,7 +1298,7 @@
                   "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
                   "location": {
                     "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\ui.spec.ts",
-                    "line": 48,
+                    "line": 27,
                     "column": 10
                   }
                 }
@@ -1311,12 +1311,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "skipped",
-                  "duration": 824,
+                  "duration": 588,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:44.140Z",
+                  "startTime": "2026-11-14T09:54:49.106Z",
                   "annotations": [
                     {
                       "type": "blocked",
@@ -1327,7 +1327,7 @@
                       "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
                       "location": {
                         "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\ui.spec.ts",
-                        "line": 48,
+                        "line": 27,
                         "column": 10
                       }
                     }
@@ -1356,7 +1356,7 @@
           ],
           "id": "d425444c687fa36b5882-1077ac5d5f1e8bbfc5e6",
           "file": "ui.spec.ts",
-          "line": 183,
+          "line": 155,
           "column": 5
         },
         {
@@ -1375,12 +1375,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1064,
+                  "duration": 723,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:44.971Z",
+                  "startTime": "2026-11-14T09:54:49.700Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1411,7 +1411,7 @@
           ],
           "id": "d425444c687fa36b5882-8d9222d04080c8d21fdb",
           "file": "ui.spec.ts",
-          "line": 203,
+          "line": 173,
           "column": 5
         },
         {
@@ -1430,12 +1430,12 @@
                   "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2222,
+                  "duration": 1848,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-14T08:54:46.040Z",
+                  "startTime": "2026-11-14T09:54:50.432Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1466,7 +1466,7 @@
           ],
           "id": "d425444c687fa36b5882-df3aa1618823ceca85bd",
           "file": "ui.spec.ts",
-          "line": 219,
+          "line": 185,
           "column": 5
         }
       ]
@@ -1474,8 +1474,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-11-14T08:54:18.038Z",
-    "duration": 30393.47,
+    "startTime": "2026-11-14T09:54:24.698Z",
+    "duration": 27820.025,
     "expected": 14,
     "skipped": 3,
     "unexpected": 5,

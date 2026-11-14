@@ -9,12 +9,12 @@ Prezentacja jest nadrzędnym źródłem wymagań projektu. Jej treść potraktow
 | 3 | 3–4 osoby, wspólna paczka, 5–7 minut, jawny wkład | README i defense-notes.md | Numer, nazwiska i faktyczny wkład do uzupełnienia przez zespół |
 | 4 | Pięć etapów i spójna wersja finalna | traceability-matrix.md, 00_Prezentacja.html | Wykonano; zależne retesty wymagają naprawy SUT |
 | 5 | Plan 1–2 strony; IN/OUT, środowisko, role, wejście/wyjście, >=5 ryzyk P/I/P×I | 01_TestPlan.pdf (2 strony); 6 ryzyk w risks.json/risk-matrix.md | Wykonano |
-| 6 | >=20 TC; >=12 UI; >=6 API; >=6 negatywnych; pełne pola; EP/BVA/DT | 22 TC = 12 UI + 10 API; 12 negatywnych; 02_TestCases.xlsx i test-design-techniques.md | Wykonano |
+| 6 | >=20 TC; >=12 UI; >=6 API; >=6 negatywnych; pełne pola; EP/BVA/DT | 22 TC = 12 UI + 10 API; 12 negatywnych; 02_TestCases.md i test-design-techniques.md | Wykonano |
 | 7 | Osobny charter i rzeczywista sesja 30–45 min; misja, heurystyki, obserwacje, pytania/defekty | 03_Exploratory.md/.pdf; evidence/exploratory/session.json | Wykonano EXP-02: 30 min 36 s, wydzielona sesja bez innych zadań; 114 wpisów, jawny operator |
 | 8 | >=6 API, >=3 operacje/endpointy; poprawne i błędne dane; create/read/update; request/response/asercje | 10 API, room/message/auth/booking; własne rekordy i aktualne tokeny | Wykonano: create/read/update/delete w API-09/10; PUT wykonany i zweryfikowany przez listę (500, DEF-01) |
-| 9 | >=3 automaty: pozytywny, negatywny i walidacja; README czystego uruchomienia i ostatni wynik | 22 definicje; rzeczywiście PASS UI-01/API-04/API-01; npm ci i pełny runner | Wykonano; FAIL SUT nie ukryto |
+| 9 | >=3 automaty: pozytywny, negatywny i walidacja; README czystego uruchomienia i ostatni wynik | 22 automaty: 10 API + 12 UI w modelu Page Object Model; rzeczywiście PASS UI-01/API-04/API-01; npm ci i pełny runner | Wykonano; FAIL SUT nie ukryto |
 | 10 | Status wszystkich TC; evidence UI/API/automation; niewykonane jawne | 22 statusy, JSON i screeny, HTML/JSON/JUnit; 3 BLOCKED | Wykonano |
-| 11 | Unikalne defekty z pełną reprodukcją; brak minimalnej liczby | 04_Defects.xlsx, supporting/defects.json; cztery raporty | Wykonano |
+| 11 | Unikalne defekty z pełną reprodukcją; brak minimalnej liczby | 04_Defects.md, supporting/defects.json; cztery raporty | Wykonano |
 | 12 | Severity S1–S4, priority P1–P4, osobne uzasadnienie | Arkusz Skale; DEF-01 S1/P1, DEF-02 i DEF-03 S3/P3, DEF-04 S2/P2 | Wykonano |
 | 13 | Raport 2–4 strony; metryki, ryzyka, rekomendacja | 06_TestSummaryReport.pdf (3 strony), metrics.json | Wykonano; NO-GO |
 | 14 | Wymagana struktura i wspólna paczka; konwencja nazwy | Struktura repozytorium zgodna ze stroną 14; ZIP tworzy zespół | Nazwę z prawdziwymi danymi uzupełnia zespół |
@@ -29,9 +29,9 @@ Prezentacja jest nadrzędnym źródłem wymagań projektu. Jej treść potraktow
 | Kategoria | Punkty maks. | Artefakty |
 |---|---:|---|
 | Plan i ryzyka | 15 | 01_TestPlan.pdf, risk-matrix.md |
-| Projekt i techniki | 20 | 02_TestCases.xlsx, test-design-techniques.md |
+| Projekt i techniki | 20 | 02_TestCases.md, test-design-techniques.md |
 | Wykonanie i evidence | 15 | evidence/, raporty runnera, actual/status |
-| Defect reports | 15 | 04_Defects.xlsx |
+| Defect reports | 15 | 04_Defects.md |
 | API | 10 | tests/api.spec.ts, evidence/api/ |
 | Automatyzacja | 10 | 05_Automation/, lockfile, README, reports |
 | Summary i wnioski | 10 | 06_TestSummaryReport.pdf |
@@ -41,12 +41,12 @@ Prezentacja jest nadrzędnym źródłem wymagań projektu. Jej treść potraktow
 
 - [x] Polski język treści i instrukcji.
 - [x] 10 API zamiast preferowanych 8; 12 UI; wszystkie obowiązkowe typy danych.
-- [x] XLSX z filtrami, formatowaniem, statusami, dowodami i formułami podsumowania.
+- [x] Przypadki i defekty w Markdown (02_TestCases.md, 04_Defects.md): podsumowanie, statusy, odsyłacze do evidence.
 - [x] HTML, JSON, JUnit, screenshot i trace przy FAIL UI.
 - [x] Zmienne środowiskowe, brak retry, dynamiczne zasoby i ograniczony ruch.
 - [x] Dane logowania/tokeny maskowane; tylko syntetyczne dane testowe.
 - [x] Metryki pochodzą z ostatniego pełnego przebiegu, nie z ręcznego wpisywania PASS.
-- [x] Weryfikacja wizualna PDF i wszystkich arkuszy XLSX.
+- [x] Dokumenty odtwarzane skryptami z danych przebiegu.
 - [x] Scenariusz obrony z podziałem na 3–4 osoby i pytaniami.
 - [ ] Prawdziwe dane zespołu i ich wkład - brak informacji wejściowej, celowe placeholdery.
 - [ ] Retest zablokowanej rezerwacji i aktualizacji (PUT 500) - wymaga naprawy publicznego SUT.
