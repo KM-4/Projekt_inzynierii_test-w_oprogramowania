@@ -26,7 +26,7 @@ Data: 13.11.2026, Europe/Warsaw. SUT: https://automationintesting.online/; stopk
 | POST /api/booking | roomid,firstname,lastname,depositpaid,bookingdates,email,phone | 201 z rezerwacją | 201, własny rekord obecny na liście |
 | POST /api/booking, błędne daty | poprawne pola gościa; checkout <= checkin | 409 według DateCheckValidator i BookingService | 409 dla dat równych i odwróconych; zły format daty oraz pusty payload dają 400 w eksploracji |
 | GET /api/booking/<id> | Cookie token, własne ID | 200 | 500 |
-| PUT /api/booking/<id> | Cookie token, pełny payload | 200 success=true | kod przygotowany; krok nieosiągnięty po FAIL GET |
+| PUT /api/booking/<id> | Cookie token, pełny payload | 200 success=true | 500 w API-10 (14.11.2026); zmiana nieutrwalona |
 | DELETE /api/booking/<id> | Cookie token, tylko własny zasób | 200 success=true | 500 w cleanup |
 
 Początkowy sondaż GET /api/auth/validate dał 405. Nie używamy go do logowania i nie uznajemy nieobsługiwanej metody za defekt. Nie testujemy odrębnego projektu restful-booker.herokuapp.com.

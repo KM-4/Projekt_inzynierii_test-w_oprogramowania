@@ -1,12 +1,13 @@
 {
   "caseId": "API-07",
-  "executedAt": "2026-11-13T15:52:59.066Z",
-  "finishedAt": "2026-11-13T15:52:59.332Z",
+  "executedAt": "2026-11-14T08:54:20.493Z",
+  "finishedAt": "2026-11-14T08:54:20.724Z",
   "runnerStatus": "passed",
   "annotations": [],
+  "steps": [],
   "requests": [
     {
-      "startedAt": "2026-11-13T15:52:59.067Z",
+      "startedAt": "2026-11-14T08:54:20.493Z",
       "request": {
         "method": "GET",
         "url": "https://automationintesting.online/api/room",
@@ -16,20 +17,20 @@
       "response": {
         "status": 200,
         "headers": {
-          "date": "Fri, 13 Nov 2026 15:53:01 GMT",
+          "date": "Sat, 14 Nov 2026 08:54:20 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "AnjwpwLQRg-UP7L455So4g",
+          "x-railway-request-id": "0uSKmFTlR5-9aJ73N8N_Fg",
           "x-railway-edge": "waw1",
           "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=4vPNZccXHPdWuaSHBJRncNXZjtkF7f2eSw3fzu1S0j5471fpX2ZC9mmP415S%2BL8uZccLATgoBxybNfAgk7p7j0%2BAYKLOyNNs6qPFgZGhKqdEnjwKi09nQGxtvmr0QF97QlRr2qR8BMOiXR5jcuVtS1HKWLVEpXKAsw%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=WUjz4RKB%2BextfpJ6kTQ%2BD5Y7DNFpa9BfV1Slnk1A9vGLnQXB1Vr%2FjqLQaRNL8VisIDsIiCK5DQ3WIUbKEYsYEqOeC36ZgFW5gaf%2FauOjTrHyP0TyhZhfiJBjnyGB5%2FfNsJB%2Flx2YY4eGuU2JUg%3D%3D\"}]}",
           "content-encoding": "br",
-          "cf-ray": "a59ef2677c8ad91b-WAW",
+          "cf-ray": "a5a4ca7b4f65f7eb-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {
@@ -81,7 +82,7 @@
       }
     },
     {
-      "startedAt": "2026-11-13T15:52:59.224Z",
+      "startedAt": "2026-11-14T08:54:20.663Z",
       "request": {
         "method": "GET",
         "url": "https://automationintesting.online/api/booking?roomid=1",
@@ -91,19 +92,19 @@
       "response": {
         "status": 401,
         "headers": {
-          "date": "Fri, 13 Nov 2026 15:53:01 GMT",
+          "date": "Sat, 14 Nov 2026 08:54:20 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "hquKGVJfT9200Z2Y2JZdWA",
+          "x-railway-request-id": "Ia9AAQk-TEOS8h8XALIuDA",
           "x-railway-edge": "waw1",
           "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=ocgOfREN%2B4G%2F4CCAjzJOx0TiRHYijjR2DPAW6UesC4U3kUMhTENP4C%2FWvix8y3Fn25CusJjmYnXwoZtdpaIEw7TnGAIX77Qo776ZvRa3mMBbXnjWVwN5WLTzN0KNlICPo92YnPgyChnBVkbJPg%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "cf-ray": "a59ef2682f4ad91b-WAW",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=ifhrkhmjDXrzctTja%2BiaJkp9nDhyz19g%2F%2BoPQE8yCz9Is2KGeenWk1m8XPcP7iIIXR4PpCJD24xMYpknaE74%2F1GsynLnlE1PtjAeX7uVDoLBOU6OfnsKcZZ0xJQWYkWxXb6tHPQos1TlkIVUmn1kJbPa4PAw7W1W%2FA%3D%3D\"}]}",
+          "cf-ray": "a5a4ca7bd8c8f7eb-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {

@@ -1,0 +1,164 @@
+{
+  "caseId": "UI-10",
+  "executedAt": "2026-11-14T08:54:44.145Z",
+  "finishedAt": "2026-11-14T08:54:44.967Z",
+  "runnerStatus": "skipped",
+  "annotations": [
+    {
+      "type": "blocked",
+      "description": "Szczegóły pokoju HTTP 500; DEF-01. Brak formularza rezerwacji."
+    },
+    {
+      "type": "skip",
+      "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
+      "location": {
+        "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\ui.spec.ts",
+        "line": 48,
+        "column": 10
+      }
+    }
+  ],
+  "steps": [
+    {
+      "no": 1,
+      "label": "Strona rezerwacji pokoju 1: brak formularza (GET /api/room/1 → 500)",
+      "file": "evidence/ui/UI-10/krok-01.png"
+    }
+  ],
+  "requests": [
+    {
+      "startedAt": "2026-11-14T08:54:44.204Z",
+      "request": {
+        "method": "GET",
+        "url": "https://automationintesting.online/api/room",
+        "headers": {},
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "date": "Sat, 14 Nov 2026 08:54:44 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-railway-request-id": "p6tQsYQoTtyPO4obALIuDA",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.qkma",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=bRud7bPSBz6eqFoN6fZ%2FZilDTkD12dyIdQlAIVtGY3fyXOB46CiQnROJBUfRAu4HvGTLOo7OoPsIjt51plymrmhBDvSzC%2Br29%2FLGSnKs9spzmxetLcrtuHvL%2BmSmULzKOwshSYkRa02bP4esVavqDYRLj7%2FXXeq38w%3D%3D\"}]}",
+          "content-encoding": "br",
+          "cf-ray": "a5a4cb0f090434cc-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": {
+          "rooms": [
+            {
+              "accessible": true,
+              "description": "Aenean porttitor mauris sit amet lacinia molestie. In posuere accumsan aliquet. Maecenas sit amet nisl massa. Interdum et malesuada fames ac ante.",
+              "features": [
+                "TV",
+                "WiFi",
+                "Safe"
+              ],
+              "image": "/images/room1.jpg",
+              "roomName": "101",
+              "roomPrice": 100,
+              "roomid": 1,
+              "type": "Single"
+            },
+            {
+              "accessible": true,
+              "description": "Vestibulum sollicitudin, lectus ac mollis consequat, lorem orci ultrices tellus, eleifend euismod tortor dui egestas erat. Phasellus et ipsum nisl. ",
+              "features": [
+                "TV",
+                "Radio",
+                "Safe"
+              ],
+              "image": "/images/room2.jpg",
+              "roomName": "102",
+              "roomPrice": 150,
+              "roomid": 2,
+              "type": "Double"
+            },
+            {
+              "accessible": true,
+              "description": "Etiam metus metus, fringilla ac sagittis id, consequat vel neque. Nunc commodo quis nisl nec posuere. Etiam at accumsan ex. ",
+              "features": [
+                "Radio",
+                "WiFi",
+                "Safe"
+              ],
+              "image": "/images/room3.jpg",
+              "roomName": "103",
+              "roomPrice": 225,
+              "roomid": 3,
+              "type": "Suite"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "startedAt": "2026-11-14T08:54:44.264Z",
+      "request": {
+        "method": "GET",
+        "url": "https://automationintesting.online/api/room/1",
+        "headers": {},
+        "body": null
+      },
+      "response": {
+        "status": 500,
+        "headers": {
+          "date": "Sat, 14 Nov 2026 08:54:44 GMT",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "x-railway-request-id": "pkyDMYvbTlSrxdtp21mRUA",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.qkma",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=MvRsbzxepC69Fk0yFdjQtmoqMePxHvIiaBwktY6AGNXu6rnwYW%2B5EDAz1mRgEAALkv5QvVbxU1glZUDeW9FWYxJVsrWAe1DJyoz2qZlohiEqUtGTySPOhmA7axHADT3ke4SiUpIyakmPg%2F6rj%2BlCoUiV1%2Bk8azk2pA%3D%3D\"}]}",
+          "cf-ray": "a5a4cb0f6a0f34cc-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": "Internal Server Error"
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "requestIndex": 0,
+      "label": "Lista pokoi HTTP 200",
+      "actual": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
+      "label": "Jest pokój do testu",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    }
+  ],
+  "observations": [
+    {
+      "blockedBy": "DEF-01",
+      "detailStatus": 500,
+      "roomid": 1,
+      "dates": {
+        "checkin": "2027-01-13",
+        "checkout": "2027-01-15"
+      }
+    },
+    {
+      "url": "https://automationintesting.online/reservation/1?checkin=2027-01-13&checkout=2027-01-15",
+      "visibleText": ""
+    }
+  ],
+  "error": null
+}

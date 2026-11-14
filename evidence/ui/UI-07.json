@@ -1,20 +1,32 @@
 {
   "caseId": "UI-07",
-  "executedAt": "2026-11-13T15:54:37.170Z",
-  "finishedAt": "2026-11-13T15:54:57.713Z",
+  "executedAt": "2026-11-14T08:54:40.178Z",
+  "finishedAt": "2026-11-14T08:54:42.507Z",
   "runnerStatus": "passed",
   "annotations": [],
+  "steps": [
+    {
+      "no": 1,
+      "label": "Telefon „1234567890” (10 znaków, min. 11)",
+      "file": "evidence/ui/UI-07/krok-01.png"
+    },
+    {
+      "no": 2,
+      "label": "Odrzucenie (HTTP 400): „Phone must be between 11 and 21 characters.”",
+      "file": "evidence/ui/UI-07/krok-02.png"
+    }
+  ],
   "requests": [
     {
-      "startedAt": "2026-11-13T15:54:57.159Z",
+      "startedAt": "2026-11-14T08:54:42.034Z",
       "request": {
         "method": "POST",
         "url": "https://automationintesting.online/api/message",
         "body": {
-          "name": "QA-1794585296804-955dd8",
+          "name": "QA-1794646480962-51a97c",
           "email": "qa-project@example.test",
           "phone": "1234567890",
-          "subject": "Zapytanie QA-1794585296804-955dd8",
+          "subject": "Zapytanie QA-1794646480962-51a97c",
           "description": "Wiadomość testowa projektu akademickiego. Dane syntetyczne."
         }
       },

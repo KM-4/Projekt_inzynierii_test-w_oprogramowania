@@ -2,9 +2,9 @@
   {
     "id": "DEF-01",
     "title": "Trasy zasobów z ID zwracają 500; rezerwacja UI i sprzątanie danych zablokowane",
-    "environment": "Windows; Chrome 157.0.8103.52; Playwright 1.62.1; Node 25.9.0; Europe/Warsaw; publiczne proxy /api/*; UI v2.2",
+    "environment": "Windows 11; Chrome 157.0.8103.78; Playwright 1.62.1; Node 22.16.0; Europe/Warsaw; publiczne proxy /api/*; UI v2.2",
     "url": "https://automationintesting.online",
-    "date": "2026-11-13T15:52:56.593Z",
+    "date": "2026-11-14T08:54:18.476Z",
     "severity": "S1",
     "priority": "P1",
     "state": "Otwarty; powtarzalny symptom wdrożenia; root cause niepotwierdzony",
@@ -13,23 +13,20 @@
       "GET /api/room, wybierz istniejący roomid.",
       "GET /api/room/<roomid>: porównaj status.",
       "Otwórz /reservation/<roomid>?checkin=<przyszła data>&checkout=<data+2>.",
-      "Dodatkowe reprodukcje tego samego symptomu: utwórz własny message lub booking, znajdź jego ID na liście, wykonaj GET i DELETE własnego ID z tokenem."
+      "Dodatkowe reprodukcje tego samego symptomu: utwórz własny message lub booking, znajdź jego ID na liście, wykonaj GET, PUT i DELETE własnego ID z tokenem."
     ],
-    "expected": "GET istniejącego pokoju/rekordu 200; nieistniejący pokój 404; UI pokazuje szczegóły i rezerwację; DELETE własnego rekordu 200 w proxy.",
-    "actual": "HTTP 500 i tekst Internal Server Error na dynamicznych trasach. UI pozostaje na spinnerze; poprawne POST i listy działają. Sprzątanie własnych danych również kończy się 500.",
+    "expected": "GET istniejącego pokoju/rekordu 200; nieistniejący pokój 404; UI pokazuje szczegóły i rezerwację; PUT i DELETE własnego rekordu 200 w proxy.",
+    "actual": "HTTP 500 i tekst Internal Server Error na dynamicznych trasach (GET, PUT, DELETE). UI pozostaje na spinnerze; poprawne POST i listy działają. Aktualizacja i sprzątanie własnych danych również kończą się 500.",
     "impact": "Blokada głównego procesu rezerwacji gościa (S1 według skali prowadzącego). Brak sensownego obejścia w zwykłym UI. Pozostałości danych testowych do resetu.",
     "evidence": [
-      "evidence/ui/UI-02.json",
-      "evidence/ui/UI-02.png",
-      "05_Automation/reports/artifacts/ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome/trace.zip",
-      "evidence/ui/UI-06.json",
-      "evidence/ui/UI-06.png",
-      "05_Automation/reports/artifacts/ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome/trace.zip",
       "evidence/ui/UI-08.json",
+      "evidence/ui/UI-08/krok-01.png",
       "evidence/ui/UI-08.png",
       "evidence/ui/UI-09.json",
+      "evidence/ui/UI-09/krok-01.png",
       "evidence/ui/UI-09.png",
       "evidence/ui/UI-10.json",
+      "evidence/ui/UI-10/krok-01.png",
       "evidence/ui/UI-10.png",
       "evidence/api/API-02.json",
       "evidence/api/API-03.json",
@@ -37,8 +34,6 @@
       "evidence/api/API-10.json"
     ],
     "cases": [
-      "UI-02",
-      "UI-06",
       "UI-08",
       "UI-09",
       "UI-10",
@@ -52,9 +47,9 @@
   {
     "id": "DEF-02",
     "title": "Email jako obiekt JSON w wiadomości powoduje HTTP 500",
-    "environment": "Windows; Chrome 157.0.8103.52; Playwright 1.62.1; Node 25.9.0; Europe/Warsaw; publiczne proxy /api/*; UI v2.2",
+    "environment": "Windows 11; Chrome 157.0.8103.78; Playwright 1.62.1; Node 22.16.0; Europe/Warsaw; publiczne proxy /api/*; UI v2.2",
     "url": "https://automationintesting.online/api/message",
-    "date": "2026-11-13T15:52:58.443Z",
+    "date": "2026-11-14T08:54:20.027Z",
     "severity": "S3",
     "priority": "P3",
     "state": "Otwarty",
@@ -66,8 +61,8 @@
       "Sprawdź status i treść odpowiedzi."
     ],
     "expected": "Błędny typ pola String jest błędem danych klienta i powinien być odrzucony 400; brak zapisu. Wymaganie 400 jest kryterium jakości projektu, nie cytatem specyfikacji wdrożenia.",
-    "actual": "HTTP 500, JSON {\"error\":\"Failed to create message\"}. Zwykły niepoprawny format tekstowego email daje 400 w API-05.",
-    "impact": "Ograniczona wada obsługi niepoprawnych danych; poprawne formularze nadal działają. Brak dowodu awarii całej usługi lub utworzenia tego rekordu.",
+    "actual": "HTTP 500, JSON {\"error\":\"Failed to create message\"}. Zwykły niepoprawny format tekstowego email daje 400 w API-05. Odrzucony rekord nie pojawia się na liście wiadomości.",
+    "impact": "Ograniczona wada obsługi niepoprawnych danych; poprawne formularze nadal działają. Rekord nie został zapisany; brak dowodu awarii całej usługi.",
     "evidence": [
       "evidence/api/API-06.json"
     ],

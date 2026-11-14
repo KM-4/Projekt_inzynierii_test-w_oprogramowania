@@ -1,17 +1,29 @@
 {
   "caseId": "UI-05",
-  "executedAt": "2026-11-13T15:54:23.592Z",
-  "finishedAt": "2026-11-13T15:54:34.048Z",
+  "executedAt": "2026-11-14T08:54:34.081Z",
+  "finishedAt": "2026-11-14T08:54:36.562Z",
   "runnerStatus": "passed",
   "annotations": [],
+  "steps": [
+    {
+      "no": 1,
+      "label": "Temat „ABCD” (4 znaki, min. 5), pozostałe pola poprawne",
+      "file": "evidence/ui/UI-05/krok-01.png"
+    },
+    {
+      "no": 2,
+      "label": "Odrzucenie (HTTP 400): „Subject must be between 5 and 100 characters.”",
+      "file": "evidence/ui/UI-05/krok-02.png"
+    }
+  ],
   "requests": [
     {
-      "startedAt": "2026-11-13T15:54:33.472Z",
+      "startedAt": "2026-11-14T08:54:35.986Z",
       "request": {
         "method": "POST",
         "url": "https://automationintesting.online/api/message",
         "body": {
-          "name": "QA-1794585273202-a85055",
+          "name": "QA-1794646474883-f583bd",
           "email": "qa-project@example.test",
           "phone": "12345678901",
           "subject": "ABCD",

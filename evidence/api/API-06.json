@@ -1,46 +1,98 @@
 {
   "caseId": "API-06",
-  "executedAt": "2026-11-13T15:52:58.448Z",
-  "finishedAt": "2026-11-13T15:52:58.519Z",
+  "executedAt": "2026-11-14T08:54:20.032Z",
+  "finishedAt": "2026-11-14T08:54:20.180Z",
   "runnerStatus": "failed",
   "annotations": [],
+  "steps": [],
   "requests": [
     {
-      "startedAt": "2026-11-13T15:52:58.448Z",
+      "startedAt": "2026-11-14T08:54:20.032Z",
       "request": {
         "method": "POST",
         "url": "https://automationintesting.online/api/message",
         "headers": {},
         "body": {
-          "name": "QA-1794585178448-f46223",
+          "name": "QA-1794646460032-ff6bb9",
           "email": {
             "value": "qa@example.test"
           },
           "phone": "12345678901",
-          "subject": "Zapytanie QA-1794585178448-f46223",
+          "subject": "Zapytanie QA-1794646460032-ff6bb9",
           "description": "Wiadomość testowa projektu akademickiego. Dane syntetyczne."
         }
       },
       "response": {
         "status": 500,
         "headers": {
-          "date": "Fri, 13 Nov 2026 15:53:00 GMT",
+          "date": "Sat, 14 Nov 2026 08:54:20 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "43k2iHsQRMmeyM7djUJq2g",
+          "x-railway-request-id": "EN3QsGXIQCeO58UMvEOTxA",
           "x-railway-edge": "waw1",
           "x-hikari-trace": "waw1.qkma",
           "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=rOS9BrMmVkwNz0hrJ8CAq5T5f%2BTJQeT6o1b7OuNPEWJDSRhUMmMiJpY2e3T%2Bw3hQ7KTW%2FIGT40J%2BQDUiFBGWycN%2FNHx8Otgoc4Bbr%2FnkVphclGBulnRZqEH7iQz8tu5WW9D3S0eGcBC25F5JLXgD63lx975p4dmqLQ%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=iD3JBD9hdibiinCQHXGRSRoW%2FIXnuGApmnwqgNklBZmCoV%2F5TSBqJUBcnvk6np3dFDIg1w%2B3A3y18cbNn%2F5Vo9YucgPplxPMLj%2FhVkJjVHj9xxDygAvsmevpMkJvn2lLovJf%2FnWyv1dGvBjjLA%3D%3D\"}]}",
-          "cf-ray": "a59ef2634bddbf45-WAW",
+          "cf-ray": "a5a4ca77ef33bbcc-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {
           "error": "Failed to create message"
+        }
+      }
+    },
+    {
+      "startedAt": "2026-11-14T08:54:20.119Z",
+      "request": {
+        "method": "GET",
+        "url": "https://automationintesting.online/api/message",
+        "headers": {},
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "date": "Sat, 14 Nov 2026 08:54:20 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-railway-request-id": "qKByWgmbTN-4yNxhvEOTxA",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.qkma",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=l%2FtvHy03sTukRuU94W8xOgYy7HxxaAXeDxzA4NyN7duNZ5UNiYWrzIglDRexrzHziyNwYRORbAzpR%2BKQlSZJCne2xnTgrdmLXgmnUgLVsQ4bPyOnqdCeppA6TOs0Xi4rl4NIspzYbg9mBfkjwCMH6%2BcBtqK%2Btf8JVQ%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "content-encoding": "br",
+          "cf-ray": "a5a4ca787f7fbbcc-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": {
+          "messages": [
+            {
+              "id": 1,
+              "name": "James Dean",
+              "read": false,
+              "subject": "Booking enquiry"
+            },
+            {
+              "id": 2,
+              "name": "QA-1794646289602-660c71",
+              "read": false,
+              "subject": "Zapytanie QA-1794646289602-660c71"
+            },
+            {
+              "id": 3,
+              "name": "QA-1794646298738-fc6672",
+              "read": false,
+              "subject": "ABCDE"
+            }
+          ]
         }
       }
     }
@@ -52,6 +104,20 @@
       "actual": 500,
       "expected": 400,
       "pass": false
+    },
+    {
+      "requestIndex": 1,
+      "label": "Lista wiadomości",
+      "actual": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "requestIndex": 1,
+      "label": "Odrzucony rekord nie został zapisany",
+      "actual": false,
+      "expected": false,
+      "pass": true
     }
   ],
   "observations": [],

@@ -1,15 +1,14 @@
 # Przeliczanie danych i dokumentów
 
-Pierwotną migawkę wygenerowano automatycznie z ostatniego pełnego przebiegu. Dane wejściowe i narzędzia znajdują się w `supporting/tools/`; wymagania merytoryczne mają źródło w prezentacji i analizie SUT. Zmiana samych liczb w PDF bez nowego runnera jest nieprawidłowa.
+Dokumenty wynikowe (PDF, XLSX, metryki, macierze) odtwarza się z ostatniego pełnego przebiegu skryptami z `supporting/tools/`. Zmiana samych liczb w PDF bez nowego przebiegu jest nieprawidłowa. Wszystkie polecenia uruchamiaj z katalogu głównego repozytorium (inny katalog: zmienna `QA_PROJECT_DIR`).
 
-1. Wykonaj pełne `npm.cmd test` zgodnie z 05_Automation/README.md. Podzbiory nie wystarczą do metryk 22 TC.
-2. Z folderu nadrzędnego zawierającego QA-Project uruchom `node QA-Project/supporting/tools/collect-results.mjs`. Skrypt wymaga kompletu ID i wylicza metryki, a także generuje macierz śledzenia i ryzyk. Nie zamienia awarii na PASS. Dwa defekty w skrypcie oraz dwa z exploration-defects.json odpowiadają tej migawce: po zmianie objawów trzeba zweryfikować zgłoszenia i rekomendację merytorycznie.
-3. Do budowy PDF potrzebny jest Python z ReportLab i fonty Arial w Windows. `python QA-Project/supporting/tools/build-pdf.py` odczytuje JSON, nie wpisuje wyników ręcznie. Przed tym trzeba zamknąć i opisać rzeczywistą sesję eksploracyjną.
-4. XLSX utworzono przy użyciu dostarczonego środowiska `@oai/artifact-tool`. Skrypt `build-xlsx.mjs` korzysta z tego pakietu. Nie jest to dodatkowa zależność automatyzacji testów. Do odtworzenia w Codex użyj bundlowanego runtime; poza nim potrzebny jest dostęp do tej biblioteki albo jawna konwersja danych JSON do arkusza innym narzędziem. Nie wymagamy jej do `npm ci` i wykonania testów.
-5. `audit.py` używa pypdf i openpyxl wyłącznie do odczytu/weryfikacji oraz JSON. Sprawdza identyfikatory, wyniki, linki, formuły, filtry, metryki i strony PDF. Wizualne rendery należy sprawdzić osobno.
+1. Pełny przebieg: `npm.cmd test` w `05_Automation` zgodnie z `05_Automation/README.md`. Podzbiory testów nie wystarczają do metryk 22 TC. Przebieg nadpisuje `evidence/api`, `evidence/ui` i `05_Automation/reports`.
+2. `node supporting/tools/collect-results.mjs`: z `case-results.json` i evidence przelicza `test-cases.json`, `executed-cases.json`, `metrics.json`, `defects.json` (DEF-01/02 z przebiegu, DEF-03/04 z `exploration-defects.json`) oraz macierze śledzenia i ryzyk. Nie zamienia awarii na PASS.
+3. `python supporting/tools/build-pdf.py` (Python + ReportLab, fonty Arial z Windows): generuje 01, 03 i 06 z plików JSON, w tym skład zespołu z `team.json`.
+4. `python supporting/tools/update-xlsx.py` (openpyxl): aktualizuje 02_TestCases.xlsx i 04_Defects.xlsx na miejscu, zachowując układ, style, tabele i formuły.
+5. `node supporting/tools/build-html-report.mjs`: raport z testów w HTML (`05_Automation/reports/raport-testow.html`) z tych samych danych.
+6. `node supporting/tools/build-presentation.mjs`: raport-artykuł do prezentowania na obronie `00_Prezentacja.html`.
 
-Skrypty dokumentacyjne uruchamiaj z folderu nadrzędnego wobec QA-Project. Node może otrzymać `QA_PROJECT_DIR` dla innej ścieżki w builderze XLSX; pozostałe skrypty zachowują domyślną strukturę paczki. Nie są potrzebne do zwykłego uruchomienia testów na czystym środowisku.
+Zmiana objawów SUT wymaga merytorycznej weryfikacji zgłoszeń defektów i rekomendacji, a nie tylko przeliczenia liczb. Dane zespołu i wkład muszą odzwierciedlać rzeczywistość.
 
-Przy pracach nad eksploracją nie uruchamiaj `start` na istniejącym dzienniku, jeśli chcesz zachować historię. Zachowaj starą sesję i utwórz osobną nazwę/ścieżkę. Dziennika nie należy cofać w czasie. Wszystkie dane zespołu i wkład muszą odzwierciedlać rzeczywistość.
-
-Aktualna zakończona sesja to EXP-02 (30 min 36 s), evidence/exploratory/session.json. EXP-01 i jej starsze narzędzia zachowano jako archiwum. Nie uruchamiaj starego generatora EXP-01 na pliku EXP-02. Aktualne opracowanie i dane studenta są w 03_Exploratory.md, team.json oraz exploration-report.json.
+Sesja eksploracyjna EXP-02: `03_Exploratory.md` oraz dziennik `evidence/exploratory/session.json`.

@@ -1,0 +1,17 @@
+# Zależności i środowiska lokalne
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Sekrety lokalne (szablon: 05_Automation/.env.example)
+.env
+*.env.local
+
+# Pliki narzędzi lokalnych, nie należą do paczki
+.claude/
+.playwright-mcp/
+05_Automation/test-results/
+05_Automation/reports/artifacts/.last-run.json
+05_Automation/reports/artifacts/

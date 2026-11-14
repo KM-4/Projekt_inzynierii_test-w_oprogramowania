@@ -1,6 +1,6 @@
 # Obrona projektu - scenariusz na 6 minut
 
-Student: **Kamil Andrzejewski, nr studenta 83741**.
+Zespół: Kamil Andrzejewski (83741), Karol Myszkowski (77514), Kacper Walkowiak (77519), Mateusz Krzyzak (77862). Podział wypowiedzi według ról z README.
 
 Skład i faktyczny wkład: uzupełnia zespół; nie przypisano fikcyjnie autorstwa ani wykonania. Materiały i automatyzację przygotowano z pomocą asystenta. Każda osoba powinna samodzielnie odtworzyć przypisaną część i umieć wyjaśnić ograniczenia.
 
@@ -8,13 +8,13 @@ Skład i faktyczny wkład: uzupełnia zespół; nie przypisano fikcyjnie autorst
 
 | Czas | Osoba | Treść i materiał do pokazania |
 |---|---|---|
-| 0:00–0:50 | Kamil Andrzejewski (83741) | Cel i SUT: publiczny Restful-Booker-Platform, nie Restful-Booker. Zakres obejmuje pokoje, kontakt, rezerwacje i auth. Pokaż 01_TestPlan.pdf. |
-| 0:50–1:40 | Kamil Andrzejewski (83741) | Ryzyko R-01: bez rezerwacji gość nie osiąga celu. Dlatego szczegóły, daty i proces rezerwacji mają P1. Publiczne resety wymagają dynamicznego stanu. |
-| 1:40–2:40 | Osoba 2: [imię i nazwisko] | EP: email poprawny, błędny format, błędny typ. BVA: temat 4/5 znaków, limit 5–100 z modelu i komunikatu walidacji. DT: cztery kombinacje poprawności email i subject w UI-02, UI-04 i UI-05. Pokaż tabelę technik i XLSX. |
-| 2:40–3:40 | Osoba 3: [imię i nazwisko] | Pokaż API-04: POST /api/message z {}, HTTP 400, błędy wymaganych pól i jawne asercje w evidence/api/API-04.json. Następnie API-02: ID z listy, oczekiwane 200, faktyczne 500. |
-| 3:40–4:40 | Osoba 3 lub 4: [imię i nazwisko] | Pokaż kod Playwright, worker=1, retries=0, raport HTML, screenshot i trace. Wyjaśnij różnicę FAIL a BLOCKED. Uruchom wcześniej przygotowane polecenie z README. |
-| 4:40–5:30 | Osoba 4 lub 2 | Wyniki: 22 planowane, 19 wykonane, 12 PASS, 7 FAIL, 3 BLOCKED, 0 NOT RUN. Cztery unikalne defekty: S1=1, S2=1, S3=2. EXP-02 trwała 30 minut 36 sekund; nowy problem dat ujawnił się w UTC+14. Nie liczysz każdego 500 osobno. W UI-02/UI-06 przyjęcie wiadomości przeszło; status FAIL wynika z cleanup. |
-| 5:30–6:10 | Kamil Andrzejewski (83741) | Rekomendacja NO-GO dla gotowości funkcjonalnej tego wdrożenia. Warunki zmiany decyzji: naprawa tras ID, retest rezerwacji i nieosiągniętych PUT, weryfikacja sprzątania oraz akceptacja ryzyk. |
+| 0:00–0:50 | Kamil Andrzejewski | Cel i SUT: publiczny Restful-Booker-Platform, nie Restful-Booker. Zakres obejmuje pokoje, kontakt, rezerwacje i auth. Pokaż 01_TestPlan.pdf. |
+| 0:50–1:40 | Kamil Andrzejewski | Ryzyko R-01: bez rezerwacji gość nie osiąga celu. Dlatego szczegóły, daty i proces rezerwacji mają P1. Publiczne resety wymagają dynamicznego stanu. |
+| 1:40–2:40 | Karol Myszkowski | EP: email poprawny, błędny format, błędny typ. BVA: temat 4/5 znaków, limit 5–100 z modelu i komunikatu walidacji. DT: cztery kombinacje poprawności email i subject w UI-02, UI-04 i UI-05. Pokaż tabelę technik i XLSX. |
+| 2:40–3:40 | Kacper Walkowiak | Pokaż API-04: POST /api/message z {}, HTTP 400, błędy wymaganych pól i jawne asercje w evidence/api/API-04.json. Następnie API-02: ID z listy, oczekiwane 200, faktyczne 500. |
+| 3:40–4:40 | Mateusz Krzyzak | Pokaż kod Playwright, worker=1, retries=0, raport HTML, screenshot i trace. Wyjaśnij różnicę FAIL a BLOCKED. Uruchom wcześniej przygotowane polecenie z README. |
+| 4:40–5:30 | Kacper Walkowiak | Wyniki: 22 planowane, 19 wykonane, 14 PASS, 5 FAIL, 3 BLOCKED, 0 NOT RUN. Cztery unikalne defekty: S1=1, S2=1, S3=2. EXP-02 trwała 30 minut 36 sekund; nowy problem dat ujawnił się w UTC+14. Nie liczysz każdego 500 osobno. W UI-02/UI-06 sprzątanie jest kontrolą informacyjną (decyzja projektowa 14.11). |
+| 5:30–6:10 | Kamil Andrzejewski | Rekomendacja NO-GO dla gotowości funkcjonalnej tego wdrożenia. Warunki zmiany decyzji: naprawa tras ID, retest rezerwacji i nieosiągniętych PUT, weryfikacja sprzątania oraz akceptacja ryzyk. |
 
 W zespole 3-osobowym osoba 3 łączy API i automatyzację; osoba 2 prezentuje wyniki. Nie skracaj dyskusji ograniczeń tylko po to, aby przedstawić wszystkie screeny.
 
@@ -33,7 +33,7 @@ W zespole 3-osobowym osoba 3 łączy API i automatyzację; osoba 2 prezentuje wy
 
 **Dlaczego metryka executed wynosi 19, a nie 22?** Executed zdefiniowano jako PASS+FAIL. Trzy zablokowane przypadki miały próbę wejścia, ale nie wykonano właściwych kroków. Suma PASS+FAIL+BLOCKED+NOT RUN daje planned.
 
-**Dlaczego UI-06 jest FAIL mimo przyjęcia 5 znaków?** Asercja granicy i potwierdzenie zadziałały. Scenariusz obejmuje też izolację danych; DELETE własnego rekordu dał 500. Actual result pokazuje obie obserwacje. Nie zmieniliśmy statusu na PASS, aby poprawić wynik.
+**Dlaczego UI-02/UI-06 zmieniły się z FAIL na PASS?** Wcześniej o werdykcie decydowało sprzątanie (DELETE własnej wiadomości), które nie jest celem testu formularza. Zmieniliśmy wyrocznię testu: werdykt dotyczy wysyłki kontaktu, a DELETE 500 jest zapisany w evidence i pokryty przez API-09 (DEF-01). Nie zmieniliśmy oczekiwań wobec SUT.
 
 **Skąd limit 5–100 znaków?** Z adnotacji Size modelu Message w referencyjnym kodzie i z komunikatów żywego API. Nie wybraliśmy arbitralnej długości.
 
