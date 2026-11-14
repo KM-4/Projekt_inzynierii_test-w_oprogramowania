@@ -1,0 +1,135 @@
+{
+  "caseId": "API-03",
+  "executedAt": "2026-11-14T10:07:01.196Z",
+  "finishedAt": "2026-11-14T10:07:01.408Z",
+  "runnerStatus": "failed",
+  "annotations": [],
+  "steps": [],
+  "requests": [
+    {
+      "startedAt": "2026-11-14T10:07:01.197Z",
+      "request": {
+        "method": "GET",
+        "url": "https://automationintesting.online/api/room",
+        "headers": {},
+        "body": null
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "date": "Sat, 14 Nov 2026 10:07:01 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+          "x-railway-request-id": "mc9Ri-c_QOiXh5oEss7a6g",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.qkma",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Nl%2Bj2tYEGOCek2tZSkVkn0%2B%2FTDvIGYkSr2UXkWeXFQbfBoZb%2BKv6NJD%2BFPhI1f7oMGoKlm48mfZxFKRHl6sOzlWIxmdHKLaB60jmEZh%2F4Slt7Tgjjh3JyWSDn%2BxQ6x80LSavFmPJK5b%2FQXwuWp5%2F8ovJC99S08ORkg%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "content-encoding": "br",
+          "cf-ray": "a5a534f26cd14c6b-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": {
+          "rooms": [
+            {
+              "accessible": true,
+              "description": "Aenean porttitor mauris sit amet lacinia molestie. In posuere accumsan aliquet. Maecenas sit amet nisl massa. Interdum et malesuada fames ac ante.",
+              "features": [
+                "TV",
+                "WiFi",
+                "Safe"
+              ],
+              "image": "/images/room1.jpg",
+              "roomName": "101",
+              "roomPrice": 100,
+              "roomid": 1,
+              "type": "Single"
+            },
+            {
+              "accessible": true,
+              "description": "Vestibulum sollicitudin, lectus ac mollis consequat, lorem orci ultrices tellus, eleifend euismod tortor dui egestas erat. Phasellus et ipsum nisl. ",
+              "features": [
+                "TV",
+                "Radio",
+                "Safe"
+              ],
+              "image": "/images/room2.jpg",
+              "roomName": "102",
+              "roomPrice": 150,
+              "roomid": 2,
+              "type": "Double"
+            },
+            {
+              "accessible": true,
+              "description": "Etiam metus metus, fringilla ac sagittis id, consequat vel neque. Nunc commodo quis nisl nec posuere. Etiam at accumsan ex. ",
+              "features": [
+                "Radio",
+                "WiFi",
+                "Safe"
+              ],
+              "image": "/images/room3.jpg",
+              "roomName": "103",
+              "roomPrice": 225,
+              "roomid": 3,
+              "type": "Suite"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "startedAt": "2026-11-14T10:07:01.344Z",
+      "request": {
+        "method": "GET",
+        "url": "https://automationintesting.online/api/room/100003",
+        "headers": {},
+        "body": null
+      },
+      "response": {
+        "status": 500,
+        "headers": {
+          "date": "Sat, 14 Nov 2026 10:07:01 GMT",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "server": "cloudflare",
+          "x-railway-request-id": "M7DdLIQhQ6atHoCPnTga3g",
+          "x-railway-edge": "waw1",
+          "x-hikari-trace": "waw1.qkma",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=7C5f%2FKzl6ep0uK4ywqtWKzFeaYwlf4fy1kVj2yXwfeRXeQiEkaRDGVf2plvyl%2BDEaitVVrBR3ZH8ZPKEG23BT7nkspyCLvGNgLUNb50Rve53YRtjsMcE63v82kE6Gg3mf2UbXWL8Mm%2FxmSAQM%2BoLKGBfOwY%2FsGRZbQ%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "cf-ray": "a5a534f2dde54c6b-WAW",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "body": "Internal Server Error"
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "requestIndex": 0,
+      "label": "Odczyt ID",
+      "actual": 200,
+      "expected": 200,
+      "pass": true
+    },
+    {
+      "requestIndex": 1,
+      "label": "Brak zasobu: HTTP 404",
+      "actual": 500,
+      "expected": 404,
+      "pass": false
+    }
+  ],
+  "observations": [
+    {
+      "missingId": 100003,
+      "basis": "ID poza aktualną listą; brak zapisu do SUT"
+    }
+  ],
+  "error": "Error: Brak zasobu: HTTP 404\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected: \u001b[32m404\u001b[39m\nReceived: \u001b[31m500\u001b[39m"
+}

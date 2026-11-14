@@ -1,7 +1,7 @@
 {
   "caseId": "UI-04",
-  "executedAt": "2026-11-14T09:54:37.363Z",
-  "finishedAt": "2026-11-14T09:54:39.673Z",
+  "executedAt": "2026-11-14T10:07:14.124Z",
+  "finishedAt": "2026-11-14T10:07:17.476Z",
   "runnerStatus": "passed",
   "annotations": [],
   "steps": [
@@ -23,15 +23,15 @@
   ],
   "requests": [
     {
-      "startedAt": "2026-11-14T09:54:38.898Z",
+      "startedAt": "2026-11-14T10:07:16.714Z",
       "request": {
         "method": "POST",
         "url": "https://automationintesting.online/api/message",
         "body": {
-          "name": "QA-1794650077815-573a6e",
+          "name": "QA-1794650835563-490a59",
           "email": "bledny-email",
           "phone": "12345678901",
-          "subject": "Zapytanie QA-1794650077815-573a6e",
+          "subject": "Zapytanie QA-1794650835563-490a59",
           "description": "Wiadomość testowa projektu akademickiego. Dane syntetyczne."
         }
       },
@@ -43,12 +43,12 @@
       }
     },
     {
-      "startedAt": "2026-11-14T09:54:39.066Z",
+      "startedAt": "2026-11-14T10:07:16.883Z",
       "request": {
         "method": "POST",
         "url": "https://automationintesting.online/api/message",
         "body": {
-          "name": "QA-1794650077815-573a6e",
+          "name": "QA-1794650835563-490a59",
           "email": "bledny-email",
           "phone": "12345678901",
           "subject": "ABCD",

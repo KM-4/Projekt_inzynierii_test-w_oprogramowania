@@ -1,7 +1,7 @@
 {
   "caseId": "UI-01",
-  "executedAt": "2026-11-14T09:54:29.567Z",
-  "finishedAt": "2026-11-14T09:54:32.323Z",
+  "executedAt": "2026-11-14T10:07:05.034Z",
+  "finishedAt": "2026-11-14T10:07:07.722Z",
   "runnerStatus": "passed",
   "annotations": [],
   "steps": [
@@ -13,7 +13,7 @@
   ],
   "requests": [
     {
-      "startedAt": "2026-11-14T09:54:29.820Z",
+      "startedAt": "2026-11-14T10:07:05.260Z",
       "request": {
         "method": "GET",
         "url": "https://automationintesting.online/api/room",
@@ -23,20 +23,20 @@
       "response": {
         "status": 200,
         "headers": {
-          "date": "Sat, 14 Nov 2026 09:54:30 GMT",
+          "date": "Sat, 14 Nov 2026 10:07:05 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "mDFK64l2T36-ilMcss7a6g",
+          "x-railway-request-id": "hQclvQ4ATvafW4DH63j4Ww",
           "x-railway-edge": "waw1",
-          "x-hikari-trace": "waw1.qkma",
+          "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=TCl%2FJhpalI1f7m5O8IDCcZSF%2F4CU3I9fnB8lH9AhMWecLEA%2FzBx45MtZkBuoMOa0nAQTe%2FzySNlWDx0BL8xQaU6sxK3O2rDzGOPzgrH1L1bPYWD9ysHuUhEaVimqhQR60K6ek7ojSUxw%2FiODpyEd7sDynsYZxQj%2B9Q%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=IfGG3nVvWF3ZKELQDkHZfQ7QyuTXkP0ErldYyhT8Gbj%2BdKSdmUqS11%2FVwSrFUCLfW%2FRyUZskZTkNXnllEmzEc5km6NUmeiDZU8waLcOkKf6wgTYaNLXU8AF95Zmj6hhxlxpdhrkO3pXEGGNVk015SgUEfrgEZYJ%2Fkg%3D%3D\"}]}",
           "content-encoding": "br",
-          "cf-ray": "a5a5229a2c741280-WAW",
+          "cf-ray": "a5a5350bc86acbfe-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {

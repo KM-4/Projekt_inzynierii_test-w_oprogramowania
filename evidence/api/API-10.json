@@ -1,13 +1,13 @@
 {
   "caseId": "API-10",
-  "executedAt": "2026-11-14T09:54:28.313Z",
-  "finishedAt": "2026-11-14T09:54:29.240Z",
+  "executedAt": "2026-11-14T10:07:03.852Z",
+  "finishedAt": "2026-11-14T10:07:04.685Z",
   "runnerStatus": "failed",
   "annotations": [],
   "steps": [],
   "requests": [
     {
-      "startedAt": "2026-11-14T09:54:28.314Z",
+      "startedAt": "2026-11-14T10:07:03.853Z",
       "request": {
         "method": "POST",
         "url": "https://automationintesting.online/api/auth/login",
@@ -20,20 +20,20 @@
       "response": {
         "status": 200,
         "headers": {
-          "date": "Sat, 14 Nov 2026 09:54:28 GMT",
+          "date": "Sat, 14 Nov 2026 10:07:04 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "CKGQf7_kTiC9fchCs_GTAg",
+          "x-railway-request-id": "4kj-yPA0TAy9XXDxss7a6g",
           "x-railway-edge": "waw1",
-          "x-hikari-trace": "waw1.qkma",
+          "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=eIBpjqc42kid%2BLXA8L9rKisIuGcUYD9gAgLmLwiXrulSgDf8Ol7xmWpwlIeGpS2U%2BmvpKFFZTwEYS8teAsN8aN0U3edWPWflnKpIWp8JrVTpZ%2F6e%2B0nL%2BCT1a3HlRm51uk%2B8DeyJfzXz%2BaYMrX3a9D2i5l11zF7iNA%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=rOSKiOujIQzwOJ987n9szgFzMoTQe7cB337AhSIGMSsXqCyJFsk4yHgJxlfa4LFqYLd5oAUK5JEVXbaLjGFvWzFqmik%2Fs3MxgUCewe3d%2FZt7wU38rkz05BxE3e%2BuQ06TeO8oSX0S%2F2JBsIaMkA29%2FgoTUzwD5cLBNg%3D%3D\"}]}",
           "content-encoding": "br",
-          "cf-ray": "a5a52290ce2e780b-WAW",
+          "cf-ray": "a5a53502fab8d978-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {
@@ -42,7 +42,7 @@
       }
     },
     {
-      "startedAt": "2026-11-14T09:54:28.583Z",
+      "startedAt": "2026-11-14T10:07:04.045Z",
       "request": {
         "method": "GET",
         "url": "https://automationintesting.online/api/room",
@@ -52,20 +52,20 @@
       "response": {
         "status": 200,
         "headers": {
-          "date": "Sat, 14 Nov 2026 09:54:28 GMT",
+          "date": "Sat, 14 Nov 2026 10:07:04 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "pDhhOCwUSZC6iOWu7fhULg",
+          "x-railway-request-id": "jXL7kauXQTebAmRTvEOTxA",
           "x-railway-edge": "waw1",
-          "x-hikari-trace": "waw1.qkma",
+          "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=CUGW1HhAr1Lgxt1h8WbKDg4xqRdClNB0oHWXcbNcfEmhnvc7lXFIzgsnLUkH3nKu5lSbszEyCsynHvOdLx8lrn8sW76A0CLqwcMC%2FU4XLVHvukEabgHKXjc40hh4RZiPXFu3NwXh%2Bky4NzF5R71Y%2FEoh6U7WYGdfng%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=qW56UF3o3FxDhVvtqDCACdhvdRFVpixtXvUU%2FRwyCP%2BoD3Z9Bd7BcfSqFVIhdBQbhPC4PuEdnRPc6UB%2FWs6Pkyqx8K9jmgHbzYN9nfe50tvM12PeOMW1IFRO1ph9fO4Cr0WlRpqCGZzX%2BylB5fzLRWijtsqkcT7Dlg%3D%3D\"}]}",
           "content-encoding": "br",
-          "cf-ray": "a5a52291f91b780b-WAW",
+          "cf-ray": "a5a53503bcc3d978-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {
@@ -117,7 +117,7 @@
       }
     },
     {
-      "startedAt": "2026-11-14T09:54:28.634Z",
+      "startedAt": "2026-11-14T10:07:04.114Z",
       "request": {
         "method": "GET",
         "url": "https://automationintesting.online/api/booking?roomid=1",
@@ -129,20 +129,20 @@
       "response": {
         "status": 200,
         "headers": {
-          "date": "Sat, 14 Nov 2026 09:54:28 GMT",
+          "date": "Sat, 14 Nov 2026 10:07:04 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "uraGWHnTR2eMN8wiss7a6g",
+          "x-railway-request-id": "AY-xVcq-QI2sD4My2JZdWA",
           "x-railway-edge": "waw1",
-          "x-hikari-trace": "waw1.qkma",
+          "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=vgHLElgNNiBr9YDM%2FmKbuCuJk%2F7q2IKgohllCdsQ223zuKKypK6FBmSiUnaJXFll%2FVOvRVZE0%2FW2KyisOMUqhKwS15vDGjdmNph6hFD3UqXycUer0ND8yDiy%2ByllczleYexeUxfxpxWMteL%2BviwdNOcrajtYa7g7Bw%3D%3D\"}]}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=n4qMtXb5eQ4oZlbwTDvybYIfVy91HmT7RGTvOTDtTkaAA9mIi5M1fRP%2BFltvMCgkbQyhjR%2FshqcUvb76zqehlDNfUgRJL%2FfCOoa12CqE6qfgzB%2BnTy8I0msvgDcF0859jlYIrkGqx%2FkhLFPnHlF9Wx1iqJJgjYeLVg%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
           "content-encoding": "br",
-          "cf-ray": "a5a5229249e5780b-WAW",
+          "cf-ray": "a5a535042e12d978-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {
@@ -160,24 +160,13 @@
             },
             {
               "bookingdates": {
-                "checkin": "2034-12-20",
-                "checkout": "2034-12-22"
+                "checkin": "2027-01-13",
+                "checkout": "2027-01-15"
               },
               "bookingid": 4,
               "depositpaid": false,
-              "firstname": "Glennie",
-              "lastname": "Kuphal",
-              "roomid": 1
-            },
-            {
-              "bookingdates": {
-                "checkin": "2027-12-29",
-                "checkout": "2027-12-31"
-              },
-              "bookingid": 5,
-              "depositpaid": false,
-              "firstname": "Thea",
-              "lastname": "Nikolaus",
+              "firstname": "QA650730465",
+              "lastname": "ProjektTestowy",
               "roomid": 1
             }
           ]
@@ -185,19 +174,19 @@
       }
     },
     {
-      "startedAt": "2026-11-14T09:54:28.748Z",
+      "startedAt": "2026-11-14T10:07:04.225Z",
       "request": {
         "method": "POST",
         "url": "https://automationintesting.online/api/booking",
         "headers": {},
         "body": {
           "roomid": 1,
-          "firstname": "QA650068748",
+          "firstname": "QA650824225",
           "lastname": "ProjektTestowy",
           "depositpaid": false,
           "bookingdates": {
-            "checkin": "2027-01-13",
-            "checkout": "2027-01-15"
+            "checkin": "2027-01-16",
+            "checkout": "2027-01-18"
           },
           "email": "qa-project@example.test",
           "phone": "12345678901"
@@ -206,36 +195,36 @@
       "response": {
         "status": 201,
         "headers": {
-          "date": "Sat, 14 Nov 2026 09:54:29 GMT",
+          "date": "Sat, 14 Nov 2026 10:07:04 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "hMRyg2yjSCiWtqVInTga3g",
+          "x-railway-request-id": "DFbXoic6RPq07Uy9jUJq2g",
           "x-railway-edge": "waw1",
-          "x-hikari-trace": "waw1.qkma",
+          "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=D8z9DfzaEp1ZZJ9TYRLb0Xl3oAJuhZDwL3263XWqBF5G%2F7ggh96Ub49sRbz%2FEYnyhCxvjgZdK9zxagRr7gV54DyS5jEO78HIKJYrejfQVFXHWjpu%2B9k%2BG%2Bl13xYhz%2BmmEALNuO2YCOV8jQ07kzFqpNiB0ICyHv1grA%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=XhAdjn0gCqGUfOoeqJLycGU6i%2FHafe9UegK4%2Bcm1LawkKgcsHhPuYWKnqLKKgCTrmVfmDC9iC6khevnIaEE0Y04fUewYu91u7IQsxaTx8S052nNYsim%2BCFVEdndzinAZCAj1SVXwJfZJ2jhcBRsJF7dD3SgRkrIOHQ%3D%3D\"}]}",
-          "cf-ray": "a5a522930bc9780b-WAW",
+          "cf-ray": "a5a53504dfedd978-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {
           "bookingdates": {
-            "checkin": "2027-01-13",
-            "checkout": "2027-01-15"
+            "checkin": "2027-01-16",
+            "checkout": "2027-01-18"
           },
-          "bookingid": 6,
+          "bookingid": 5,
           "depositpaid": false,
-          "firstname": "QA650068748",
+          "firstname": "QA650824225",
           "lastname": "ProjektTestowy",
           "roomid": 1
         }
       }
     },
     {
-      "startedAt": "2026-11-14T09:54:28.841Z",
+      "startedAt": "2026-11-14T10:07:04.317Z",
       "request": {
         "method": "GET",
         "url": "https://automationintesting.online/api/booking?roomid=1",
@@ -247,20 +236,20 @@
       "response": {
         "status": 200,
         "headers": {
-          "date": "Sat, 14 Nov 2026 09:54:29 GMT",
+          "date": "Sat, 14 Nov 2026 10:07:04 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "GqMco8NMSQGQ9q6z5nX1uw",
+          "x-railway-request-id": "XbcRW1ikSy6RFMxrw9P4nw",
           "x-railway-edge": "waw1",
-          "x-hikari-trace": "waw1.qkma",
+          "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=UDkgWNl7alZ2%2BhSRI5M%2FWKKwM2GWoa%2B3zBu3OVfvT58Ah%2BjVpUQSDhNxffzv4j3%2FF9Uik0LtOFCpjOyyp26RYNJEzAxcBCvD9nat66Y%2Bs%2BegW2b%2BYRjkTzj4ecWr68qi9y%2FIf64B8c%2BN%2ByHufTOl6mmeMjDUnpZG1A%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=5jHDoSCTABkqhxlJGNvpRzg9jyjqCWoEBSFMVzX%2FFUgdczMUEC5q7JV9S0v7vtp2E%2F92%2FYbYciWMSX5AsXJ8i%2Fi94CmElBwihmrjr%2F8hCiQwx%2BcV1LUzFKGHaMgw6kwNl5J%2FlQ%2BmC%2FDj5lczxTirmv%2Fder2wmobxLQ%3D%3D\"}]}",
           "content-encoding": "br",
-          "cf-ray": "a5a522939d4a780b-WAW",
+          "cf-ray": "a5a53505699dd978-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {
@@ -278,34 +267,23 @@
             },
             {
               "bookingdates": {
-                "checkin": "2034-12-20",
-                "checkout": "2034-12-22"
-              },
-              "bookingid": 4,
-              "depositpaid": false,
-              "firstname": "Glennie",
-              "lastname": "Kuphal",
-              "roomid": 1
-            },
-            {
-              "bookingdates": {
-                "checkin": "2027-12-29",
-                "checkout": "2027-12-31"
-              },
-              "bookingid": 5,
-              "depositpaid": false,
-              "firstname": "Thea",
-              "lastname": "Nikolaus",
-              "roomid": 1
-            },
-            {
-              "bookingdates": {
                 "checkin": "2027-01-13",
                 "checkout": "2027-01-15"
               },
-              "bookingid": 6,
+              "bookingid": 4,
               "depositpaid": false,
-              "firstname": "QA650068748",
+              "firstname": "QA650730465",
+              "lastname": "ProjektTestowy",
+              "roomid": 1
+            },
+            {
+              "bookingdates": {
+                "checkin": "2027-01-16",
+                "checkout": "2027-01-18"
+              },
+              "bookingid": 5,
+              "depositpaid": false,
+              "firstname": "QA650824225",
               "lastname": "ProjektTestowy",
               "roomid": 1
             }
@@ -314,10 +292,10 @@
       }
     },
     {
-      "startedAt": "2026-11-14T09:54:28.905Z",
+      "startedAt": "2026-11-14T10:07:04.395Z",
       "request": {
         "method": "GET",
-        "url": "https://automationintesting.online/api/booking/6",
+        "url": "https://automationintesting.online/api/booking/5",
         "headers": {
           "Cookie": "[MASKED]"
         },
@@ -326,38 +304,38 @@
       "response": {
         "status": 500,
         "headers": {
-          "date": "Sat, 14 Nov 2026 09:54:29 GMT",
+          "date": "Sat, 14 Nov 2026 10:07:04 GMT",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
-          "x-railway-request-id": "EglBbm-STOmA8Bjas_GTAg",
+          "x-railway-request-id": "g0wQtyL1TfOHMbPb63j4Ww",
           "x-railway-edge": "waw1",
-          "x-hikari-trace": "waw1.qkma",
+          "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=nAmJvGOATW7CgqaMvp6z9Sw3D3biO1NFkLpXsuAmt9I1c1bfkEXp%2BIQCZ1roA7nWSZ1iUeeisuA%2BboaQsb3OMXH2wBILL1NbYoi5OlGpEFXSAiI1SNt%2Fw8j2jV8i0OSOwpjYDipHisJKj0j5J6aQD5s6YVuL5Cg1NQ%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=xCaGV0PkE6z7T3o4du%2Bo33EwrqNjFirH6wg3%2Frye0TH7R0AhmfvbZ2d5fO%2F2hH610%2FcS7RR6vk6bGx71Wk8ghsE1Yh5dkdc0ObRJZNm%2BrobV9afLn9AsIOBaIOPCAQIOcEQ8HlVL9OX8B58pHxT2A2jb9I6%2BbT45Ag%3D%3D\"}]}",
-          "cf-ray": "a5a52293fe51780b-WAW",
+          "cf-ray": "a5a53505eadfd978-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": "Internal Server Error"
       }
     },
     {
-      "startedAt": "2026-11-14T09:54:28.971Z",
+      "startedAt": "2026-11-14T10:07:04.448Z",
       "request": {
         "method": "PUT",
-        "url": "https://automationintesting.online/api/booking/6",
+        "url": "https://automationintesting.online/api/booking/5",
         "headers": {
           "Cookie": "[MASKED]"
         },
         "body": {
           "roomid": 1,
-          "firstname": "QA650068748",
+          "firstname": "QA650824225",
           "lastname": "ZmienioneNazwisko",
           "depositpaid": false,
           "bookingdates": {
-            "checkin": "2027-01-13",
-            "checkout": "2027-01-15"
+            "checkin": "2027-01-16",
+            "checkout": "2027-01-18"
           },
           "email": "qa-project@example.test",
           "phone": "12345678901"
@@ -366,24 +344,24 @@
       "response": {
         "status": 500,
         "headers": {
-          "date": "Sat, 14 Nov 2026 09:54:29 GMT",
+          "date": "Sat, 14 Nov 2026 10:07:04 GMT",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
-          "x-railway-request-id": "S89BTLlETS6kaKLWN8N_Fg",
+          "x-railway-request-id": "j_g6mMkvQjWS3ZoZw9P4nw",
           "x-railway-edge": "waw1",
-          "x-hikari-trace": "waw1.qkma",
+          "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=m4872q2og26TWMggvVMLIhr3aaUhnEZOOR9oWc%2FuuAQ4JSTUOOUrLk4eVORi%2FRTmPnwkL%2FBgQ7kemYB9MTHqwPyr%2Ft0FXCnDWxYXovPXEI3Pz%2BA%2F3BPzYg%2BBqo%2FmVmbpsHcGFCsOMDVpeNSOIci2MzvpYv7qbVf1nw%3D%3D\"}]}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=TYucdF496jClOm5pChoo%2F4VulQgeG6e6qTlROk6YDrT0L1J733ZKqWwGNjzxD9zaBctaD6xPQL6SCaiX%2B2rLRcNXCJ4IOpD9QFLVVba8AnD%2FStZeME%2BYhmHyVz0rXmwVRr2j3J1rSOID4hv%2FXyVd6pVAF1ga3nWOqQ%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "cf-ray": "a5a522946fac780b-WAW",
+          "cf-ray": "a5a535063ba0d978-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": "Internal Server Error"
       }
     },
     {
-      "startedAt": "2026-11-14T09:54:29.035Z",
+      "startedAt": "2026-11-14T10:07:04.512Z",
       "request": {
         "method": "GET",
         "url": "https://automationintesting.online/api/booking?roomid=1",
@@ -395,20 +373,20 @@
       "response": {
         "status": 200,
         "headers": {
-          "date": "Sat, 14 Nov 2026 09:54:29 GMT",
+          "date": "Sat, 14 Nov 2026 10:07:04 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "XM2MQp1sTxKUHA1xWVMv1w",
+          "x-railway-request-id": "OxsyfEpHRVK2CRT621mRUA",
           "x-railway-edge": "waw1",
-          "x-hikari-trace": "waw1.qkma",
+          "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=cUR8o263CgFZpaZbjZHZOOdgb3XQ9QvUyyEdKDxftdXu9OqWqFn1QcSbN3OKUe36fuHc2LTxdCa4s4LPNejlc6O2HIhZSOy7wLIZXfJyfRXmkFMya2Ud2UZ2m%2Bqu20M5Dnr3jyTSm8dRbvvJ0ciBjrl6MqJws23FmA%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Y4qn0uDjpGetwasYxhkSj0iAOqVAjmasuJzFcd7YP%2BjHak7hUvBnscoZKFQU4hX53KUGh750GX7YwfsqC%2FVnN%2F8%2FtSZaSiRuS5%2F9%2FbXPSmO8OkYjTD%2B206M0cWD4M1SLkj%2B2QGqU8WMWMOa1pMElIjOajeCN0edL%2BQ%3D%3D\"}]}",
           "content-encoding": "br",
-          "cf-ray": "a5a52294c8cd780b-WAW",
+          "cf-ray": "a5a53506acb4d978-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {
@@ -426,34 +404,23 @@
             },
             {
               "bookingdates": {
-                "checkin": "2034-12-20",
-                "checkout": "2034-12-22"
-              },
-              "bookingid": 4,
-              "depositpaid": false,
-              "firstname": "Glennie",
-              "lastname": "Kuphal",
-              "roomid": 1
-            },
-            {
-              "bookingdates": {
-                "checkin": "2027-12-29",
-                "checkout": "2027-12-31"
-              },
-              "bookingid": 5,
-              "depositpaid": false,
-              "firstname": "Thea",
-              "lastname": "Nikolaus",
-              "roomid": 1
-            },
-            {
-              "bookingdates": {
                 "checkin": "2027-01-13",
                 "checkout": "2027-01-15"
               },
-              "bookingid": 6,
+              "bookingid": 4,
               "depositpaid": false,
-              "firstname": "QA650068748",
+              "firstname": "QA650730465",
+              "lastname": "ProjektTestowy",
+              "roomid": 1
+            },
+            {
+              "bookingdates": {
+                "checkin": "2027-01-16",
+                "checkout": "2027-01-18"
+              },
+              "bookingid": 5,
+              "depositpaid": false,
+              "firstname": "QA650824225",
               "lastname": "ProjektTestowy",
               "roomid": 1
             }
@@ -462,10 +429,10 @@
       }
     },
     {
-      "startedAt": "2026-11-14T09:54:29.097Z",
+      "startedAt": "2026-11-14T10:07:04.577Z",
       "request": {
         "method": "DELETE",
-        "url": "https://automationintesting.online/api/booking/6",
+        "url": "https://automationintesting.online/api/booking/5",
         "headers": {
           "Cookie": "[MASKED]"
         },
@@ -474,24 +441,24 @@
       "response": {
         "status": 500,
         "headers": {
-          "date": "Sat, 14 Nov 2026 09:54:29 GMT",
+          "date": "Sat, 14 Nov 2026 10:07:04 GMT",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
-          "x-railway-request-id": "xNiEJiXrSPGhkllBm3z_FQ",
+          "x-railway-request-id": "XL1COSZGRlSm62u_w9P4nw",
           "x-railway-edge": "waw1",
-          "x-hikari-trace": "waw1.qkma",
+          "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=sGQlDtHeLLwXs4FbOOPsjCldlm5sIfhKEwAhyZNd4omUT3qltkjyPKMR9dqbfj1J%2BUHoahPaG7S3YWdA3WR7zpnW88leQcl8OvUE2CyCxa3iGCD59v4gLHym%2B7BgiUkugYflcBffu7FgwiDkBkU2WqMqH6%2FL0bJZuQ%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "cf-ray": "a5a5229529be780b-WAW",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=qVbeBfQY6nnzxdEF5nYFceB5m8d47d7rRFDCpm6Rs6xfJbov3XyxcWG6q0xAbmM%2BByr6vbsmkUkZziGM26FqiTNLnf2d%2B6fSA3ZVi5yFvnBgcdWXVxatr4ApXk3BykoWeo44G6iYMigzJtyl9qUuPX64B9KjA7IKWQ%3D%3D\"}]}",
+          "cf-ray": "a5a535070deed978-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": "Internal Server Error"
       }
     },
     {
-      "startedAt": "2026-11-14T09:54:29.167Z",
+      "startedAt": "2026-11-14T10:07:04.626Z",
       "request": {
         "method": "GET",
         "url": "https://automationintesting.online/api/booking?roomid=1",
@@ -503,20 +470,20 @@
       "response": {
         "status": 200,
         "headers": {
-          "date": "Sat, 14 Nov 2026 09:54:29 GMT",
+          "date": "Sat, 14 Nov 2026 10:07:04 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "spXa6VtkQuunn8KvN8N_Fg",
+          "x-railway-request-id": "xXCGDwC5Ta6m2uEow9P4nw",
           "x-railway-edge": "waw1",
-          "x-hikari-trace": "waw1.qkma",
+          "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=XYlX3EjupQjktwEwr7idDywN8rb9HYAU0o8qQRKERKdUHoCd1976%2BMrxLMS6SgsR%2BCeet5L7BDhk40qwxjr15wNxYBSL1KhaNzXy%2FCWOnaNZWafp%2BzQFuggRlu0itS7FxZfItLGt3CeepAJCJ58m%2BkjE4JoYLdguHg%3D%3D\"}]}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=g%2FSv%2FY%2Bdg4DY8il%2Fl5ovh9EXkodcUXYMxjQGSuiz5iddEqroslvxGTOb%2F2zRF3KHOKLJ5UV0gV8SsEOk4B%2BdtEmNSD1tw566NDafCztcio2Fmv%2Bqo8ZoznM7T%2F1J7eHWxCIsnJ53qk%2B2%2BFCUUr%2Bm1fSW9Rl4%2FbdKJQ%3D%3D\"}]}",
           "content-encoding": "br",
-          "cf-ray": "a5a52295aaea780b-WAW",
+          "cf-ray": "a5a535075f09d978-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {
@@ -534,34 +501,23 @@
             },
             {
               "bookingdates": {
-                "checkin": "2034-12-20",
-                "checkout": "2034-12-22"
-              },
-              "bookingid": 4,
-              "depositpaid": false,
-              "firstname": "Glennie",
-              "lastname": "Kuphal",
-              "roomid": 1
-            },
-            {
-              "bookingdates": {
-                "checkin": "2027-12-29",
-                "checkout": "2027-12-31"
-              },
-              "bookingid": 5,
-              "depositpaid": false,
-              "firstname": "Thea",
-              "lastname": "Nikolaus",
-              "roomid": 1
-            },
-            {
-              "bookingdates": {
                 "checkin": "2027-01-13",
                 "checkout": "2027-01-15"
               },
-              "bookingid": 6,
+              "bookingid": 4,
               "depositpaid": false,
-              "firstname": "QA650068748",
+              "firstname": "QA650730465",
+              "lastname": "ProjektTestowy",
+              "roomid": 1
+            },
+            {
+              "bookingdates": {
+                "checkin": "2027-01-16",
+                "checkout": "2027-01-18"
+              },
+              "bookingid": 5,
+              "depositpaid": false,
+              "firstname": "QA650824225",
               "lastname": "ProjektTestowy",
               "roomid": 1
             }
@@ -624,12 +580,12 @@
       "requestIndex": 4,
       "label": "Daty na liście bez zmian",
       "actual": {
-        "checkin": "2027-01-13",
-        "checkout": "2027-01-15"
+        "checkin": "2027-01-16",
+        "checkout": "2027-01-18"
       },
       "expected": {
-        "checkin": "2027-01-13",
-        "checkout": "2027-01-15"
+        "checkin": "2027-01-16",
+        "checkout": "2027-01-18"
       },
       "pass": true
     },

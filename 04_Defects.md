@@ -26,7 +26,7 @@ Zespół: Kamil Andrzejewski (83741), Karol Myszkowski (77514), Kacper Walkowiak
 
 - **Środowisko:** Windows 11; Chrome 157.0.8103.78; Playwright 1.62.1; Node 22.16.0; Europe/Warsaw; publiczne proxy /api/*; UI v2.2
 - **URL:** https://automationintesting.online
-- **Data (UTC):** 2026-11-14 09:54:25
+- **Data (UTC):** 2026-11-14 10:07:00
 - **Warunki wstępne:** Publiczna lista pokoi dostępna; roomid pobrany dynamicznie. Dla wiadomości/rezerwacji: utworzony własny rekord i bieżący token.
 - **Kroki reprodukcji:**
   1. GET /api/room, wybierz istniejący roomid.
@@ -46,7 +46,7 @@ Zespół: Kamil Andrzejewski (83741), Karol Myszkowski (77514), Kacper Walkowiak
 
 - **Środowisko:** Windows 11; Chrome 157.0.8103.78; Playwright 1.62.1; Node 22.16.0; Europe/Warsaw; publiczne proxy /api/*; UI v2.2
 - **URL:** https://automationintesting.online/api/message
-- **Data (UTC):** 2026-11-14 09:54:26
+- **Data (UTC):** 2026-11-14 10:07:02
 - **Warunki wstępne:** Publiczny POST /api/message dostępny, pozostałe pola poprawne.
 - **Kroki reprodukcji:**
   1. Przygotuj poprawny payload wiadomości jak w API-06.
