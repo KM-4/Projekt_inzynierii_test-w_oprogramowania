@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "private": true,
   "description": "Autorskie testy akademickie Restful-Booker-Platform",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "test": "playwright test",
     "test:api": "playwright test --project=api",
     "test:ui": "playwright test --project=ui-chrome",
-    "report": "playwright show-report reports/html"
+    "report": "playwright show-report reports/html",
+    "report:project": "node ../supporting/tools/build-html-report.mjs"
   },
-  "devDependencies": { "playwright": "1.62.1" }
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
 }
