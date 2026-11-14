@@ -1,12 +1,19 @@
 {
   "caseId": "UI-01",
-  "executedAt": "2026-11-13T15:53:01.962Z",
-  "finishedAt": "2026-11-13T15:53:22.430Z",
+  "executedAt": "2026-11-14T08:54:22.951Z",
+  "finishedAt": "2026-11-14T08:54:26.126Z",
   "runnerStatus": "passed",
   "annotations": [],
+  "steps": [
+    {
+      "no": 1,
+      "label": "Katalog: typy, ceny i linki zgodne z GET /api/room",
+      "file": "evidence/ui/UI-01/krok-01.png"
+    }
+  ],
   "requests": [
     {
-      "startedAt": "2026-11-13T15:53:02.668Z",
+      "startedAt": "2026-11-14T08:54:23.186Z",
       "request": {
         "method": "GET",
         "url": "https://automationintesting.online/api/room",
@@ -16,20 +23,20 @@
       "response": {
         "status": 200,
         "headers": {
-          "date": "Fri, 13 Nov 2026 15:53:04 GMT",
+          "date": "Sat, 14 Nov 2026 08:54:23 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "rAPpft9vSeCjqAtLjUJq2g",
+          "x-railway-request-id": "aVeWrjmKSAOeoq0X63j4Ww",
           "x-railway-edge": "waw1",
           "x-hikari-trace": "waw1.qkma",
           "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=crQIuULjIDalGcNsZCAy%2BZIlHUOG4y4FdvW%2BNDzq0EVf1tMU8ZFc2A%2BBmEtTEXm1wtug4ZqCAvPgG73csc%2B6pIBMim8w0vskN3myzoUUAzy3ooxjcjyYafbbKXkee%2BHnrkzmHIJ%2Fg4YRIBmfxfEtydqXcKm3To%2FiXw%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=dvXOIaXGBdXvMcZHuZoBPo6l25c8fmWm1HUbzLkjc1CBr9P8d6R2xq6smGX%2BZxHG24YrcNw0i9fkw04kEmsPmYDH6ROvUHSuNoclxSmoOdL1XRutJQbNlNnDbB3dUJd5sJ5i%2FwMGf824Uc0EIw%3D%3D\"}]}",
           "content-encoding": "br",
-          "cf-ray": "a59ef27dec5e0273-WAW",
+          "cf-ray": "a5a4ca8c1ab934cc-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {

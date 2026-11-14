@@ -1,9 +1,21 @@
 {
   "caseId": "UI-11",
-  "executedAt": "2026-11-13T15:55:27.137Z",
-  "finishedAt": "2026-11-13T15:55:27.969Z",
+  "executedAt": "2026-11-14T08:54:44.974Z",
+  "finishedAt": "2026-11-14T08:54:46.036Z",
   "runnerStatus": "passed",
   "annotations": [],
+  "steps": [
+    {
+      "no": 1,
+      "label": "Logowanie z niepoprawnymi danymi",
+      "file": "evidence/ui/UI-11/krok-01.png"
+    },
+    {
+      "no": 2,
+      "label": "Odmowa dostępu (HTTP 401): „Invalid credentials”, brak panelu",
+      "file": "evidence/ui/UI-11/krok-02.png"
+    }
+  ],
   "requests": [],
   "assertions": [
     {

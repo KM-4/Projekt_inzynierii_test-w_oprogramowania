@@ -1,20 +1,37 @@
 {
   "caseId": "UI-04",
-  "executedAt": "2026-11-13T15:54:03.738Z",
-  "finishedAt": "2026-11-13T15:54:23.573Z",
+  "executedAt": "2026-11-14T08:54:31.393Z",
+  "finishedAt": "2026-11-14T08:54:34.067Z",
   "runnerStatus": "passed",
   "annotations": [],
+  "steps": [
+    {
+      "no": 1,
+      "label": "Email w złym formacie: „bledny-email”",
+      "file": "evidence/ui/UI-04/krok-01.png"
+    },
+    {
+      "no": 2,
+      "label": "Reguła 3: błędny email odrzucony (HTTP 400)",
+      "file": "evidence/ui/UI-04/krok-02.png"
+    },
+    {
+      "no": 3,
+      "label": "Reguła 4: błędny email i temat „ABCD” – oba komunikaty",
+      "file": "evidence/ui/UI-04/krok-03.png"
+    }
+  ],
   "requests": [
     {
-      "startedAt": "2026-11-13T15:54:22.903Z",
+      "startedAt": "2026-11-14T08:54:33.166Z",
       "request": {
         "method": "POST",
         "url": "https://automationintesting.online/api/message",
         "body": {
-          "name": "QA-1794585262612-4f6f74",
+          "name": "QA-1794646472191-dd0c97",
           "email": "bledny-email",
           "phone": "12345678901",
-          "subject": "Zapytanie QA-1794585262612-4f6f74",
+          "subject": "Zapytanie QA-1794646472191-dd0c97",
           "description": "Wiadomość testowa projektu akademickiego. Dane syntetyczne."
         }
       },
@@ -26,12 +43,12 @@
       }
     },
     {
-      "startedAt": "2026-11-13T15:54:23.054Z",
+      "startedAt": "2026-11-14T08:54:33.463Z",
       "request": {
         "method": "POST",
         "url": "https://automationintesting.online/api/message",
         "body": {
-          "name": "QA-1794585262612-4f6f74",
+          "name": "QA-1794646472191-dd0c97",
           "email": "bledny-email",
           "phone": "12345678901",
           "subject": "ABCD",

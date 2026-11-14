@@ -1,7 +1,7 @@
 {
   "caseId": "UI-09",
-  "executedAt": "2026-11-13T15:55:16.741Z",
-  "finishedAt": "2026-11-13T15:55:26.361Z",
+  "executedAt": "2026-11-14T08:54:43.310Z",
+  "finishedAt": "2026-11-14T08:54:44.135Z",
   "runnerStatus": "skipped",
   "annotations": [
     {
@@ -12,15 +12,22 @@
       "type": "skip",
       "description": "BLOCKED: szczegóły pokoju HTTP 500; DEF-01",
       "location": {
-        "file": "E:\\qa nowicki\\QA-Project\\05_Automation\\tests\\ui.spec.ts",
-        "line": 26,
+        "file": "C:\\Users\\Kx\\Desktop\\inżynierka\\inz_testow_projekt\\Projekt_inzynierii_test-w_oprogramowania-main\\05_Automation\\tests\\ui.spec.ts",
+        "line": 48,
         "column": 10
       }
     }
   ],
+  "steps": [
+    {
+      "no": 1,
+      "label": "Strona rezerwacji pokoju 1: brak formularza (GET /api/room/1 → 500)",
+      "file": "evidence/ui/UI-09/krok-01.png"
+    }
+  ],
   "requests": [
     {
-      "startedAt": "2026-11-13T15:55:16.921Z",
+      "startedAt": "2026-11-14T08:54:43.371Z",
       "request": {
         "method": "GET",
         "url": "https://automationintesting.online/api/room",
@@ -30,20 +37,20 @@
       "response": {
         "status": 200,
         "headers": {
-          "date": "Fri, 13 Nov 2026 15:55:19 GMT",
+          "date": "Sat, 14 Nov 2026 08:54:43 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "9ObApH00RJ27mx8u21mRUA",
+          "x-railway-request-id": "pkZNiOZiQTaduqce0-QtfA",
           "x-railway-edge": "waw1",
           "x-hikari-trace": "waw1.qkma",
           "cf-cache-status": "DYNAMIC",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=xSJ2iJfJEJfi4TzA7oGofxLh5aciTQNQQ%2FYIHoh%2FYLmSdjXccIYoBLuvU1HAddLyRpL98eY510ydQHbKskJhGnYYNkiTB%2BkGOuBsymaI6mgPmMFTC%2Bhoe7m5b%2Brtw0WQ9KVpRmABzXB%2BVnFSDA%3D%3D\"}]}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=bM8sCNYOU9P67hmSW9n6eIWpiTZ6gDjlOWU8fMUPyHkJB0lGHrcTXMea%2FGvDYgNL5qSVPJzJGskJdMmXOZklLPaETGdVkrM65rF1YJ1y5eNH8eXS%2BK%2F6mYnXxxO3TyUyfvP5PzrpJ3SIIoY9hQ4nyf5AatDgTKZTVA%3D%3D\"}]}",
           "content-encoding": "br",
-          "cf-ray": "a59ef5c4cd5b0273-WAW",
+          "cf-ray": "a5a4cb09ca6234cc-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {
@@ -95,7 +102,7 @@
       }
     },
     {
-      "startedAt": "2026-11-13T15:55:16.975Z",
+      "startedAt": "2026-11-14T08:54:43.421Z",
       "request": {
         "method": "GET",
         "url": "https://automationintesting.online/api/room/1",
@@ -105,17 +112,17 @@
       "response": {
         "status": 500,
         "headers": {
-          "date": "Fri, 13 Nov 2026 15:55:19 GMT",
+          "date": "Sat, 14 Nov 2026 08:54:43 GMT",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
-          "x-railway-request-id": "jEKGdkxVTDKfwxctYqdHTg",
+          "x-railway-request-id": "RpiaEsOdRgCgVIu3s_GTAg",
           "x-railway-edge": "waw1",
           "x-hikari-trace": "waw1.qkma",
           "cf-cache-status": "DYNAMIC",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=PrCFUJCRPbQZS%2BtINw%2F9QMzWmezBfCgIhvphc1VuvWsqAuh1VWa3537blKQRa8xC5U8SNbmusZAZSbcqSGxC7eC9AnWrR%2Bfm2J%2F7qBoTvInQdqIVAzhn0uM%2FUI%2FU6WmlYwPvCMM8Eno4bIDNyA%3D%3D\"}]}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Xk%2BBkVEQQPBHw0sLXkjjwqP4Fj7qMpNGrAR88r1rAlH4ORNZXe9ksHNuZLF6eM9n8jyHIAdxJAbOPft62P%2B5uVi8hTv%2FDgASTdWWmvlCpxL7NW5X4T2pW%2B59OhCztJOn2HJEdfbA1MowxI8gKwdQxwOLOjz4fv1NKQ%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "cf-ray": "a59ef5c51de30273-WAW",
+          "cf-ray": "a5a4cb0a1b3134cc-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": "Internal Server Error"
@@ -144,12 +151,12 @@
       "detailStatus": 500,
       "roomid": 1,
       "dates": {
-        "checkin": "2027-01-12",
-        "checkout": "2027-01-14"
+        "checkin": "2027-01-13",
+        "checkout": "2027-01-15"
       }
     },
     {
-      "url": "https://automationintesting.online/reservation/1?checkin=2027-01-12&checkout=2027-01-14",
+      "url": "https://automationintesting.online/reservation/1?checkin=2027-01-13&checkout=2027-01-15",
       "visibleText": ""
     }
   ],

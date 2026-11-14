@@ -1,22 +1,22 @@
-<testsuites id="" name="" tests="22" failures="7" skipped="3" errors="0" time="153.57740099999998">
-<testsuite name="api.spec.ts" timestamp="2026-11-13T15:52:56.148Z" hostname="api" tests="10" failures="5" skipped="0" time="2.643" errors="0">
-<testcase name="API-01 Lista pokoi: schemat i unikalne identyfikatory" classname="api.spec.ts" time="0.167">
+<testsuites id="" name="" tests="22" failures="5" skipped="3" errors="0" time="30.39347">
+<testsuite name="api.spec.ts" timestamp="2026-11-14T08:54:18.192Z" hostname="api" tests="10" failures="5" skipped="0" time="2.853" errors="0">
+<testcase name="API-01 Lista pokoi: schemat i unikalne identyfikatory" classname="api.spec.ts" time="0.184">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\api-API-01-Lista-pokoi-schemat-i-unikalne-identyfikatory-api\attachments\Dowód-wykonania-57183006a078532b04c224128918da6bdbaa8055.json]]
+[[ATTACHMENT|artifacts\api-API-01-Lista-pokoi-schemat-i-unikalne-identyfikatory-api\attachments\Dowód-wykonania-06ce2f7327bd159ffef7220fdf8f4b7a1c522ffc.json]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API-02 Szczegóły pokoju zgodne z listą" classname="api.spec.ts" time="0.148">
+<testcase name="API-02 Szczegóły pokoju zgodne z listą" classname="api.spec.ts" time="0.141">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\api-API-02-Szczegóły-pokoju-zgodne-z-listą-api\attachments\Dowód-wykonania-6816010ef3844018e123ba676ebbd1b3ab4fbe7f.json]]
+[[ATTACHMENT|artifacts\api-API-02-Szczegóły-pokoju-zgodne-z-listą-api\attachments\Dowód-wykonania-f4cd50edfd34e7cbbe516508fb6b39aef180a679.json]]
 
 [[ATTACHMENT|artifacts\api-API-02-Szczegóły-pokoju-zgodne-z-listą-api\error-context.md]]
 ]]>
 </system-out>
 <failure message="Istniejący pokój: HTTP 200" type="expect.toEqual">
-<![CDATA[  [api] › api.spec.ts:10:5 › API-02 Szczegóły pokoju zgodne z listą ────────────────────────────────
+<![CDATA[  [api] › api.spec.ts:27:5 › API-02 Szczegóły pokoju zgodne z listą ────────────────────────────────
 
     Error: Istniejący pokój: HTTP 200
 
@@ -33,28 +33,28 @@
          |                          ^
       32 |   }
       33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
-      34 |   note(value:any){this.observations.push(redact(value))}
-        at Audit.check (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:31:26)
-        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:12:5
+      34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,
+        at Audit.check (C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\helpers\audit.ts:31:26)
+        at C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\tests\api.spec.ts:30:5
 
     attachment #1: Dowód wykonania (application/json) ──────────────────────────────────────────────
-    ..\reports\artifacts\api-API-02-Szczegóły-pokoju-zgodne-z-listą-api\attachments\Dowód-wykonania-6816010ef3844018e123ba676ebbd1b3ab4fbe7f.json
+    ..\reports\artifacts\api-API-02-Szczegóły-pokoju-zgodne-z-listą-api\attachments\Dowód-wykonania-f4cd50edfd34e7cbbe516508fb6b39aef180a679.json
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     Error Context: ..\reports\artifacts\api-API-02-Szczegóły-pokoju-zgodne-z-listą-api\error-context.md
 ]]>
 </failure>
 </testcase>
-<testcase name="API-03 Nieistniejący pokój: HTTP 404" classname="api.spec.ts" time="0.204">
+<testcase name="API-03 Nieistniejący pokój: HTTP 404" classname="api.spec.ts" time="0.222">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\api-API-03-Nieistniejący-pokój-HTTP-404-api\attachments\Dowód-wykonania-5ed7b3e16acda7114fb500d3b02c1b1d7ef97b14.json]]
+[[ATTACHMENT|artifacts\api-API-03-Nieistniejący-pokój-HTTP-404-api\attachments\Dowód-wykonania-34806d2bd3f1573bd6fd7b3c812fe1acdf983c63.json]]
 
 [[ATTACHMENT|artifacts\api-API-03-Nieistniejący-pokój-HTTP-404-api\error-context.md]]
 ]]>
 </system-out>
 <failure message="Brak zasobu: HTTP 404" type="expect.toEqual">
-<![CDATA[  [api] › api.spec.ts:14:5 › API-03 Nieistniejący pokój: HTTP 404 ──────────────────────────────────
+<![CDATA[  [api] › api.spec.ts:37:5 › API-03 Nieistniejący pokój: HTTP 404 ──────────────────────────────────
 
     Error: Brak zasobu: HTTP 404
 
@@ -71,42 +71,42 @@
          |                          ^
       32 |   }
       33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
-      34 |   note(value:any){this.observations.push(redact(value))}
-        at Audit.check (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:31:26)
-        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:18:51
+      34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,
+        at Audit.check (C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\helpers\audit.ts:31:26)
+        at C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\tests\api.spec.ts:43:5
 
     attachment #1: Dowód wykonania (application/json) ──────────────────────────────────────────────
-    ..\reports\artifacts\api-API-03-Nieistniejący-pokój-HTTP-404-api\attachments\Dowód-wykonania-5ed7b3e16acda7114fb500d3b02c1b1d7ef97b14.json
+    ..\reports\artifacts\api-API-03-Nieistniejący-pokój-HTTP-404-api\attachments\Dowód-wykonania-34806d2bd3f1573bd6fd7b3c812fe1acdf983c63.json
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     Error Context: ..\reports\artifacts\api-API-03-Nieistniejący-pokój-HTTP-404-api\error-context.md
 ]]>
 </failure>
 </testcase>
-<testcase name="API-04 Wiadomość bez wymaganych pól" classname="api.spec.ts" time="0.177">
+<testcase name="API-04 Wiadomość bez wymaganych pól" classname="api.spec.ts" time="0.18">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\api-API-04-Wiadomość-bez-wymaganych-pól-api\attachments\Dowód-wykonania-55cf8ad75eb963bf507e30727d9c2b0d4778c3be.json]]
+[[ATTACHMENT|artifacts\api-API-04-Wiadomość-bez-wymaganych-pól-api\attachments\Dowód-wykonania-036731eed74540731ba25c2de4378c7a65d0bf56.json]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API-05 Niepoprawny format email wiadomości" classname="api.spec.ts" time="0.083">
+<testcase name="API-05 Niepoprawny format email wiadomości" classname="api.spec.ts" time="0.162">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\api-API-05-Niepoprawny-format-email-wiadomości-api\attachments\Dowód-wykonania-ddc26de5a9d920bb73c0e14dc712db81a78108ee.json]]
+[[ATTACHMENT|artifacts\api-API-05-Niepoprawny-format-email-wiadomości-api\attachments\Dowód-wykonania-d6ece24f08b14efab5a810d0ec7564f4631f15bc.json]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API-06 Email jako obiekt zamiast tekstu" classname="api.spec.ts" time="0.075">
+<testcase name="API-06 Email jako obiekt zamiast tekstu" classname="api.spec.ts" time="0.151">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\api-API-06-Email-jako-obiekt-zamiast-tekstu-api\attachments\Dowód-wykonania-dc0d4d65fd9e6114f6602af0056a1047a0b416b4.json]]
+[[ATTACHMENT|artifacts\api-API-06-Email-jako-obiekt-zamiast-tekstu-api\attachments\Dowód-wykonania-c3e7c14ec71fb7c9fcf2facc1b2fc220a8b08a63.json]]
 
 [[ATTACHMENT|artifacts\api-API-06-Email-jako-obiekt-zamiast-tekstu-api\error-context.md]]
 ]]>
 </system-out>
 <failure message="Błędny typ: HTTP 400" type="expect.toEqual">
-<![CDATA[  [api] › api.spec.ts:27:5 › API-06 Email jako obiekt zamiast tekstu ───────────────────────────────
+<![CDATA[  [api] › api.spec.ts:73:5 › API-06 Email jako obiekt zamiast tekstu ───────────────────────────────
 
     Error: Błędny typ: HTTP 400
 
@@ -115,50 +115,88 @@
     Expected: 400
     Received: 500
 
-       at ..\helpers\audit.ts:31
+       at ..\helpers\audit.ts:33
 
-      29 |     const pass=JSON.stringify(actual)===JSON.stringify(expected);
-      30 |     this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass});
-    > 31 |     expect(actual,label).toEqual(expected);
-         |                          ^
+      31 |     expect(actual,label).toEqual(expected);
       32 |   }
-      33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
-      34 |   note(value:any){this.observations.push(redact(value))}
-        at Audit.check (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:31:26)
-        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:28:101
+    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+         |                                                                                                                                                                                                                                                   ^
+      34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,
+      35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.
+      36 |   inform(actual:any,expected:any,label:string){
+        at Audit.checkSoft (C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\helpers\audit.ts:33:243)
+        at C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\tests\api.spec.ts:76:5
 
     attachment #1: Dowód wykonania (application/json) ──────────────────────────────────────────────
-    ..\reports\artifacts\api-API-06-Email-jako-obiekt-zamiast-tekstu-api\attachments\Dowód-wykonania-dc0d4d65fd9e6114f6602af0056a1047a0b416b4.json
+    ..\reports\artifacts\api-API-06-Email-jako-obiekt-zamiast-tekstu-api\attachments\Dowód-wykonania-c3e7c14ec71fb7c9fcf2facc1b2fc220a8b08a63.json
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     Error Context: ..\reports\artifacts\api-API-06-Email-jako-obiekt-zamiast-tekstu-api\error-context.md
 ]]>
 </failure>
 </testcase>
-<testcase name="API-07 Rezerwacje bez uwierzytelnienia" classname="api.spec.ts" time="0.277">
+<testcase name="API-07 Rezerwacje bez uwierzytelnienia" classname="api.spec.ts" time="0.237">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\api-API-07-Rezerwacje-bez-uwierzytelnienia-api\attachments\Dowód-wykonania-c7422e49889b4e64a03c854d579ff0f831198b41.json]]
+[[ATTACHMENT|artifacts\api-API-07-Rezerwacje-bez-uwierzytelnienia-api\attachments\Dowód-wykonania-308fe1cd3f13118fa29507d30a86aff478923120.json]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API-08 Nieprawidłowe dane logowania" classname="api.spec.ts" time="0.243">
+<testcase name="API-08 Nieprawidłowe dane logowania" classname="api.spec.ts" time="0.139">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\api-API-08-Nieprawidłowe-dane-logowania-api\attachments\Dowód-wykonania-8cd5cd55a63f0fafdcb1460fb115721a5c53d85d.json]]
+[[ATTACHMENT|artifacts\api-API-08-Nieprawidłowe-dane-logowania-api\attachments\Dowód-wykonania-be0d17065a37286cd3dd53882f46db2e7c6b58a9.json]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="API-09 Wiadomość: utwórz, odczytaj, oznacz przeczytaną" classname="api.spec.ts" time="0.505">
+<testcase name="API-09 Wiadomość: utwórz, odczytaj, oznacz przeczytaną" classname="api.spec.ts" time="0.591">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\api-API-09-Wiadomość-utwórz-odczytaj-oznacz-przeczytaną-api\attachments\Dowód-wykonania-1ce7b85a012b430f4e76ef748f2b997d58f3ae5e.json]]
+[[ATTACHMENT|artifacts\api-API-09-Wiadomość-utwórz-odczytaj-oznacz-przeczytaną-api\attachments\Dowód-wykonania-31d899f2fc5cab2b880c541979f2373566891bcc.json]]
 
 [[ATTACHMENT|artifacts\api-API-09-Wiadomość-utwórz-odczytaj-oznacz-przeczytaną-api\error-context.md]]
 ]]>
 </system-out>
-<failure message="Sprzątanie własnej wiadomości" type="expect.toEqual">
-<![CDATA[  [api] › api.spec.ts:36:5 › API-09 Wiadomość: utwórz, odczytaj, oznacz przeczytaną ────────────────
+<failure message="Odczyt utworzonej wiadomości" type="expect.toEqual">
+<![CDATA[  [api] › api.spec.ts:99:5 › API-09 Wiadomość: utwórz, odczytaj, oznacz przeczytaną ────────────────
+
+    Error: Odczyt utworzonej wiadomości
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:33
+
+      31 |     expect(actual,label).toEqual(expected);
+      32 |   }
+    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+         |                                                                                                                                                                                                                                                   ^
+      34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,
+      35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.
+      36 |   inform(actual:any,expected:any,label:string){
+        at Audit.checkSoft (C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\helpers\audit.ts:33:243)
+        at C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\tests\api.spec.ts:116:7
+
+    Error: Oznaczenie read: HTTP 200
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:33
+
+      31 |     expect(actual,label).toEqual(expected);
+      32 |   }
+    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+         |                                                                                                                                                                                                                                                   ^
+      34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,
+      35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.
+      36 |   inform(actual:any,expected:any,label:string){
+        at Audit.checkSoft (C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\helpers\audit.ts:33:243)
+        at C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\tests\api.spec.ts:123:7
 
     Error: Sprzątanie własnej wiadomości
 
@@ -173,11 +211,11 @@
       32 |   }
     > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
          |                                                                                                                                                                                                                                                   ^
-      34 |   note(value:any){this.observations.push(redact(value))}
-      35 |   async save() {
-      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
-        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
-        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:47:84
+      34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,
+      35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.
+      36 |   inform(actual:any,expected:any,label:string){
+        at Audit.checkSoft (C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\helpers\audit.ts:33:243)
+        at C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\tests\api.spec.ts:134:9
 
     Error: Wiadomość usunięta
 
@@ -192,18 +230,18 @@
       32 |   }
     > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
          |                                                                                                                                                                                                                                                   ^
-      34 |   note(value:any){this.observations.push(redact(value))}
-      35 |   async save() {
-      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
-        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
-        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:47:185
+      34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,
+      35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.
+      36 |   inform(actual:any,expected:any,label:string){
+        at Audit.checkSoft (C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\helpers\audit.ts:33:243)
+        at C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\tests\api.spec.ts:136:9
 
-    Error: Odczyt utworzonej wiadomości
+    Error: Zmiana read utrwalona (potwierdzenie z listy)
 
     expect(received).toEqual(expected) // deep equality
 
-    Expected: 200
-    Received: 500
+    Expected: true
+    Received: false
 
        at ..\helpers\audit.ts:31
 
@@ -213,28 +251,66 @@
          |                          ^
       32 |   }
       33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
-      34 |   note(value:any){this.observations.push(redact(value))}
-        at Audit.check (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:31:26)
-        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:42:77
+      34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,
+        at Audit.check (C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\helpers\audit.ts:31:26)
+        at C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\tests\api.spec.ts:126:7
 
     attachment #1: Dowód wykonania (application/json) ──────────────────────────────────────────────
-    ..\reports\artifacts\api-API-09-Wiadomość-utwórz-odczytaj-oznacz-przeczytaną-api\attachments\Dowód-wykonania-1ce7b85a012b430f4e76ef748f2b997d58f3ae5e.json
+    ..\reports\artifacts\api-API-09-Wiadomość-utwórz-odczytaj-oznacz-przeczytaną-api\attachments\Dowód-wykonania-31d899f2fc5cab2b880c541979f2373566891bcc.json
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     Error Context: ..\reports\artifacts\api-API-09-Wiadomość-utwórz-odczytaj-oznacz-przeczytaną-api\error-context.md
 ]]>
 </failure>
 </testcase>
-<testcase name="API-10 Rezerwacja: utwórz, odczytaj i zmień nazwisko" classname="api.spec.ts" time="0.764">
+<testcase name="API-10 Rezerwacja: utwórz, odczytaj i zmień nazwisko" classname="api.spec.ts" time="0.846">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\api-API-10-Rezerwacja-utwórz-odczytaj-i-zmień-nazwisko-api\attachments\Dowód-wykonania-b76c9e88457a11afeb0f6dfaa22f8896ac4e1438.json]]
+[[ATTACHMENT|artifacts\api-API-10-Rezerwacja-utwórz-odczytaj-i-zmień-nazwisko-api\attachments\Dowód-wykonania-d0b38d15dd6a934f8a5afb76f9816f5b17e0c66d.json]]
 
 [[ATTACHMENT|artifacts\api-API-10-Rezerwacja-utwórz-odczytaj-i-zmień-nazwisko-api\error-context.md]]
 ]]>
 </system-out>
-<failure message="Usunięto wyłącznie własną rezerwację" type="expect.toEqual">
-<![CDATA[  [api] › api.spec.ts:50:5 › API-10 Rezerwacja: utwórz, odczytaj i zmień nazwisko ──────────────────
+<failure message="Odczyt HTTP 200" type="expect.toEqual">
+<![CDATA[  [api] › api.spec.ts:144:5 › API-10 Rezerwacja: utwórz, odczytaj i zmień nazwisko ─────────────────
+
+    Error: Odczyt HTTP 200
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:33
+
+      31 |     expect(actual,label).toEqual(expected);
+      32 |   }
+    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+         |                                                                                                                                                                                                                                                   ^
+      34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,
+      35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.
+      36 |   inform(actual:any,expected:any,label:string){
+        at Audit.checkSoft (C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\helpers\audit.ts:33:243)
+        at C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\tests\api.spec.ts:183:7
+
+    Error: PUT HTTP 200
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: 200
+    Received: 500
+
+       at ..\helpers\audit.ts:33
+
+      31 |     expect(actual,label).toEqual(expected);
+      32 |   }
+    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
+         |                                                                                                                                                                                                                                                   ^
+      34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,
+      35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.
+      36 |   inform(actual:any,expected:any,label:string){
+        at Audit.checkSoft (C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\helpers\audit.ts:33:243)
+        at C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\tests\api.spec.ts:188:7
 
     Error: Usunięto wyłącznie własną rezerwację
 
@@ -249,11 +325,11 @@
       32 |   }
     > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
          |                                                                                                                                                                                                                                                   ^
-      34 |   note(value:any){this.observations.push(redact(value))}
-      35 |   async save() {
-      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
-        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
-        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:71:84
+      34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,
+      35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.
+      36 |   inform(actual:any,expected:any,label:string){
+        at Audit.checkSoft (C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\helpers\audit.ts:33:243)
+        at C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\tests\api.spec.ts:200:9
 
     Error: Potwierdzono sprzątanie
 
@@ -268,18 +344,18 @@
       32 |   }
     > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
          |                                                                                                                                                                                                                                                   ^
-      34 |   note(value:any){this.observations.push(redact(value))}
-      35 |   async save() {
-      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
-        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
-        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:71:235
+      34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,
+      35 |   // ale nie wpływa na werdykt testu. Werdykt UI dotyczy zachowania, które test sprawdza.
+      36 |   inform(actual:any,expected:any,label:string){
+        at Audit.checkSoft (C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\helpers\audit.ts:33:243)
+        at C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\tests\api.spec.ts:202:9
 
-    Error: Odczyt HTTP 200
+    Error: Nowe nazwisko utrwalone (potwierdzenie z listy)
 
     expect(received).toEqual(expected) // deep equality
 
-    Expected: 200
-    Received: 500
+    Expected: "ZmienioneNazwisko"
+    Received: "ProjektTestowy"
 
        at ..\helpers\audit.ts:31
 
@@ -289,12 +365,12 @@
          |                          ^
       32 |   }
       33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
-      34 |   note(value:any){this.observations.push(redact(value))}
-        at Audit.check (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:31:26)
-        at E:\qa nowicki\QA-Project\05_Automation\tests\api.spec.ts:66:77
+      34 |   // Kontrola informacyjna (np. sprzątanie danych po teście UI): zapisana w evidence i jako adnotacja,
+        at Audit.check (C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\helpers\audit.ts:31:26)
+        at C:\Users\Kx\Desktop\inżynierka\inz_testow_projekt\Projekt_inzynierii_test-w_oprogramowania-main\05_Automation\tests\api.spec.ts:192:7
 
     attachment #1: Dowód wykonania (application/json) ──────────────────────────────────────────────
-    ..\reports\artifacts\api-API-10-Rezerwacja-utwórz-odczytaj-i-zmień-nazwisko-api\attachments\Dowód-wykonania-b76c9e88457a11afeb0f6dfaa22f8896ac4e1438.json
+    ..\reports\artifacts\api-API-10-Rezerwacja-utwórz-odczytaj-i-zmień-nazwisko-api\attachments\Dowód-wykonania-d0b38d15dd6a934f8a5afb76f9816f5b17e0c66d.json
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     Error Context: ..\reports\artifacts\api-API-10-Rezerwacja-utwórz-odczytaj-i-zmień-nazwisko-api\error-context.md
@@ -302,171 +378,103 @@
 </failure>
 </testcase>
 </testsuite>
-<testsuite name="ui.spec.ts" timestamp="2026-11-13T15:52:56.148Z" hostname="ui-chrome" tests="12" failures="2" skipped="3" time="143.638" errors="0">
-<testcase name="UI-01 Katalog pokoi zgodny z API" classname="ui.spec.ts" time="20.006">
+<testsuite name="ui.spec.ts" timestamp="2026-11-14T08:54:18.192Z" hostname="ui-chrome" tests="12" failures="0" skipped="3" time="25.101" errors="0">
+<testcase name="UI-01 Katalog pokoi zgodny z API" classname="ui.spec.ts" time="3.031">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\ui-UI-01-Katalog-pokoi-zgodny-z-API-ui-chrome\attachments\Rzeczywisty-screenshot-e43d7031011d60643f9d7a861a466608c307eeae.png]]
+[[ATTACHMENT|artifacts\ui-UI-01-Katalog-pokoi-zgodny-z-API-ui-chrome\attachments\Krok-1-Katalog-typy-ceny-i-linki-zgodne-z-GET-api-room-97d2a80e67fc7a36c8a83158dd2d8c3e4db3fe37.png]]
 
-[[ATTACHMENT|artifacts\ui-UI-01-Katalog-pokoi-zgodny-z-API-ui-chrome\attachments\Dowód-wykonania-f5d4e26b27c6f4984d3c9138d4e97c478c126277.json]]
+[[ATTACHMENT|artifacts\ui-UI-01-Katalog-pokoi-zgodny-z-API-ui-chrome\attachments\Pełny-zrzut-strony-49eebae75ec366622587d5ce93d6687c72ecb805.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-01-Katalog-pokoi-zgodny-z-API-ui-chrome\attachments\Dowód-wykonania-59bc27f7bf0da114a6a3c4f7d96f0d6e7bf33b2d.json]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="UI-02 Poprawna wiadomość kontaktowa" classname="ui.spec.ts" time="20.218">
+<testcase name="UI-02 Poprawna wiadomość kontaktowa" classname="ui.spec.ts" time="2.618">
+<properties>
+<property name="cleanup" value="Sprzątanie: usunięto własną wiadomość UI: oczekiwano 200, otrzymano 500 (nie wpływa na werdykt)">
+</property>
+</properties>
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\test-failed-1.png]]
+[[ATTACHMENT|artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\attachments\Krok-1-Formularz-wypełniony-poprawnymi-danymi-2c9d40f83bb21662edffe9f831aff787817ce0f0.png]]
 
-[[ATTACHMENT|artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\attachments\Rzeczywisty-screenshot-005a7650b0d148aabd495fb9023b8b910497b919.png]]
+[[ATTACHMENT|artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\attachments\Krok-2-Potwierdzenie-wysłania-z-własnym-imieniem-HTTP-200--43e82d65a8e3e2591c4bc28d124c296f4713cbaa.png]]
 
-[[ATTACHMENT|artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\attachments\Dowód-wykonania-9c36c5632efd88e14691116d52aad3d36402533e.json]]
+[[ATTACHMENT|artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\attachments\Pełny-zrzut-strony-1341919f90e54f28426cb1cb6f84264a5ae94e94.png]]
 
-[[ATTACHMENT|artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\error-context.md]]
-
-[[ATTACHMENT|artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\trace.zip]]
-]]>
-</system-out>
-<failure message="Usunięto własną wiadomość UI" type="expect.toEqual">
-<![CDATA[  [ui-chrome] › ui.spec.ts:35:5 › UI-02 Poprawna wiadomość kontaktowa ──────────────────────────────
-
-    Error: Usunięto własną wiadomość UI
-
-    expect(received).toEqual(expected) // deep equality
-
-    Expected: 200
-    Received: 500
-
-       at ..\helpers\audit.ts:33
-
-      31 |     expect(actual,label).toEqual(expected);
-      32 |   }
-    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
-         |                                                                                                                                                                                                                                                   ^
-      34 |   note(value:any){this.observations.push(redact(value))}
-      35 |   async save() {
-      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
-        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
-        at cleanupUiMessage (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:76:7)
-        at E:\qa nowicki\QA-Project\05_Automation\tests\ui.spec.ts:37:268
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: Rzeczywisty screenshot (image/png) ──────────────────────────────────────────────
-    ..\reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\attachments\Rzeczywisty-screenshot-005a7650b0d148aabd495fb9023b8b910497b919.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #3: Dowód wykonania (application/json) ──────────────────────────────────────────────
-    ..\reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\attachments\Dowód-wykonania-9c36c5632efd88e14691116d52aad3d36402533e.json
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\error-context.md
-
-    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
-    ..\reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\trace.zip
-    Usage:
-
-        npx playwright show-trace ..\reports\artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-]]>
-</failure>
-</testcase>
-<testcase name="UI-03 Pusty formularz kontaktowy" classname="ui.spec.ts" time="19.67">
-<system-out>
-<![CDATA[
-[[ATTACHMENT|artifacts\ui-UI-03-Pusty-formularz-kontaktowy-ui-chrome\attachments\Rzeczywisty-screenshot-4ec95f66af727ca721b53f000005b670bdb232da.png]]
-
-[[ATTACHMENT|artifacts\ui-UI-03-Pusty-formularz-kontaktowy-ui-chrome\attachments\Dowód-wykonania-73af4bd40e3d4bd1dc6be697da2b39b2ba77aeee.json]]
+[[ATTACHMENT|artifacts\ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome\attachments\Dowód-wykonania-efc0c1842a525241b20fabefccde599966585a1f.json]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="UI-04 Niepoprawny email w kontakcie" classname="ui.spec.ts" time="19.842">
+<testcase name="UI-03 Pusty formularz kontaktowy" classname="ui.spec.ts" time="2.627">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\ui-UI-04-Niepoprawny-email-w-kontakcie-ui-chrome\attachments\Rzeczywisty-screenshot-ad09d84e940e78ae5a332f188767da13c9b94251.png]]
+[[ATTACHMENT|artifacts\ui-UI-03-Pusty-formularz-kontaktowy-ui-chrome\attachments\Krok-1-Pusty-formularz-przed-wysłaniem-cb4a31149c2b387c95e0358cfb64ac58bba553fd.png]]
 
-[[ATTACHMENT|artifacts\ui-UI-04-Niepoprawny-email-w-kontakcie-ui-chrome\attachments\Dowód-wykonania-3019f2623eea1717dd9a427314da5fe5cff3bd8b.json]]
+[[ATTACHMENT|artifacts\ui-UI-03-Pusty-formularz-kontaktowy-ui-chrome\attachments\Krok-2-Komunikaty-wymaganych-pól-HTTP-400-pod-formularzem-8de090c540ab2b5db83f28296be833aee1e7ed28.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-03-Pusty-formularz-kontaktowy-ui-chrome\attachments\Pełny-zrzut-strony-c91d7697cbee073c21d660fda9da81a8c10e311e.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-03-Pusty-formularz-kontaktowy-ui-chrome\attachments\Dowód-wykonania-1d29e10761db77fc9a095c77ef80dfe9dbe9fd9a.json]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="UI-05 Temat 4 znaki: poniżej minimum" classname="ui.spec.ts" time="10.463">
+<testcase name="UI-04 Niepoprawny email w kontakcie" classname="ui.spec.ts" time="2.681">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\ui-UI-05-Temat-4-znaki-poniżej-minimum-ui-chrome\attachments\Rzeczywisty-screenshot-197db35be1378da6f800383136e5f804ad1cef0c.png]]
+[[ATTACHMENT|artifacts\ui-UI-04-Niepoprawny-email-w-kontakcie-ui-chrome\attachments\Krok-1-Email-w-złym-formacie-„bledny-email”-00751d3c4fca95d3b4c725fb26a0b13376006295.png]]
 
-[[ATTACHMENT|artifacts\ui-UI-05-Temat-4-znaki-poniżej-minimum-ui-chrome\attachments\Dowód-wykonania-a026f243e1ca61b17b12184686f8ad053888ab8f.json]]
+[[ATTACHMENT|artifacts\ui-UI-04-Niepoprawny-email-w-kontakcie-ui-chrome\attachments\Krok-2-Reguła-3-błędny-email-odrzucony-HTTP-400--3626dbcf5b9e4098b11f866c46ca9b62ac4036db.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-04-Niepoprawny-email-w-kontakcie-ui-chrome\attachments\Krok-3-Reguła-4-błędny-email-i-temat-„ABCD”-–-oba-komunikaty-4dff4665eacb9e7c8b76875e15b0cb5bbf78c3b8.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-04-Niepoprawny-email-w-kontakcie-ui-chrome\attachments\Pełny-zrzut-strony-9a8483f3f167c83386d61643d3029bd1f8416b50.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-04-Niepoprawny-email-w-kontakcie-ui-chrome\attachments\Dowód-wykonania-41834b7e5d974c6e13d785ec3c0cca8f2dd1ea8a.json]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="UI-06 Temat 5 znaków: dolna granica" classname="ui.spec.ts" time="2.022">
+<testcase name="UI-05 Temat 4 znaki: poniżej minimum" classname="ui.spec.ts" time="2.484">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\test-failed-1.png]]
+[[ATTACHMENT|artifacts\ui-UI-05-Temat-4-znaki-poniżej-minimum-ui-chrome\attachments\Krok-1-Temat-„ABCD”-4-znaki-min-5-pozostałe-pola-poprawne-bebce1017b580689e841b4c8c21565576864b320.png]]
 
-[[ATTACHMENT|artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\attachments\Rzeczywisty-screenshot-0c72657bba68edbd616294922d8625fc01328900.png]]
+[[ATTACHMENT|artifacts\ui-UI-05-Temat-4-znaki-poniżej-minimum-ui-chrome\attachments\Krok-2-Odrzucenie-HTTP-400-„Subject-must-be-between-5-and-100-characters-”-f000d9969939a6a0e383c90ae4e8ccdceb754dd1.png]]
 
-[[ATTACHMENT|artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\attachments\Dowód-wykonania-07d602ea345d8f69fcbfbb542892dd9bd58b8f42.json]]
+[[ATTACHMENT|artifacts\ui-UI-05-Temat-4-znaki-poniżej-minimum-ui-chrome\attachments\Pełny-zrzut-strony-9720b48d380672516b147bee44507ce722693a6d.png]]
 
-[[ATTACHMENT|artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\error-context.md]]
-
-[[ATTACHMENT|artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\trace.zip]]
+[[ATTACHMENT|artifacts\ui-UI-05-Temat-4-znaki-poniżej-minimum-ui-chrome\attachments\Dowód-wykonania-ff0582604b294390a4df7827f5135561d568e80a.json]]
 ]]>
 </system-out>
-<failure message="Usunięto własną wiadomość UI" type="expect.toEqual">
-<![CDATA[  [ui-chrome] › ui.spec.ts:51:5 › UI-06 Temat 5 znaków: dolna granica ──────────────────────────────
-
-    Error: Usunięto własną wiadomość UI
-
-    expect(received).toEqual(expected) // deep equality
-
-    Expected: 200
-    Received: 500
-
-       at ..\helpers\audit.ts:33
-
-      31 |     expect(actual,label).toEqual(expected);
-      32 |   }
-    > 33 |   checkSoft(actual:any,expected:any,label:string){this.assertions.push({requestIndex:this.calls.length-1,label,actual:redact(actual),expected:redact(expected),pass:JSON.stringify(actual)===JSON.stringify(expected)});expect.soft(actual,label).toEqual(expected)}
-         |                                                                                                                                                                                                                                                   ^
-      34 |   note(value:any){this.observations.push(redact(value))}
-      35 |   async save() {
-      36 |     const id=this.info.title.match(/(?:UI|API)-\d+/)?.[0]||'unknown';
-        at Audit.checkSoft (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:33:243)
-        at cleanupUiMessage (E:\qa nowicki\QA-Project\05_Automation\helpers\audit.ts:76:7)
-        at E:\qa nowicki\QA-Project\05_Automation\tests\ui.spec.ts:53:288
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: Rzeczywisty screenshot (image/png) ──────────────────────────────────────────────
-    ..\reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\attachments\Rzeczywisty-screenshot-0c72657bba68edbd616294922d8625fc01328900.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #3: Dowód wykonania (application/json) ──────────────────────────────────────────────
-    ..\reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\attachments\Dowód-wykonania-07d602ea345d8f69fcbfbb542892dd9bd58b8f42.json
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\error-context.md
-
-    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
-    ..\reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\trace.zip
-    Usage:
-
-        npx playwright show-trace ..\reports\artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-]]>
-</failure>
 </testcase>
-<testcase name="UI-07 Telefon 10 znaków: poniżej minimum" classname="ui.spec.ts" time="19.872">
+<testcase name="UI-06 Temat 5 znaków: dolna granica" classname="ui.spec.ts" time="3.602">
+<properties>
+<property name="cleanup" value="Sprzątanie: usunięto własną wiadomość UI: oczekiwano 200, otrzymano 500 (nie wpływa na werdykt)">
+</property>
+</properties>
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\ui-UI-07-Telefon-10-znaków-poniżej-minimum-ui-chrome\attachments\Rzeczywisty-screenshot-3a0fb74daf0b666cb6e5a0e0d47c3167439e480e.png]]
+[[ATTACHMENT|artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\attachments\Krok-1-Temat-„ABCDE”-5-znaków-–-dolna-granica--659745fe663553865673004bfd17f07f658d1025.png]]
 
-[[ATTACHMENT|artifacts\ui-UI-07-Telefon-10-znaków-poniżej-minimum-ui-chrome\attachments\Dowód-wykonania-48be9861e257eca8ce2558a048edf3e6476e2757.json]]
+[[ATTACHMENT|artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\attachments\Krok-2-Wiadomość-przyjęta-HTTP-200-potwierdzenie-widoczne-0de6139456b43c58d5cddbfabd2dfd3f58604fc8.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\attachments\Pełny-zrzut-strony-479a780e74f083ead74e6a2101b30aad4ee28f00.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome\attachments\Dowód-wykonania-9848d788fb72e50c68b8542c81f5e93270567f97.json]]
+]]>
+</system-out>
+</testcase>
+<testcase name="UI-07 Telefon 10 znaków: poniżej minimum" classname="ui.spec.ts" time="2.331">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts\ui-UI-07-Telefon-10-znaków-poniżej-minimum-ui-chrome\attachments\Krok-1-Telefon-„1234567890”-10-znaków-min-11--27bc870308aa27ee2022810840debbce7c8f62b9.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-07-Telefon-10-znaków-poniżej-minimum-ui-chrome\attachments\Krok-2-Odrzucenie-HTTP-400-„Phone-must-be-between-11-and-21-characters-”-4a188bfdd1e55dc84a2c2f6618b52196077864ca.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-07-Telefon-10-znaków-poniżej-minimum-ui-chrome\attachments\Pełny-zrzut-strony-f0af123e758b76d5fb6ecf58fe164ebb598ea0f0.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-07-Telefon-10-znaków-poniżej-minimum-ui-chrome\attachments\Dowód-wykonania-4d961dcd5e8c5910f288a6bcda817b9df450fcd4.json]]
 ]]>
 </system-out>
 </testcase>
@@ -500,21 +508,29 @@
 <skipped>
 </skipped>
 </testcase>
-<testcase name="UI-11 Błędne logowanie administratora" classname="ui.spec.ts" time="0.836">
+<testcase name="UI-11 Błędne logowanie administratora" classname="ui.spec.ts" time="1.064">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\ui-UI-11-Błędne-logowanie-administratora-ui-chrome\attachments\Rzeczywisty-screenshot-a6f460add1475e35eb254faf36c49bb49d1bd3f3.png]]
+[[ATTACHMENT|artifacts\ui-UI-11-Błędne-logowanie-administratora-ui-chrome\attachments\Krok-1-Logowanie-z-niepoprawnymi-danymi-35f22f9179c03842658025092a3c6246b20d81be.png]]
 
-[[ATTACHMENT|artifacts\ui-UI-11-Błędne-logowanie-administratora-ui-chrome\attachments\Dowód-wykonania-5df5409bce944a7df7a3098dba11d691fd31ac8b.json]]
+[[ATTACHMENT|artifacts\ui-UI-11-Błędne-logowanie-administratora-ui-chrome\attachments\Krok-2-Odmowa-dostępu-HTTP-401-„Invalid-credentials”-brak-panelu-784ef5b248a06f5aa94a9ee2779ebd67eef56568.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-11-Błędne-logowanie-administratora-ui-chrome\attachments\Pełny-zrzut-strony-9dccc83dbcec85aaea37dba9faf4b551a98eb9fd.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-11-Błędne-logowanie-administratora-ui-chrome\attachments\Dowód-wykonania-3c57aebf1d666d1d041910f9fc3d82ba4c999466.json]]
 ]]>
 </system-out>
 </testcase>
-<testcase name="UI-12 Wyszukanie dostępności dla poprawnego okresu" classname="ui.spec.ts" time="1.345">
+<testcase name="UI-12 Wyszukanie dostępności dla poprawnego okresu" classname="ui.spec.ts" time="2.222">
 <system-out>
 <![CDATA[
-[[ATTACHMENT|artifacts\ui-UI-12-Wyszukanie-dostępności-dla-poprawnego-okresu-ui-chrome\attachments\Rzeczywisty-screenshot-8f772643206ff9b8557fdfed80370095e62a4a02.png]]
+[[ATTACHMENT|artifacts\ui-UI-12-Wyszukanie-dostępności-dla-poprawnego-okresu-ui-chrome\attachments\Krok-1-Wybrany-okres-2027-01-13-–-2027-01-15-e6154d5aba2f5398e84990092e77dbbbc300fbe8.png]]
 
-[[ATTACHMENT|artifacts\ui-UI-12-Wyszukanie-dostępności-dla-poprawnego-okresu-ui-chrome\attachments\Dowód-wykonania-c245ad519fe46ddba35277de7f62f6e760df395f.json]]
+[[ATTACHMENT|artifacts\ui-UI-12-Wyszukanie-dostępności-dla-poprawnego-okresu-ui-chrome\attachments\Krok-2-Wyniki-dostępne-pokoje-z-linkami-rezerwacji-dla-wybranych-dat-b6a54dc5856a78418e63551575c5d00a915c3d69.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-12-Wyszukanie-dostępności-dla-poprawnego-okresu-ui-chrome\attachments\Pełny-zrzut-strony-754b1f7bcaa292fa522b2273560ebfea170cb643.png]]
+
+[[ATTACHMENT|artifacts\ui-UI-12-Wyszukanie-dostępności-dla-poprawnego-okresu-ui-chrome\attachments\Dowód-wykonania-30cfdc6070294f4923a5e17be7aec29e06c2bba3.json]]
 ]]>
 </system-out>
 </testcase>

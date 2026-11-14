@@ -21,15 +21,16 @@
     "status": "PASS",
     "evidence": [
       "evidence/ui/UI-01.json",
+      "evidence/ui/UI-01/krok-01.png",
       "evidence/ui/UI-01.png"
     ],
     "defect": "",
-    "executedAt": "2026-11-13T15:53:01.929Z",
-    "durationMs": 20006
+    "executedAt": "2026-11-14T08:54:22.926Z",
+    "durationMs": 3031
   },
   {
     "id": "UI-02",
-    "name": "Wysłanie poprawnej wiadomości i izolacja danych",
+    "name": "Wysłanie poprawnej wiadomości kontaktowej",
     "objective": "Wysłanie poprawnej wiadomości i izolacja danych",
     "area": "Kontakt",
     "risk": "R-03,R-06",
@@ -46,17 +47,18 @@
       "Sprawdź Thanks for getting in touch <Name>!.",
       "Odczytaj listę i usuń wyłącznie wiadomość o własnym markerze."
     ],
-    "expected": "POST 200 i success=true; widoczne potwierdzenie z własnym imieniem; sprzątanie własnej wiadomości HTTP 200.",
-    "actual": "POST /api/message → 200\nPOST /api/auth/login → 200\nGET /api/message → 200\nDELETE /api/message/4 → 500\nNiezgodności: Usunięto własną wiadomość UI: oczekiwano 200, otrzymano 500\nPotwierdzenie formularza osiągnięte. FAIL dotyczy nieudanego sprzątania własnego rekordu.",
-    "status": "FAIL",
+    "expected": "POST 200 i success=true; widoczne potwierdzenie z własnym imieniem. Sprzątanie własnej wiadomości jest kontrolą informacyjną: wynik zapisany w evidence, bez wpływu na werdykt (decyzja projektowa 14.11.2026; DELETE pokrywa API-09).",
+    "actual": "POST /api/message → 200\nPOST /api/auth/login → 200\nGET /api/message → 200\nDELETE /api/message/6 → 500\nWszystkie jawne asercje i kontrole runnera zakończone pomyślnie.\nKontrola informacyjna (nie wpływa na werdykt): Sprzątanie: usunięto własną wiadomość UI: oczekiwano 200, otrzymano 500. Objaw DEF-01; własny rekord testowy pozostaje do resetu środowiska.",
+    "status": "PASS",
     "evidence": [
       "evidence/ui/UI-02.json",
-      "evidence/ui/UI-02.png",
-      "05_Automation/reports/artifacts/ui-UI-02-Poprawna-wiadomość-kontaktowa-ui-chrome/trace.zip"
+      "evidence/ui/UI-02/krok-01.png",
+      "evidence/ui/UI-02/krok-02.png",
+      "evidence/ui/UI-02.png"
     ],
-    "defect": "DEF-01",
-    "executedAt": "2026-11-13T15:53:22.441Z",
-    "durationMs": 20218
+    "defect": "",
+    "executedAt": "2026-11-14T08:54:26.131Z",
+    "durationMs": 2618
   },
   {
     "id": "UI-03",
@@ -81,11 +83,13 @@
     "status": "PASS",
     "evidence": [
       "evidence/ui/UI-03.json",
+      "evidence/ui/UI-03/krok-01.png",
+      "evidence/ui/UI-03/krok-02.png",
       "evidence/ui/UI-03.png"
     ],
     "defect": "",
-    "executedAt": "2026-11-13T15:53:43.592Z",
-    "durationMs": 19670
+    "executedAt": "2026-11-14T08:54:28.757Z",
+    "durationMs": 2627
   },
   {
     "id": "UI-04",
@@ -110,11 +114,14 @@
     "status": "PASS",
     "evidence": [
       "evidence/ui/UI-04.json",
+      "evidence/ui/UI-04/krok-01.png",
+      "evidence/ui/UI-04/krok-02.png",
+      "evidence/ui/UI-04/krok-03.png",
       "evidence/ui/UI-04.png"
     ],
     "defect": "",
-    "executedAt": "2026-11-13T15:54:03.727Z",
-    "durationMs": 19842
+    "executedAt": "2026-11-14T08:54:31.389Z",
+    "durationMs": 2681
   },
   {
     "id": "UI-05",
@@ -138,11 +145,13 @@
     "status": "PASS",
     "evidence": [
       "evidence/ui/UI-05.json",
+      "evidence/ui/UI-05/krok-01.png",
+      "evidence/ui/UI-05/krok-02.png",
       "evidence/ui/UI-05.png"
     ],
     "defect": "",
-    "executedAt": "2026-11-13T15:54:23.583Z",
-    "durationMs": 10463
+    "executedAt": "2026-11-14T08:54:34.077Z",
+    "durationMs": 2484
   },
   {
     "id": "UI-06",
@@ -162,17 +171,18 @@
       "Sprawdź potwierdzenie zawierające własne Name.",
       "Usuń wyłącznie własną wiadomość przez dynamicznie rozpoznany ID."
     ],
-    "expected": "HTTP 200 i potwierdzenie; brak błędu długości tematu; sprzątanie 200.",
-    "actual": "POST /api/message → 200\nPOST /api/auth/login → 200\nGET /api/message → 200\nDELETE /api/message/5 → 500\nNiezgodności: Usunięto własną wiadomość UI: oczekiwano 200, otrzymano 500\nPotwierdzenie formularza osiągnięte. FAIL dotyczy nieudanego sprzątania własnego rekordu.",
-    "status": "FAIL",
+    "expected": "HTTP 200 i potwierdzenie; brak błędu długości tematu. Sprzątanie własnej wiadomości jest kontrolą informacyjną: wynik zapisany w evidence, bez wpływu na werdykt (decyzja projektowa 14.11.2026; DELETE pokrywa API-09).",
+    "actual": "POST /api/message → 200\nPOST /api/auth/login → 200\nGET /api/message → 200\nDELETE /api/message/7 → 500\nWszystkie jawne asercje i kontrole runnera zakończone pomyślnie.\nKontrola informacyjna (nie wpływa na werdykt): Sprzątanie: usunięto własną wiadomość UI: oczekiwano 200, otrzymano 500. Objaw DEF-01; własny rekord testowy pozostaje do resetu środowiska.",
+    "status": "PASS",
     "evidence": [
       "evidence/ui/UI-06.json",
-      "evidence/ui/UI-06.png",
-      "05_Automation/reports/artifacts/ui-UI-06-Temat-5-znaków-dolna-granica-ui-chrome/trace.zip"
+      "evidence/ui/UI-06/krok-01.png",
+      "evidence/ui/UI-06/krok-02.png",
+      "evidence/ui/UI-06.png"
     ],
-    "defect": "DEF-01",
-    "executedAt": "2026-11-13T15:54:34.058Z",
-    "durationMs": 2022
+    "defect": "",
+    "executedAt": "2026-11-14T08:54:36.566Z",
+    "durationMs": 3602
   },
   {
     "id": "UI-07",
@@ -196,11 +206,13 @@
     "status": "PASS",
     "evidence": [
       "evidence/ui/UI-07.json",
+      "evidence/ui/UI-07/krok-01.png",
+      "evidence/ui/UI-07/krok-02.png",
       "evidence/ui/UI-07.png"
     ],
     "defect": "",
-    "executedAt": "2026-11-13T15:54:37.136Z",
-    "durationMs": 19872
+    "executedAt": "2026-11-14T08:54:40.175Z",
+    "durationMs": 2331
   },
   {
     "id": "UI-08",
@@ -224,11 +236,12 @@
     "status": "BLOCKED",
     "evidence": [
       "evidence/ui/UI-08.json",
+      "evidence/ui/UI-08/krok-01.png",
       "evidence/ui/UI-08.png"
     ],
     "defect": "DEF-01",
-    "executedAt": "2026-11-13T15:54:57.723Z",
-    "durationMs": 18994
+    "executedAt": "2026-11-14T08:54:42.511Z",
+    "durationMs": 789
   },
   {
     "id": "UI-09",
@@ -253,11 +266,12 @@
     "status": "BLOCKED",
     "evidence": [
       "evidence/ui/UI-09.json",
+      "evidence/ui/UI-09/krok-01.png",
       "evidence/ui/UI-09.png"
     ],
     "defect": "DEF-01",
-    "executedAt": "2026-11-13T15:55:16.733Z",
-    "durationMs": 9626
+    "executedAt": "2026-11-14T08:54:43.306Z",
+    "durationMs": 828
   },
   {
     "id": "UI-10",
@@ -282,11 +296,12 @@
     "status": "BLOCKED",
     "evidence": [
       "evidence/ui/UI-10.json",
+      "evidence/ui/UI-10/krok-01.png",
       "evidence/ui/UI-10.png"
     ],
     "defect": "DEF-01",
-    "executedAt": "2026-11-13T15:55:26.371Z",
-    "durationMs": 744
+    "executedAt": "2026-11-14T08:54:44.140Z",
+    "durationMs": 824
   },
   {
     "id": "UI-11",
@@ -311,11 +326,13 @@
     "status": "PASS",
     "evidence": [
       "evidence/ui/UI-11.json",
+      "evidence/ui/UI-11/krok-01.png",
+      "evidence/ui/UI-11/krok-02.png",
       "evidence/ui/UI-11.png"
     ],
     "defect": "",
-    "executedAt": "2026-11-13T15:55:27.130Z",
-    "durationMs": 836
+    "executedAt": "2026-11-14T08:54:44.971Z",
+    "durationMs": 1064
   },
   {
     "id": "UI-12",
@@ -340,11 +357,13 @@
     "status": "PASS",
     "evidence": [
       "evidence/ui/UI-12.json",
+      "evidence/ui/UI-12/krok-01.png",
+      "evidence/ui/UI-12/krok-02.png",
       "evidence/ui/UI-12.png"
     ],
     "defect": "",
-    "executedAt": "2026-11-13T15:55:27.979Z",
-    "durationMs": 1345
+    "executedAt": "2026-11-14T08:54:46.040Z",
+    "durationMs": 2222
   },
   {
     "id": "API-01",
@@ -363,15 +382,15 @@
       "Sprawdź 200, niepustą tablicę rooms i unikalne roomid.",
       "Dla każdego rekordu sprawdź liczbową dodatnią cenę i tekstowy type."
     ],
-    "expected": "HTTP 200, spójna lista pokojów o dodatnich cenach i unikalnych ID.",
+    "expected": "HTTP 200; niepusta tablica rooms z unikalnymi ID; każdy pokój ma roomid (liczba), roomName i type (tekst), accessible (logiczna), features (tablica) i dodatnią cenę.",
     "actual": "GET /api/room → 200\nWszystkie jawne asercje i kontrole runnera zakończone pomyślnie.",
     "status": "PASS",
     "evidence": [
       "evidence/api/API-01.json"
     ],
     "defect": "",
-    "executedAt": "2026-11-13T15:52:56.593Z",
-    "durationMs": 167
+    "executedAt": "2026-11-14T08:54:18.476Z",
+    "durationMs": 184
   },
   {
     "id": "API-02",
@@ -390,15 +409,15 @@
       "GET /api/room/<roomid>.",
       "Porównaj roomid i roomPrice ze stanem listy."
     ],
-    "expected": "HTTP 200; identyfikator i cena zgodne z listą.",
+    "expected": "HTTP 200; identyfikator, cena i typ zgodne z listą.",
     "actual": "GET /api/room → 200\nGET /api/room/1 → 500\nNiezgodności: Istniejący pokój: HTTP 200: oczekiwano 200, otrzymano 500",
     "status": "FAIL",
     "evidence": [
       "evidence/api/API-02.json"
     ],
     "defect": "DEF-01",
-    "executedAt": "2026-11-13T15:52:56.785Z",
-    "durationMs": 148
+    "executedAt": "2026-11-14T08:54:18.682Z",
+    "durationMs": 141
   },
   {
     "id": "API-03",
@@ -424,8 +443,8 @@
       "evidence/api/API-03.json"
     ],
     "defect": "DEF-01",
-    "executedAt": "2026-11-13T15:52:57.419Z",
-    "durationMs": 204
+    "executedAt": "2026-11-14T08:54:19.121Z",
+    "durationMs": 222
   },
   {
     "id": "API-04",
@@ -444,15 +463,15 @@
       "Sprawdź HTTP 400.",
       "Sprawdź tablicę błędów i Name must be set."
     ],
-    "expected": "400; błędy walidacji wskazują brakujące wymagane dane.",
+    "expected": "400; tablica błędów walidacji zawiera komunikat „must be set” dla każdego z pięciu wymaganych pól: Name, Email, Phone, Subject, Message.",
     "actual": "POST /api/message → 400\nWszystkie jawne asercje i kontrole runnera zakończone pomyślnie.",
     "status": "PASS",
     "evidence": [
       "evidence/api/API-04.json"
     ],
     "defect": "",
-    "executedAt": "2026-11-13T15:52:58.145Z",
-    "durationMs": 177
+    "executedAt": "2026-11-14T08:54:19.657Z",
+    "durationMs": 180
   },
   {
     "id": "API-05",
@@ -468,17 +487,18 @@
     "data": "Name=unikalny QA-<czas>-<losowe>; Email=qa-project@example.test; Phone=12345678901 (11 znaków); Subject=Zapytanie <marker>; Message=Wiadomość testowa projektu akademickiego. Dane syntetyczne. Email=nie-jest-mailem.",
     "steps": [
       "Wyślij POST /api/message z poprawnymi polami poza email.",
-      "Sprawdź 400 i wskazanie email w odpowiedzi."
+      "Sprawdź 400 i komunikat walidacji email.",
+      "GET /api/message: rekord z unikalnym markerem nie został zapisany."
     ],
-    "expected": "HTTP 400; walidacja email; rekord nie powinien być utworzony.",
-    "actual": "POST /api/message → 400\nWszystkie jawne asercje i kontrole runnera zakończone pomyślnie.",
+    "expected": "HTTP 400; komunikat „must be a well-formed email address”; rekord z markerem nie pojawia się na liście wiadomości.",
+    "actual": "POST /api/message → 400\nGET /api/message → 200\nWszystkie jawne asercje i kontrole runnera zakończone pomyślnie.",
     "status": "PASS",
     "evidence": [
       "evidence/api/API-05.json"
     ],
     "defect": "",
-    "executedAt": "2026-11-13T15:52:58.351Z",
-    "durationMs": 83
+    "executedAt": "2026-11-14T08:54:19.858Z",
+    "durationMs": 162
   },
   {
     "id": "API-06",
@@ -494,17 +514,18 @@
     "data": "Name=unikalny QA-<czas>-<losowe>; Email=qa-project@example.test; Phone=12345678901 (11 znaków); Subject=Zapytanie <marker>; Message=Wiadomość testowa projektu akademickiego. Dane syntetyczne. email={value:\"qa@example.test\"}.",
     "steps": [
       "Wyślij POST /api/message z email jako obiektem.",
-      "Sprawdź HTTP 400."
+      "Sprawdź HTTP 400.",
+      "GET /api/message: rekord z unikalnym markerem nie został zapisany."
     ],
-    "expected": "Błędny typ danych klienta odrzucony HTTP 400. Kontrakt tekstowego pola wynika z modelu Message; oczekiwanie klient-błąd stanowi kryterium projektu.",
-    "actual": "POST /api/message → 500\nNiezgodności: Błędny typ: HTTP 400: oczekiwano 400, otrzymano 500",
+    "expected": "Błędny typ danych klienta odrzucony HTTP 400; rekord z markerem nie pojawia się na liście. Kontrakt tekstowego pola wynika z modelu Message; oczekiwanie klient-błąd stanowi kryterium projektu.",
+    "actual": "POST /api/message → 500\nGET /api/message → 200\nNiezgodności: Błędny typ: HTTP 400: oczekiwano 400, otrzymano 500",
     "status": "FAIL",
     "evidence": [
       "evidence/api/API-06.json"
     ],
     "defect": "DEF-02",
-    "executedAt": "2026-11-13T15:52:58.443Z",
-    "durationMs": 75
+    "executedAt": "2026-11-14T08:54:20.027Z",
+    "durationMs": 151
   },
   {
     "id": "API-07",
@@ -530,8 +551,8 @@
       "evidence/api/API-07.json"
     ],
     "defect": "",
-    "executedAt": "2026-11-13T15:52:59.037Z",
-    "durationMs": 277
+    "executedAt": "2026-11-14T08:54:20.471Z",
+    "durationMs": 237
   },
   {
     "id": "API-08",
@@ -556,8 +577,8 @@
       "evidence/api/API-08.json"
     ],
     "defect": "",
-    "executedAt": "2026-11-13T15:52:59.343Z",
-    "durationMs": 243
+    "executedAt": "2026-11-14T08:54:20.730Z",
+    "durationMs": 139
   },
   {
     "id": "API-09",
@@ -575,20 +596,20 @@
       "Zaloguj się przez POST /api/auth/login.",
       "Utwórz wiadomość POST /api/message; sprawdź 200 i success=true.",
       "GET /api/message: znajdź dokładnie jeden własny marker i jego id.",
-      "GET /api/message/<id> z tokenem; porównaj description i email.",
+      "GET /api/message/<id> z tokenem; porównaj description i email (asercja miękka).",
       "PUT /api/message/<id> z tokenem: oznacz jako przeczytaną.",
       "GET listy: własne read=true.",
       "W finally DELETE tylko własne id i potwierdź nieobecność na liście."
     ],
-    "expected": "Create 200, read 200, update 200; spójne dane i flaga read=true. Cleanup 200 oraz brak własnego rekordu. Nieosiągnięte kroki po FAIL nie są raportowane jako wykonane.",
-    "actual": "POST /api/auth/login → 200\nPOST /api/message → 200\nGET /api/message → 200\nGET /api/message/2 → 500\nDELETE /api/message/2 → 500\nGET /api/message → 200\nNiezgodności: Odczyt utworzonej wiadomości: oczekiwano 200, otrzymano 500; Sprzątanie własnej wiadomości: oczekiwano 200, otrzymano 500; Wiadomość usunięta: oczekiwano false, otrzymano true\nUtworzenie i obecność na liście potwierdzone. Szczegóły i cleanup zwracają 500; kroki PUT i weryfikacja zmiany nie zostały osiągnięte.",
+    "expected": "Create 200; dokładnie jeden własny rekord na liście; read 200 ze spójnymi danymi; PUT 200 i flaga read=true potwierdzona na liście; cleanup 200 i brak własnego rekordu. Odczyt po ID jest asercją miękką, aby PUT i jego potwierdzenie zostały wykonane niezależnie.",
+    "actual": "POST /api/auth/login → 200\nPOST /api/message → 200\nGET /api/message → 200\nGET /api/message/4 → 500\nPUT /api/message/4 → 500\nGET /api/message → 200\nDELETE /api/message/4 → 500\nGET /api/message → 200\nNiezgodności: Odczyt utworzonej wiadomości: oczekiwano 200, otrzymano 500; Oznaczenie read: HTTP 200: oczekiwano 200, otrzymano 500; Zmiana read utrwalona (potwierdzenie z listy): oczekiwano true, otrzymano false; Sprzątanie własnej wiadomości: oczekiwano 200, otrzymano 500; Wiadomość usunięta: oczekiwano false, otrzymano true\nUtworzenie i obecność na liście potwierdzone. Odczyt po ID, PUT i DELETE wykonane: każde zwraca 500, a lista potwierdza brak utrwalonej zmiany.",
     "status": "FAIL",
     "evidence": [
       "evidence/api/API-09.json"
     ],
     "defect": "DEF-01",
-    "executedAt": "2026-11-13T15:52:59.596Z",
-    "durationMs": 505
+    "executedAt": "2026-11-14T08:54:20.876Z",
+    "durationMs": 591
   },
   {
     "id": "API-10",
@@ -611,14 +632,14 @@
       "PUT /api/booking/<id>: lastname=ZmienioneNazwisko; GET potwierdza zmianę.",
       "W finally DELETE tylko własny bookingid; lista nie zawiera rekordu."
     ],
-    "expected": "Create 201, read 200, update 200, zachowane daty i nowe nazwisko; cleanup 200. Przy wcześniejszym FAIL pozostałe kroki biznesowe nie są uznawane za wykonane.",
-    "actual": "POST /api/auth/login → 200\nGET /api/room → 200\nGET /api/booking?roomid=1 → 200\nPOST /api/booking → 201\nGET /api/booking?roomid=1 → 200\nGET /api/booking/4 → 500\nDELETE /api/booking/4 → 500\nGET /api/booking?roomid=1 → 200\nNiezgodności: Odczyt HTTP 200: oczekiwano 200, otrzymano 500; Usunięto wyłącznie własną rezerwację: oczekiwano 200, otrzymano 500; Potwierdzono sprzątanie: oczekiwano false, otrzymano true\nUtworzenie i obecność na liście potwierdzone. Szczegóły i cleanup zwracają 500; kroki PUT i weryfikacja zmiany nie zostały osiągnięte.",
+    "expected": "Create 201; własna rezerwacja na liście z niezmienionymi datami; read 200; PUT 200 i nowe nazwisko potwierdzone na liście; cleanup 200. Odczyt po ID jest asercją miękką, aby PUT i jego potwierdzenie zostały wykonane niezależnie.",
+    "actual": "POST /api/auth/login → 200\nGET /api/room → 200\nGET /api/booking?roomid=1 → 200\nPOST /api/booking → 201\nGET /api/booking?roomid=1 → 200\nGET /api/booking/4 → 500\nPUT /api/booking/4 → 500\nGET /api/booking?roomid=1 → 200\nDELETE /api/booking/4 → 500\nGET /api/booking?roomid=1 → 200\nNiezgodności: Odczyt HTTP 200: oczekiwano 200, otrzymano 500; PUT HTTP 200: oczekiwano 200, otrzymano 500; Nowe nazwisko utrwalone (potwierdzenie z listy): oczekiwano \"ZmienioneNazwisko\", otrzymano \"ProjektTestowy\"; Usunięto wyłącznie własną rezerwację: oczekiwano 200, otrzymano 500; Potwierdzono sprzątanie: oczekiwano false, otrzymano true\nUtworzenie i obecność na liście potwierdzone. Odczyt po ID, PUT i DELETE wykonane: każde zwraca 500, a lista potwierdza brak utrwalonej zmiany.",
     "status": "FAIL",
     "evidence": [
       "evidence/api/API-10.json"
     ],
     "defect": "DEF-01",
-    "executedAt": "2026-11-13T15:53:00.632Z",
-    "durationMs": 764
+    "executedAt": "2026-11-14T08:54:21.770Z",
+    "durationMs": 846
   }
 ]

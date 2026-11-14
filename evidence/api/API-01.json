@@ -1,12 +1,13 @@
 {
   "caseId": "API-01",
-  "executedAt": "2026-11-13T15:52:56.619Z",
-  "finishedAt": "2026-11-13T15:52:56.776Z",
+  "executedAt": "2026-11-14T08:54:18.499Z",
+  "finishedAt": "2026-11-14T08:54:18.675Z",
   "runnerStatus": "passed",
   "annotations": [],
+  "steps": [],
   "requests": [
     {
-      "startedAt": "2026-11-13T15:52:56.620Z",
+      "startedAt": "2026-11-14T08:54:18.499Z",
       "request": {
         "method": "GET",
         "url": "https://automationintesting.online/api/room",
@@ -16,20 +17,20 @@
       "response": {
         "status": 200,
         "headers": {
-          "date": "Fri, 13 Nov 2026 15:52:58 GMT",
+          "date": "Sat, 14 Nov 2026 08:54:18 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "3-gEmUBCQXGsexp3WVMv1w",
+          "x-railway-request-id": "rzloG1o-TpqC45S455So4g",
           "x-railway-edge": "waw1",
-          "x-hikari-trace": "waw1.qkma",
+          "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=BAkWWvmc6GRxSR%2B3NIMR9QLVaCvHg%2FQcF7sbKPckpfQqWZBtmwmiWSEm%2FS9m9UiatO0fmRRqXs6QVOZQDhTeoh3%2FXJo5%2BqxxdxVaTK3ATbABulg20HFlBPYQ62jodidkXMsope8Uo1Uq2m3q5Q%3D%3D\"}]}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=0I4ff%2Ba7kjkaC9%2FsX00%2B1Fg8bnFvS8OoezgJ9stlcX4Ahv4qUbqj32crf6s36ULCSWJXh1p9G30ZiXm9j9UrJCQbnz%2FtwY%2FgViMB9yaGtHOl9OtLqFpp4ld5T7BVMq7iOCHtVOyOzyZvEgz7mchPCSLjjHpUdF3ZKQ%3D%3D\"}]}",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
           "content-encoding": "br",
-          "cf-ray": "a59ef25828b43196-WAW",
+          "cf-ray": "a5a4ca6ec909e75e-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {
@@ -112,6 +113,41 @@
     },
     {
       "requestIndex": 0,
+      "label": "roomid jest liczbą",
+      "actual": "number",
+      "expected": "number",
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
+      "label": "roomName jest tekstem",
+      "actual": "string",
+      "expected": "string",
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
+      "label": "Typ pokoju jest tekstem",
+      "actual": "string",
+      "expected": "string",
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
+      "label": "accessible jest wartością logiczną",
+      "actual": "boolean",
+      "expected": "boolean",
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
+      "label": "features jest tablicą",
+      "actual": true,
+      "expected": true,
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
       "label": "Cena jest liczbą",
       "actual": "number",
       "expected": "number",
@@ -126,9 +162,37 @@
     },
     {
       "requestIndex": 0,
+      "label": "roomid jest liczbą",
+      "actual": "number",
+      "expected": "number",
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
+      "label": "roomName jest tekstem",
+      "actual": "string",
+      "expected": "string",
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
       "label": "Typ pokoju jest tekstem",
       "actual": "string",
       "expected": "string",
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
+      "label": "accessible jest wartością logiczną",
+      "actual": "boolean",
+      "expected": "boolean",
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
+      "label": "features jest tablicą",
+      "actual": true,
+      "expected": true,
       "pass": true
     },
     {
@@ -147,9 +211,37 @@
     },
     {
       "requestIndex": 0,
+      "label": "roomid jest liczbą",
+      "actual": "number",
+      "expected": "number",
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
+      "label": "roomName jest tekstem",
+      "actual": "string",
+      "expected": "string",
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
       "label": "Typ pokoju jest tekstem",
       "actual": "string",
       "expected": "string",
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
+      "label": "accessible jest wartością logiczną",
+      "actual": "boolean",
+      "expected": "boolean",
+      "pass": true
+    },
+    {
+      "requestIndex": 0,
+      "label": "features jest tablicą",
+      "actual": true,
+      "expected": true,
       "pass": true
     },
     {
@@ -164,13 +256,6 @@
       "label": "Cena dodatnia",
       "actual": true,
       "expected": true,
-      "pass": true
-    },
-    {
-      "requestIndex": 0,
-      "label": "Typ pokoju jest tekstem",
-      "actual": "string",
-      "expected": "string",
       "pass": true
     }
   ],

@@ -1,9 +1,0 @@
-{
-  "observedAt": "2026-11-13T16:09:55.914Z",
-  "url": "http://127.0.0.1:9323",
-  "status": 200,
-  "body": "All19\nPassed12\nFailed7\nFlaky0\nSkipped3\n13.11.2026, 16:52:55\nTotal time: 2.6m\napi.spec.ts\nAPI-02 Szczegóły pokoju zgodne z listąapi\n148ms\napi.spec.ts:10\nAPI-03 Nieistniejący pokój: HTTP 404api\n204ms\napi.spec.ts:14\nAPI-06 Email jako obiekt zamiast tekstuapi\n75ms\napi.spec.ts:27\nAPI-09 Wiadomość: utwórz, odczytaj, oznacz przeczytanąapi\n505ms\napi.spec.ts:36\nAPI-10 Rezerwacja: utwórz, odczytaj i zmień nazwiskoapi\n764ms\napi.spec.ts:50\nAPI-01 Lista pokoi: schemat i unikalne identyfikatoryapi\n167ms\napi.spec.ts:3\nAPI-04 Wiadomość bez wymaganych pólapi\n177ms\napi.spec.ts:20\nAPI-05 Niepoprawny format email wiadomościapi\n83ms\napi.spec.ts:24\nAPI-07 Rezerwacje bez uwierzytelnieniaapi\n277ms\napi.spec.ts:30\nAPI-08 Nieprawidłowe dane logowaniaapi\n243ms\napi.spec.ts:33\nui.spec.ts\nUI-02 Poprawna wiadomość kontaktowaui-chrome\n20.2s\nui.spec.ts:35\nView Trace\nUI-06 Temat 5 znaków: dolna granicaui-chrome\n2.0s\nui.spec.ts:51\nView Trace\nUI-01 Katalog pokoi zgodny z APIui-chrome\n20.0s\nui.spec.ts:30\nUI-03 Pusty formularz kontaktowyui-chrome\n19.7s\nui.spec.ts:39\nUI-04 Niepoprawny email w kontakcieui-chrome\n19.8s\nui.spec.ts:42\nUI-05 Temat 4 znaki: poniżej minimumui-chrome\n10.5s\nui.spec.ts:48\nUI-07 Telefon 10 znaków: poniżej minimumui-chrome\n19.9s\nui.spec.ts:55\nUI-11 Błędne logowanie administratoraui-chrome\n836ms\nui.spec.ts:73\nUI-12 Wyszukanie dostępności dla poprawnego okresuui-chrome\n1.3s\nui.spec.ts:77",
-  "node": "v25.9.0",
-  "playwright": "1.62.1",
-  "browser": "157.0.8103.52"
-}

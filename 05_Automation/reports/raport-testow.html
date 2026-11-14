@@ -1,0 +1,1747 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Raport z testów – Restful-Booker-Platform</title>
+<style>
+:root{--bg:#f5f3ee;--card:#fff;--ink:#15213a;--soft:#4a556b;--line:#ddd6c8;--pass:#1f6f43;--passbg:#dcefe3;--fail:#a3361a;--failbg:#f8e0d6;--blk:#5e6573;--blkbg:#e6e8ec;--info:#7a5a00;--infobg:#f6ecc8;--acc:#2f5fd0}
+@media (prefers-color-scheme:dark){:root{--bg:#121826;--card:#1b2335;--ink:#e8ecf4;--soft:#aab4c8;--line:#2e3a55;--pass:#7fd3a0;--passbg:#1d3a2a;--fail:#ff9f7a;--failbg:#45251c;--blk:#c3cbda;--blkbg:#2a3246;--info:#f0cf6a;--infobg:#3d3418;--acc:#8fb0ff}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Segoe UI",system-ui,-apple-system,Arial,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:28px;margin:0 0 4px}h2{font-size:21px;margin:34px 0 12px}h4{margin:18px 0 8px}h5{margin:0 0 4px;font-size:12px;color:var(--soft);text-transform:uppercase;letter-spacing:.5px}
+.sub{color:var(--soft);margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}.kpi b{display:block;font-size:30px;line-height:1.1}.kpi span{color:var(--soft);font-size:13px}
+.kpi.PASS b{color:var(--pass)}.kpi.FAIL b{color:var(--fail)}.kpi.BLOCKED b{color:var(--blk)}
+.verdict{margin-top:14px;background:var(--failbg);border:1px solid var(--fail);border-radius:12px;padding:14px 18px}.verdict b{color:var(--fail);font-size:20px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:13px;color:var(--soft)}
+td.PASS{color:var(--pass);font-weight:600}td.FAIL{color:var(--fail);font-weight:600}td.BLOCKED{color:var(--blk);font-weight:600}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}.filters button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:20px;padding:5px 14px;cursor:pointer;font:inherit}.filters button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.case{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:8px}
+.case>details>summary{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px 14px;cursor:pointer;list-style:none}.case>details>summary::-webkit-details-marker{display:none}
+.case>details[open]>summary{border-bottom:1px solid var(--line)}
+.status{font-weight:700;font-size:12px;padding:3px 9px;border-radius:12px;min-width:74px;text-align:center}
+.status.PASS{background:var(--passbg);color:var(--pass)}.status.FAIL{background:var(--failbg);color:var(--fail)}.status.BLOCKED{background:var(--blkbg);color:var(--blk)}
+.cid{font-weight:700;font-family:Consolas,monospace}.cname{flex:1;min-width:220px}.meta{color:var(--soft);font-size:13px}
+.body{padding:12px 16px 16px}dl{display:grid;grid-template-columns:170px 1fr;gap:6px 14px;margin:0}dt{color:var(--soft);font-size:13px}dd{margin:0}dd ol{margin:0;padding-left:20px}
+.steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin:8px 0}.step{margin:0;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px}.step img{display:block;width:100%;max-height:300px;object-fit:contain;object-position:top left;background:#fff;border-radius:6px;border:1px solid var(--line)}.step figcaption{font-size:13px;margin-top:6px}
+.asserts td code{font-size:12px}.tag{font-size:11px;font-weight:700;padding:2px 7px;border-radius:10px}.tag.ok{background:var(--passbg);color:var(--pass)}.tag.bad{background:var(--failbg);color:var(--fail)}.tag.info{background:var(--infobg);color:var(--info)}
+.req{border:1px solid var(--line);border-radius:8px;margin:6px 0}.req summary{padding:6px 10px;cursor:pointer;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.req .m{font-weight:700;font-family:Consolas,monospace;min-width:56px}.idx{margin-left:auto;color:var(--soft);font-size:12px}
+.http{font-weight:700;font-family:Consolas,monospace;padding:1px 7px;border-radius:8px}.http.h2{background:var(--passbg);color:var(--pass)}.http.h4{background:var(--infobg);color:var(--info)}.http.h5{background:var(--failbg);color:var(--fail)}
+.io{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 10px 10px}pre{margin:0;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px;font-size:12px;max-height:260px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+code{font-family:Consolas,monospace}
+.defect{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin-bottom:10px}.defect p{margin:6px 0}.dhead{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.sev{font-weight:700;font-size:12px;padding:3px 9px;border-radius:12px}.sev.S1{background:var(--fail);color:#fff}.sev.S2{background:var(--failbg);color:var(--fail)}.sev.S3,.sev.S4{background:var(--blkbg);color:var(--blk)}
+.small{font-size:13px;color:var(--soft)}footer{margin-top:40px;color:var(--soft);font-size:13px}
+@media (max-width:700px){dl{grid-template-columns:1fr}.io{grid-template-columns:1fr}}
+@media print{.filters{display:none}details{display:block}.case details>*{display:block}}
+</style></head><body><div class="wrap">
+<h1>Raport z testów – Restful-Booker-Platform</h1>
+<p class="sub">SUT: automationintesting.online (UI v2.2) · pełny przebieg 14.11.2026, 09:54:18 – 14.11.2026, 09:54:48 · Chrome, Playwright 1.62.1, Europe/Warsaw</p>
+<div class="grid">
+  <div class="kpi"><b>22</b><span>zaplanowane</span></div>
+  <div class="kpi"><b>19</b><span>wykonane (PASS+FAIL)</span></div>
+  <div class="kpi PASS"><b>14</b><span>PASS</span></div>
+  <div class="kpi FAIL"><b>5</b><span>FAIL</span></div>
+  <div class="kpi BLOCKED"><b>3</b><span>BLOCKED</span></div>
+  <div class="kpi"><b>0</b><span>NOT RUN</span></div>
+</div>
+<div class="verdict"><b>Rekomendacja: NO-GO</b><br>Trasy API z identyfikatorem (/{id}) zwracają HTTP 500, co blokuje rezerwację gościa (DEF-01, S1). Działające kontakt, walidacje i odmowa dostępu nie równoważą tej blokady.</div>
+<h2>Metryki</h2>
+<div class="grid" style="grid-template-columns:2fr 1fr">
+<div class="panel"><table><tr><th>Typ</th><th>Plan</th><th>PASS</th><th>FAIL</th><th>BLOCKED</th><th>NOT RUN</th></tr><tr><td>UI</td><td>12</td><td class="PASS">9</td><td class="FAIL">0</td><td class="BLOCKED">3</td><td>0</td></tr><tr><td>API</td><td>10</td><td class="PASS">5</td><td class="FAIL">5</td><td class="BLOCKED">0</td><td>0</td></tr></table>
+<p class="small">Pokrycie wykonaniem 86,4% · PASS wśród wykonanych 73,7% · 12 przypadków negatywnych · defekty: S1=1, S2=1, S3=2, S4=0</p></div>
+<div class="panel"><h5>Zespół</h5><p class="small" style="color:var(--ink)">Kamil Andrzejewski (83741) – test lead i koordynacja (ryzyka, spójność artefaktów, rekomendacja)<br>Karol Myszkowski (77514) – projekt testów (przypadki, techniki EP/BVA/DT)<br>Kacper Walkowiak (77519) – wykonanie testów, evidence i defekty<br>Mateusz Krzyzak (77862) – API i automatyzacja</p></div>
+</div>
+<h2>Przypadki testowe (22)</h2>
+<div class="filters" role="group" aria-label="Filtr">
+  <button data-f="all" class="on">Wszystkie</button><button data-f="PASS">PASS</button><button data-f="FAIL">FAIL</button><button data-f="BLOCKED">BLOCKED</button><button data-f="UI">UI</button><button data-f="API">API</button>
+  <button data-x="open">Rozwiń wszystkie</button><button data-x="close">Zwiń</button>
+</div>
+
+  <article class="case" data-status="PASS" data-type="UI" id="UI-01">
+    <details>
+      <summary>
+        <span class="status PASS">PASS</span>
+        <span class="cid">UI-01</span>
+        <span class="cname">Katalog pokoi zgodny z aktualnym API</span>
+        <span class="meta">P2 · Pozytywny · R-02</span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Katalog pokoi zgodny z aktualnym API</dd>
+          <dt>Technika</dt><dd>Porównanie między interfejsami</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy.</dd>
+          <dt>Dane testowe</dt><dd>Pokoje z GET /api/room. Ceny i typy pobrane dynamicznie.</dd>
+          <dt>Kroki</dt><dd><ol><li>GET /api/room: potwierdź 200 i pobierz rooms.</li><li>Otwórz stronę główną, poczekaj na sekcję Our Rooms.</li><li>Dla pokoi z listy sprawdź typ, cenę za noc i link /reservation/&lt;roomid&gt;.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>Widoczne typy i ceny odpowiadają API; linki używają bieżących ID.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>GET /api/room → 200<br>Wszystkie jawne asercje i kontrole runnera zakończone pomyślnie.</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:22 · 3031 ms · evidence: <a href="../../evidence/ui/UI-01.json" target="_blank">UI-01.json</a></dd>
+        </dl>
+        <h4>Przebieg krok po kroku</h4><div class="steps"><figure class="step"><a href="../../evidence/ui/UI-01/krok-01.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-01/krok-01.png" alt="UI-01 krok 1: Katalog: typy, ceny i linki zgodne z GET /api/room"></a><figcaption><b>Krok 1.</b> Katalog: typy, ceny i linki zgodne z GET /api/room</figcaption></figure></div><p class="small">Pełny zrzut strony po teście: <a href="../../evidence/ui/UI-01.png" target="_blank">UI-01.png</a></p>
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Katalog API HTTP 200</td><td><code>200</code></td><td><code>200</code></td><td>#0</td></tr></table>
+        <h4>Żądania HTTP (1)</h4>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/room</code> <span class="http h2">200</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;rooms&quot;: [
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Aenean porttitor mauris sit amet lacinia molestie. In posuere accumsan aliquet. Maecenas sit amet nisl massa. Interdum et malesuada fames ac ante.&quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room1.jpg&quot;,
+      &quot;roomName&quot;: &quot;101&quot;,
+      &quot;roomPrice&quot;: 100,
+      &quot;roomid&quot;: 1,
+      &quot;type&quot;: &quot;Single&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Vestibulum sollicitudin, lectus ac mollis consequat, lorem orci ultrices tellus, eleifend euismod tortor dui egestas erat. Phasellus et ipsum nisl. &quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;Radio&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room2.jpg&quot;,
+      &quot;roomName&quot;: &quot;102&quot;,
+      &quot;roomPrice&quot;: 150,
+      &quot;roomid&quot;: 2,
+      &quot;type&quot;: &quot;Double&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Etiam metus metus, fringilla ac sagittis id, consequat vel neque. Nunc commodo quis nisl nec posuere. Etiam at accumsan ex. &quot;,
+      &quot;features&quot;: [
+        &quot;Radio&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room3.jpg&quot;,
+      &quot;roomName&quot;: &quot;103&quot;,
+      &quot;roomPrice&quot;: 225,
+      &quot;roomid&quot;: 3
+… (skrócono, pełna treść w pliku evidence)</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="PASS" data-type="UI" id="UI-02">
+    <details>
+      <summary>
+        <span class="status PASS">PASS</span>
+        <span class="cid">UI-02</span>
+        <span class="cname">Wysłanie poprawnej wiadomości kontaktowej</span>
+        <span class="meta">P2 · Pozytywny · R-03,R-06</span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Wysłanie poprawnej wiadomości i izolacja danych</dd>
+          <dt>Technika</dt><dd>EP; DT reguła 1; BVA telefon=11</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy. Ustawione QA_USERNAME/QA_PASSWORD do sprzątania.</dd>
+          <dt>Dane testowe</dt><dd>Name=unikalny QA-&lt;czas&gt;-&lt;losowe&gt;; Email=qa-project@example.test; Phone=12345678901 (11 znaków); Subject=Zapytanie &lt;marker&gt;; Message=Wiadomość testowa projektu akademickiego. Dane syntetyczne.</dd>
+          <dt>Kroki</dt><dd><ol><li>Otwórz stronę główną.</li><li>Wypełnij Name, Email, Phone, Subject i Message poprawnymi danymi.</li><li>Kliknij Submit; sprawdź odpowiedź POST /api/message.</li><li>Sprawdź Thanks for getting in touch &lt;Name&gt;!.</li><li>Odczytaj listę i usuń wyłącznie wiadomość o własnym markerze.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>POST 200 i success=true; widoczne potwierdzenie z własnym imieniem. Sprzątanie własnej wiadomości jest kontrolą informacyjną: wynik zapisany w evidence, bez wpływu na werdykt (decyzja projektowa 14.11.2026; DELETE pokrywa API-09).</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>POST /api/message → 200<br>POST /api/auth/login → 200<br>GET /api/message → 200<br>DELETE /api/message/6 → 500<br>Wszystkie jawne asercje i kontrole runnera zakończone pomyślnie.<br>Kontrola informacyjna (nie wpływa na werdykt): Sprzątanie: usunięto własną wiadomość UI: oczekiwano 200, otrzymano 500. Objaw DEF-01; własny rekord testowy pozostaje do resetu środowiska.</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:26 · 2618 ms · evidence: <a href="../../evidence/ui/UI-02.json" target="_blank">UI-02.json</a></dd>
+        </dl>
+        <h4>Przebieg krok po kroku</h4><div class="steps"><figure class="step"><a href="../../evidence/ui/UI-02/krok-01.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-02/krok-01.png" alt="UI-02 krok 1: Formularz wypełniony poprawnymi danymi"></a><figcaption><b>Krok 1.</b> Formularz wypełniony poprawnymi danymi</figcaption></figure><figure class="step"><a href="../../evidence/ui/UI-02/krok-02.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-02/krok-02.png" alt="UI-02 krok 2: Potwierdzenie wysłania z własnym imieniem (HTTP 200)"></a><figcaption><b>Krok 2.</b> Potwierdzenie wysłania z własnym imieniem (HTTP 200)</figcaption></figure></div><p class="small">Pełny zrzut strony po teście: <a href="../../evidence/ui/UI-02.png" target="_blank">UI-02.png</a></p>
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>POST kontakt HTTP 200</td><td><code>200</code></td><td><code>200</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Sprzątanie: zalogowano</td><td><code>200</code></td><td><code>200</code></td><td>#1</td></tr><tr class="info"><td><span class="tag info">INFO</span></td><td>Sprzątanie: usunięto własną wiadomość UI</td><td><code>200</code></td><td><code>500</code></td><td>#3</td></tr></table>
+        <h4>Żądania HTTP (4)</h4>
+      <details class="req">
+        <summary><span class="m">POST</span> <code>/api/message</code> <span class="http h2">200</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{
+  &quot;name&quot;: &quot;QA-1794646466937-2dedb2&quot;,
+  &quot;email&quot;: &quot;qa-project@example.test&quot;,
+  &quot;phone&quot;: &quot;12345678901&quot;,
+  &quot;subject&quot;: &quot;Zapytanie QA-1794646466937-2dedb2&quot;,
+  &quot;description&quot;: &quot;Wiadomość testowa projektu akademickiego. Dane syntetyczne.&quot;
+}</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;success&quot;: true
+}</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">POST</span> <code>/api/auth/login</code> <span class="http h2">200</span><span class="idx">#1</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{
+  &quot;username&quot;: &quot;[MASKED]&quot;,
+  &quot;password&quot;: &quot;[MASKED]&quot;
+}</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;token&quot;: &quot;[MASKED]&quot;
+}</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/message</code> <span class="http h2">200</span><span class="idx">#2</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;messages&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;James Dean&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Booking enquiry&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;name&quot;: &quot;QA-1794646289602-660c71&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Zapytanie QA-1794646289602-660c71&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;name&quot;: &quot;QA-1794646298738-fc6672&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;ABCDE&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;name&quot;: &quot;QA-1794646461013-b8c753&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Zapytanie QA-1794646461013-b8c753&quot;
+    },
+    {
+      &quot;id&quot;: 5,
+      &quot;name&quot;: &quot;QA646462189 ProjektTestowy&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;You have a new booking!&quot;
+    },
+    {
+      &quot;id&quot;: 6,
+      &quot;name&quot;: &quot;QA-1794646466937-2dedb2&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Zapytanie QA-1794646466937-2dedb2&quot;
+    }
+  ]
+}</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">DELETE</span> <code>/api/message/6</code> <span class="http h5">500</span><span class="idx">#3</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>Internal Server Error</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="PASS" data-type="UI" id="UI-03">
+    <details>
+      <summary>
+        <span class="status PASS">PASS</span>
+        <span class="cid">UI-03</span>
+        <span class="cname">Pusty formularz kontaktowy</span>
+        <span class="meta">P2 · Negatywny · R-03</span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Pusty formularz kontaktowy</dd>
+          <dt>Technika</dt><dd>EP: brak wymaganych danych</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy.</dd>
+          <dt>Dane testowe</dt><dd>Wszystkie pola formularza puste.</dd>
+          <dt>Kroki</dt><dd><ol><li>Otwórz stronę główną.</li><li>Pozostaw Name, Email, Phone, Subject i Message puste.</li><li>Kliknij Submit.</li><li>Sprawdź odpowiedź i widoczny komunikat Name may not be blank.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>POST /api/message 400; komunikaty wymaganych pól; formularz nadal widoczny.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>POST /api/message → 400<br>Wszystkie jawne asercje i kontrole runnera zakończone pomyślnie.</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:28 · 2627 ms · evidence: <a href="../../evidence/ui/UI-03.json" target="_blank">UI-03.json</a></dd>
+        </dl>
+        <h4>Przebieg krok po kroku</h4><div class="steps"><figure class="step"><a href="../../evidence/ui/UI-03/krok-01.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-03/krok-01.png" alt="UI-03 krok 1: Pusty formularz przed wysłaniem"></a><figcaption><b>Krok 1.</b> Pusty formularz przed wysłaniem</figcaption></figure><figure class="step"><a href="../../evidence/ui/UI-03/krok-02.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-03/krok-02.png" alt="UI-03 krok 2: Komunikaty wymaganych pól (HTTP 400) pod formularzem"></a><figcaption><b>Krok 2.</b> Komunikaty wymaganych pól (HTTP 400) pod formularzem</figcaption></figure></div><p class="small">Pełny zrzut strony po teście: <a href="../../evidence/ui/UI-03.png" target="_blank">UI-03.png</a></p>
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Brak wymaganych pól HTTP 400</td><td><code>400</code></td><td><code>400</code></td><td>#0</td></tr></table>
+        <h4>Żądania HTTP (1)</h4>
+      <details class="req">
+        <summary><span class="m">POST</span> <code>/api/message</code> <span class="http h4">400</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{
+  &quot;name&quot;: &quot;&quot;,
+  &quot;email&quot;: &quot;&quot;,
+  &quot;phone&quot;: &quot;&quot;,
+  &quot;subject&quot;: &quot;&quot;,
+  &quot;description&quot;: &quot;&quot;
+}</pre></div>
+        <div><h5>Response body</h5><pre>[
+  &quot;Subject must be between 5 and 100 characters.&quot;,
+  &quot;Email may not be blank&quot;,
+  &quot;Phone must be between 11 and 21 characters.&quot;,
+  &quot;Phone may not be blank&quot;,
+  &quot;Message must be between 20 and 2000 characters.&quot;,
+  &quot;Name may not be blank&quot;,
+  &quot;Subject may not be blank&quot;,
+  &quot;Message may not be blank&quot;
+]</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="PASS" data-type="UI" id="UI-04">
+    <details>
+      <summary>
+        <span class="status PASS">PASS</span>
+        <span class="cid">UI-04</span>
+        <span class="cname">Email niepoprawny i kombinacja dwóch błędów</span>
+        <span class="meta">P2 · Negatywny · R-03</span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Email niepoprawny i kombinacja dwóch błędów</dd>
+          <dt>Technika</dt><dd>EP; DT reguły 3 i 4</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy.</dd>
+          <dt>Dane testowe</dt><dd>Name=unikalny QA-&lt;czas&gt;-&lt;losowe&gt;; Email=qa-project@example.test; Phone=12345678901 (11 znaków); Subject=Zapytanie &lt;marker&gt;; Message=Wiadomość testowa projektu akademickiego. Dane syntetyczne. Zmień Email na bledny-email; w drugiej próbie Subject=ABCD.</dd>
+          <dt>Kroki</dt><dd><ol><li>Wypełnij poprawne dane poza Email=bledny-email.</li><li>Kliknij Submit; sprawdź HTTP 400 i błąd email.</li><li>Bez zmiany pozostałych pól zmień Subject na ABCD.</li><li>Ponownie kliknij Submit; sprawdź HTTP 400 oraz jednoczesne błędy email i subject.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>Każda próba odrzucona; po drugiej próbie oba pola mają komunikat walidacji; email nie jest usunięty z formularza.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>POST /api/message → 400<br>POST /api/message → 400<br>Wszystkie jawne asercje i kontrole runnera zakończone pomyślnie.</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:31 · 2681 ms · evidence: <a href="../../evidence/ui/UI-04.json" target="_blank">UI-04.json</a></dd>
+        </dl>
+        <h4>Przebieg krok po kroku</h4><div class="steps"><figure class="step"><a href="../../evidence/ui/UI-04/krok-01.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-04/krok-01.png" alt="UI-04 krok 1: Email w złym formacie: „bledny-email”"></a><figcaption><b>Krok 1.</b> Email w złym formacie: „bledny-email”</figcaption></figure><figure class="step"><a href="../../evidence/ui/UI-04/krok-02.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-04/krok-02.png" alt="UI-04 krok 2: Reguła 3: błędny email odrzucony (HTTP 400)"></a><figcaption><b>Krok 2.</b> Reguła 3: błędny email odrzucony (HTTP 400)</figcaption></figure><figure class="step"><a href="../../evidence/ui/UI-04/krok-03.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-04/krok-03.png" alt="UI-04 krok 3: Reguła 4: błędny email i temat „ABCD” – oba komunikaty"></a><figcaption><b>Krok 3.</b> Reguła 4: błędny email i temat „ABCD” – oba komunikaty</figcaption></figure></div><p class="small">Pełny zrzut strony po teście: <a href="../../evidence/ui/UI-04.png" target="_blank">UI-04.png</a></p>
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Niepoprawny email odrzucony przez API</td><td><code>400</code></td><td><code>400</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Błędny email i temat odrzucone</td><td><code>400</code></td><td><code>400</code></td><td>#1</td></tr></table>
+        <h4>Żądania HTTP (2)</h4>
+      <details class="req">
+        <summary><span class="m">POST</span> <code>/api/message</code> <span class="http h4">400</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{
+  &quot;name&quot;: &quot;QA-1794646472191-dd0c97&quot;,
+  &quot;email&quot;: &quot;bledny-email&quot;,
+  &quot;phone&quot;: &quot;12345678901&quot;,
+  &quot;subject&quot;: &quot;Zapytanie QA-1794646472191-dd0c97&quot;,
+  &quot;description&quot;: &quot;Wiadomość testowa projektu akademickiego. Dane syntetyczne.&quot;
+}</pre></div>
+        <div><h5>Response body</h5><pre>[
+  &quot;must be a well-formed email address&quot;
+]</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">POST</span> <code>/api/message</code> <span class="http h4">400</span><span class="idx">#1</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{
+  &quot;name&quot;: &quot;QA-1794646472191-dd0c97&quot;,
+  &quot;email&quot;: &quot;bledny-email&quot;,
+  &quot;phone&quot;: &quot;12345678901&quot;,
+  &quot;subject&quot;: &quot;ABCD&quot;,
+  &quot;description&quot;: &quot;Wiadomość testowa projektu akademickiego. Dane syntetyczne.&quot;
+}</pre></div>
+        <div><h5>Response body</h5><pre>[
+  &quot;must be a well-formed email address&quot;,
+  &quot;Subject must be between 5 and 100 characters.&quot;
+]</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="PASS" data-type="UI" id="UI-05">
+    <details>
+      <summary>
+        <span class="status PASS">PASS</span>
+        <span class="cid">UI-05</span>
+        <span class="cname">Temat 4 znaki poniżej minimum</span>
+        <span class="meta">P2 · Negatywny · R-03</span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Temat 4 znaki poniżej minimum</dd>
+          <dt>Technika</dt><dd>BVA: min-1; DT reguła 2</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy.</dd>
+          <dt>Dane testowe</dt><dd>Name=unikalny QA-&lt;czas&gt;-&lt;losowe&gt;; Email=qa-project@example.test; Phone=12345678901 (11 znaków); Subject=Zapytanie &lt;marker&gt;; Message=Wiadomość testowa projektu akademickiego. Dane syntetyczne. Subject=ABCD (4 znaki).</dd>
+          <dt>Kroki</dt><dd><ol><li>Wypełnij formularz poprawnymi danymi, temat ABCD.</li><li>Kliknij Submit.</li><li>Sprawdź status odpowiedzi i komunikat Subject must be between 5 and 100 characters.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>HTTP 400; temat poniżej limitu odrzucony; widoczny komunikat.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>POST /api/message → 400<br>Wszystkie jawne asercje i kontrole runnera zakończone pomyślnie.</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:34 · 2484 ms · evidence: <a href="../../evidence/ui/UI-05.json" target="_blank">UI-05.json</a></dd>
+        </dl>
+        <h4>Przebieg krok po kroku</h4><div class="steps"><figure class="step"><a href="../../evidence/ui/UI-05/krok-01.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-05/krok-01.png" alt="UI-05 krok 1: Temat „ABCD” (4 znaki, min. 5), pozostałe pola poprawne"></a><figcaption><b>Krok 1.</b> Temat „ABCD” (4 znaki, min. 5), pozostałe pola poprawne</figcaption></figure><figure class="step"><a href="../../evidence/ui/UI-05/krok-02.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-05/krok-02.png" alt="UI-05 krok 2: Odrzucenie (HTTP 400): „Subject must be between 5 and 100 characters.”"></a><figcaption><b>Krok 2.</b> Odrzucenie (HTTP 400): „Subject must be between 5 and 100 characters.”</figcaption></figure></div><p class="small">Pełny zrzut strony po teście: <a href="../../evidence/ui/UI-05.png" target="_blank">UI-05.png</a></p>
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Temat 4 znaki odrzucony</td><td><code>400</code></td><td><code>400</code></td><td>#0</td></tr></table>
+        <h4>Żądania HTTP (1)</h4>
+      <details class="req">
+        <summary><span class="m">POST</span> <code>/api/message</code> <span class="http h4">400</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{
+  &quot;name&quot;: &quot;QA-1794646474883-f583bd&quot;,
+  &quot;email&quot;: &quot;qa-project@example.test&quot;,
+  &quot;phone&quot;: &quot;12345678901&quot;,
+  &quot;subject&quot;: &quot;ABCD&quot;,
+  &quot;description&quot;: &quot;Wiadomość testowa projektu akademickiego. Dane syntetyczne.&quot;
+}</pre></div>
+        <div><h5>Response body</h5><pre>[
+  &quot;Subject must be between 5 and 100 characters.&quot;
+]</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="PASS" data-type="UI" id="UI-06">
+    <details>
+      <summary>
+        <span class="status PASS">PASS</span>
+        <span class="cid">UI-06</span>
+        <span class="cname">Temat 5 znaków na dolnej granicy</span>
+        <span class="meta">P2 · Pozytywny · R-03,R-06</span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Temat 5 znaków na dolnej granicy</dd>
+          <dt>Technika</dt><dd>BVA: min; EP: poprawne dane</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy. Dane do sprzątania dostępne.</dd>
+          <dt>Dane testowe</dt><dd>Name=unikalny QA-&lt;czas&gt;-&lt;losowe&gt;; Email=qa-project@example.test; Phone=12345678901 (11 znaków); Subject=Zapytanie &lt;marker&gt;; Message=Wiadomość testowa projektu akademickiego. Dane syntetyczne. Subject=ABCDE (5 znaków).</dd>
+          <dt>Kroki</dt><dd><ol><li>Wypełnij formularz poprawnymi danymi z tematem ABCDE.</li><li>Kliknij Submit; sprawdź HTTP 200.</li><li>Sprawdź potwierdzenie zawierające własne Name.</li><li>Usuń wyłącznie własną wiadomość przez dynamicznie rozpoznany ID.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>HTTP 200 i potwierdzenie; brak błędu długości tematu. Sprzątanie własnej wiadomości jest kontrolą informacyjną: wynik zapisany w evidence, bez wpływu na werdykt (decyzja projektowa 14.11.2026; DELETE pokrywa API-09).</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>POST /api/message → 200<br>POST /api/auth/login → 200<br>GET /api/message → 200<br>DELETE /api/message/7 → 500<br>Wszystkie jawne asercje i kontrole runnera zakończone pomyślnie.<br>Kontrola informacyjna (nie wpływa na werdykt): Sprzątanie: usunięto własną wiadomość UI: oczekiwano 200, otrzymano 500. Objaw DEF-01; własny rekord testowy pozostaje do resetu środowiska.</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:36 · 3602 ms · evidence: <a href="../../evidence/ui/UI-06.json" target="_blank">UI-06.json</a></dd>
+        </dl>
+        <h4>Przebieg krok po kroku</h4><div class="steps"><figure class="step"><a href="../../evidence/ui/UI-06/krok-01.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-06/krok-01.png" alt="UI-06 krok 1: Temat „ABCDE” (5 znaków – dolna granica)"></a><figcaption><b>Krok 1.</b> Temat „ABCDE” (5 znaków – dolna granica)</figcaption></figure><figure class="step"><a href="../../evidence/ui/UI-06/krok-02.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-06/krok-02.png" alt="UI-06 krok 2: Wiadomość przyjęta (HTTP 200), potwierdzenie widoczne"></a><figcaption><b>Krok 2.</b> Wiadomość przyjęta (HTTP 200), potwierdzenie widoczne</figcaption></figure></div><p class="small">Pełny zrzut strony po teście: <a href="../../evidence/ui/UI-06.png" target="_blank">UI-06.png</a></p>
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Temat 5 znaków przyjęty</td><td><code>200</code></td><td><code>200</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Sprzątanie: zalogowano</td><td><code>200</code></td><td><code>200</code></td><td>#1</td></tr><tr class="info"><td><span class="tag info">INFO</span></td><td>Sprzątanie: usunięto własną wiadomość UI</td><td><code>200</code></td><td><code>500</code></td><td>#3</td></tr></table>
+        <h4>Żądania HTTP (4)</h4>
+      <details class="req">
+        <summary><span class="m">POST</span> <code>/api/message</code> <span class="http h2">200</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{
+  &quot;name&quot;: &quot;QA-1794646478368-287641&quot;,
+  &quot;email&quot;: &quot;qa-project@example.test&quot;,
+  &quot;phone&quot;: &quot;12345678901&quot;,
+  &quot;subject&quot;: &quot;ABCDE&quot;,
+  &quot;description&quot;: &quot;Wiadomość testowa projektu akademickiego. Dane syntetyczne.&quot;
+}</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;success&quot;: true
+}</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">POST</span> <code>/api/auth/login</code> <span class="http h2">200</span><span class="idx">#1</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{
+  &quot;username&quot;: &quot;[MASKED]&quot;,
+  &quot;password&quot;: &quot;[MASKED]&quot;
+}</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;token&quot;: &quot;[MASKED]&quot;
+}</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/message</code> <span class="http h2">200</span><span class="idx">#2</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;messages&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;James Dean&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Booking enquiry&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;name&quot;: &quot;QA-1794646289602-660c71&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Zapytanie QA-1794646289602-660c71&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;name&quot;: &quot;QA-1794646298738-fc6672&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;ABCDE&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;name&quot;: &quot;QA-1794646461013-b8c753&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Zapytanie QA-1794646461013-b8c753&quot;
+    },
+    {
+      &quot;id&quot;: 5,
+      &quot;name&quot;: &quot;QA646462189 ProjektTestowy&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;You have a new booking!&quot;
+    },
+    {
+      &quot;id&quot;: 6,
+      &quot;name&quot;: &quot;QA-1794646466937-2dedb2&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Zapytanie QA-1794646466937-2dedb2&quot;
+    },
+    {
+      &quot;id&quot;: 7,
+      &quot;name&quot;: &quot;QA-1794646478368-287641&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;ABCDE&quot;
+    }
+  ]
+}</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">DELETE</span> <code>/api/message/7</code> <span class="http h5">500</span><span class="idx">#3</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>Internal Server Error</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="PASS" data-type="UI" id="UI-07">
+    <details>
+      <summary>
+        <span class="status PASS">PASS</span>
+        <span class="cid">UI-07</span>
+        <span class="cname">Telefon 10 znaków poniżej minimum</span>
+        <span class="meta">P2 · Negatywny · R-03</span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Telefon 10 znaków poniżej minimum</dd>
+          <dt>Technika</dt><dd>BVA: min-1</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy.</dd>
+          <dt>Dane testowe</dt><dd>Name=unikalny QA-&lt;czas&gt;-&lt;losowe&gt;; Email=qa-project@example.test; Phone=12345678901 (11 znaków); Subject=Zapytanie &lt;marker&gt;; Message=Wiadomość testowa projektu akademickiego. Dane syntetyczne. Phone=1234567890 (10 znaków).</dd>
+          <dt>Kroki</dt><dd><ol><li>Wypełnij dane, telefon 1234567890.</li><li>Kliknij Submit.</li><li>Sprawdź HTTP 400 i Phone must be between 11 and 21 characters.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>HTTP 400; komunikat długości telefonu; brak potwierdzenia wysłania.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>POST /api/message → 400<br>Wszystkie jawne asercje i kontrole runnera zakończone pomyślnie.</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:40 · 2331 ms · evidence: <a href="../../evidence/ui/UI-07.json" target="_blank">UI-07.json</a></dd>
+        </dl>
+        <h4>Przebieg krok po kroku</h4><div class="steps"><figure class="step"><a href="../../evidence/ui/UI-07/krok-01.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-07/krok-01.png" alt="UI-07 krok 1: Telefon „1234567890” (10 znaków, min. 11)"></a><figcaption><b>Krok 1.</b> Telefon „1234567890” (10 znaków, min. 11)</figcaption></figure><figure class="step"><a href="../../evidence/ui/UI-07/krok-02.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-07/krok-02.png" alt="UI-07 krok 2: Odrzucenie (HTTP 400): „Phone must be between 11 and 21 characters.”"></a><figcaption><b>Krok 2.</b> Odrzucenie (HTTP 400): „Phone must be between 11 and 21 characters.”</figcaption></figure></div><p class="small">Pełny zrzut strony po teście: <a href="../../evidence/ui/UI-07.png" target="_blank">UI-07.png</a></p>
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Telefon 10 znaków odrzucony</td><td><code>400</code></td><td><code>400</code></td><td>#0</td></tr></table>
+        <h4>Żądania HTTP (1)</h4>
+      <details class="req">
+        <summary><span class="m">POST</span> <code>/api/message</code> <span class="http h4">400</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{
+  &quot;name&quot;: &quot;QA-1794646480962-51a97c&quot;,
+  &quot;email&quot;: &quot;qa-project@example.test&quot;,
+  &quot;phone&quot;: &quot;1234567890&quot;,
+  &quot;subject&quot;: &quot;Zapytanie QA-1794646480962-51a97c&quot;,
+  &quot;description&quot;: &quot;Wiadomość testowa projektu akademickiego. Dane syntetyczne.&quot;
+}</pre></div>
+        <div><h5>Response body</h5><pre>[
+  &quot;Phone must be between 11 and 21 characters.&quot;
+]</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="BLOCKED" data-type="UI" id="UI-08">
+    <details>
+      <summary>
+        <span class="status BLOCKED">BLOCKED</span>
+        <span class="cid">UI-08</span>
+        <span class="cname">Cena rezerwacji dwóch nocy</span>
+        <span class="meta">P1 · Pozytywny · R-01,R-05 · <b>DEF-01</b></span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Cena rezerwacji dwóch nocy</dd>
+          <dt>Technika</dt><dd>Reguła biznesowa / obliczenie ceny</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy. Szczegóły pokoju muszą zwracać 200.</dd>
+          <dt>Dane testowe</dt><dd>Pokój z listy; checkin=dzisiaj UTC+60 dni; checkout=checkin+2 dni; cena p=roomPrice.</dd>
+          <dt>Kroki</dt><dd><ol><li>Pobierz aktualny pokój i zweryfikuj GET /api/room/&lt;id&gt;.</li><li>Otwórz /reservation/&lt;id&gt;?checkin=&lt;data&gt;&amp;checkout=&lt;data+2&gt;.</li><li>Sprawdź Price Summary, p x 2 nights i Total.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>Dwie noce; cena p*2+40 GBP, zgodna z widocznymi opłatami cleaning 25 i service 15. Awaria szczegółów blokuje wykonanie asercji ceny.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>Zablokowany przed właściwymi krokami: Szczegóły pokoju HTTP 500; DEF-01. Brak formularza rezerwacji..<br>GET /api/room → 200<br>GET /api/room/1 → 500</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:42 · 789 ms · evidence: <a href="../../evidence/ui/UI-08.json" target="_blank">UI-08.json</a></dd>
+        </dl>
+        <h4>Przebieg krok po kroku</h4><div class="steps"><figure class="step"><a href="../../evidence/ui/UI-08/krok-01.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-08/krok-01.png" alt="UI-08 krok 1: Strona rezerwacji pokoju 1: brak formularza (GET /api/room/1 → 500)"></a><figcaption><b>Krok 1.</b> Strona rezerwacji pokoju 1: brak formularza (GET /api/room/1 → 500)</figcaption></figure></div><p class="small">Pełny zrzut strony po teście: <a href="../../evidence/ui/UI-08.png" target="_blank">UI-08.png</a></p>
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Lista pokoi HTTP 200</td><td><code>200</code></td><td><code>200</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Jest pokój do testu</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr></table>
+        <h4>Żądania HTTP (2)</h4>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/room</code> <span class="http h2">200</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;rooms&quot;: [
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Aenean porttitor mauris sit amet lacinia molestie. In posuere accumsan aliquet. Maecenas sit amet nisl massa. Interdum et malesuada fames ac ante.&quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room1.jpg&quot;,
+      &quot;roomName&quot;: &quot;101&quot;,
+      &quot;roomPrice&quot;: 100,
+      &quot;roomid&quot;: 1,
+      &quot;type&quot;: &quot;Single&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Vestibulum sollicitudin, lectus ac mollis consequat, lorem orci ultrices tellus, eleifend euismod tortor dui egestas erat. Phasellus et ipsum nisl. &quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;Radio&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room2.jpg&quot;,
+      &quot;roomName&quot;: &quot;102&quot;,
+      &quot;roomPrice&quot;: 150,
+      &quot;roomid&quot;: 2,
+      &quot;type&quot;: &quot;Double&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Etiam metus metus, fringilla ac sagittis id, consequat vel neque. Nunc commodo quis nisl nec posuere. Etiam at accumsan ex. &quot;,
+      &quot;features&quot;: [
+        &quot;Radio&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room3.jpg&quot;,
+      &quot;roomName&quot;: &quot;103&quot;,
+      &quot;roomPrice&quot;: 225,
+      &quot;roomid&quot;: 3
+… (skrócono, pełna treść w pliku evidence)</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/room/1</code> <span class="http h5">500</span><span class="idx">#1</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>Internal Server Error</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="BLOCKED" data-type="UI" id="UI-09">
+    <details>
+      <summary>
+        <span class="status BLOCKED">BLOCKED</span>
+        <span class="cid">UI-09</span>
+        <span class="cname">Rezerwacja z pustymi danymi gościa</span>
+        <span class="meta">P1 · Negatywny · R-01,R-03 · <b>DEF-01</b></span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Rezerwacja z pustymi danymi gościa</dd>
+          <dt>Technika</dt><dd>EP: puste dane obowiązkowe</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy. Dostępne szczegóły pokoju i formularz rezerwacji.</dd>
+          <dt>Dane testowe</dt><dd>Pokój dynamiczny; poprawny przyszły okres; puste Firstname, Lastname, Email i Phone.</dd>
+          <dt>Kroki</dt><dd><ol><li>Otwórz stronę rezerwacji dla przyszłego okresu.</li><li>Kliknij Reserve Now, aby przejść do danych gościa.</li><li>Pozostaw pola gościa puste i kliknij Reserve Now.</li><li>Sprawdź status POST /api/booking i alert o Firstname.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>HTTP 400, widoczny błąd danych gościa; brak Booking Confirmed.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>Zablokowany przed właściwymi krokami: Szczegóły pokoju HTTP 500; DEF-01. Brak formularza rezerwacji..<br>GET /api/room → 200<br>GET /api/room/1 → 500</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:43 · 828 ms · evidence: <a href="../../evidence/ui/UI-09.json" target="_blank">UI-09.json</a></dd>
+        </dl>
+        <h4>Przebieg krok po kroku</h4><div class="steps"><figure class="step"><a href="../../evidence/ui/UI-09/krok-01.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-09/krok-01.png" alt="UI-09 krok 1: Strona rezerwacji pokoju 1: brak formularza (GET /api/room/1 → 500)"></a><figcaption><b>Krok 1.</b> Strona rezerwacji pokoju 1: brak formularza (GET /api/room/1 → 500)</figcaption></figure></div><p class="small">Pełny zrzut strony po teście: <a href="../../evidence/ui/UI-09.png" target="_blank">UI-09.png</a></p>
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Lista pokoi HTTP 200</td><td><code>200</code></td><td><code>200</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Jest pokój do testu</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr></table>
+        <h4>Żądania HTTP (2)</h4>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/room</code> <span class="http h2">200</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;rooms&quot;: [
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Aenean porttitor mauris sit amet lacinia molestie. In posuere accumsan aliquet. Maecenas sit amet nisl massa. Interdum et malesuada fames ac ante.&quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room1.jpg&quot;,
+      &quot;roomName&quot;: &quot;101&quot;,
+      &quot;roomPrice&quot;: 100,
+      &quot;roomid&quot;: 1,
+      &quot;type&quot;: &quot;Single&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Vestibulum sollicitudin, lectus ac mollis consequat, lorem orci ultrices tellus, eleifend euismod tortor dui egestas erat. Phasellus et ipsum nisl. &quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;Radio&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room2.jpg&quot;,
+      &quot;roomName&quot;: &quot;102&quot;,
+      &quot;roomPrice&quot;: 150,
+      &quot;roomid&quot;: 2,
+      &quot;type&quot;: &quot;Double&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Etiam metus metus, fringilla ac sagittis id, consequat vel neque. Nunc commodo quis nisl nec posuere. Etiam at accumsan ex. &quot;,
+      &quot;features&quot;: [
+        &quot;Radio&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room3.jpg&quot;,
+      &quot;roomName&quot;: &quot;103&quot;,
+      &quot;roomPrice&quot;: 225,
+      &quot;roomid&quot;: 3
+… (skrócono, pełna treść w pliku evidence)</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/room/1</code> <span class="http h5">500</span><span class="idx">#1</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>Internal Server Error</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="BLOCKED" data-type="UI" id="UI-10">
+    <details>
+      <summary>
+        <span class="status BLOCKED">BLOCKED</span>
+        <span class="cid">UI-10</span>
+        <span class="cname">Daty payloadu rezerwacji zgodne z wyborem</span>
+        <span class="meta">P1 · Pozytywny · R-01,R-05 · <b>DEF-01</b></span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Daty payloadu rezerwacji zgodne z wyborem</dd>
+          <dt>Technika</dt><dd>Spójność danych UI→request</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy. Dostępne szczegóły pokoju. Przechwycenie POST włączone przed drugim Reserve Now.</dd>
+          <dt>Dane testowe</dt><dd>checkin=dzisiaj UTC+60 dni, checkout=+2; QATester / ProjektTestowy / qa-project@example.test / 12345678901.</dd>
+          <dt>Kroki</dt><dd><ol><li>Otwórz rezerwację dla wybranych dat.</li><li>Kliknij Reserve Now, wpisz dane gościa.</li><li>Przechwyć POST /api/booking i przerwij go przed serwerem.</li><li>Kliknij Reserve Now i porównaj bookingdates w payloadzie z datami w URL.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>Payload zachowuje checkin i checkout dokładnie. Brak zapisu do serwera jest celowy. Przypadek nie dowodzi pełnego E2E potwierdzenia rezerwacji.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>Zablokowany przed właściwymi krokami: Szczegóły pokoju HTTP 500; DEF-01. Brak formularza rezerwacji..<br>GET /api/room → 200<br>GET /api/room/1 → 500</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:44 · 824 ms · evidence: <a href="../../evidence/ui/UI-10.json" target="_blank">UI-10.json</a></dd>
+        </dl>
+        <h4>Przebieg krok po kroku</h4><div class="steps"><figure class="step"><a href="../../evidence/ui/UI-10/krok-01.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-10/krok-01.png" alt="UI-10 krok 1: Strona rezerwacji pokoju 1: brak formularza (GET /api/room/1 → 500)"></a><figcaption><b>Krok 1.</b> Strona rezerwacji pokoju 1: brak formularza (GET /api/room/1 → 500)</figcaption></figure></div><p class="small">Pełny zrzut strony po teście: <a href="../../evidence/ui/UI-10.png" target="_blank">UI-10.png</a></p>
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Lista pokoi HTTP 200</td><td><code>200</code></td><td><code>200</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Jest pokój do testu</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr></table>
+        <h4>Żądania HTTP (2)</h4>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/room</code> <span class="http h2">200</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;rooms&quot;: [
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Aenean porttitor mauris sit amet lacinia molestie. In posuere accumsan aliquet. Maecenas sit amet nisl massa. Interdum et malesuada fames ac ante.&quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room1.jpg&quot;,
+      &quot;roomName&quot;: &quot;101&quot;,
+      &quot;roomPrice&quot;: 100,
+      &quot;roomid&quot;: 1,
+      &quot;type&quot;: &quot;Single&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Vestibulum sollicitudin, lectus ac mollis consequat, lorem orci ultrices tellus, eleifend euismod tortor dui egestas erat. Phasellus et ipsum nisl. &quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;Radio&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room2.jpg&quot;,
+      &quot;roomName&quot;: &quot;102&quot;,
+      &quot;roomPrice&quot;: 150,
+      &quot;roomid&quot;: 2,
+      &quot;type&quot;: &quot;Double&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Etiam metus metus, fringilla ac sagittis id, consequat vel neque. Nunc commodo quis nisl nec posuere. Etiam at accumsan ex. &quot;,
+      &quot;features&quot;: [
+        &quot;Radio&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room3.jpg&quot;,
+      &quot;roomName&quot;: &quot;103&quot;,
+      &quot;roomPrice&quot;: 225,
+      &quot;roomid&quot;: 3
+… (skrócono, pełna treść w pliku evidence)</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/room/1</code> <span class="http h5">500</span><span class="idx">#1</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>Internal Server Error</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="PASS" data-type="UI" id="UI-11">
+    <details>
+      <summary>
+        <span class="status PASS">PASS</span>
+        <span class="cid">UI-11</span>
+        <span class="cname">Odrzucenie błędnego logowania administratora</span>
+        <span class="meta">P1 · Negatywny · R-04</span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Odrzucenie błędnego logowania administratora</dd>
+          <dt>Technika</dt><dd>EP: niepoprawne credentials</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy.</dd>
+          <dt>Dane testowe</dt><dd>Username=unikalny marker QA; Password=syntetyczna niepoprawna wartość.</dd>
+          <dt>Kroki</dt><dd><ol><li>Otwórz /admin w nowym kontekście.</li><li>Wpisz niepoprawne Username i Password.</li><li>Kliknij Login.</li><li>Sprawdź HTTP 401, komunikat Invalid credentials i pozostanie pola Username.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>Brak dostępu do panelu; HTTP 401 i widoczny błąd.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd><br>Wszystkie jawne asercje i kontrole runnera zakończone pomyślnie.</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:44 · 1064 ms · evidence: <a href="../../evidence/ui/UI-11.json" target="_blank">UI-11.json</a></dd>
+        </dl>
+        <h4>Przebieg krok po kroku</h4><div class="steps"><figure class="step"><a href="../../evidence/ui/UI-11/krok-01.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-11/krok-01.png" alt="UI-11 krok 1: Logowanie z niepoprawnymi danymi"></a><figcaption><b>Krok 1.</b> Logowanie z niepoprawnymi danymi</figcaption></figure><figure class="step"><a href="../../evidence/ui/UI-11/krok-02.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-11/krok-02.png" alt="UI-11 krok 2: Odmowa dostępu (HTTP 401): „Invalid credentials”, brak panelu"></a><figcaption><b>Krok 2.</b> Odmowa dostępu (HTTP 401): „Invalid credentials”, brak panelu</figcaption></figure></div><p class="small">Pełny zrzut strony po teście: <a href="../../evidence/ui/UI-11.png" target="_blank">UI-11.png</a></p>
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Błędne logowanie HTTP 401</td><td><code>401</code></td><td><code>401</code></td><td></td></tr></table>
+        
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="PASS" data-type="UI" id="UI-12">
+    <details>
+      <summary>
+        <span class="status PASS">PASS</span>
+        <span class="cid">UI-12</span>
+        <span class="cname">Wyszukanie dostępności w poprawnym okresie</span>
+        <span class="meta">P1 · Pozytywny · R-01,R-05</span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Wyszukanie dostępności w poprawnym okresie</dd>
+          <dt>Technika</dt><dd>Spójność parametrów i odpowiedzi</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy.</dd>
+          <dt>Dane testowe</dt><dd>Strefa Europe/Warsaw; checkin=UTC dzisiaj+60, checkout=+2; wpis DD/MM/YYYY.</dd>
+          <dt>Kroki</dt><dd><ol><li>Otwórz stronę główną.</li><li>Wpisz przyszłe daty Check In i Check Out; zatwierdź Tab.</li><li>Kliknij Check Availability.</li><li>Sprawdź status GET /api/room?checkin=...&amp;checkout=..., dokładne daty i linki wynikowych pokoi.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>HTTP 200; request używa wybranych dat; każdy zwrócony pokój ma widoczny link.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd><br>Wszystkie jawne asercje i kontrole runnera zakończone pomyślnie.</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:46 · 2222 ms · evidence: <a href="../../evidence/ui/UI-12.json" target="_blank">UI-12.json</a></dd>
+        </dl>
+        <h4>Przebieg krok po kroku</h4><div class="steps"><figure class="step"><a href="../../evidence/ui/UI-12/krok-01.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-12/krok-01.png" alt="UI-12 krok 1: Wybrany okres 2027-01-13 – 2027-01-15"></a><figcaption><b>Krok 1.</b> Wybrany okres 2027-01-13 – 2027-01-15</figcaption></figure><figure class="step"><a href="../../evidence/ui/UI-12/krok-02.png" target="_blank"><img loading="lazy" src="../../evidence/ui/UI-12/krok-02.png" alt="UI-12 krok 2: Wyniki: dostępne pokoje z linkami rezerwacji dla wybranych dat"></a><figcaption><b>Krok 2.</b> Wyniki: dostępne pokoje z linkami rezerwacji dla wybranych dat</figcaption></figure></div><p class="small">Pełny zrzut strony po teście: <a href="../../evidence/ui/UI-12.png" target="_blank">UI-12.png</a></p>
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Dostępność HTTP 200</td><td><code>200</code></td><td><code>200</code></td><td></td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Wybrany checkin wysłany</td><td><code>&quot;2027-01-13&quot;</code></td><td><code>&quot;2027-01-13&quot;</code></td><td></td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Wybrany checkout wysłany</td><td><code>&quot;2027-01-15&quot;</code></td><td><code>&quot;2027-01-15&quot;</code></td><td></td></tr></table>
+        
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="PASS" data-type="API" id="API-01">
+    <details>
+      <summary>
+        <span class="status PASS">PASS</span>
+        <span class="cid">API-01</span>
+        <span class="cname">Lista pokoi: schemat, ceny i ID</span>
+        <span class="meta">P2 · Pozytywny · R-02</span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Lista pokoi: schemat, ceny i ID</dd>
+          <dt>Technika</dt><dd>Walidacja kontraktu</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy.</dd>
+          <dt>Dane testowe</dt><dd>GET /api/room bez uwierzytelnienia.</dd>
+          <dt>Kroki</dt><dd><ol><li>Wyślij GET /api/room.</li><li>Sprawdź 200, niepustą tablicę rooms i unikalne roomid.</li><li>Dla każdego rekordu sprawdź liczbową dodatnią cenę i tekstowy type.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>HTTP 200; niepusta tablica rooms z unikalnymi ID; każdy pokój ma roomid (liczba), roomName i type (tekst), accessible (logiczna), features (tablica) i dodatnią cenę.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>GET /api/room → 200<br>Wszystkie jawne asercje i kontrole runnera zakończone pomyślnie.</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:18 · 184 ms · evidence: <a href="../../evidence/api/API-01.json" target="_blank">API-01.json</a></dd>
+        </dl>
+        
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>HTTP 200</td><td><code>200</code></td><td><code>200</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>rooms jest tablicą</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Katalog niepusty</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Unikalne ID</td><td><code>3</code></td><td><code>3</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>roomid jest liczbą</td><td><code>&quot;number&quot;</code></td><td><code>&quot;number&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>roomName jest tekstem</td><td><code>&quot;string&quot;</code></td><td><code>&quot;string&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Typ pokoju jest tekstem</td><td><code>&quot;string&quot;</code></td><td><code>&quot;string&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>accessible jest wartością logiczną</td><td><code>&quot;boolean&quot;</code></td><td><code>&quot;boolean&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>features jest tablicą</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Cena jest liczbą</td><td><code>&quot;number&quot;</code></td><td><code>&quot;number&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Cena dodatnia</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>roomid jest liczbą</td><td><code>&quot;number&quot;</code></td><td><code>&quot;number&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>roomName jest tekstem</td><td><code>&quot;string&quot;</code></td><td><code>&quot;string&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Typ pokoju jest tekstem</td><td><code>&quot;string&quot;</code></td><td><code>&quot;string&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>accessible jest wartością logiczną</td><td><code>&quot;boolean&quot;</code></td><td><code>&quot;boolean&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>features jest tablicą</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Cena jest liczbą</td><td><code>&quot;number&quot;</code></td><td><code>&quot;number&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Cena dodatnia</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>roomid jest liczbą</td><td><code>&quot;number&quot;</code></td><td><code>&quot;number&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>roomName jest tekstem</td><td><code>&quot;string&quot;</code></td><td><code>&quot;string&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Typ pokoju jest tekstem</td><td><code>&quot;string&quot;</code></td><td><code>&quot;string&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>accessible jest wartością logiczną</td><td><code>&quot;boolean&quot;</code></td><td><code>&quot;boolean&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>features jest tablicą</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Cena jest liczbą</td><td><code>&quot;number&quot;</code></td><td><code>&quot;number&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Cena dodatnia</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr></table>
+        <h4>Żądania HTTP (1)</h4>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/room</code> <span class="http h2">200</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;rooms&quot;: [
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Aenean porttitor mauris sit amet lacinia molestie. In posuere accumsan aliquet. Maecenas sit amet nisl massa. Interdum et malesuada fames ac ante.&quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room1.jpg&quot;,
+      &quot;roomName&quot;: &quot;101&quot;,
+      &quot;roomPrice&quot;: 100,
+      &quot;roomid&quot;: 1,
+      &quot;type&quot;: &quot;Single&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Vestibulum sollicitudin, lectus ac mollis consequat, lorem orci ultrices tellus, eleifend euismod tortor dui egestas erat. Phasellus et ipsum nisl. &quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;Radio&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room2.jpg&quot;,
+      &quot;roomName&quot;: &quot;102&quot;,
+      &quot;roomPrice&quot;: 150,
+      &quot;roomid&quot;: 2,
+      &quot;type&quot;: &quot;Double&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Etiam metus metus, fringilla ac sagittis id, consequat vel neque. Nunc commodo quis nisl nec posuere. Etiam at accumsan ex. &quot;,
+      &quot;features&quot;: [
+        &quot;Radio&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room3.jpg&quot;,
+      &quot;roomName&quot;: &quot;103&quot;,
+      &quot;roomPrice&quot;: 225,
+      &quot;roomid&quot;: 3
+… (skrócono, pełna treść w pliku evidence)</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="FAIL" data-type="API" id="API-02">
+    <details>
+      <summary>
+        <span class="status FAIL">FAIL</span>
+        <span class="cid">API-02</span>
+        <span class="cname">Odczyt szczegółów istniejącego pokoju</span>
+        <span class="meta">P1 · Pozytywny · R-01,R-02 · <b>DEF-01</b></span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Odczyt szczegółów istniejącego pokoju</dd>
+          <dt>Technika</dt><dd>Spójność listy i szczegółów</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy.</dd>
+          <dt>Dane testowe</dt><dd>roomid wybrany z GET /api/room.</dd>
+          <dt>Kroki</dt><dd><ol><li>Pobierz listę i pierwszy bieżący roomid.</li><li>GET /api/room/&lt;roomid&gt;.</li><li>Porównaj roomid i roomPrice ze stanem listy.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>HTTP 200; identyfikator, cena i typ zgodne z listą.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>GET /api/room → 200<br>GET /api/room/1 → 500<br>Niezgodności: Istniejący pokój: HTTP 200: oczekiwano 200, otrzymano 500</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:18 · 141 ms · evidence: <a href="../../evidence/api/API-02.json" target="_blank">API-02.json</a></dd>
+        </dl>
+        
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Lista pokoi HTTP 200</td><td><code>200</code></td><td><code>200</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Jest pokój do testu</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr><tr class="bad"><td><span class="tag bad">NIEZGODNE</span></td><td>Istniejący pokój: HTTP 200</td><td><code>200</code></td><td><code>500</code></td><td>#1</td></tr></table>
+        <h4>Żądania HTTP (2)</h4>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/room</code> <span class="http h2">200</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;rooms&quot;: [
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Aenean porttitor mauris sit amet lacinia molestie. In posuere accumsan aliquet. Maecenas sit amet nisl massa. Interdum et malesuada fames ac ante.&quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room1.jpg&quot;,
+      &quot;roomName&quot;: &quot;101&quot;,
+      &quot;roomPrice&quot;: 100,
+      &quot;roomid&quot;: 1,
+      &quot;type&quot;: &quot;Single&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Vestibulum sollicitudin, lectus ac mollis consequat, lorem orci ultrices tellus, eleifend euismod tortor dui egestas erat. Phasellus et ipsum nisl. &quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;Radio&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room2.jpg&quot;,
+      &quot;roomName&quot;: &quot;102&quot;,
+      &quot;roomPrice&quot;: 150,
+      &quot;roomid&quot;: 2,
+      &quot;type&quot;: &quot;Double&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Etiam metus metus, fringilla ac sagittis id, consequat vel neque. Nunc commodo quis nisl nec posuere. Etiam at accumsan ex. &quot;,
+      &quot;features&quot;: [
+        &quot;Radio&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room3.jpg&quot;,
+      &quot;roomName&quot;: &quot;103&quot;,
+      &quot;roomPrice&quot;: 225,
+      &quot;roomid&quot;: 3
+… (skrócono, pełna treść w pliku evidence)</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/room/1</code> <span class="http h5">500</span><span class="idx">#1</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>Internal Server Error</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="FAIL" data-type="API" id="API-03">
+    <details>
+      <summary>
+        <span class="status FAIL">FAIL</span>
+        <span class="cid">API-03</span>
+        <span class="cname">Nieistniejący pokój</span>
+        <span class="meta">P2 · Negatywny · R-02 · <b>DEF-01</b></span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Nieistniejący pokój</dd>
+          <dt>Technika</dt><dd>EP: zasób nieistniejący</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy.</dd>
+          <dt>Dane testowe</dt><dd>missingId=max(roomid z bieżącej listy)+100000; brak zapisu pod tym ID.</dd>
+          <dt>Kroki</dt><dd><ol><li>GET /api/room i wyznacz ID poza listą.</li><li>GET /api/room/&lt;missingId&gt;.</li><li>Sprawdź kod odpowiedzi.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>HTTP 404, zgodnie z RoomService.getSpecificRoom. Brak stałego ID zasobu.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>GET /api/room → 200<br>GET /api/room/100003 → 500<br>Niezgodności: Brak zasobu: HTTP 404: oczekiwano 404, otrzymano 500</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:19 · 222 ms · evidence: <a href="../../evidence/api/API-03.json" target="_blank">API-03.json</a></dd>
+        </dl>
+        
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Odczyt ID</td><td><code>200</code></td><td><code>200</code></td><td>#0</td></tr><tr class="bad"><td><span class="tag bad">NIEZGODNE</span></td><td>Brak zasobu: HTTP 404</td><td><code>404</code></td><td><code>500</code></td><td>#1</td></tr></table>
+        <h4>Żądania HTTP (2)</h4>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/room</code> <span class="http h2">200</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;rooms&quot;: [
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Aenean porttitor mauris sit amet lacinia molestie. In posuere accumsan aliquet. Maecenas sit amet nisl massa. Interdum et malesuada fames ac ante.&quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room1.jpg&quot;,
+      &quot;roomName&quot;: &quot;101&quot;,
+      &quot;roomPrice&quot;: 100,
+      &quot;roomid&quot;: 1,
+      &quot;type&quot;: &quot;Single&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Vestibulum sollicitudin, lectus ac mollis consequat, lorem orci ultrices tellus, eleifend euismod tortor dui egestas erat. Phasellus et ipsum nisl. &quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;Radio&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room2.jpg&quot;,
+      &quot;roomName&quot;: &quot;102&quot;,
+      &quot;roomPrice&quot;: 150,
+      &quot;roomid&quot;: 2,
+      &quot;type&quot;: &quot;Double&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Etiam metus metus, fringilla ac sagittis id, consequat vel neque. Nunc commodo quis nisl nec posuere. Etiam at accumsan ex. &quot;,
+      &quot;features&quot;: [
+        &quot;Radio&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room3.jpg&quot;,
+      &quot;roomName&quot;: &quot;103&quot;,
+      &quot;roomPrice&quot;: 225,
+      &quot;roomid&quot;: 3
+… (skrócono, pełna treść w pliku evidence)</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/room/100003</code> <span class="http h5">500</span><span class="idx">#1</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>Internal Server Error</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="PASS" data-type="API" id="API-04">
+    <details>
+      <summary>
+        <span class="status PASS">PASS</span>
+        <span class="cid">API-04</span>
+        <span class="cname">Wiadomość bez wymaganych pól</span>
+        <span class="meta">P2 · Negatywny · R-03</span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Wiadomość bez wymaganych pól</dd>
+          <dt>Technika</dt><dd>EP: brak pól</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy.</dd>
+          <dt>Dane testowe</dt><dd>POST /api/message; Content-Type application/json; body={}.</dd>
+          <dt>Kroki</dt><dd><ol><li>Wyślij pusty obiekt JSON.</li><li>Sprawdź HTTP 400.</li><li>Sprawdź tablicę błędów i Name must be set.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>400; tablica błędów walidacji zawiera komunikat „must be set” dla każdego z pięciu wymaganych pól: Name, Email, Phone, Subject, Message.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>POST /api/message → 400<br>Wszystkie jawne asercje i kontrole runnera zakończone pomyślnie.</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:19 · 180 ms · evidence: <a href="../../evidence/api/API-04.json" target="_blank">API-04.json</a></dd>
+        </dl>
+        
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Brak pól: HTTP 400</td><td><code>400</code></td><td><code>400</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Tablica walidacji</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Błąd wymaganego pola Name</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Błąd wymaganego pola Email</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Błąd wymaganego pola Phone</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Błąd wymaganego pola Subject</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Błąd wymaganego pola Message</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr></table>
+        <h4>Żądania HTTP (1)</h4>
+      <details class="req">
+        <summary><span class="m">POST</span> <code>/api/message</code> <span class="http h4">400</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{}</pre></div>
+        <div><h5>Response body</h5><pre>[
+  &quot;Subject must be set&quot;,
+  &quot;Phone may not be blank&quot;,
+  &quot;Email must be set&quot;,
+  &quot;Message may not be blank&quot;,
+  &quot;Message must be set&quot;,
+  &quot;Email may not be blank&quot;,
+  &quot;Phone must be set&quot;,
+  &quot;Name must be set&quot;,
+  &quot;Name may not be blank&quot;,
+  &quot;Subject may not be blank&quot;
+]</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="PASS" data-type="API" id="API-05">
+    <details>
+      <summary>
+        <span class="status PASS">PASS</span>
+        <span class="cid">API-05</span>
+        <span class="cname">Niepoprawny format email</span>
+        <span class="meta">P2 · Negatywny · R-03</span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Niepoprawny format email</dd>
+          <dt>Technika</dt><dd>EP: niepoprawny format</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy.</dd>
+          <dt>Dane testowe</dt><dd>Name=unikalny QA-&lt;czas&gt;-&lt;losowe&gt;; Email=qa-project@example.test; Phone=12345678901 (11 znaków); Subject=Zapytanie &lt;marker&gt;; Message=Wiadomość testowa projektu akademickiego. Dane syntetyczne. Email=nie-jest-mailem.</dd>
+          <dt>Kroki</dt><dd><ol><li>Wyślij POST /api/message z poprawnymi polami poza email.</li><li>Sprawdź 400 i komunikat walidacji email.</li><li>GET /api/message: rekord z unikalnym markerem nie został zapisany.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>HTTP 400; komunikat „must be a well-formed email address”; rekord z markerem nie pojawia się na liście wiadomości.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>POST /api/message → 400<br>GET /api/message → 200<br>Wszystkie jawne asercje i kontrole runnera zakończone pomyślnie.</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:19 · 162 ms · evidence: <a href="../../evidence/api/API-05.json" target="_blank">API-05.json</a></dd>
+        </dl>
+        
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Błędny email: HTTP 400</td><td><code>400</code></td><td><code>400</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Komunikat walidacji email</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Lista wiadomości</td><td><code>200</code></td><td><code>200</code></td><td>#1</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Odrzucony rekord nie został zapisany</td><td><code>false</code></td><td><code>false</code></td><td>#1</td></tr></table>
+        <h4>Żądania HTTP (2)</h4>
+      <details class="req">
+        <summary><span class="m">POST</span> <code>/api/message</code> <span class="http h4">400</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{
+  &quot;name&quot;: &quot;QA-1794646459863-d32398&quot;,
+  &quot;email&quot;: &quot;nie-jest-mailem&quot;,
+  &quot;phone&quot;: &quot;12345678901&quot;,
+  &quot;subject&quot;: &quot;Zapytanie QA-1794646459863-d32398&quot;,
+  &quot;description&quot;: &quot;Wiadomość testowa projektu akademickiego. Dane syntetyczne.&quot;
+}</pre></div>
+        <div><h5>Response body</h5><pre>[
+  &quot;must be a well-formed email address&quot;
+]</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/message</code> <span class="http h2">200</span><span class="idx">#1</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;messages&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;James Dean&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Booking enquiry&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;name&quot;: &quot;QA-1794646289602-660c71&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Zapytanie QA-1794646289602-660c71&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;name&quot;: &quot;QA-1794646298738-fc6672&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;ABCDE&quot;
+    }
+  ]
+}</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="FAIL" data-type="API" id="API-06">
+    <details>
+      <summary>
+        <span class="status FAIL">FAIL</span>
+        <span class="cid">API-06</span>
+        <span class="cname">Email jako obiekt JSON zamiast tekstu</span>
+        <span class="meta">P2 · Negatywny · R-03 · <b>DEF-02</b></span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Email jako obiekt JSON zamiast tekstu</dd>
+          <dt>Technika</dt><dd>EP: błędny typ</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy.</dd>
+          <dt>Dane testowe</dt><dd>Name=unikalny QA-&lt;czas&gt;-&lt;losowe&gt;; Email=qa-project@example.test; Phone=12345678901 (11 znaków); Subject=Zapytanie &lt;marker&gt;; Message=Wiadomość testowa projektu akademickiego. Dane syntetyczne. email={value:&quot;qa@example.test&quot;}.</dd>
+          <dt>Kroki</dt><dd><ol><li>Wyślij POST /api/message z email jako obiektem.</li><li>Sprawdź HTTP 400.</li><li>GET /api/message: rekord z unikalnym markerem nie został zapisany.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>Błędny typ danych klienta odrzucony HTTP 400; rekord z markerem nie pojawia się na liście. Kontrakt tekstowego pola wynika z modelu Message; oczekiwanie klient-błąd stanowi kryterium projektu.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>POST /api/message → 500<br>GET /api/message → 200<br>Niezgodności: Błędny typ: HTTP 400: oczekiwano 400, otrzymano 500</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:20 · 151 ms · evidence: <a href="../../evidence/api/API-06.json" target="_blank">API-06.json</a></dd>
+        </dl>
+        
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="bad"><td><span class="tag bad">NIEZGODNE</span></td><td>Błędny typ: HTTP 400</td><td><code>400</code></td><td><code>500</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Lista wiadomości</td><td><code>200</code></td><td><code>200</code></td><td>#1</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Odrzucony rekord nie został zapisany</td><td><code>false</code></td><td><code>false</code></td><td>#1</td></tr></table>
+        <h4>Żądania HTTP (2)</h4>
+      <details class="req">
+        <summary><span class="m">POST</span> <code>/api/message</code> <span class="http h5">500</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{
+  &quot;name&quot;: &quot;QA-1794646460032-ff6bb9&quot;,
+  &quot;email&quot;: {
+    &quot;value&quot;: &quot;qa@example.test&quot;
+  },
+  &quot;phone&quot;: &quot;12345678901&quot;,
+  &quot;subject&quot;: &quot;Zapytanie QA-1794646460032-ff6bb9&quot;,
+  &quot;description&quot;: &quot;Wiadomość testowa projektu akademickiego. Dane syntetyczne.&quot;
+}</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;error&quot;: &quot;Failed to create message&quot;
+}</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/message</code> <span class="http h2">200</span><span class="idx">#1</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;messages&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;James Dean&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Booking enquiry&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;name&quot;: &quot;QA-1794646289602-660c71&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Zapytanie QA-1794646289602-660c71&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;name&quot;: &quot;QA-1794646298738-fc6672&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;ABCDE&quot;
+    }
+  ]
+}</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="PASS" data-type="API" id="API-07">
+    <details>
+      <summary>
+        <span class="status PASS">PASS</span>
+        <span class="cid">API-07</span>
+        <span class="cname">Odczyt rezerwacji bez tokenu</span>
+        <span class="meta">P1 · Negatywny · R-04</span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Odczyt rezerwacji bez tokenu</dd>
+          <dt>Technika</dt><dd>EP: brak uwierzytelnienia</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy.</dd>
+          <dt>Dane testowe</dt><dd>GET /api/booking?roomid=&lt;dynamiczne ID&gt;; bez Cookie.</dd>
+          <dt>Kroki</dt><dd><ol><li>GET /api/room i wybierz roomid.</li><li>W nowym kontekście bez cookie wyślij GET /api/booking?roomid=&lt;id&gt;.</li><li>Sprawdź status i komunikat.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>HTTP 401; error=Authentication required; brak listy rezerwacji.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>GET /api/room → 200<br>GET /api/booking?roomid=1 → 401<br>Wszystkie jawne asercje i kontrole runnera zakończone pomyślnie.</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:20 · 237 ms · evidence: <a href="../../evidence/api/API-07.json" target="_blank">API-07.json</a></dd>
+        </dl>
+        
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Lista pokoi HTTP 200</td><td><code>200</code></td><td><code>200</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Jest pokój do testu</td><td><code>true</code></td><td><code>true</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Brak tokenu: HTTP 401</td><td><code>401</code></td><td><code>401</code></td><td>#1</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Komunikat autoryzacji</td><td><code>&quot;Authentication required&quot;</code></td><td><code>&quot;Authentication required&quot;</code></td><td>#1</td></tr></table>
+        <h4>Żądania HTTP (2)</h4>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/room</code> <span class="http h2">200</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;rooms&quot;: [
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Aenean porttitor mauris sit amet lacinia molestie. In posuere accumsan aliquet. Maecenas sit amet nisl massa. Interdum et malesuada fames ac ante.&quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room1.jpg&quot;,
+      &quot;roomName&quot;: &quot;101&quot;,
+      &quot;roomPrice&quot;: 100,
+      &quot;roomid&quot;: 1,
+      &quot;type&quot;: &quot;Single&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Vestibulum sollicitudin, lectus ac mollis consequat, lorem orci ultrices tellus, eleifend euismod tortor dui egestas erat. Phasellus et ipsum nisl. &quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;Radio&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room2.jpg&quot;,
+      &quot;roomName&quot;: &quot;102&quot;,
+      &quot;roomPrice&quot;: 150,
+      &quot;roomid&quot;: 2,
+      &quot;type&quot;: &quot;Double&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Etiam metus metus, fringilla ac sagittis id, consequat vel neque. Nunc commodo quis nisl nec posuere. Etiam at accumsan ex. &quot;,
+      &quot;features&quot;: [
+        &quot;Radio&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room3.jpg&quot;,
+      &quot;roomName&quot;: &quot;103&quot;,
+      &quot;roomPrice&quot;: 225,
+      &quot;roomid&quot;: 3
+… (skrócono, pełna treść w pliku evidence)</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/booking?roomid=1</code> <span class="http h4">401</span><span class="idx">#1</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;error&quot;: &quot;Authentication required&quot;
+}</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="PASS" data-type="API" id="API-08">
+    <details>
+      <summary>
+        <span class="status PASS">PASS</span>
+        <span class="cid">API-08</span>
+        <span class="cname">Niepoprawne credentials</span>
+        <span class="meta">P1 · Negatywny · R-04</span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Niepoprawne credentials</dd>
+          <dt>Technika</dt><dd>EP: odrzucenie dostępu</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy.</dd>
+          <dt>Dane testowe</dt><dd>POST /api/auth/login; unikalny niepoprawny username; niepoprawne syntetyczne password.</dd>
+          <dt>Kroki</dt><dd><ol><li>Wyślij POST /api/auth/login z błędnym kontem.</li><li>Sprawdź status 401, error Invalid credentials i brak pola token.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>HTTP 401; brak tokenu.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>POST /api/auth/login → 401<br>Wszystkie jawne asercje i kontrole runnera zakończone pomyślnie.</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:20 · 139 ms · evidence: <a href="../../evidence/api/API-08.json" target="_blank">API-08.json</a></dd>
+        </dl>
+        
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Odrzucenie logowania: HTTP 401</td><td><code>401</code></td><td><code>401</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Komunikat błędu</td><td><code>&quot;Invalid credentials&quot;</code></td><td><code>&quot;Invalid credentials&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Brak tokenu</td><td><code>false</code></td><td><code>false</code></td><td>#0</td></tr></table>
+        <h4>Żądania HTTP (1)</h4>
+      <details class="req">
+        <summary><span class="m">POST</span> <code>/api/auth/login</code> <span class="http h4">401</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{
+  &quot;username&quot;: &quot;QA-1794646460735-e68d3d&quot;,
+  &quot;password&quot;: &quot;[MASKED]&quot;
+}</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;error&quot;: &quot;Invalid credentials&quot;
+}</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="FAIL" data-type="API" id="API-09">
+    <details>
+      <summary>
+        <span class="status FAIL">FAIL</span>
+        <span class="cid">API-09</span>
+        <span class="cname">Wiadomość: create/read/update i sprzątanie</span>
+        <span class="meta">P1 · Pozytywny · R-03,R-04,R-06 · <b>DEF-01</b></span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Wiadomość: create/read/update i sprzątanie</dd>
+          <dt>Technika</dt><dd>Test przejść stanu CRUD</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy. QA_USERNAME/QA_PASSWORD ustawione; token pobierany i maskowany.</dd>
+          <dt>Dane testowe</dt><dd>Name=unikalny QA-&lt;czas&gt;-&lt;losowe&gt;; Email=qa-project@example.test; Phone=12345678901 (11 znaków); Subject=Zapytanie &lt;marker&gt;; Message=Wiadomość testowa projektu akademickiego. Dane syntetyczne. Cookie token z aktualnego logowania.</dd>
+          <dt>Kroki</dt><dd><ol><li>Zaloguj się przez POST /api/auth/login.</li><li>Utwórz wiadomość POST /api/message; sprawdź 200 i success=true.</li><li>GET /api/message: znajdź dokładnie jeden własny marker i jego id.</li><li>GET /api/message/&lt;id&gt; z tokenem; porównaj description i email (asercja miękka).</li><li>PUT /api/message/&lt;id&gt; z tokenem: oznacz jako przeczytaną.</li><li>GET listy: własne read=true.</li><li>W finally DELETE tylko własne id i potwierdź nieobecność na liście.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>Create 200; dokładnie jeden własny rekord na liście; read 200 ze spójnymi danymi; PUT 200 i flaga read=true potwierdzona na liście; cleanup 200 i brak własnego rekordu. Odczyt po ID jest asercją miękką, aby PUT i jego potwierdzenie zostały wykonane niezależnie.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>POST /api/auth/login → 200<br>POST /api/message → 200<br>GET /api/message → 200<br>GET /api/message/4 → 500<br>PUT /api/message/4 → 500<br>GET /api/message → 200<br>DELETE /api/message/4 → 500<br>GET /api/message → 200<br>Niezgodności: Odczyt utworzonej wiadomości: oczekiwano 200, otrzymano 500; Oznaczenie read: HTTP 200: oczekiwano 200, otrzymano 500; Zmiana read utrwalona (potwierdzenie z listy): oczekiwano true, otrzymano false; Sprzątanie własnej wiadomości: oczekiwano 200, otrzymano 500; Wiadomość usunięta: oczekiwano false, otrzymano true<br>Utworzenie i obecność na liście potwierdzone. Odczyt po ID, PUT i DELETE wykonane: każde zwraca 500, a lista potwierdza brak utrwalonej zmiany.</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:20 · 591 ms · evidence: <a href="../../evidence/api/API-09.json" target="_blank">API-09.json</a></dd>
+        </dl>
+        
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Logowanie API: HTTP 200</td><td><code>200</code></td><td><code>200</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Otrzymano token</td><td><code>&quot;string&quot;</code></td><td><code>&quot;string&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Proxy POST message: HTTP 200</td><td><code>200</code></td><td><code>200</code></td><td>#1</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Potwierdzenie utworzenia</td><td><code>true</code></td><td><code>true</code></td><td>#1</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Lista wiadomości</td><td><code>200</code></td><td><code>200</code></td><td>#2</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Jednoznaczna identyfikacja własnego rekordu</td><td><code>1</code></td><td><code>1</code></td><td>#2</td></tr><tr class="bad"><td><span class="tag bad">NIEZGODNE</span></td><td>Odczyt utworzonej wiadomości</td><td><code>200</code></td><td><code>500</code></td><td>#3</td></tr><tr class="bad"><td><span class="tag bad">NIEZGODNE</span></td><td>Oznaczenie read: HTTP 200</td><td><code>200</code></td><td><code>500</code></td><td>#4</td></tr><tr class="bad"><td><span class="tag bad">NIEZGODNE</span></td><td>Zmiana read utrwalona (potwierdzenie z listy)</td><td><code>true</code></td><td><code>false</code></td><td>#5</td></tr><tr class="bad"><td><span class="tag bad">NIEZGODNE</span></td><td>Sprzątanie własnej wiadomości</td><td><code>200</code></td><td><code>500</code></td><td>#6</td></tr><tr class="bad"><td><span class="tag bad">NIEZGODNE</span></td><td>Wiadomość usunięta</td><td><code>false</code></td><td><code>true</code></td><td>#7</td></tr></table>
+        <h4>Żądania HTTP (8)</h4>
+      <details class="req">
+        <summary><span class="m">POST</span> <code>/api/auth/login</code> <span class="http h2">200</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{
+  &quot;username&quot;: &quot;[MASKED]&quot;,
+  &quot;password&quot;: &quot;[MASKED]&quot;
+}</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;token&quot;: &quot;[MASKED]&quot;
+}</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">POST</span> <code>/api/message</code> <span class="http h2">200</span><span class="idx">#1</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{
+  &quot;name&quot;: &quot;QA-1794646461013-b8c753&quot;,
+  &quot;email&quot;: &quot;qa-project@example.test&quot;,
+  &quot;phone&quot;: &quot;12345678901&quot;,
+  &quot;subject&quot;: &quot;Zapytanie QA-1794646461013-b8c753&quot;,
+  &quot;description&quot;: &quot;Wiadomość testowa projektu akademickiego. Dane syntetyczne.&quot;
+}</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;success&quot;: true
+}</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/message</code> <span class="http h2">200</span><span class="idx">#2</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;messages&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;James Dean&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Booking enquiry&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;name&quot;: &quot;QA-1794646289602-660c71&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Zapytanie QA-1794646289602-660c71&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;name&quot;: &quot;QA-1794646298738-fc6672&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;ABCDE&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;name&quot;: &quot;QA-1794646461013-b8c753&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Zapytanie QA-1794646461013-b8c753&quot;
+    }
+  ]
+}</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/message/4</code> <span class="http h5">500</span><span class="idx">#3</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>Internal Server Error</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">PUT</span> <code>/api/message/4</code> <span class="http h5">500</span><span class="idx">#4</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>Internal Server Error</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/message</code> <span class="http h2">200</span><span class="idx">#5</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;messages&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;James Dean&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Booking enquiry&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;name&quot;: &quot;QA-1794646289602-660c71&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Zapytanie QA-1794646289602-660c71&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;name&quot;: &quot;QA-1794646298738-fc6672&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;ABCDE&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;name&quot;: &quot;QA-1794646461013-b8c753&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Zapytanie QA-1794646461013-b8c753&quot;
+    }
+  ]
+}</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">DELETE</span> <code>/api/message/4</code> <span class="http h5">500</span><span class="idx">#6</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>Internal Server Error</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/message</code> <span class="http h2">200</span><span class="idx">#7</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;messages&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;James Dean&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Booking enquiry&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;name&quot;: &quot;QA-1794646289602-660c71&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Zapytanie QA-1794646289602-660c71&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;name&quot;: &quot;QA-1794646298738-fc6672&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;ABCDE&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;name&quot;: &quot;QA-1794646461013-b8c753&quot;,
+      &quot;read&quot;: false,
+      &quot;subject&quot;: &quot;Zapytanie QA-1794646461013-b8c753&quot;
+    }
+  ]
+}</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+  <article class="case" data-status="FAIL" data-type="API" id="API-10">
+    <details>
+      <summary>
+        <span class="status FAIL">FAIL</span>
+        <span class="cid">API-10</span>
+        <span class="cname">Rezerwacja: create/read/update i sprzątanie</span>
+        <span class="meta">P1 · Pozytywny · R-01,R-04,R-06 · <b>DEF-01</b></span>
+      </summary>
+      <div class="body">
+        <dl>
+          <dt>Cel</dt><dd>Rezerwacja: create/read/update i sprzątanie</dd>
+          <dt>Technika</dt><dd>Test przejść stanu CRUD</dd>
+          <dt>Warunki wstępne</dt><dd>Publiczna instancja dostępna. Nowy, izolowany kontekst. Brak wymagania stałych ID; pokoje pobierz z aktualnej listy. Aktualny token; lista rezerwacji dostępna; wolny termin wybrany bez konfliktu.</dd>
+          <dt>Dane testowe</dt><dd>roomid z listy; unikalne firstname=QA&lt;czas&gt;; lastname=ProjektTestowy; depositpaid=false; przyszłe daty; email qa-project@example.test; phone 12345678901.</dd>
+          <dt>Kroki</dt><dd><ol><li>Zaloguj się i pobierz pokoje oraz bieżące rezerwacje pokoju.</li><li>Wyznacz wolny dwudniowy okres z aktualnego stanu; nie ponawiaj zapisu w razie konfliktu.</li><li>POST /api/booking: sprawdź 201.</li><li>Znajdź własne bookingid na liście po unikalnym firstname.</li><li>GET /api/booking/&lt;id&gt;: porównaj daty.</li><li>PUT /api/booking/&lt;id&gt;: lastname=ZmienioneNazwisko; GET potwierdza zmianę.</li><li>W finally DELETE tylko własny bookingid; lista nie zawiera rekordu.</li></ol></dd>
+          <dt>Oczekiwany rezultat</dt><dd>Create 201; własna rezerwacja na liście z niezmienionymi datami; read 200; PUT 200 i nowe nazwisko potwierdzone na liście; cleanup 200. Odczyt po ID jest asercją miękką, aby PUT i jego potwierdzenie zostały wykonane niezależnie.</dd>
+          <dt>Rzeczywisty rezultat</dt><dd>POST /api/auth/login → 200<br>GET /api/room → 200<br>GET /api/booking?roomid=1 → 200<br>POST /api/booking → 201<br>GET /api/booking?roomid=1 → 200<br>GET /api/booking/4 → 500<br>PUT /api/booking/4 → 500<br>GET /api/booking?roomid=1 → 200<br>DELETE /api/booking/4 → 500<br>GET /api/booking?roomid=1 → 200<br>Niezgodności: Odczyt HTTP 200: oczekiwano 200, otrzymano 500; PUT HTTP 200: oczekiwano 200, otrzymano 500; Nowe nazwisko utrwalone (potwierdzenie z listy): oczekiwano &quot;ZmienioneNazwisko&quot;, otrzymano &quot;ProjektTestowy&quot;; Usunięto wyłącznie własną rezerwację: oczekiwano 200, otrzymano 500; Potwierdzono sprzątanie: oczekiwano false, otrzymano true<br>Utworzenie i obecność na liście potwierdzone. Odczyt po ID, PUT i DELETE wykonane: każde zwraca 500, a lista potwierdza brak utrwalonej zmiany.</dd>
+          <dt>Wykonano</dt><dd>14.11.2026, 09:54:21 · 846 ms · evidence: <a href="../../evidence/api/API-10.json" target="_blank">API-10.json</a></dd>
+        </dl>
+        
+        <h4>Asercje</h4><table class="asserts"><tr><th>Wynik</th><th>Asercja</th><th>Oczekiwano</th><th>Otrzymano</th><th>Req</th></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Logowanie API: HTTP 200</td><td><code>200</code></td><td><code>200</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Otrzymano token</td><td><code>&quot;string&quot;</code></td><td><code>&quot;string&quot;</code></td><td>#0</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Lista pokoi HTTP 200</td><td><code>200</code></td><td><code>200</code></td><td>#1</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Jest pokój do testu</td><td><code>true</code></td><td><code>true</code></td><td>#1</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Pobrano aktualne rezerwacje</td><td><code>200</code></td><td><code>200</code></td><td>#2</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Utworzenie rezerwacji HTTP 201</td><td><code>201</code></td><td><code>201</code></td><td>#3</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Własna rezerwacja rozpoznana dynamicznie</td><td><code>1</code></td><td><code>1</code></td><td>#4</td></tr><tr class="ok"><td><span class="tag ok">OK</span></td><td>Daty na liście bez zmian</td><td><code>{&quot;checkin&quot;:&quot;2027-01-13&quot;,&quot;checkout&quot;:&quot;2027-01-15&quot;}</code></td><td><code>{&quot;checkin&quot;:&quot;2027-01-13&quot;,&quot;checkout&quot;:&quot;2027-01-15&quot;}</code></td><td>#4</td></tr><tr class="bad"><td><span class="tag bad">NIEZGODNE</span></td><td>Odczyt HTTP 200</td><td><code>200</code></td><td><code>500</code></td><td>#5</td></tr><tr class="bad"><td><span class="tag bad">NIEZGODNE</span></td><td>PUT HTTP 200</td><td><code>200</code></td><td><code>500</code></td><td>#6</td></tr><tr class="bad"><td><span class="tag bad">NIEZGODNE</span></td><td>Nowe nazwisko utrwalone (potwierdzenie z listy)</td><td><code>&quot;ZmienioneNazwisko&quot;</code></td><td><code>&quot;ProjektTestowy&quot;</code></td><td>#7</td></tr><tr class="bad"><td><span class="tag bad">NIEZGODNE</span></td><td>Usunięto wyłącznie własną rezerwację</td><td><code>200</code></td><td><code>500</code></td><td>#8</td></tr><tr class="bad"><td><span class="tag bad">NIEZGODNE</span></td><td>Potwierdzono sprzątanie</td><td><code>false</code></td><td><code>true</code></td><td>#9</td></tr></table>
+        <h4>Żądania HTTP (10)</h4>
+      <details class="req">
+        <summary><span class="m">POST</span> <code>/api/auth/login</code> <span class="http h2">200</span><span class="idx">#0</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{
+  &quot;username&quot;: &quot;[MASKED]&quot;,
+  &quot;password&quot;: &quot;[MASKED]&quot;
+}</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;token&quot;: &quot;[MASKED]&quot;
+}</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/room</code> <span class="http h2">200</span><span class="idx">#1</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;rooms&quot;: [
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Aenean porttitor mauris sit amet lacinia molestie. In posuere accumsan aliquet. Maecenas sit amet nisl massa. Interdum et malesuada fames ac ante.&quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room1.jpg&quot;,
+      &quot;roomName&quot;: &quot;101&quot;,
+      &quot;roomPrice&quot;: 100,
+      &quot;roomid&quot;: 1,
+      &quot;type&quot;: &quot;Single&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Vestibulum sollicitudin, lectus ac mollis consequat, lorem orci ultrices tellus, eleifend euismod tortor dui egestas erat. Phasellus et ipsum nisl. &quot;,
+      &quot;features&quot;: [
+        &quot;TV&quot;,
+        &quot;Radio&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room2.jpg&quot;,
+      &quot;roomName&quot;: &quot;102&quot;,
+      &quot;roomPrice&quot;: 150,
+      &quot;roomid&quot;: 2,
+      &quot;type&quot;: &quot;Double&quot;
+    },
+    {
+      &quot;accessible&quot;: true,
+      &quot;description&quot;: &quot;Etiam metus metus, fringilla ac sagittis id, consequat vel neque. Nunc commodo quis nisl nec posuere. Etiam at accumsan ex. &quot;,
+      &quot;features&quot;: [
+        &quot;Radio&quot;,
+        &quot;WiFi&quot;,
+        &quot;Safe&quot;
+      ],
+      &quot;image&quot;: &quot;/images/room3.jpg&quot;,
+      &quot;roomName&quot;: &quot;103&quot;,
+      &quot;roomPrice&quot;: 225,
+      &quot;roomid&quot;: 3
+… (skrócono, pełna treść w pliku evidence)</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/booking?roomid=1</code> <span class="http h2">200</span><span class="idx">#2</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;bookings&quot;: [
+    {
+      &quot;bookingdates&quot;: {
+        &quot;checkin&quot;: &quot;2026-02-01&quot;,
+        &quot;checkout&quot;: &quot;2026-02-05&quot;
+      },
+      &quot;bookingid&quot;: 1,
+      &quot;depositpaid&quot;: true,
+      &quot;firstname&quot;: &quot;James&quot;,
+      &quot;lastname&quot;: &quot;Dean&quot;,
+      &quot;roomid&quot;: 1
+    }
+  ]
+}</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">POST</span> <code>/api/booking</code> <span class="http h2">201</span><span class="idx">#3</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{
+  &quot;roomid&quot;: 1,
+  &quot;firstname&quot;: &quot;QA646462189&quot;,
+  &quot;lastname&quot;: &quot;ProjektTestowy&quot;,
+  &quot;depositpaid&quot;: false,
+  &quot;bookingdates&quot;: {
+    &quot;checkin&quot;: &quot;2027-01-13&quot;,
+    &quot;checkout&quot;: &quot;2027-01-15&quot;
+  },
+  &quot;email&quot;: &quot;qa-project@example.test&quot;,
+  &quot;phone&quot;: &quot;12345678901&quot;
+}</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;bookingdates&quot;: {
+    &quot;checkin&quot;: &quot;2027-01-13&quot;,
+    &quot;checkout&quot;: &quot;2027-01-15&quot;
+  },
+  &quot;bookingid&quot;: 4,
+  &quot;depositpaid&quot;: false,
+  &quot;firstname&quot;: &quot;QA646462189&quot;,
+  &quot;lastname&quot;: &quot;ProjektTestowy&quot;,
+  &quot;roomid&quot;: 1
+}</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/booking?roomid=1</code> <span class="http h2">200</span><span class="idx">#4</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;bookings&quot;: [
+    {
+      &quot;bookingdates&quot;: {
+        &quot;checkin&quot;: &quot;2026-02-01&quot;,
+        &quot;checkout&quot;: &quot;2026-02-05&quot;
+      },
+      &quot;bookingid&quot;: 1,
+      &quot;depositpaid&quot;: true,
+      &quot;firstname&quot;: &quot;James&quot;,
+      &quot;lastname&quot;: &quot;Dean&quot;,
+      &quot;roomid&quot;: 1
+    },
+    {
+      &quot;bookingdates&quot;: {
+        &quot;checkin&quot;: &quot;2027-01-13&quot;,
+        &quot;checkout&quot;: &quot;2027-01-15&quot;
+      },
+      &quot;bookingid&quot;: 4,
+      &quot;depositpaid&quot;: false,
+      &quot;firstname&quot;: &quot;QA646462189&quot;,
+      &quot;lastname&quot;: &quot;ProjektTestowy&quot;,
+      &quot;roomid&quot;: 1
+    }
+  ]
+}</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/booking/4</code> <span class="http h5">500</span><span class="idx">#5</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>Internal Server Error</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">PUT</span> <code>/api/booking/4</code> <span class="http h5">500</span><span class="idx">#6</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>{
+  &quot;roomid&quot;: 1,
+  &quot;firstname&quot;: &quot;QA646462189&quot;,
+  &quot;lastname&quot;: &quot;ZmienioneNazwisko&quot;,
+  &quot;depositpaid&quot;: false,
+  &quot;bookingdates&quot;: {
+    &quot;checkin&quot;: &quot;2027-01-13&quot;,
+    &quot;checkout&quot;: &quot;2027-01-15&quot;
+  },
+  &quot;email&quot;: &quot;qa-project@example.test&quot;,
+  &quot;phone&quot;: &quot;12345678901&quot;
+}</pre></div>
+        <div><h5>Response body</h5><pre>Internal Server Error</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/booking?roomid=1</code> <span class="http h2">200</span><span class="idx">#7</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;bookings&quot;: [
+    {
+      &quot;bookingdates&quot;: {
+        &quot;checkin&quot;: &quot;2026-02-01&quot;,
+        &quot;checkout&quot;: &quot;2026-02-05&quot;
+      },
+      &quot;bookingid&quot;: 1,
+      &quot;depositpaid&quot;: true,
+      &quot;firstname&quot;: &quot;James&quot;,
+      &quot;lastname&quot;: &quot;Dean&quot;,
+      &quot;roomid&quot;: 1
+    },
+    {
+      &quot;bookingdates&quot;: {
+        &quot;checkin&quot;: &quot;2027-01-13&quot;,
+        &quot;checkout&quot;: &quot;2027-01-15&quot;
+      },
+      &quot;bookingid&quot;: 4,
+      &quot;depositpaid&quot;: false,
+      &quot;firstname&quot;: &quot;QA646462189&quot;,
+      &quot;lastname&quot;: &quot;ProjektTestowy&quot;,
+      &quot;roomid&quot;: 1
+    }
+  ]
+}</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">DELETE</span> <code>/api/booking/4</code> <span class="http h5">500</span><span class="idx">#8</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>Internal Server Error</pre></div></div>
+      </details>
+      <details class="req">
+        <summary><span class="m">GET</span> <code>/api/booking?roomid=1</code> <span class="http h2">200</span><span class="idx">#9</span></summary>
+        <div class="io"><div><h5>Request body</h5><pre>null</pre></div>
+        <div><h5>Response body</h5><pre>{
+  &quot;bookings&quot;: [
+    {
+      &quot;bookingdates&quot;: {
+        &quot;checkin&quot;: &quot;2026-02-01&quot;,
+        &quot;checkout&quot;: &quot;2026-02-05&quot;
+      },
+      &quot;bookingid&quot;: 1,
+      &quot;depositpaid&quot;: true,
+      &quot;firstname&quot;: &quot;James&quot;,
+      &quot;lastname&quot;: &quot;Dean&quot;,
+      &quot;roomid&quot;: 1
+    },
+    {
+      &quot;bookingdates&quot;: {
+        &quot;checkin&quot;: &quot;2027-01-13&quot;,
+        &quot;checkout&quot;: &quot;2027-01-15&quot;
+      },
+      &quot;bookingid&quot;: 4,
+      &quot;depositpaid&quot;: false,
+      &quot;firstname&quot;: &quot;QA646462189&quot;,
+      &quot;lastname&quot;: &quot;ProjektTestowy&quot;,
+      &quot;roomid&quot;: 1
+    }
+  ]
+}</pre></div></div>
+      </details>
+      </div>
+    </details>
+  </article>
+<h2>Defekty (4)</h2>
+
+  <article class="defect">
+    <div class="dhead"><span class="sev S1">S1 · P1</span><b>DEF-01</b> Trasy zasobów z ID zwracają 500; rezerwacja UI i sprzątanie danych zablokowane</div>
+    <p>HTTP 500 i tekst Internal Server Error na dynamicznych trasach (GET, PUT, DELETE). UI pozostaje na spinnerze; poprawne POST i listy działają. Aktualizacja i sprzątanie własnych danych również kończą się 500.</p>
+    <details><summary>Kroki reprodukcji, expected, wpływ</summary>
+      <ol><li>GET /api/room, wybierz istniejący roomid.</li><li>GET /api/room/&lt;roomid&gt;: porównaj status.</li><li>Otwórz /reservation/&lt;roomid&gt;?checkin=&lt;przyszła data&gt;&amp;checkout=&lt;data+2&gt;.</li><li>Dodatkowe reprodukcje tego samego symptomu: utwórz własny message lub booking, znajdź jego ID na liście, wykonaj GET, PUT i DELETE własnego ID z tokenem.</li></ol>
+      <p><b>Oczekiwane:</b> GET istniejącego pokoju/rekordu 200; nieistniejący pokój 404; UI pokazuje szczegóły i rezerwację; PUT i DELETE własnego rekordu 200 w proxy.</p><p><b>Wpływ:</b> Blokada głównego procesu rezerwacji gościa (S1 według skali prowadzącego). Brak sensownego obejścia w zwykłym UI. Pozostałości danych testowych do resetu.</p><p><b>Deduplikacja:</b> Jeden raport grupuje wspólny, powtarzalny symptom tras z ID w kilku usługach. Nie twierdzimy, że znamy wspólną przyczynę. Po diagnozie właściciel może rozdzielić zakres naprawy; nie liczymy każdego HTTP 500 jako nowego defektu.</p>
+    </details>
+    <p class="small">Powiązane: UI-08, UI-09, UI-10, API-02, API-03, API-09, API-10 · Windows 11; Chrome 157.0.8103.78; Playwright 1.62.1; Node 22.16.0; Europe/Warsaw; publiczne proxy /api/*; UI v2.2</p>
+  </article>
+  <article class="defect">
+    <div class="dhead"><span class="sev S3">S3 · P3</span><b>DEF-02</b> Email jako obiekt JSON w wiadomości powoduje HTTP 500</div>
+    <p>HTTP 500, JSON {&quot;error&quot;:&quot;Failed to create message&quot;}. Zwykły niepoprawny format tekstowego email daje 400 w API-05. Odrzucony rekord nie pojawia się na liście wiadomości.</p>
+    <details><summary>Kroki reprodukcji, expected, wpływ</summary>
+      <ol><li>Przygotuj poprawny payload wiadomości jak w API-06.</li><li>Zastąp email obiektem {&quot;value&quot;:&quot;qa@example.test&quot;}.</li><li>Wyślij POST /api/message z Content-Type application/json.</li><li>Sprawdź status i treść odpowiedzi.</li></ol>
+      <p><b>Oczekiwane:</b> Błędny typ pola String jest błędem danych klienta i powinien być odrzucony 400; brak zapisu. Wymaganie 400 jest kryterium jakości projektu, nie cytatem specyfikacji wdrożenia.</p><p><b>Wpływ:</b> Ograniczona wada obsługi niepoprawnych danych; poprawne formularze nadal działają. Rekord nie został zapisany; brak dowodu awarii całej usługi.</p><p><b>Deduplikacja:</b> Odrębny objaw POST przy złym typie, niezależny od dynamicznych tras z ID.</p>
+    </details>
+    <p class="small">Powiązane: API-06 · Windows 11; Chrome 157.0.8103.78; Playwright 1.62.1; Node 22.16.0; Europe/Warsaw; publiczne proxy /api/*; UI v2.2</p>
+  </article>
+  <article class="defect">
+    <div class="dhead"><span class="sev S3">S3 · P3</span><b>DEF-03</b> Niepoprawny lub wycofany token odczytu rezerwacji daje HTTP 500</div>
+    <p>Błędny token i pusty Cookie w GET kolekcji dają 500 oraz []; brak tokenu 401, poprawny token 200. Powtórzenie potwierdziło wynik. Wcześniej poprawny token później dostał 403 w validate i 500 w kolekcji.</p>
+    <details><summary>Kroki reprodukcji, expected, wpływ</summary>
+      <ol><li>GET /api/room: pobierz istniejący roomid.</li><li>GET /api/booking?roomid=&lt;roomid&gt; bez Cookie: kontrola 401.</li><li>Wyślij ten sam GET z Cookie: token=invalid-exp02-controlled.</li><li>Powtórz z poprawnym tokenem z aktualnego POST /api/auth/login.</li><li>Porównaj z POST /api/auth/validate dla niepoprawnego tokenu; opcjonalnie sprawdź pusty Cookie token=.</li></ol>
+      <p><b>Oczekiwane:</b> Niepoprawny/nieważny token powinien dać odpowiedź autoryzacji 401 lub 403, bez danych rezerwacji. Poprawny token: 200. Sam validate dla niepoprawnego tokenu daje 403.</p><p><b>Wpływ:</b> Błąd danych/sesji jest przedstawiany jako awaria serwera. Ponowne logowanie działa jako obejście. Nie wykryto ujawnienia danych ani obejścia kontroli dostępu.</p><p><b>Deduplikacja:</b> Jeden raport dla niepoprawnego, pustego i później odrzuconego tokenu w tej samej operacji kolekcji. Odrębny od DEF-01: URL nie zawiera ID zasobu w ścieżce.</p>
+    </details>
+    <p class="small">Powiązane: EXP-02 · Windows; Chrome 157.0.8103.52; Playwright APIRequestContext 1.62.1; EXP-02; publiczne /api/*</p>
+  </article>
+  <article class="defect">
+    <div class="dhead"><span class="sev S2">S2 · P2</span><b>DEF-04</b> W UTC+14 dostępność jest wyszukiwana dla dat o dzień wcześniejszych niż wybór</div>
+    <p>W UTC+14 pola/linki: 12–14 stycznia; request: 11–13 stycznia. Kalendarz: pola/linki 18–20, request 17–19. Domyślne daty też przesunięte. W kontroli UTC te same wpisane 12–14 przechodzą poprawnie.</p>
+    <details><summary>Kroki reprodukcji, expected, wpływ</summary>
+      <ol><li>Otwórz stronę w kontekście Pacific/Kiritimati przy podanym warunku czasu. Zweryfikuj strefę przez Intl.DateTimeFormat().resolvedOptions().timeZone.</li><li>Wpisz Check In=12/01/2027, Check Out=14/01/2027, zatwierdź Tab.</li><li>Kliknij Check Availability i odczytaj request GET /api/room?checkin=...&amp;checkout=... oraz linki Book now.</li><li>Powtórz wyborem 18 i 20 stycznia 2027 z kalendarza.</li><li>Kontrola: te same 12–14 stycznia w UTC. Jeżeli warunek różnicy dat UTC/lokalnej nie jest spełniony, odtwórz w odpowiednim oknie czasu; nie oczekuj tej samej reprodukcji o każdej godzinie.</li></ol>
+      <p><b>Oczekiwane:</b> Daty wyszukiwania i linków odpowiadają datom widocznym w polach, niezależnie od strefy klienta: 12–14 stycznia -&gt; 2027-01-12/2027-01-14.</p><p><b>Wpływ:</b> Wynik dostępności dotyczy innego okresu niż wybór i link rezerwacji. Może powodować błędną ofertę dostępności. Końcowy zapis i cena nie zostały sprawdzone z powodu DEF-01; nie twierdzimy, że utworzono błędny pobyt.</p><p><b>Deduplikacja:</b> Jeden problem konwersji dat dla trzech wariantów wejścia. UI-12 zachowuje historyczny PASS w Europe/Warsaw; nowy defekt dotyczy rozszerzenia środowiska podczas eksploracji.</p>
+    </details>
+    <p class="small">Powiązane: EXP-02 · Windows; Chrome 157.0.8103.52; Pacific/Kiritimati (UTC+14); rzeczywisty zegar, bez mocków; kontrola UTC i Europe/Warsaw; EXP-02</p>
+  </article>
+<footer>Wygenerowano 14.11.2026, 09:54:49 skryptem supporting/tools/build-html-report.mjs z case-results.json, evidence i plików supporting/*.json. Statusy: PASS – zgodność asercji; FAIL – potwierdzona niezgodność; BLOCKED – brak warunku wykonania (jawny powód); INFO – kontrola informacyjna bez wpływu na werdykt. Sekrety w evidence są maskowane.</footer>
+</div>
+<script>
+const btns=document.querySelectorAll('.filters button[data-f]');
+btns.forEach(b=>b.onclick=()=>{btns.forEach(x=>x.classList.remove('on'));b.classList.add('on');const f=b.dataset.f;
+document.querySelectorAll('.case').forEach(c=>{c.style.display=(f==='all'||c.dataset.status===f||c.dataset.type===f)?'':'none'})});
+document.querySelectorAll('.filters button[data-x]').forEach(b=>b.onclick=()=>document.querySelectorAll('.case>details').forEach(d=>d.open=b.dataset.x==='open'));
+if(location.hash){const d=document.querySelector(location.hash+'>details');if(d)d.open=true}
+</script>
+</body></html>

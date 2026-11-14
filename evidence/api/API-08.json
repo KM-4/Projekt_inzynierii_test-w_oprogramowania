@@ -1,37 +1,38 @@
 {
   "caseId": "API-08",
-  "executedAt": "2026-11-13T15:52:59.350Z",
-  "finishedAt": "2026-11-13T15:52:59.589Z",
+  "executedAt": "2026-11-14T08:54:20.735Z",
+  "finishedAt": "2026-11-14T08:54:20.871Z",
   "runnerStatus": "passed",
   "annotations": [],
+  "steps": [],
   "requests": [
     {
-      "startedAt": "2026-11-13T15:52:59.351Z",
+      "startedAt": "2026-11-14T08:54:20.735Z",
       "request": {
         "method": "POST",
         "url": "https://automationintesting.online/api/auth/login",
         "headers": {},
         "body": {
-          "username": "QA-1794585179350-1cb69c",
+          "username": "QA-1794646460735-e68d3d",
           "password": "[MASKED]"
         }
       },
       "response": {
         "status": 401,
         "headers": {
-          "date": "Fri, 13 Nov 2026 15:53:01 GMT",
+          "date": "Sat, 14 Nov 2026 08:54:20 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "server": "cloudflare",
           "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
-          "x-railway-request-id": "mL-kJbZuSOqaXCfpN8N_Fg",
+          "x-railway-request-id": "qLe43K3HR3uS0nT2nTga3g",
           "x-railway-edge": "waw1",
           "x-hikari-trace": "waw1.j60f",
           "cf-cache-status": "DYNAMIC",
           "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
-          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=3EsX5PGWD0INjcJe8%2BBXTUluO%2FWycNSO7VlkGB5gF%2FGafPg33yIz2SCVFF9OTAWSu%2FssGSulg780%2Bj6AZjkv4EsKhwHjh0Fzov2bOF%2FB%2FwbzoiShEzNBguFRI6Yjwp9Bsnf6SWF6pgp%2FO41oUg%3D%3D\"}]}",
-          "cf-ray": "a59ef2696c5dd91b-WAW",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=npcSSVh9nrLudIl%2BqiuQ152FncPNbq6gZgPEA2z3S1McUFO44z9iEdpZkCcf6egn1qovLjIMEy9%2FhQc%2FIEmC0s%2BD2QSilfaDScenC%2FqooGeBRBzMXfOODEt8MguG5U9CbaiNapftFRHNhIkh3xHvSz6XRUOxcbYMRA%3D%3D\"}]}",
+          "cf-ray": "a5a4ca7c59def7eb-WAW",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "body": {
