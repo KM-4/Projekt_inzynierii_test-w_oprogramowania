@@ -1,0 +1,59 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Automatyzacja – Restful-Booker-Platform</title><style>:root{--bg:#f6f4ef;--paper:#fffdf9;--ink:#1d2433;--muted:#5b6475;--line:#e6dfd2;--accent:#2f5fd0;--ok:#1f7a4a;--okbg:#e2f2e8;--bad:#b13d1c;--badbg:#fbe5dc;--mid:#8a6400;--midbg:#f8efcf;--blk:#5d6576;--blkbg:#e6e8ee;--c1:#2f5fd0;--c2:#7a3fb0;--c3:#b4501e;--c4:#1f7a6a}
+@media (prefers-color-scheme:dark){:root{--bg:#12172a;--paper:#1a2034;--ink:#eceff6;--muted:#aab3c6;--line:#2d3753;--accent:#8fb0ff;--ok:#82d4a4;--okbg:#1d3a2a;--bad:#ff9f7a;--badbg:#45251c;--mid:#f0cf6a;--midbg:#3b3217;--blk:#c3cbda;--blkbg:#283046;--c1:#8fb0ff;--c2:#c79bf0;--c3:#f39a6b;--c4:#6fd3c0}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:clamp(16px,0.4vw + 11px,19px)/1.65 "Segoe UI",system-ui,-apple-system,Arial,sans-serif}
+.topnav{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}.topnav .in{width:min(1400px,94vw);margin:0 auto;display:flex;flex-wrap:wrap;gap:4px 16px;padding:8px 0;font-size:.88em}.topnav a{text-decoration:none;color:var(--muted)}.topnav a.on{color:var(--ink);font-weight:700}.topnav a.home{color:var(--accent);font-weight:600}
+.page{width:min(1400px,94vw);margin:0 auto;background:var(--paper);padding:clamp(24px,3vw,56px) clamp(18px,4vw,72px) 72px;box-shadow:0 0 40px rgba(0,0,0,.06);min-height:100vh}
+h1{font-size:clamp(28px,2.4vw,42px);line-height:1.15;margin:0 0 6px}h2{font-size:clamp(23px,1.8vw,31px);line-height:1.2;margin:0}h3{font-size:clamp(18px,1.25vw,23px);margin:34px 0 10px}h4{margin:0 0 8px}
+p{margin:0 0 12px}a{color:var(--accent)}.nw{white-space:nowrap}ol,ul{margin:0 0 12px;padding-left:24px}li{margin:4px 0}.muted{color:var(--muted);font-size:.9em}.meta{color:var(--muted);margin:0 0 18px}
+.kpi{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:16px 0}.kpi div{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--bg)}.kpi b{display:block;font-size:clamp(26px,2.2vw,38px);line-height:1.1}.kpi span{font-size:.85em;color:var(--muted)}.kpi .ok b{color:var(--ok)}.kpi .bad b{color:var(--bad)}.kpi .blk b{color:var(--blk)}
+.verdict{border-left:6px solid var(--bad);background:var(--badbg);padding:14px 20px;border-radius:0 12px 12px 0;margin:18px 0;font-size:1.05em}.verdict b{color:var(--bad)}
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}.team div{border-left:5px solid var(--pc);padding:4px 12px}.team span{display:block;color:var(--muted);font-size:.88em}
+.toc{display:flex;flex-wrap:wrap;gap:8px 18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;margin:10px 0 0}.toc a{text-decoration:none}
+.tw{overflow-x:auto;margin:8px 0 14px}table{border-collapse:collapse;width:100%;line-height:1.5}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:.78em;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;white-space:nowrap}td:first-child{white-space:nowrap}table.wrap td:first-child{white-space:normal}
+.st,.lv,.sev{display:inline-block;font-size:.8em;font-weight:700;padding:1px 9px;border-radius:10px;white-space:nowrap}.st.PASS{background:var(--okbg);color:var(--ok)}.st.FAIL{background:var(--badbg);color:var(--bad)}.st.BLOCKED{background:var(--blkbg);color:var(--blk)}
+.lv.wysokie,.sev.S1,.sev.S2{background:var(--badbg);color:var(--bad)}.lv.średnie,.sev.S3{background:var(--midbg);color:var(--mid)}.lv.niskie,.sev.S4{background:var(--okbg);color:var(--ok)}
+.ch{border-top:1px solid var(--line);margin-top:48px;padding-top:32px}.chhead{display:flex;gap:16px;align-items:center;margin-bottom:12px}.chno{flex:none;width:44px;height:44px;border-radius:50%;background:var(--pc);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:21px}.by{margin:2px 0 0;color:var(--muted)}
+.p1{--pc:var(--c1)}.p2{--pc:var(--c2)}.p3{--pc:var(--c3)}.p4{--pc:var(--c4)}.p0{--pc:#4b5566}
+.points{padding-left:22px;margin:4px 0 14px}.points li{margin:6px 0}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.cols2>*,.cols3>*{min-width:0}
+.card{border:1px solid var(--line);border-radius:12px;padding:14px 18px;background:var(--bg)}.card table{font-size:.92em}.card td,.card th{padding:7px 8px}
+.take{border-left:5px solid var(--pc);background:var(--bg);border-radius:0 10px 10px 0;padding:12px 18px;margin:20px 0 4px;font-weight:600}
+.morelinks{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 0}.btn{display:inline-block;text-decoration:none;border:1px solid var(--pc);color:var(--pc);border-radius:20px;padding:6px 16px;font-weight:600;font-size:.92em}.btn:hover{background:var(--pc);color:#fff}
+.fig{margin:10px 0 18px}.fig figcaption{font-size:.88em;color:var(--muted);margin-top:6px}
+.shots{display:grid;gap:14px}.shots.n1{grid-template-columns:minmax(0,640px)}.shots.n2{grid-template-columns:1fr 1fr}.shots.n3{grid-template-columns:repeat(3,1fr)}
+.shots a{display:flex;flex-direction:column;gap:6px;text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px;background:var(--bg);font-size:.88em}.shots img{width:100%;max-height:clamp(180px,20vw,340px);object-fit:contain;object-position:top left;background:#fff;border-radius:6px;border:1px solid var(--line)}
+pre.code{background:#1d2433;color:#e8ecf4;border-radius:12px;padding:16px 18px;font:14px/1.6 Consolas,"Cascadia Mono",monospace;overflow-x:auto;margin:0;white-space:pre}
+code{font-family:Consolas,monospace;font-size:.88em;background:var(--bg);padding:1px 5px;border-radius:4px}pre code{background:none}
+.life{list-style:none;padding:0;margin:6px 0 16px;max-width:920px}.life li{display:grid;grid-template-columns:1fr minmax(180px,auto) 56px;gap:12px;align-items:center;padding:7px 12px;border-bottom:1px solid var(--line)}.life li.bad{background:var(--badbg)}.life .http{font:700 .9em Consolas,monospace;text-align:center;border-radius:6px;background:var(--okbg);color:var(--ok)}.life li.bad .http{background:var(--badbg);color:var(--bad)}.life code{background:none;color:var(--muted)}
+.reqs{list-style:none;padding:0;margin:4px 0 10px}.reqs li{padding:3px 0}.reqs li.bad code{color:var(--bad)}.http{font:700 .85em Consolas,monospace;padding:0 7px;border-radius:6px}.http.h2{background:var(--okbg);color:var(--ok)}.http.h4{background:var(--midbg);color:var(--mid)}.http.h5{background:var(--badbg);color:var(--bad)}
+.def{border-left:5px solid var(--blk);padding:4px 0 4px 18px;margin:16px 0 24px}.def.S1{border-left-color:var(--bad)}.def.S2{border-left-color:#e07a45}.def.S3{border-left-color:var(--mid)}
+.tc{border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:18px 0;background:var(--paper)}.tchead{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}.tchead h4{margin:0;font-size:1.08em}.tchead .tags{color:var(--muted);font-size:.86em;margin-left:auto}
+.tc dl{display:grid;grid-template-columns:170px 1fr;gap:6px 16px;margin:0 0 10px}.tc dt{color:var(--muted)}.tc dd{margin:0}.tc dd ol{margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 16px}.chips a{text-decoration:none;font:600 .82em Consolas,monospace;padding:3px 9px;border-radius:8px;background:var(--bg);border:1px solid var(--line);color:var(--ink)}.chips a.FAIL{border-color:var(--bad);color:var(--bad)}.chips a.BLOCKED{color:var(--blk)}
+.scen{border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:22px 0;background:var(--paper)}.scen h3{margin:0 0 6px}.scen .goal{color:var(--muted);margin:0 0 14px}
+.stepcard{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:20px;align-items:start;padding:14px 0;border-top:1px solid var(--line)}.stepcard .no{display:inline-flex;width:28px;height:28px;border-radius:50%;background:var(--c2);color:#fff;align-items:center;justify-content:center;font-weight:700;font-size:.9em;margin-right:8px}.stepcard img{width:100%;max-height:360px;object-fit:contain;object-position:top left;background:#fff;border:1px solid var(--line);border-radius:8px}
+.result{border-radius:10px;padding:10px 14px;margin-top:12px;background:var(--bg)}.result.bad{background:var(--badbg)}.result.q{background:var(--midbg)}
+@media (max-width:900px){.kpi{grid-template-columns:repeat(3,1fr)}.team,.cols2,.cols3,.shots.n2,.shots.n3,.stepcard{grid-template-columns:1fr}.tc dl{grid-template-columns:1fr}}
+@media print{body{background:#fff}.page{box-shadow:none}.topnav{display:none}}</style></head><body>
+<nav class="topnav"><div class="in"><a class="home" href="../00_Prezentacja.html">Strona główna</a><a class="" href="plan-i-ryzyka.html">Plan i ryzyka</a><a class="" href="projekt-testow.html">Projekt testów</a><a class="" href="eksploracja.html">Testy eksploracyjne</a><a class="" href="wykonanie-i-defekty.html">Wykonanie i defekty</a><a class="" href="testy-api.html">Testy API</a><a class="" href="testy-e2e.html">Testy E2E (POM)</a><a class="on" href="automatyzacja.html">Automatyzacja</a></div></nav>
+<main class="page"><div class="p4"><p class="muted">Rozdział 4</p><h1>Automatyzacja – konfiguracja i uruchomienie</h1><p class="meta">Mateusz Krzyzak · API i automatyzacja · <a href="../00_Prezentacja.html">← powrót do strony głównej</a></p>
+<h3>Struktura projektu</h3>
+<pre class="code">05_Automation/
+├─ tests/        api.spec.ts (10 testów API), ui.spec.ts (12 testów E2E)
+├─ api/          warstwa API: klienci, buildery danych, endpointy, typy, fixture
+├─ pages/        Page Object Model: HomePage, ContactForm, ReservationPage, AdminLoginPage
+├─ helpers/      audit.ts (evidence, asercje, screeny, maskowanie), result-reporter.ts
+└─ playwright.config.ts</pre>
+<h3>Konfiguracja runnera</h3>
+<div class="tw"><table class="wrap"><tr><th>Element</th><th>Ustawienie</th></tr><tr><td>Projekty</td><td><code>api</code> – APIRequestContext, bez przeglądarki i bez trace; <code>ui-chrome</code> – Chrome, trace i screenshot przy FAIL</td></tr><tr><td>Stabilność</td><td>1 worker, 0 retry, brak sztucznych oczekiwań – nie obciążamy publicznej instancji i nie maskujemy niestabilności</td></tr><tr><td>Dane</td><td>ID z bieżących list, unikalne znaczniki QA, sprzątanie wyłącznie własnych rekordów</td></tr><tr><td>Statusy</td><td>reporter mapuje passed → PASS, failed → FAIL, skip z powodem → BLOCKED (<code>case-results.json</code>)</td></tr><tr><td>Sekrety</td><td>dane administratora tylko w zmiennych <code>QA_USERNAME</code> / <code>QA_PASSWORD</code>; maskowanie w evidence i raportach</td></tr></table></div>
+<h3>Uruchomienie</h3>
+<pre class="code">npm ci --ignore-scripts --no-audit --no-fund
+$env:QA_USERNAME='&lt;login&gt;'; $env:QA_PASSWORD='&lt;hasło&gt;'
+npm test                  # 22 testy, ok. 30 s
+npm run test:api          # tylko API
+npm run test:ui           # tylko E2E
+npm run report:project    # raport z testów (HTML)</pre>
+<p>Oczekiwany wynik: 14 passed, 5 failed, 3 skipped (BLOCKED). Kod wyjścia 1 oznacza wykryte defekty SUT.</p>
+<h3>Od przebiegu do dokumentów</h3>
+<ol><li><b>Przebieg</b> – <code>npm test</code> zapisuje evidence (JSON, screeny) i raporty runnera (HTML, JSON, JUnit, <code>case-results.json</code>).</li><li><b>Metryki</b> – <code>collect-results.mjs</code> przelicza przypadki, metryki, defekty i macierze.</li><li><b>Dokumenty</b> – generatory tworzą PDF (01, 03, 06), Markdown (02, 04), raport z testów i tę prezentację.</li></ol>
+<p class="muted">Instrukcja: <a href="../RUNBOOK.md">RUNBOOK.md</a> · <a href="../05_Automation/README.md">05_Automation/README.md</a> · <a href="../05_Automation/reports/raport-testow.html">raport z testów</a></p></div></main></body></html>
